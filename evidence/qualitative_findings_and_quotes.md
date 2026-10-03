@@ -2,7 +2,7 @@
 
 Five overlapping configurations are reconstructed from the news texts. The quotation register contains 22 Vietnamese passages, English translations, speaker attribution and source locations from nine articles in the 917-record analytical corpus.
 
-The evidence package was assembled retrospectively on 29 September 2026. Case selection was purposive. Translations received AI-assisted source checks; independent human sign-off is not recorded. These cases support interpretation, not estimates of imaginary prevalence.
+The evidence package was assembled retrospectively on 29 September 2026. Case selection was purposive. Translations received AI-assisted source checks. The author confirms having read and verified all 22 Vietnamese passages and English translations on 3 October 2026. This author sign-off is distinct from independent bilingual validation. These cases support interpretation, not estimates of imaginary prevalence.
 
 ### I1 Educational augmentation
 

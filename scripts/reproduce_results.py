@@ -4,7 +4,7 @@ from pathlib import Path
 from collections import Counter
 from datetime import datetime
 from itertools import combinations
-import argparse,csv,hashlib,json,platform,tempfile
+import argparse,csv,hashlib,json,platform,tempfile,math
 import openpyxl
 ROOT=Path(__file__).resolve().parents[1]
 KEYS=[('public/central','pre'),('public/central','post'),('commercial/general','pre'),('commercial/general','post')]
@@ -46,6 +46,23 @@ def verify_quotes(raw, coded):
   assert q['speaker'] and q['translation_en'] and q['attribution_mode']
  return len(quotes)
 
+def post_period_robustness(rows,cols,out):
+ post=[r for r in rows if r['date']>=CUTOFF];result=[]
+ def wilson(n,N):
+  z=1.959963984540054;p=n/N;den=1+z*z/N;mid=(p+z*z/(2*N))/den;half=z*math.sqrt(p*(1-p)/N+z*z/(4*N*N))/den
+  return 100*(mid-half),100*(mid+half)
+ def share(rs,c):
+  vv=[r for r in rs if r[status(c)]=='coded'];n=sum(r[c]==1 for r in vv);return n,len(vv),100*n/len(vv)
+ for c in cols:
+  a=[r for r in post if r['group']=='public/central'];b=[r for r in post if r['group']=='commercial/general']
+  an,aN,ap=share(a,c);bn,bN,bp=share(b,c);drops=[]
+  for domain in sorted({r['domain'] for r in post}):
+   drops.append((domain,share([r for r in a if r['domain']!=domain],c)[2]-share([r for r in b if r['domain']!=domain],c)[2]))
+  result.append(dict(outcome=c,A_n=an,A_valid_N=aN,A_percent=ap,B_n=bn,B_valid_N=bN,B_percent=bp,gap_pp=ap-bp,leave_one_out_min_gap_pp=min(v for _,v in drops),leave_one_out_max_gap_pp=max(v for _,v in drops),without_giaoduc_net_vn_gap_pp=next(v for k,v in drops if k=='giaoduc.net.vn')))
+  al,au=wilson(an,aN);bl,bu=wilson(bn,bN)
+  result[-1].update(A_wilson95_low=al,A_wilson95_high=au,B_wilson95_low=bl,B_wilson95_high=bu)
+ write(out/'post_period_robustness.csv',list(result[0]),result)
+
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--output-dir',type=Path,default=Path(tempfile.gettempdir())/'sipc-results');args=ap.parse_args();out=args.output_dir;out.mkdir(parents=True,exist_ok=True)
  inputs=['data/article_texts_and_open_extraction.csv','data/final_article_coding.xlsx','data/outlet_classification.csv','data/original_article_register.csv','methods/coding_codebook.xlsx']
@@ -74,6 +91,7 @@ def main():
  assert len({r['article_id'] for r in rows})==917
  write(out/'excluded_records_7.csv',list(excluded[0]),excluded)
  write(out/'analytical_corpus_917_records.csv',['extraction_id','article_id','domain','group','date','sipc_present_raw'],[{k:(r[k].date().isoformat() if k=='date' else r[k]) for k in ['extraction_id','article_id','domain','group','date','sipc_present_raw']} for r in rows])
+ post_period_robustness(rows,cols,out)
  findings=compute(rows,cols);fields=list(findings[0]);write(out/'outlet_period_code_frequencies.csv',fields,findings)
  assert [r['eligible_N'] for r in findings[:4]]==[9,433,37,438]
  sensitivity=[]

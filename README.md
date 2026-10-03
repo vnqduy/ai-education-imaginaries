@@ -5,6 +5,7 @@ Research data, methods and results for a SIPC analysis of AI education news in V
 - `data/`: article texts, open extraction, final coding and outlet classification.
 - `methods/`: codebook, extraction prompt and two data collection notebooks.
 - `evidence/`: qualitative findings and 22 Vietnamese quotations with English translations.
+- `results/post_period_robustness.csv`: post-period gaps and leave-one-outlet-out sensitivity.
 - `results/results.xlsx`: descriptive results, the 917-record analytical corpus and 7 excluded records.
 - `scripts/reproduce_results.py`: reproduce the CSV tables and verify quotations.
 
