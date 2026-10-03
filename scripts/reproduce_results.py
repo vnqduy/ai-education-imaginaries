@@ -89,6 +89,13 @@ def main():
   rows.append(c)
  assert len(coded)==1098 and len(rows)==917 and len(excluded)==7,'Frozen corpus size changed; reconcile before updating manuscript'
  assert len({r['article_id'] for r in rows})==917
+ metadata=['article_id','title','date','year','outlet_domain','outlet_name','outlet_code','outlet_type','chatgpt_period','sipc_presence']
+ final_fields=[c for c in headers if '__' in c]
+ dataset=[]
+ for c in sorted(rows,key=lambda r:(r['date'],r['article_id'])):
+  r=raw[c['extraction_id']];m=mapping[c['domain']]
+  dataset.append(dict(article_id=c['article_id'],title=r['title'],date=c['date'].date().isoformat(),year=c['date'].year,outlet_domain=c['domain'],outlet_name=m['outlet_name'],outlet_code=m['outlet_code'],outlet_type=c['group'],chatgpt_period='pre' if c['date']<CUTOFF else 'post',sipc_presence=c['sipc_present_raw'],**{k:c[k] for k in final_fields}))
+ write(out/'final_analysis_dataset.csv',metadata+final_fields,dataset)
  write(out/'excluded_records_7.csv',list(excluded[0]),excluded)
  write(out/'analytical_corpus_917_records.csv',['extraction_id','article_id','domain','group','date','sipc_present_raw'],[{k:(r[k].date().isoformat() if k=='date' else r[k]) for k in ['extraction_id','article_id','domain','group','date','sipc_present_raw']} for r in rows])
  post_period_robustness(rows,cols,out)
