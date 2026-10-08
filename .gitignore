@@ -7,3 +7,12 @@ __pycache__/
 .env
 .env.*
 ref/
+
+# Research records remain local; only documentation and aggregate results are published.
+/data/source_corpus.jsonl
+/data/open_extraction.jsonl
+/data/source_review.jsonl
+/data/hosted_publisher_flags.jsonl
+/data/sipc_future_coding/coded_corpus.jsonl
+/data/sipc_future_coding/coded_articles.csv
+/data/sipc_future_coding/coded_accounts.csv

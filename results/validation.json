@@ -1,14 +1,14 @@
 {
-  "validation": "passed",
-  "retained_articles": 917,
-  "post_articles": 871,
-  "indicators": 89,
-  "reviewed_cells": 31,
-  "input_sha256": {
-    "data/final_analysis_dataset.csv": "f012488e687804a0a803aaa7db36c7b085f52bb9be5050e9faeccbd59ba2f25b",
-    "data/final_article_coding.xlsx": "eb23d016f13275b0187583ae0fcd2fb8ee56f05df961732f7a1a3cb16c04da9e",
-    "evidence/coding_corrections.csv": "31e755b8a88c57f9e8aa94abd676e3d1d313c459f3e50e7eb244ed8040fa7c16",
-    "methods/coding_codebook.xlsx": "e4c71275a9ca48e577286e04cb628cbf9c8edb2f9c31eeaea668ed93d96e906b"
+  "population": 1098,
+  "records": 1098,
+  "errors": [],
+  "status": "complete validation",
+  "eligibility_counts": {
+    "no_educational_future": 122,
+    "borderline_future": 103,
+    "clear_future": 845,
+    "unresolved_source": 28
   },
-  "scope": "Verifies approved corrections against frozen coding and reproduces numerical summaries; does not regenerate extraction or qualitative interpretation."
+  "accounts": 1850,
+  "note": "Coverage and membership checks do not measure substantive coding agreement."
 }

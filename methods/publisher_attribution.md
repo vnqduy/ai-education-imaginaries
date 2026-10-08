@@ -1,0 +1,3 @@
+# Producing publication and URL host
+
+50 source records use Tuoi Tre hosted routes naming other publications. Publisher-page checks confirmed this issue for recovered Giaoduc and Saigontimes records. The route flag alone does not establish a political or market classification. Keep these articles in full-corpus future analysis. For institutional outlet comparison, review producing-publication attribution; unresolved cases should be separated from the primary institutional comparison. An appendix may retain the supplied host-domain grouping descriptively, with an explicit sensitivity analysis omitting flagged routes. Do not silently relabel original source metadata or describe host-domain differences as editorial-origin effects.

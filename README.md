@@ -1,38 +1,57 @@
 # AI education imaginaries in Vietnamese news
 
-Current data, methods and supplementary results for the study of sociotechnical imaginaries of AI in education.
+Checkpoint: **8 October 2026**. This is the current full-corpus, future-centred SIPC analysis. It supersedes the earlier 917-article analysis and six-imaginary classification.
 
-## Current materials
+## Current findings and scope
 
-- `data/final_analysis_dataset.csv`: current 917-article dataset, incorporating the 31 approved coding corrections across 26 articles.
-- `data/article_texts_and_open_extraction.csv`: original article texts and structured extraction (1,098 records).
-- `data/final_article_coding.xlsx`: frozen original coding and extraction-to-article linkage, retained for provenance. It predates the correction ledger; use the CSV for current analysis.
-- `data/original_article_register.csv` and `data/outlet_classification.csv`: source register and outlet mapping.
-- `methods/`: codebook, extraction prompt, collection notebooks and project milestones.
-- `evidence/coding_corrections.csv`: cell-level changes, source evidence and reasons.
-- `evidence/reconstruction_and_sources.md`: relationships supporting the six-imaginary reconstruction and consolidated source-reading records.
-- `results/results.xlsx`: complete descriptive tables, outlet comparisons, leave-one-outlet-out ranges, yes-only and January-cutoff sensitivity, and within-generative-AI comparisons.
-- `results/outlet_comparison.json`: machine-readable comparisons used by the figures; `results/validation.json`: input hashes and verification results.
-- `results/figures/`: current SIPC comparison and actor-position figures.
+All **1,098 articles** have been coded with the user-approved **v1.1 codebook**: 845 clear educational futures, 103 borderline cases, 122 without a supported educational future and 28 unresolved because of inadequate sources. There are **1,850 attributed future accounts**; account identity is `(ID, account_id)`.
+
+Applying the SIPC framework is already analysis of imaginaries in public communication. Further interpretation examines the relations between educational futures, evaluations, speakers, justifications and proposed actions. A separate named typology is optional. Code frequencies are constituent measures, not estimates of imaginary prevalence or public acceptance.
+
+The primary outlet comparison includes 421 public/central and 387 commercial/general clear-future articles, excluding producing-publisher uncertainty. Public/central coverage more often foregrounds capabilities, institutional organisation, public-authority voices, curriculum and collaboration. Commercial/general coverage more often foregrounds cognition/agency, learner voices and negative evaluations. Both groups predominantly articulate positively evaluated futures. The supplied groups support exploratory comparison; they do not directly measure ownership or political/market control.
+
+See [checkpoint report](results/checkpoint_report.md) for findings, methodological clarification, sensitivities and limitations. Source-based comparative interpretation remains ongoing; the current checkpoint does not claim a final typology or causal explanation.
+
+## Working set and publication scope
+
+Full-text sources, raw extraction, source review, publisher flags and coded article/account records are **local only** and excluded from GitHub. GitHub publishes the codebook, methods, scripts, outlet mapping and aggregate results. The table below documents both local inputs and published materials.
+
+| Location | Purpose |
+|---|---|
+| `data/source_corpus.jsonl` | Effective retained texts and metadata for all original IDs, including eight recovered-source replacements |
+| `data/open_extraction.jsonl` | Final effective, uncategorised extraction of the twelve SIPC fields |
+| `data/source_review.jsonl` | Source adequacy, review reasons and interpretive limits for each ID |
+| `data/outlet_classification.csv` | Supplied exploratory outlet-group mapping |
+| `data/hosted_publisher_flags.jsonl` | Fifty records with producing-publisher uncertainty; 37 are clear-future articles |
+| `data/sipc_future_coding/codebook.json` and `.md` | Frozen v1.1 definitions and readable documentation; introductory clarification does not alter codes |
+| `data/sipc_future_coding/record_specification.json` | Article/account structure |
+| `data/sipc_future_coding/coded_corpus.jsonl` | Authoritative coding, attributed accounts, evidence, mechanisms and qualifications |
+| `data/sipc_future_coding/coded_articles.csv` and `coded_accounts.csv` | Final tabular exports; article codes describe the primary account |
+| `methods/` | Extraction prompt, coding protocol, interpretation guidance and publisher-attribution note |
+| `results/` | Consolidated report, corpus distributions, outlet comparisons/sensitivity, validation and checkpoint hashes |
+| `scripts/` | Validation and reproduction from final inputs |
 
 ## Reproduction
 
+Run from the repository root with Python 3; no third-party packages are required. A GitHub clone requires the local research inputs listed above to be restored at their documented paths before reproduction can run:
+
 ```sh
-python3 -m pip install -r requirements.txt
 python3 scripts/reproduce_results.py
 ```
 
-The default output directory is the system temporary directory's `sipc-reviewed-results`. To refresh the repository results and figures:
+This validates the corpus, verifies the approved codebook hash, regenerates CSV exports and produces `results/validation.json`, `results/corpus_summary.json` and `results/outlet_comparison.json`. It does not rerun model extraction, recreate qualitative coding or rewrite the interpretive report. The checkpoint manifest records hashes of the final artifacts at this checkpoint.
 
-```sh
-python3 scripts/reproduce_results.py --output-dir results
-python3 scripts/plot_results.py
-```
+Primary comparisons use clear futures without hosted-publisher flags. Other scenarios include borderline futures, all supplied host groups, and complete sources. Outlet comparisons also record individual-outlet concentration, year composition and leave-one-outlet-out ranges. Selected contrasts have any-account article-presence and pooled-year standardisation sensitivities for 2023–2026. These are descriptive checks, not confidence intervals or causal estimates. Multi-coded proportions need not sum to 100%.
 
-Reproduction verifies the 31 corrections against the frozen workbook and calculates all 89 indicators from the current CSV. It does not rerun LLM extraction or regenerate qualitative interpretations. Indicator percentages use coded-field denominators; codes are nonexclusive. Outlet differences are public/central minus commercial/general. Leave-one-outlet-out ranges are sensitivity ranges, not confidence intervals. The main comparison includes 871 articles from 30 November 2022 onward (433 public/central; 438 commercial/general).
+Structural checks do not measure independent intercoder agreement. Targeted source/semantic audits are documented in the local archive. Positivity concerns each account's specified future, including protective restrictions, rather than general approval of AI.
 
-The six imaginaries are differentiated learning at scale; capable participation in an AI society; education as infrastructure for technological development; the integrated AI educational institution; equitable educational access; and credible learning and accountable judgment. Article-level indicator frequencies do not estimate imaginary prevalence. Source-reading records document a reading pool rather than full-corpus manual validation.
+## Archive and local materials
 
-## Local files and history
+Intermediate batches, candidate codebooks, duplicate exports, worker scripts, audit logs and superseded analyses are stored in `archive/checkpoint_2026-10-08/`; its manifest records their original paths and hashes. Older archives are retained. Nothing was deleted as part of consolidation.
 
-The manuscript and reference library remain local and are excluded from GitHub. Superseded analysis, evidence, figures and supplements are stored under `archive/superseded_2026-10-04/`, also excluded from GitHub. Earlier published versions remain recoverable through Git history. The manuscript is reserved for separate publication.
+`archive/`, `manuscript/` and `ref/` remain local and excluded from GitHub. GitHub contains documentation and aggregate outputs for the current checkpoint, excluding full-text sources and article/account-level data. The full-data checkpoint commit `5530233` is preserved only on local branch `codex/local-data-checkpoint-2026-10-08`. Previously published analysis remains available through existing Git history; this update removes its data files from the current GitHub tree but does not rewrite already published history. The manuscript itself has not been revised at this checkpoint.
+
+## Framework references
+
+- Brause et al. (2025), [Sociotechnical imaginaries and public communication](https://doi.org/10.1177/13548565251338192).
+- Richter et al. (2025), [Negotiating AI(s) futures](https://jcom.sissa.it/article/pubid/JCOM_2402_2025_A08/).

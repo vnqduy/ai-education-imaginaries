@@ -1,0 +1,53 @@
+{
+  "record": {
+    "ID": "original article ID",
+    "eligibility": "clear_future | borderline_future | no_educational_future | unresolved_source",
+    "eligibility_rationale": "source-supported explanation; source quality assessed separately",
+    "source_adequacy": "adequate | partial_but_interpretable | recovered | inadequate",
+    "primary_future_statement": "linked projected or normative educational arrangement; not topic name",
+    "codes": {
+      "speaker": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "technology_object": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "education_context": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "future_role": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "certainty": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "desirability": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "affected_entities": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "rationale": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "timespan": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "space": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "action": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "responsibility": "array of code IDs from frozen field-specific codebook, or MISSING"
+    },
+    "relational_memo": "preserve attribution and connections; distinguish secondary accounts",
+    "evidence_reference": "original extraction evidence plus additional source anchors if needed",
+    "codebook_version": "frozen version applied",
+    "accounts": "Array of linked primary/secondary attributed educational-future accounts; empty for noneligible records."
+  },
+  "note": "Frozen v1.1. Article codes describe the primary account only; all distinct source-supported voices/futures are preserved in accounts. Noneligible records have empty codes and accounts.",
+  "account_specification": {
+    "account_id": "unique within article",
+    "position": "primary | secondary",
+    "codes": {
+      "speaker": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "technology_object": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "education_context": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "future_role": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "certainty": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "desirability": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "affected_entities": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "rationale": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "timespan": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "space": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "action": "array of code IDs from frozen field-specific codebook, or MISSING",
+      "responsibility": "array of code IDs from frozen field-specific codebook, or MISSING"
+    },
+    "speaker_reference": "Attributed speaker or explicitly identifiable authorial voice; never pool rival voices.",
+    "future_statement": "Source-supported educational arrangement, with primary/secondary position retained.",
+    "role_details": "Object keyed by each assigned future_role code; each value has mechanism, direction, conditions and evidence_reference strings. Missing details = not specified.",
+    "evaluation_target": "Precisely what arrangement or effect the evaluation concerns, not AI in general.",
+    "stance": "Source wording for endorsement/refusal/recommendation; not specified if absent. Refusal does not determine valence.",
+    "qualification": "Conditions/safeguards and mixed-effect explanation, or not specified.",
+    "evidence_reference": "source anchor for this account"
+  }
+}

@@ -1,0 +1,3213 @@
+{
+  "population": 1098,
+  "eligibility_counts": {
+    "no_educational_future": 122,
+    "borderline_future": 103,
+    "clear_future": 845,
+    "unresolved_source": 28
+  },
+  "source_adequacy_counts": {
+    "adequate": 1045,
+    "inadequate": 28,
+    "partial_but_interpretable": 17,
+    "recovered": 8
+  },
+  "hosted_publisher_flags": 50,
+  "denominators": [
+    {
+      "scenario": "clear_unflagged_publisher",
+      "group": "commercial/general",
+      "articles": 387
+    },
+    {
+      "scenario": "clear_unflagged_publisher",
+      "group": "public/central",
+      "articles": 421
+    },
+    {
+      "scenario": "clear_and_borderline_unflagged_publisher",
+      "group": "commercial/general",
+      "articles": 461
+    },
+    {
+      "scenario": "clear_and_borderline_unflagged_publisher",
+      "group": "public/central",
+      "articles": 446
+    },
+    {
+      "scenario": "clear_all_supplied_host_groups",
+      "group": "commercial/general",
+      "articles": 424
+    },
+    {
+      "scenario": "clear_all_supplied_host_groups",
+      "group": "public/central",
+      "articles": 421
+    },
+    {
+      "scenario": "clear_complete_sources_unflagged_publisher",
+      "group": "commercial/general",
+      "articles": 381
+    },
+    {
+      "scenario": "clear_complete_sources_unflagged_publisher",
+      "group": "public/central",
+      "articles": 416
+    }
+  ],
+  "note": "Code frequencies are article-level constituent presence, not imaginary assignments. Multi-coding proportions need not sum to one. Supplied grouping labels are exploratory; host-route flags are omitted in primary comparisons. No causal control/ownership inference or significance test is made.",
+  "account_count": 1850,
+  "multi_account_articles": 473,
+  "distributions": [
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_ACADEMIC_JUDGMENT",
+      "count": 230,
+      "denominator": 845,
+      "proportion": 0.27218934911242604
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_ACCESS_DISTRIBUTION",
+      "count": 129,
+      "denominator": 845,
+      "proportion": 0.15266272189349112
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_CAPABILITY_PATHWAYS",
+      "count": 435,
+      "denominator": 845,
+      "proportion": 0.514792899408284
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_COGNITION_AGENCY",
+      "count": 364,
+      "denominator": 845,
+      "proportion": 0.4307692307692308
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_HUMAN_PUBLIC_PURPOSE",
+      "count": 88,
+      "denominator": 845,
+      "proportion": 0.10414201183431952
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_INSTITUTIONAL_REORGANISATION",
+      "count": 126,
+      "denominator": 845,
+      "proportion": 0.14911242603550295
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_PERSONALISED_GUIDANCE",
+      "count": 169,
+      "denominator": 845,
+      "proportion": 0.2
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_TEACHING_LABOUR",
+      "count": 232,
+      "denominator": 845,
+      "proportion": 0.27455621301775146
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_WELLBEING_RELATIONS",
+      "count": 43,
+      "denominator": 845,
+      "proportion": 0.05088757396449704
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_ASSERTED",
+      "count": 185,
+      "denominator": 845,
+      "proportion": 0.21893491124260356
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_CONDITIONAL",
+      "count": 175,
+      "denominator": 845,
+      "proportion": 0.20710059171597633
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_INTENDED",
+      "count": 401,
+      "denominator": 845,
+      "proportion": 0.47455621301775147
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_LIMIT_DENIAL",
+      "count": 96,
+      "denominator": 845,
+      "proportion": 0.1136094674556213
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_NORMATIVE",
+      "count": 436,
+      "denominator": 845,
+      "proportion": 0.5159763313609468
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_OPEN",
+      "count": 14,
+      "denominator": 845,
+      "proportion": 0.016568047337278107
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_POSSIBLE",
+      "count": 278,
+      "denominator": 845,
+      "proportion": 0.3289940828402367
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_MIXED",
+      "count": 21,
+      "denominator": 845,
+      "proportion": 0.02485207100591716
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_NEGATIVE",
+      "count": 65,
+      "denominator": 845,
+      "proportion": 0.07692307692307693
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_POSITIVE",
+      "count": 750,
+      "denominator": 845,
+      "proportion": 0.8875739644970414
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "MISSING",
+      "count": 9,
+      "denominator": 845,
+      "proportion": 0.010650887573964497
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "MISSING",
+      "count": 12,
+      "denominator": 845,
+      "proportion": 0.014201183431952662
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_COLLECTIVE_SELFDETERMINATION",
+      "count": 88,
+      "denominator": 845,
+      "proportion": 0.10414201183431952
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_EQUITY",
+      "count": 95,
+      "denominator": 845,
+      "proportion": 0.11242603550295859
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_HUMAN_RELATION",
+      "count": 143,
+      "denominator": 845,
+      "proportion": 0.16923076923076924
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_LEARNING_DEVELOPMENT",
+      "count": 567,
+      "denominator": 845,
+      "proportion": 0.6710059171597633
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_MARKET_POWER",
+      "count": 10,
+      "denominator": 845,
+      "proportion": 0.011834319526627219
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_POLICY_AUTHORITY",
+      "count": 53,
+      "denominator": 845,
+      "proportion": 0.06272189349112427
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_RESOURCES_READINESS",
+      "count": 294,
+      "denominator": 845,
+      "proportion": 0.3479289940828402
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_TRUST_ACCOUNTABILITY",
+      "count": 313,
+      "denominator": 845,
+      "proportion": 0.37041420118343193
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_WORK_DEMAND",
+      "count": 244,
+      "denominator": 845,
+      "proportion": 0.28875739644970416
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_AI_KNOWLEDGE",
+      "count": 379,
+      "denominator": 845,
+      "proportion": 0.4485207100591716
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_AI_UNSPECIFIED",
+      "count": 48,
+      "denominator": 845,
+      "proportion": 0.05680473372781065
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_ANALYSIS_MONITORING",
+      "count": 115,
+      "denominator": 845,
+      "proportion": 0.13609467455621302
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_CONTENT_LANGUAGE",
+      "count": 448,
+      "denominator": 845,
+      "proportion": 0.5301775147928994
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_EMBODIED_SIMULATION",
+      "count": 46,
+      "denominator": 845,
+      "proportion": 0.054437869822485205
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_INTEGRITY_CHECK",
+      "count": 31,
+      "denominator": 845,
+      "proportion": 0.036686390532544376
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_LEARNING_SYSTEM",
+      "count": 157,
+      "denominator": 845,
+      "proportion": 0.18579881656804734
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_SYSTEM_INFRASTRUCTURE",
+      "count": 91,
+      "denominator": 845,
+      "proportion": 0.1076923076923077
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_ASSESSMENT",
+      "count": 262,
+      "denominator": 845,
+      "proportion": 0.31005917159763313
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_CAPACITY_FORMATION",
+      "count": 238,
+      "denominator": 845,
+      "proportion": 0.2816568047337278
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_ENTRY_GUIDANCE",
+      "count": 38,
+      "denominator": 845,
+      "proportion": 0.04497041420118343
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_EXPERIENTIAL_RESEARCH",
+      "count": 213,
+      "denominator": 845,
+      "proportion": 0.25207100591715975
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_INSTITUTIONAL_SERVICES",
+      "count": 108,
+      "denominator": 845,
+      "proportion": 0.12781065088757396
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_TEACHING_STUDY",
+      "count": 658,
+      "denominator": 845,
+      "proportion": 0.778698224852071
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "MISSING",
+      "count": 268,
+      "denominator": 845,
+      "proportion": 0.31715976331360946
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_CALENDAR",
+      "count": 166,
+      "denominator": 845,
+      "proportion": 0.19644970414201182
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_QUALITATIVE_HORIZON",
+      "count": 305,
+      "denominator": 845,
+      "proportion": 0.3609467455621302
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_QUANTIFIED_HORIZON",
+      "count": 23,
+      "denominator": 845,
+      "proportion": 0.027218934911242602
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_RELATIONAL",
+      "count": 252,
+      "denominator": 845,
+      "proportion": 0.2982248520710059
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "MISSING",
+      "count": 219,
+      "denominator": 845,
+      "proportion": 0.2591715976331361
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_BOUNDED_SITE",
+      "count": 210,
+      "denominator": 845,
+      "proportion": 0.2485207100591716
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_SUPRANATIONAL",
+      "count": 59,
+      "denominator": 845,
+      "proportion": 0.06982248520710059
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_TERRITORIAL_SYSTEM",
+      "count": 416,
+      "denominator": 845,
+      "proportion": 0.49230769230769234
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_UNBOUNDED_ACCESS",
+      "count": 15,
+      "denominator": 845,
+      "proportion": 0.01775147928994083
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_AUTHOR_ARGUMENT",
+      "count": 121,
+      "denominator": 845,
+      "proportion": 0.14319526627218934
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_CIVIC_COLLECTIVE",
+      "count": 29,
+      "denominator": 845,
+      "proportion": 0.03431952662721893
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_COMMERCIAL_ACTOR",
+      "count": 120,
+      "denominator": 845,
+      "proportion": 0.14201183431952663
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EDUCATION_ORGANIZATION",
+      "count": 210,
+      "denominator": 845,
+      "proportion": 0.2485207100591716
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EDUCATOR",
+      "count": 89,
+      "denominator": 845,
+      "proportion": 0.10532544378698225
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EXPERT",
+      "count": 122,
+      "denominator": 845,
+      "proportion": 0.14437869822485208
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_FAMILY",
+      "count": 4,
+      "denominator": 845,
+      "proportion": 0.004733727810650888
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_LEARNER",
+      "count": 26,
+      "denominator": 845,
+      "proportion": 0.03076923076923077
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_PUBLIC_AUTHORITY",
+      "count": 173,
+      "denominator": 845,
+      "proportion": 0.20473372781065088
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_ORGANIZATIONS",
+      "count": 262,
+      "denominator": 845,
+      "proportion": 0.31005917159763313
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_PROFESSIONALS",
+      "count": 483,
+      "denominator": 845,
+      "proportion": 0.5715976331360947
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_FAMILIES",
+      "count": 72,
+      "denominator": 845,
+      "proportion": 0.08520710059171598
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_LEARNERS",
+      "count": 835,
+      "denominator": 845,
+      "proportion": 0.9881656804733728
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_MARKET_PROFESSIONS",
+      "count": 99,
+      "denominator": 845,
+      "proportion": 0.11715976331360947
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_WIDER_COLLECTIVE",
+      "count": 141,
+      "denominator": 845,
+      "proportion": 0.1668639053254438
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_COLLABORATION",
+      "count": 191,
+      "denominator": 845,
+      "proportion": 0.22603550295857988
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_CURRICULUM",
+      "count": 339,
+      "denominator": 845,
+      "proportion": 0.4011834319526627
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_EVIDENCE_ADAPTATION",
+      "count": 95,
+      "denominator": 845,
+      "proportion": 0.11242603550295859
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_GOVERN_SAFEGUARD",
+      "count": 312,
+      "denominator": 845,
+      "proportion": 0.36923076923076925
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_LEARNING_ASSESSMENT",
+      "count": 413,
+      "denominator": 845,
+      "proportion": 0.4887573964497041
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_RESOURCE_IMPLEMENTATION",
+      "count": 433,
+      "denominator": 845,
+      "proportion": 0.5124260355029586
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "MISSING",
+      "count": 69,
+      "denominator": 845,
+      "proportion": 0.08165680473372781
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "MISSING",
+      "count": 81,
+      "denominator": 845,
+      "proportion": 0.09585798816568047
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_COMMERCIAL_ACTOR",
+      "count": 178,
+      "denominator": 845,
+      "proportion": 0.2106508875739645
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_COMMUNITY",
+      "count": 54,
+      "denominator": 845,
+      "proportion": 0.06390532544378698
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_ORGANIZATION",
+      "count": 468,
+      "denominator": 845,
+      "proportion": 0.5538461538461539
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_PROFESSIONALS",
+      "count": 408,
+      "denominator": 845,
+      "proportion": 0.48284023668639053
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_FAMILY",
+      "count": 36,
+      "denominator": 845,
+      "proportion": 0.04260355029585799
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_LEARNER_USER",
+      "count": 325,
+      "denominator": 845,
+      "proportion": 0.38461538461538464
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_PUBLIC_AUTHORITY",
+      "count": 217,
+      "denominator": 845,
+      "proportion": 0.25680473372781065
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_ACADEMIC_JUDGMENT",
+      "count": 442,
+      "denominator": 1736,
+      "proportion": 0.25460829493087556
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_ACCESS_DISTRIBUTION",
+      "count": 217,
+      "denominator": 1736,
+      "proportion": 0.125
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_CAPABILITY_PATHWAYS",
+      "count": 769,
+      "denominator": 1736,
+      "proportion": 0.44297235023041476
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_COGNITION_AGENCY",
+      "count": 761,
+      "denominator": 1736,
+      "proportion": 0.43836405529953915
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_HUMAN_PUBLIC_PURPOSE",
+      "count": 146,
+      "denominator": 1736,
+      "proportion": 0.08410138248847926
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_INSTITUTIONAL_REORGANISATION",
+      "count": 224,
+      "denominator": 1736,
+      "proportion": 0.12903225806451613
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_PERSONALISED_GUIDANCE",
+      "count": 264,
+      "denominator": 1736,
+      "proportion": 0.15207373271889402
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_TEACHING_LABOUR",
+      "count": 430,
+      "denominator": 1736,
+      "proportion": 0.24769585253456222
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_WELLBEING_RELATIONS",
+      "count": 116,
+      "denominator": 1736,
+      "proportion": 0.06682027649769585
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_ASSERTED",
+      "count": 295,
+      "denominator": 1736,
+      "proportion": 0.16993087557603687
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_CONDITIONAL",
+      "count": 390,
+      "denominator": 1736,
+      "proportion": 0.22465437788018433
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_INTENDED",
+      "count": 648,
+      "denominator": 1736,
+      "proportion": 0.37327188940092165
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_LIMIT_DENIAL",
+      "count": 171,
+      "denominator": 1736,
+      "proportion": 0.09850230414746544
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_NORMATIVE",
+      "count": 883,
+      "denominator": 1736,
+      "proportion": 0.5086405529953917
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_OPEN",
+      "count": 29,
+      "denominator": 1736,
+      "proportion": 0.016705069124423964
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_POSSIBLE",
+      "count": 550,
+      "denominator": 1736,
+      "proportion": 0.31682027649769584
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 1736,
+      "proportion": 0.000576036866359447
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_MIXED",
+      "count": 57,
+      "denominator": 1736,
+      "proportion": 0.032834101382488476
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_NEGATIVE",
+      "count": 205,
+      "denominator": 1736,
+      "proportion": 0.11808755760368664
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_POSITIVE",
+      "count": 1413,
+      "denominator": 1736,
+      "proportion": 0.8139400921658986
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_UNSETTLED",
+      "count": 1,
+      "denominator": 1736,
+      "proportion": 0.000576036866359447
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "MISSING",
+      "count": 61,
+      "denominator": 1736,
+      "proportion": 0.03513824884792627
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "MISSING",
+      "count": 47,
+      "denominator": 1736,
+      "proportion": 0.02707373271889401
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_COLLECTIVE_SELFDETERMINATION",
+      "count": 135,
+      "denominator": 1736,
+      "proportion": 0.07776497695852534
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_EQUITY",
+      "count": 162,
+      "denominator": 1736,
+      "proportion": 0.09331797235023041
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_HUMAN_RELATION",
+      "count": 273,
+      "denominator": 1736,
+      "proportion": 0.15725806451612903
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_LEARNING_DEVELOPMENT",
+      "count": 1053,
+      "denominator": 1736,
+      "proportion": 0.6065668202764977
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_MARKET_POWER",
+      "count": 16,
+      "denominator": 1736,
+      "proportion": 0.009216589861751152
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_POLICY_AUTHORITY",
+      "count": 79,
+      "denominator": 1736,
+      "proportion": 0.04550691244239631
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_RESOURCES_READINESS",
+      "count": 509,
+      "denominator": 1736,
+      "proportion": 0.2932027649769585
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_TRUST_ACCOUNTABILITY",
+      "count": 661,
+      "denominator": 1736,
+      "proportion": 0.3807603686635945
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_WORK_DEMAND",
+      "count": 389,
+      "denominator": 1736,
+      "proportion": 0.22407834101382487
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_AI_KNOWLEDGE",
+      "count": 664,
+      "denominator": 1736,
+      "proportion": 0.3824884792626728
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_AI_UNSPECIFIED",
+      "count": 128,
+      "denominator": 1736,
+      "proportion": 0.07373271889400922
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_ANALYSIS_MONITORING",
+      "count": 187,
+      "denominator": 1736,
+      "proportion": 0.1077188940092166
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_CONTENT_LANGUAGE",
+      "count": 938,
+      "denominator": 1736,
+      "proportion": 0.5403225806451613
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_EMBODIED_SIMULATION",
+      "count": 80,
+      "denominator": 1736,
+      "proportion": 0.04608294930875576
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_INTEGRITY_CHECK",
+      "count": 67,
+      "denominator": 1736,
+      "proportion": 0.03859447004608295
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_LEARNING_SYSTEM",
+      "count": 281,
+      "denominator": 1736,
+      "proportion": 0.16186635944700462
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_SYSTEM_INFRASTRUCTURE",
+      "count": 150,
+      "denominator": 1736,
+      "proportion": 0.08640552995391705
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_ASSESSMENT",
+      "count": 511,
+      "denominator": 1736,
+      "proportion": 0.29435483870967744
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_CAPACITY_FORMATION",
+      "count": 444,
+      "denominator": 1736,
+      "proportion": 0.2557603686635945
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_ENTRY_GUIDANCE",
+      "count": 52,
+      "denominator": 1736,
+      "proportion": 0.029953917050691243
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_EXPERIENTIAL_RESEARCH",
+      "count": 330,
+      "denominator": 1736,
+      "proportion": 0.19009216589861752
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_INSTITUTIONAL_SERVICES",
+      "count": 208,
+      "denominator": 1736,
+      "proportion": 0.11981566820276497
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_TEACHING_STUDY",
+      "count": 1350,
+      "denominator": 1736,
+      "proportion": 0.7776497695852534
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "MISSING",
+      "count": 866,
+      "denominator": 1736,
+      "proportion": 0.4988479262672811
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_CALENDAR",
+      "count": 216,
+      "denominator": 1736,
+      "proportion": 0.12442396313364056
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_QUALITATIVE_HORIZON",
+      "count": 458,
+      "denominator": 1736,
+      "proportion": 0.2638248847926267
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_QUANTIFIED_HORIZON",
+      "count": 26,
+      "denominator": 1736,
+      "proportion": 0.014976958525345621
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_RELATIONAL",
+      "count": 357,
+      "denominator": 1736,
+      "proportion": 0.2056451612903226
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "MISSING",
+      "count": 618,
+      "denominator": 1736,
+      "proportion": 0.35599078341013823
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_BOUNDED_SITE",
+      "count": 422,
+      "denominator": 1736,
+      "proportion": 0.24308755760368664
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_SUPRANATIONAL",
+      "count": 88,
+      "denominator": 1736,
+      "proportion": 0.05069124423963134
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_TERRITORIAL_SYSTEM",
+      "count": 681,
+      "denominator": 1736,
+      "proportion": 0.3922811059907834
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_UNBOUNDED_ACCESS",
+      "count": 22,
+      "denominator": 1736,
+      "proportion": 0.012672811059907835
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "MISSING",
+      "count": 5,
+      "denominator": 1736,
+      "proportion": 0.002880184331797235
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_AUTHOR_ARGUMENT",
+      "count": 188,
+      "denominator": 1736,
+      "proportion": 0.10829493087557604
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_CIVIC_COLLECTIVE",
+      "count": 70,
+      "denominator": 1736,
+      "proportion": 0.04032258064516129
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_COMMERCIAL_ACTOR",
+      "count": 196,
+      "denominator": 1736,
+      "proportion": 0.11290322580645161
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EDUCATION_ORGANIZATION",
+      "count": 459,
+      "denominator": 1736,
+      "proportion": 0.26440092165898615
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EDUCATOR",
+      "count": 200,
+      "denominator": 1736,
+      "proportion": 0.1152073732718894
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EXPERT",
+      "count": 285,
+      "denominator": 1736,
+      "proportion": 0.1641705069124424
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_FAMILY",
+      "count": 29,
+      "denominator": 1736,
+      "proportion": 0.016705069124423964
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_LEARNER",
+      "count": 92,
+      "denominator": 1736,
+      "proportion": 0.052995391705069124
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_PUBLIC_AUTHORITY",
+      "count": 286,
+      "denominator": 1736,
+      "proportion": 0.16474654377880185
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_ORGANIZATIONS",
+      "count": 441,
+      "denominator": 1736,
+      "proportion": 0.2540322580645161
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_PROFESSIONALS",
+      "count": 880,
+      "denominator": 1736,
+      "proportion": 0.5069124423963134
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_FAMILIES",
+      "count": 110,
+      "denominator": 1736,
+      "proportion": 0.06336405529953917
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_LEARNERS",
+      "count": 1684,
+      "denominator": 1736,
+      "proportion": 0.9700460829493087
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_MARKET_PROFESSIONS",
+      "count": 149,
+      "denominator": 1736,
+      "proportion": 0.0858294930875576
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_WIDER_COLLECTIVE",
+      "count": 209,
+      "denominator": 1736,
+      "proportion": 0.12039170506912443
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_COLLABORATION",
+      "count": 316,
+      "denominator": 1736,
+      "proportion": 0.18202764976958524
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_CURRICULUM",
+      "count": 544,
+      "denominator": 1736,
+      "proportion": 0.31336405529953915
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_EVIDENCE_ADAPTATION",
+      "count": 152,
+      "denominator": 1736,
+      "proportion": 0.08755760368663594
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_GOVERN_SAFEGUARD",
+      "count": 601,
+      "denominator": 1736,
+      "proportion": 0.34619815668202764
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_LEARNING_ASSESSMENT",
+      "count": 728,
+      "denominator": 1736,
+      "proportion": 0.41935483870967744
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_RESOURCE_IMPLEMENTATION",
+      "count": 702,
+      "denominator": 1736,
+      "proportion": 0.4043778801843318
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "MISSING",
+      "count": 248,
+      "denominator": 1736,
+      "proportion": 0.14285714285714285
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "MISSING",
+      "count": 308,
+      "denominator": 1736,
+      "proportion": 0.1774193548387097
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_COMMERCIAL_ACTOR",
+      "count": 283,
+      "denominator": 1736,
+      "proportion": 0.1630184331797235
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_COMMUNITY",
+      "count": 69,
+      "denominator": 1736,
+      "proportion": 0.039746543778801845
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_ORGANIZATION",
+      "count": 829,
+      "denominator": 1736,
+      "proportion": 0.47753456221198154
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_PROFESSIONALS",
+      "count": 714,
+      "denominator": 1736,
+      "proportion": 0.4112903225806452
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_FAMILY",
+      "count": 60,
+      "denominator": 1736,
+      "proportion": 0.03456221198156682
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_LEARNER_USER",
+      "count": 538,
+      "denominator": 1736,
+      "proportion": 0.3099078341013825
+    },
+    {
+      "scenario": "clear_only",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_PUBLIC_AUTHORITY",
+      "count": 363,
+      "denominator": 1736,
+      "proportion": 0.20910138248847926
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_ACADEMIC_JUDGMENT",
+      "count": 251,
+      "denominator": 948,
+      "proportion": 0.26476793248945146
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_ACCESS_DISTRIBUTION",
+      "count": 136,
+      "denominator": 948,
+      "proportion": 0.14345991561181434
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_CAPABILITY_PATHWAYS",
+      "count": 490,
+      "denominator": 948,
+      "proportion": 0.5168776371308017
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_COGNITION_AGENCY",
+      "count": 397,
+      "denominator": 948,
+      "proportion": 0.41877637130801687
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_HUMAN_PUBLIC_PURPOSE",
+      "count": 95,
+      "denominator": 948,
+      "proportion": 0.10021097046413502
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_INSTITUTIONAL_REORGANISATION",
+      "count": 129,
+      "denominator": 948,
+      "proportion": 0.1360759493670886
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_PERSONALISED_GUIDANCE",
+      "count": 171,
+      "denominator": 948,
+      "proportion": 0.18037974683544303
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_TEACHING_LABOUR",
+      "count": 238,
+      "denominator": 948,
+      "proportion": 0.2510548523206751
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "FR_WELLBEING_RELATIONS",
+      "count": 44,
+      "denominator": 948,
+      "proportion": 0.046413502109704644
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "future_role",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 948,
+      "proportion": 0.0010548523206751054
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_ASSERTED",
+      "count": 189,
+      "denominator": 948,
+      "proportion": 0.19936708860759494
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_CONDITIONAL",
+      "count": 183,
+      "denominator": 948,
+      "proportion": 0.1930379746835443
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_INTENDED",
+      "count": 454,
+      "denominator": 948,
+      "proportion": 0.47890295358649787
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_LIMIT_DENIAL",
+      "count": 98,
+      "denominator": 948,
+      "proportion": 0.10337552742616034
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_NORMATIVE",
+      "count": 461,
+      "denominator": 948,
+      "proportion": 0.48628691983122363
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_OPEN",
+      "count": 20,
+      "denominator": 948,
+      "proportion": 0.02109704641350211
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "certainty",
+      "code": "CERT_POSSIBLE",
+      "count": 320,
+      "denominator": 948,
+      "proportion": 0.33755274261603374
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_MIXED",
+      "count": 26,
+      "denominator": 948,
+      "proportion": 0.027426160337552744
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_NEGATIVE",
+      "count": 71,
+      "denominator": 948,
+      "proportion": 0.07489451476793249
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_POSITIVE",
+      "count": 832,
+      "denominator": 948,
+      "proportion": 0.8776371308016878
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "DES_UNSETTLED",
+      "count": 2,
+      "denominator": 948,
+      "proportion": 0.002109704641350211
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "desirability",
+      "code": "MISSING",
+      "count": 17,
+      "denominator": 948,
+      "proportion": 0.017932489451476793
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "MISSING",
+      "count": 20,
+      "denominator": 948,
+      "proportion": 0.02109704641350211
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_COLLECTIVE_SELFDETERMINATION",
+      "count": 90,
+      "denominator": 948,
+      "proportion": 0.0949367088607595
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_EQUITY",
+      "count": 98,
+      "denominator": 948,
+      "proportion": 0.10337552742616034
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_HUMAN_RELATION",
+      "count": 154,
+      "denominator": 948,
+      "proportion": 0.16244725738396623
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_LEARNING_DEVELOPMENT",
+      "count": 625,
+      "denominator": 948,
+      "proportion": 0.6592827004219409
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_MARKET_POWER",
+      "count": 12,
+      "denominator": 948,
+      "proportion": 0.012658227848101266
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_POLICY_AUTHORITY",
+      "count": 54,
+      "denominator": 948,
+      "proportion": 0.056962025316455694
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_RESOURCES_READINESS",
+      "count": 311,
+      "denominator": 948,
+      "proportion": 0.3280590717299578
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_TRUST_ACCOUNTABILITY",
+      "count": 338,
+      "denominator": 948,
+      "proportion": 0.35654008438818563
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "rationale",
+      "code": "RATION_WORK_DEMAND",
+      "count": 263,
+      "denominator": 948,
+      "proportion": 0.27742616033755274
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_AI_KNOWLEDGE",
+      "count": 429,
+      "denominator": 948,
+      "proportion": 0.4525316455696203
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_AI_UNSPECIFIED",
+      "count": 55,
+      "denominator": 948,
+      "proportion": 0.0580168776371308
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_ANALYSIS_MONITORING",
+      "count": 117,
+      "denominator": 948,
+      "proportion": 0.12341772151898735
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_CONTENT_LANGUAGE",
+      "count": 489,
+      "denominator": 948,
+      "proportion": 0.5158227848101266
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_EMBODIED_SIMULATION",
+      "count": 51,
+      "denominator": 948,
+      "proportion": 0.05379746835443038
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_INTEGRITY_CHECK",
+      "count": 32,
+      "denominator": 948,
+      "proportion": 0.03375527426160337
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_LEARNING_SYSTEM",
+      "count": 159,
+      "denominator": 948,
+      "proportion": 0.16772151898734178
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "technology_object",
+      "code": "OBJ_SYSTEM_INFRASTRUCTURE",
+      "count": 94,
+      "denominator": 948,
+      "proportion": 0.09915611814345991
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_ASSESSMENT",
+      "count": 284,
+      "denominator": 948,
+      "proportion": 0.29957805907172996
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_CAPACITY_FORMATION",
+      "count": 254,
+      "denominator": 948,
+      "proportion": 0.2679324894514768
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_ENTRY_GUIDANCE",
+      "count": 50,
+      "denominator": 948,
+      "proportion": 0.052742616033755275
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_EXPERIENTIAL_RESEARCH",
+      "count": 259,
+      "denominator": 948,
+      "proportion": 0.2732067510548523
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_INSTITUTIONAL_SERVICES",
+      "count": 111,
+      "denominator": 948,
+      "proportion": 0.11708860759493671
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "CTX_TEACHING_STUDY",
+      "count": 705,
+      "denominator": 948,
+      "proportion": 0.7436708860759493
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "education_context",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 948,
+      "proportion": 0.0010548523206751054
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "MISSING",
+      "count": 308,
+      "denominator": 948,
+      "proportion": 0.32489451476793246
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_CALENDAR",
+      "count": 190,
+      "denominator": 948,
+      "proportion": 0.20042194092827004
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_QUALITATIVE_HORIZON",
+      "count": 327,
+      "denominator": 948,
+      "proportion": 0.3449367088607595
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_QUANTIFIED_HORIZON",
+      "count": 24,
+      "denominator": 948,
+      "proportion": 0.02531645569620253
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "timespan",
+      "code": "TIME_RELATIONAL",
+      "count": 281,
+      "denominator": 948,
+      "proportion": 0.29641350210970463
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "MISSING",
+      "count": 250,
+      "denominator": 948,
+      "proportion": 0.26371308016877637
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_BOUNDED_SITE",
+      "count": 247,
+      "denominator": 948,
+      "proportion": 0.26054852320675104
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_SUPRANATIONAL",
+      "count": 70,
+      "denominator": 948,
+      "proportion": 0.07383966244725738
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_TERRITORIAL_SYSTEM",
+      "count": 447,
+      "denominator": 948,
+      "proportion": 0.47151898734177217
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "space",
+      "code": "SPACE_UNBOUNDED_ACCESS",
+      "count": 15,
+      "denominator": 948,
+      "proportion": 0.015822784810126583
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "MISSING",
+      "count": 2,
+      "denominator": 948,
+      "proportion": 0.002109704641350211
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_AUTHOR_ARGUMENT",
+      "count": 142,
+      "denominator": 948,
+      "proportion": 0.14978902953586498
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_CIVIC_COLLECTIVE",
+      "count": 34,
+      "denominator": 948,
+      "proportion": 0.035864978902953586
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_COMMERCIAL_ACTOR",
+      "count": 130,
+      "denominator": 948,
+      "proportion": 0.1371308016877637
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EDUCATION_ORGANIZATION",
+      "count": 233,
+      "denominator": 948,
+      "proportion": 0.24578059071729957
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EDUCATOR",
+      "count": 91,
+      "denominator": 948,
+      "proportion": 0.09599156118143459
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_EXPERT",
+      "count": 129,
+      "denominator": 948,
+      "proportion": 0.1360759493670886
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_FAMILY",
+      "count": 6,
+      "denominator": 948,
+      "proportion": 0.006329113924050633
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_LEARNER",
+      "count": 52,
+      "denominator": 948,
+      "proportion": 0.05485232067510549
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "speaker",
+      "code": "SPK_PUBLIC_AUTHORITY",
+      "count": 182,
+      "denominator": 948,
+      "proportion": 0.19198312236286919
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_ORGANIZATIONS",
+      "count": 268,
+      "denominator": 948,
+      "proportion": 0.28270042194092826
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_PROFESSIONALS",
+      "count": 502,
+      "denominator": 948,
+      "proportion": 0.5295358649789029
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_FAMILIES",
+      "count": 77,
+      "denominator": 948,
+      "proportion": 0.08122362869198312
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_LEARNERS",
+      "count": 934,
+      "denominator": 948,
+      "proportion": 0.9852320675105485
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_MARKET_PROFESSIONS",
+      "count": 107,
+      "denominator": 948,
+      "proportion": 0.11286919831223628
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "AFFECT_WIDER_COLLECTIVE",
+      "count": 148,
+      "denominator": 948,
+      "proportion": 0.15611814345991562
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "affected_entities",
+      "code": "MISSING",
+      "count": 2,
+      "denominator": 948,
+      "proportion": 0.002109704641350211
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_COLLABORATION",
+      "count": 209,
+      "denominator": 948,
+      "proportion": 0.22046413502109705
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_CURRICULUM",
+      "count": 355,
+      "denominator": 948,
+      "proportion": 0.3744725738396624
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_EVIDENCE_ADAPTATION",
+      "count": 97,
+      "denominator": 948,
+      "proportion": 0.10232067510548523
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_GOVERN_SAFEGUARD",
+      "count": 331,
+      "denominator": 948,
+      "proportion": 0.3491561181434599
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_LEARNING_ASSESSMENT",
+      "count": 460,
+      "denominator": 948,
+      "proportion": 0.48523206751054854
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "ACT_RESOURCE_IMPLEMENTATION",
+      "count": 451,
+      "denominator": 948,
+      "proportion": 0.4757383966244726
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "action",
+      "code": "MISSING",
+      "count": 89,
+      "denominator": 948,
+      "proportion": 0.0938818565400844
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "MISSING",
+      "count": 102,
+      "denominator": 948,
+      "proportion": 0.10759493670886076
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_COMMERCIAL_ACTOR",
+      "count": 189,
+      "denominator": 948,
+      "proportion": 0.19936708860759494
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_COMMUNITY",
+      "count": 62,
+      "denominator": 948,
+      "proportion": 0.06540084388185655
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_ORGANIZATION",
+      "count": 493,
+      "denominator": 948,
+      "proportion": 0.520042194092827
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_PROFESSIONALS",
+      "count": 425,
+      "denominator": 948,
+      "proportion": 0.44831223628691985
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_FAMILY",
+      "count": 38,
+      "denominator": 948,
+      "proportion": 0.04008438818565401
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_LEARNER_USER",
+      "count": 379,
+      "denominator": 948,
+      "proportion": 0.399789029535865
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "primary_article_account",
+      "field": "responsibility",
+      "code": "RESP_PUBLIC_AUTHORITY",
+      "count": 227,
+      "denominator": 948,
+      "proportion": 0.23945147679324894
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_ACADEMIC_JUDGMENT",
+      "count": 466,
+      "denominator": 1850,
+      "proportion": 0.2518918918918919
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_ACCESS_DISTRIBUTION",
+      "count": 225,
+      "denominator": 1850,
+      "proportion": 0.12162162162162163
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_CAPABILITY_PATHWAYS",
+      "count": 828,
+      "denominator": 1850,
+      "proportion": 0.44756756756756755
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_COGNITION_AGENCY",
+      "count": 798,
+      "denominator": 1850,
+      "proportion": 0.43135135135135133
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_HUMAN_PUBLIC_PURPOSE",
+      "count": 154,
+      "denominator": 1850,
+      "proportion": 0.08324324324324324
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_INSTITUTIONAL_REORGANISATION",
+      "count": 227,
+      "denominator": 1850,
+      "proportion": 0.1227027027027027
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_PERSONALISED_GUIDANCE",
+      "count": 266,
+      "denominator": 1850,
+      "proportion": 0.1437837837837838
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_TEACHING_LABOUR",
+      "count": 436,
+      "denominator": 1850,
+      "proportion": 0.23567567567567568
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "FR_WELLBEING_RELATIONS",
+      "count": 118,
+      "denominator": 1850,
+      "proportion": 0.06378378378378378
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "future_role",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 1850,
+      "proportion": 0.0005405405405405405
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_ASSERTED",
+      "count": 299,
+      "denominator": 1850,
+      "proportion": 0.1616216216216216
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_CONDITIONAL",
+      "count": 398,
+      "denominator": 1850,
+      "proportion": 0.21513513513513513
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_INTENDED",
+      "count": 706,
+      "denominator": 1850,
+      "proportion": 0.3816216216216216
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_LIMIT_DENIAL",
+      "count": 173,
+      "denominator": 1850,
+      "proportion": 0.09351351351351352
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_NORMATIVE",
+      "count": 913,
+      "denominator": 1850,
+      "proportion": 0.4935135135135135
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_OPEN",
+      "count": 35,
+      "denominator": 1850,
+      "proportion": 0.01891891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "CERT_POSSIBLE",
+      "count": 594,
+      "denominator": 1850,
+      "proportion": 0.3210810810810811
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "certainty",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 1850,
+      "proportion": 0.0005405405405405405
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_MIXED",
+      "count": 62,
+      "denominator": 1850,
+      "proportion": 0.03351351351351351
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_NEGATIVE",
+      "count": 212,
+      "denominator": 1850,
+      "proportion": 0.11459459459459459
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_POSITIVE",
+      "count": 1502,
+      "denominator": 1850,
+      "proportion": 0.8118918918918919
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "DES_UNSETTLED",
+      "count": 3,
+      "denominator": 1850,
+      "proportion": 0.0016216216216216215
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "desirability",
+      "code": "MISSING",
+      "count": 72,
+      "denominator": 1850,
+      "proportion": 0.03891891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "MISSING",
+      "count": 55,
+      "denominator": 1850,
+      "proportion": 0.02972972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_COLLECTIVE_SELFDETERMINATION",
+      "count": 138,
+      "denominator": 1850,
+      "proportion": 0.0745945945945946
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_EQUITY",
+      "count": 166,
+      "denominator": 1850,
+      "proportion": 0.08972972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_HUMAN_RELATION",
+      "count": 285,
+      "denominator": 1850,
+      "proportion": 0.15405405405405406
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_LEARNING_DEVELOPMENT",
+      "count": 1117,
+      "denominator": 1850,
+      "proportion": 0.6037837837837838
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_MARKET_POWER",
+      "count": 18,
+      "denominator": 1850,
+      "proportion": 0.00972972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_POLICY_AUTHORITY",
+      "count": 81,
+      "denominator": 1850,
+      "proportion": 0.04378378378378378
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_RESOURCES_READINESS",
+      "count": 526,
+      "denominator": 1850,
+      "proportion": 0.2843243243243243
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_TRUST_ACCOUNTABILITY",
+      "count": 691,
+      "denominator": 1850,
+      "proportion": 0.37351351351351353
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "rationale",
+      "code": "RATION_WORK_DEMAND",
+      "count": 408,
+      "denominator": 1850,
+      "proportion": 0.22054054054054054
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_AI_KNOWLEDGE",
+      "count": 719,
+      "denominator": 1850,
+      "proportion": 0.3886486486486487
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_AI_UNSPECIFIED",
+      "count": 135,
+      "denominator": 1850,
+      "proportion": 0.07297297297297298
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_ANALYSIS_MONITORING",
+      "count": 190,
+      "denominator": 1850,
+      "proportion": 0.10270270270270271
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_CONTENT_LANGUAGE",
+      "count": 984,
+      "denominator": 1850,
+      "proportion": 0.5318918918918919
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_EMBODIED_SIMULATION",
+      "count": 86,
+      "denominator": 1850,
+      "proportion": 0.046486486486486484
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_INTEGRITY_CHECK",
+      "count": 68,
+      "denominator": 1850,
+      "proportion": 0.036756756756756756
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_LEARNING_SYSTEM",
+      "count": 283,
+      "denominator": 1850,
+      "proportion": 0.15297297297297296
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "technology_object",
+      "code": "OBJ_SYSTEM_INFRASTRUCTURE",
+      "count": 154,
+      "denominator": 1850,
+      "proportion": 0.08324324324324324
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_ASSESSMENT",
+      "count": 536,
+      "denominator": 1850,
+      "proportion": 0.2897297297297297
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_CAPACITY_FORMATION",
+      "count": 461,
+      "denominator": 1850,
+      "proportion": 0.2491891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_ENTRY_GUIDANCE",
+      "count": 65,
+      "denominator": 1850,
+      "proportion": 0.03513513513513514
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_EXPERIENTIAL_RESEARCH",
+      "count": 379,
+      "denominator": 1850,
+      "proportion": 0.20486486486486485
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_INSTITUTIONAL_SERVICES",
+      "count": 212,
+      "denominator": 1850,
+      "proportion": 0.11459459459459459
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "CTX_TEACHING_STUDY",
+      "count": 1401,
+      "denominator": 1850,
+      "proportion": 0.7572972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "education_context",
+      "code": "MISSING",
+      "count": 1,
+      "denominator": 1850,
+      "proportion": 0.0005405405405405405
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "MISSING",
+      "count": 913,
+      "denominator": 1850,
+      "proportion": 0.4935135135135135
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_CALENDAR",
+      "count": 242,
+      "denominator": 1850,
+      "proportion": 0.1308108108108108
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_QUALITATIVE_HORIZON",
+      "count": 480,
+      "denominator": 1850,
+      "proportion": 0.2594594594594595
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_QUANTIFIED_HORIZON",
+      "count": 27,
+      "denominator": 1850,
+      "proportion": 0.014594594594594595
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "timespan",
+      "code": "TIME_RELATIONAL",
+      "count": 388,
+      "denominator": 1850,
+      "proportion": 0.20972972972972972
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "MISSING",
+      "count": 653,
+      "denominator": 1850,
+      "proportion": 0.352972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_BOUNDED_SITE",
+      "count": 461,
+      "denominator": 1850,
+      "proportion": 0.2491891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_SUPRANATIONAL",
+      "count": 100,
+      "denominator": 1850,
+      "proportion": 0.05405405405405406
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_TERRITORIAL_SYSTEM",
+      "count": 717,
+      "denominator": 1850,
+      "proportion": 0.38756756756756755
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "space",
+      "code": "SPACE_UNBOUNDED_ACCESS",
+      "count": 22,
+      "denominator": 1850,
+      "proportion": 0.011891891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "MISSING",
+      "count": 7,
+      "denominator": 1850,
+      "proportion": 0.0037837837837837837
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_AUTHOR_ARGUMENT",
+      "count": 210,
+      "denominator": 1850,
+      "proportion": 0.11351351351351352
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_CIVIC_COLLECTIVE",
+      "count": 75,
+      "denominator": 1850,
+      "proportion": 0.04054054054054054
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_COMMERCIAL_ACTOR",
+      "count": 207,
+      "denominator": 1850,
+      "proportion": 0.11189189189189189
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EDUCATION_ORGANIZATION",
+      "count": 484,
+      "denominator": 1850,
+      "proportion": 0.2616216216216216
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EDUCATOR",
+      "count": 203,
+      "denominator": 1850,
+      "proportion": 0.10972972972972973
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_EXPERT",
+      "count": 292,
+      "denominator": 1850,
+      "proportion": 0.15783783783783784
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_FAMILY",
+      "count": 32,
+      "denominator": 1850,
+      "proportion": 0.017297297297297298
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_LEARNER",
+      "count": 122,
+      "denominator": 1850,
+      "proportion": 0.06594594594594595
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "speaker",
+      "code": "SPK_PUBLIC_AUTHORITY",
+      "count": 296,
+      "denominator": 1850,
+      "proportion": 0.16
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_ORGANIZATIONS",
+      "count": 447,
+      "denominator": 1850,
+      "proportion": 0.24162162162162162
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_EDUCATION_PROFESSIONALS",
+      "count": 900,
+      "denominator": 1850,
+      "proportion": 0.4864864864864865
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_FAMILIES",
+      "count": 116,
+      "denominator": 1850,
+      "proportion": 0.0627027027027027
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_LEARNERS",
+      "count": 1793,
+      "denominator": 1850,
+      "proportion": 0.9691891891891892
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_MARKET_PROFESSIONS",
+      "count": 157,
+      "denominator": 1850,
+      "proportion": 0.08486486486486486
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "AFFECT_WIDER_COLLECTIVE",
+      "count": 217,
+      "denominator": 1850,
+      "proportion": 0.11729729729729729
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "affected_entities",
+      "code": "MISSING",
+      "count": 2,
+      "denominator": 1850,
+      "proportion": 0.001081081081081081
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_COLLABORATION",
+      "count": 335,
+      "denominator": 1850,
+      "proportion": 0.1810810810810811
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_CURRICULUM",
+      "count": 561,
+      "denominator": 1850,
+      "proportion": 0.30324324324324325
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_EVIDENCE_ADAPTATION",
+      "count": 154,
+      "denominator": 1850,
+      "proportion": 0.08324324324324324
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_GOVERN_SAFEGUARD",
+      "count": 623,
+      "denominator": 1850,
+      "proportion": 0.33675675675675676
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_LEARNING_ASSESSMENT",
+      "count": 780,
+      "denominator": 1850,
+      "proportion": 0.42162162162162165
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "ACT_RESOURCE_IMPLEMENTATION",
+      "count": 723,
+      "denominator": 1850,
+      "proportion": 0.3908108108108108
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "action",
+      "code": "MISSING",
+      "count": 269,
+      "denominator": 1850,
+      "proportion": 0.14540540540540542
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "MISSING",
+      "count": 330,
+      "denominator": 1850,
+      "proportion": 0.1783783783783784
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_COMMERCIAL_ACTOR",
+      "count": 295,
+      "denominator": 1850,
+      "proportion": 0.15945945945945947
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_COMMUNITY",
+      "count": 78,
+      "denominator": 1850,
+      "proportion": 0.04216216216216216
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_ORGANIZATION",
+      "count": 858,
+      "denominator": 1850,
+      "proportion": 0.46378378378378377
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_EDUCATION_PROFESSIONALS",
+      "count": 733,
+      "denominator": 1850,
+      "proportion": 0.3962162162162162
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_FAMILY",
+      "count": 63,
+      "denominator": 1850,
+      "proportion": 0.03405405405405405
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_LEARNER_USER",
+      "count": 595,
+      "denominator": 1850,
+      "proportion": 0.3216216216216216
+    },
+    {
+      "scenario": "clear_and_borderline",
+      "unit": "all_attributed_accounts",
+      "field": "responsibility",
+      "code": "RESP_PUBLIC_AUTHORITY",
+      "count": 374,
+      "denominator": 1850,
+      "proportion": 0.20216216216216215
+    }
+  ]
+}
