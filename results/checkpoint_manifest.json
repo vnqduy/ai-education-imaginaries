@@ -4,11 +4,10 @@
   "population": 1098,
   "accounts": 1850,
   "status": "Full-corpus coding and descriptive comparison complete; source-based comparative interpretation ongoing; no compulsory named typology.",
-  "source_recovery": "Eight recovered-source replacements included in source_corpus and open_extraction. Original recovery records are in local archive.",
-  "archive": "archive/checkpoint_2026-10-08/ (local; excluded from GitHub)",
+  "source_recovery": "Eight recovered-source replacements included in final source_corpus and open_extraction; recovery and audit history consolidated locally in data/provenance.json.",
   "sha256": {
-    ".gitignore": "00e33a7f6609246ec203c18289655c4b0c45ed9f9fb5b89f5c9c9c2ac20107fc",
-    "README.md": "2780124acb5e7e429b8492ba96cdd5d517972d49937e3ca56db58d108b0f2c69",
+    ".gitignore": "9ef9552635f6e45d57c08fef375b6618330e34f03d0f48a2e6ea3c74c21acbdc",
+    "README.md": "5a4bdd83d612f6519bc3ec365f3c9ae5eec212260760f21976bf7f5742beb73f",
     "data/hosted_publisher_flags.jsonl": "911ea71509edc966fd5398b24286afdf385d81766497b96ed47a950bf21f7492",
     "data/open_extraction.jsonl": "35ad8d43459899f8f236b8832084ffb06ab7c974d10b2c1ca7b8c32eb271748a",
     "data/outlet_classification.csv": "9e6173fcd2bff3b8e924b5ce57de3ff6b68e40b3c77f06adcd794ddcb7ef0512",
@@ -24,14 +23,23 @@
     "methods/interpretation_and_comparison.md": "3845670672438ddaaf2ce0f1414a5a53c3696b181255a54e655203867c21b3f9",
     "methods/open_extraction_prompt.md": "03b5413df2cdad893b84ff3f573aaec2a9c64506a420ab49ba0e6bffa9072cf4",
     "methods/publisher_attribution.md": "ea937013f8c201a50f4257b576908274acd6fb5be2039a8b9621028f609c0961",
-    "results/checkpoint_report.md": "5879d8aab761f922629b68e52f4130008ccde311f1579877776af1fe8466d3c1",
+    "results/checkpoint_report.md": "fbee9a4872c6a93c9b92e7b450d48354c0e30ca5afb154f71790612294b18bc3",
     "results/corpus_summary.json": "9fd30465e8a237112b66d5a07126f5afacc079d67c28ae22447c485dfa024448",
     "results/outlet_comparison.json": "ad16e2feecb663376e7905bcff66e15a64453be061df7ce3ff199e110a14e5b5",
     "results/validation.json": "4737a1c622ad8acfcf786d550dd1c2142ef6b93d496f1473c5b28bcb1113d01f",
     "scripts/reproduce_results.py": "8b78703b99e453f56fee5be2fca2fe31fa093736f3bef07c7f6b8207aa7598fc",
     "scripts/review_outlet_comparison.py": "da42042e243a9a7c418a8d2d125692b695f8d44ea58c7f304d99ca5573554ecd",
     "scripts/summarize_future_coding.py": "5d29ba7d34e85fa0b1b99f86a069873e41e9df19d495e5d4c25284c6d79bed6b",
-    "scripts/validate_future_coding.py": "cdca87e950bec4b19fcc1eb4553073336fb1aba586e5b5b7070c64749c324438"
+    "scripts/validate_future_coding.py": "cdca87e950bec4b19fcc1eb4553073336fb1aba586e5b5b7070c64749c324438",
+    "data/provenance.json": "3a96de83c7cf22337e99f98d6dfaab7e08043da7c0adc2c6a11231e0b62fff7a"
   },
-  "publication_scope": "Only codebook, methods, scripts, outlet mapping and aggregate results are published. Source texts, raw extractions, source reviews, publisher flags and coded article/account records remain local."
+  "publication_scope": "Only codebook, methods, scripts, outlet mapping and aggregate results are published. Source texts, raw extractions, source reviews, publisher flags and coded article/account records remain local.",
+  "cleanup": {
+    "archive_files_removed": 606,
+    "archive_bytes_before_cleanup": 165675824,
+    "literature_originals_preserved": 27,
+    "audit_records_consolidated": 28,
+    "provenance": "data/provenance.json (local only)",
+    "verification": "Full pipeline passed; authoritative coding, CSV exports and aggregate result hashes unchanged."
+  }
 }

@@ -16,3 +16,6 @@ ref/
 /data/sipc_future_coding/coded_corpus.jsonl
 /data/sipc_future_coding/coded_articles.csv
 /data/sipc_future_coding/coded_accounts.csv
+
+# Consolidated source recovery and coding audits remain local.
+/data/provenance.json

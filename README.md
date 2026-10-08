@@ -14,13 +14,14 @@ See [checkpoint report](results/checkpoint_report.md) for findings, methodologic
 
 ## Working set and publication scope
 
-Full-text sources, raw extraction, source review, publisher flags and coded article/account records are **local only** and excluded from GitHub. GitHub publishes the codebook, methods, scripts, outlet mapping and aggregate results. The table below documents both local inputs and published materials.
+Full-text sources, raw extraction, source review, publisher flags, consolidated provenance and coded article/account records are **local only** and excluded from GitHub. GitHub publishes the codebook, methods, scripts, outlet mapping and aggregate results. The table below documents both local inputs and published materials.
 
 | Location | Purpose |
 |---|---|
 | `data/source_corpus.jsonl` | Effective retained texts and metadata for all original IDs, including eight recovered-source replacements |
 | `data/open_extraction.jsonl` | Final effective, uncategorised extraction of the twelve SIPC fields |
 | `data/source_review.jsonl` | Source adequacy, review reasons and interpretive limits for each ID |
+| `data/provenance.json` | Local consolidated recovery, semantic amendment and audit history |
 | `data/outlet_classification.csv` | Supplied exploratory outlet-group mapping |
 | `data/hosted_publisher_flags.jsonl` | Fifty records with producing-publisher uncertainty; 37 are clear-future articles |
 | `data/sipc_future_coding/codebook.json` and `.md` | Frozen v1.1 definitions and readable documentation; introductory clarification does not alter codes |
@@ -43,13 +44,15 @@ This validates the corpus, verifies the approved codebook hash, regenerates CSV 
 
 Primary comparisons use clear futures without hosted-publisher flags. Other scenarios include borderline futures, all supplied host groups, and complete sources. Outlet comparisons also record individual-outlet concentration, year composition and leave-one-outlet-out ranges. Selected contrasts have any-account article-presence and pooled-year standardisation sensitivities for 2023–2026. These are descriptive checks, not confidence intervals or causal estimates. Multi-coded proportions need not sum to 100%.
 
-Structural checks do not measure independent intercoder agreement. Targeted source/semantic audits are documented in the local archive. Positivity concerns each account's specified future, including protective restrictions, rather than general approval of AI.
+Structural checks do not measure independent intercoder agreement. Targeted source/semantic audits and recovery history are consolidated in local `data/provenance.json`. Positivity concerns each account's specified future, including protective restrictions, rather than general approval of AI.
 
-## Archive and local materials
+## Cleanup and local materials
 
-Intermediate batches, candidate codebooks, duplicate exports, worker scripts, audit logs and superseded analyses are stored in `archive/checkpoint_2026-10-08/`; its manifest records their original paths and hashes. Older archives are retained. Nothing was deleted as part of consolidation.
+The obsolete archive has been deleted after consolidating 28 audit/recovery records into local `data/provenance.json` and retaining 27 original literature files in `ref/originals/`. Batch outputs, duplicate datasets, worker scripts, old manuscripts, old figures and caches are removed. The current manuscript and reference texts remain intact.
 
-`archive/`, `manuscript/` and `ref/` remain local and excluded from GitHub. GitHub contains documentation and aggregate outputs for the current checkpoint, excluding full-text sources and article/account-level data. The full-data checkpoint commit `5530233` is preserved only on local branch `codex/local-data-checkpoint-2026-10-08`. Previously published analysis remains available through existing Git history; this update removes its data files from the current GitHub tree but does not rewrite already published history. The manuscript itself has not been revised at this checkpoint.
+The cleanup removed 606 archive files (165,675,824 bytes before retaining literature/audit essentials). Pipeline reproduction passed afterward with 1,098 articles, 1,850 accounts and zero structural errors; authoritative coding, CSV exports and aggregate results retain their checkpoint hashes. Historical paths inside provenance records describe the earlier workflow and do not indicate current dependencies.
+
+`manuscript/`, `ref/`, source records, extraction, coded research data and provenance remain local and excluded from GitHub. GitHub contains documentation and aggregate outputs. Full-data commit `5530233` is retained only on local branch `codex/local-data-checkpoint-2026-10-08`. Data removed from the current GitHub tree remain in already-published Git history; this cleanup does not rewrite that history. The manuscript has not been revised.
 
 ## Framework references
 

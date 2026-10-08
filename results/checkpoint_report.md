@@ -85,3 +85,8 @@ Sources: Brause et al. (2025), https://doi.org/10.1177/13548565251338192; Richte
 |RATION_WORK_DEMAND|29.5%|28.9%|
 
 Phân bố năm khác nhau: public/central tập trung 77,9% bài ở 2025–2026; commercial/general 57,6%. Chuẩn hóa năm chỉ là sensitivity mô tả. Không gọi nhóm commercial/general là báo tư nhân hay ngoài sự giám sát nhà nước.
+
+
+## Folder cleanup
+
+Deleted obsolete intermediate archives after preserving final audit/recovery history in local data/provenance.json and original literature files in ref/originals. Full pipeline reproduction passed afterward with unchanged coding and aggregate results. Local research inputs remain excluded from GitHub.
