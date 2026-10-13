@@ -27,3 +27,9 @@ Main distributions use the union of supported codes across linked arrangements, 
 The primary outlet comparison uses clear futures without producing-publisher uncertainty. Sensitivities add borderline cases, all supplied host groups and complete sources, and examine outlet concentration, leave-one-outlet-out ranges and common-year standardisation. Groups describe exploratory institutional settings, not causal ownership/control effects or independence from state supervision. Applying SIPC analyses articulated imaginaries; marginal constituent counts alone do not reconstruct their relations or require a separate named typology.
 
 Full texts, extraction, coding, crosswalk and per-article provenance remain private. Published artifacts comprise definitions, methods, scripts, outlet classification and aggregate outputs.
+
+## Relational interpretation and publication attribution
+
+Reconstruct educational ordering through linked purposes, roles, speakers, evaluations, justifications, actions and responsibilities. Demonstrate those relations within sources and inspect contrary cases. A shared application can support competing educational futures; different applications can support a shared purpose. Distinguish recurrent syndicated or press-release narratives from independently articulated positions. Do not infer public acceptance, institutional stabilisation or material enactment solely from news recurrence.
+
+Some supplied URL hosts carry pages naming another producing publication. Route flags do not by themselves establish political or market classification. Preserve source metadata; keep flagged articles in full-corpus analysis, but omit unresolved producing-publication cases from the primary institutional comparison. The all-host-groups scenario provides descriptive sensitivity. Differences by URL host must not be described automatically as editorial-origin effects.
