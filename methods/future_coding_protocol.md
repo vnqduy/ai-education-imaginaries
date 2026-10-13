@@ -4,7 +4,7 @@ Completed v2.3 checkpoint, 14 October 2026. Definitions: [codebook](../data/sipc
 
 ## Corpus and source preparation
 
-The working set contained 1,098 extraction records. `DOC_…` identifiers indexed extraction rows. Original article IDs were restored using matched entries in the historical linkage table at Git commit `bad2614`. At the researcher's instruction, 15 unlinked records and two duplicate extractions pointing to one original ID were excluded as researcher storage/linkage errors. The final population is 1,081 unique original IDs. This correction is separate from educational-future eligibility; all aggregate denominators were regenerated. A private crosswalk retains legacy identifiers, links and exclusion reasons.
+The working set contained 1,098 extraction records. `DOC_…` identifiers indexed extraction rows. Original article IDs were restored using matched entries in the historical linkage table at Git commit `bad2614`. At the researcher's instruction, 15 unlinked records and two duplicate extractions pointing to one original ID were excluded as researcher storage/linkage errors. The final population is 1,081 unique original IDs. This correction is separate from educational-future eligibility; all aggregate denominators were regenerated. The compact provenance records storage exclusions by original article ID where available and source title/URL; former row identifiers and the crosswalk were removed at the author request.
 
 Structured extraction preceded category development and recorded all twelve SIPC fields without applying the later categories. Source adequacy was assessed separately from educational futurity. Recovery replaced retained text only for the same article, with documented retrieval and fresh extraction. A tag page, missing body or absent video transcript is an unresolved source, not substantive absence. Scraped menus, related-story teasers and unrelated promotional material were excluded from interpretation.
 
@@ -26,10 +26,16 @@ Main distributions use the union of supported codes across linked arrangements, 
 
 The primary outlet comparison uses clear futures without producing-publisher uncertainty. Sensitivities add borderline cases, all supplied host groups and complete sources, and examine outlet concentration, leave-one-outlet-out ranges and common-year standardisation. Groups describe exploratory institutional settings, not causal ownership/control effects or independence from state supervision. Applying SIPC analyses articulated imaginaries; marginal constituent counts alone do not reconstruct their relations or require a separate named typology.
 
-Full texts, extraction, coding, crosswalk and per-article provenance remain private. Published artifacts comprise definitions, methods, scripts, outlet classification and aggregate outputs.
+On 14 October 2026, the author authorised publication of all research data, including full texts, extraction, coding, provenance and the rectangular dataframe, together with definitions, methods, scripts, outlet classification and the process figure.
 
 ## Relational interpretation and publication attribution
 
 Reconstruct educational ordering through linked purposes, roles, speakers, evaluations, justifications, actions and responsibilities. Demonstrate those relations within sources and inspect contrary cases. A shared application can support competing educational futures; different applications can support a shared purpose. Distinguish recurrent syndicated or press-release narratives from independently articulated positions. Do not infer public acceptance, institutional stabilisation or material enactment solely from news recurrence.
 
 Some supplied URL hosts carry pages naming another producing publication. Route flags do not by themselves establish political or market classification. Preserve source metadata; keep flagged articles in full-corpus analysis, but omit unresolved producing-publication cases from the primary institutional comparison. The all-host-groups scenario provides descriptive sensitivity. Differences by URL host must not be described automatically as editorial-origin effects.
+
+## Rectangular dataframe for R
+
+The sole analysis export is `results/article_coding.csv`: one row per retained article, with scalar metadata and binary columns named `field__CODE`. Codes are unioned across linked arrangements, once per article. When an eligible article has no substantive code assigned in a field, its code columns are NA and `field__missing` is 1. Observed fields have 0/1 code values and missing 0. Noneligible or unresolved articles have NA for all code and missing columns; eligibility preserves why. Positive and negative columns can both be 1 for distinct arrangements in one article. These unions do not imply account-level co-occurrence.
+
+`main_sample=1` identifies clear-future articles without producing-publisher uncertainty. Dates use ISO YYYY-MM-DD; year is integer. UTF-8 CSV blanks represent NA. The standard-library exporter validates the source coding and serialization; the saved dataframe was also imported and checked in R. Counts, contrasts and sensitivity statistics are performed downstream in R rather than emitted as parallel JSON products.

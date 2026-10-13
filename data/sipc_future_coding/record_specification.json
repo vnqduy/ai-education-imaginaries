@@ -26,8 +26,7 @@
     "evidence_reference": "original extraction evidence plus additional source anchors if needed",
     "codebook_version": "frozen version applied",
     "accounts": "Array of linked primary/secondary attributed educational-future accounts; empty for noneligible records.",
-    "primary_selection_reason": "Why this source-supported future is primary; n/a for noneligible records.",
-    "legacy_extraction_id": "Former DOC row identifier; traceability only"
+    "primary_selection_reason": "Why this source-supported future is primary; n/a for noneligible records."
   },
   "account_specification": {
     "account_id": "unique within article",

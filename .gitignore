@@ -1,17 +1,10 @@
-# Local research inputs, coding, audits, manuscript and references.
+# Authoring materials and external literature remain local.
 manuscript/
 ref/
-archive/
+# Generated caches and credentials.
 .DS_Store
 __pycache__/
 *.py[cod]
 .venv/
 .env
 .env.*
-/data/*.jsonl
-/data/provenance.json
-/data/id_crosswalk.csv
-/data/sipc_future_coding/*.jsonl
-/data/sipc_future_coding/*.csv
-/data/sipc_future_coding/manifest.json
-/data/sipc_future_coding_v2/

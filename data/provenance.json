@@ -1,0 +1,257 @@
+{
+  "checkpoint": "2026-10-14",
+  "publication": "Author authorised publication of all data on 2026-10-14.",
+  "history_note": "Final original-ID source-recovery and storage-exclusion provenance. Legacy row identifiers and their crosswalk were removed at the author request.",
+  "final_checkpoint": {
+    "date": "2026-10-14",
+    "before_articles": 1098,
+    "after_articles": 1081,
+    "excluded": 17,
+    "reason": "Author instruction: remove storage/linkage exceptions as researcher error, not substantive absence.",
+    "mapping_source": "Historical final_article_coding.xlsx at Git commit bad2614, Coded articles sheet; matched linkage only.",
+    "old_source_sha256": "534c45b3b5c3ac47fe6e2754dba0c12ef9d874190793d60e1970832240f01846",
+    "old_coded_sha256": "730455be8b114149f9a150e23dda3d676cfdb0b995eba196873f4db16df77974",
+    "role_revision_preservation": {
+      "existing_articles": 230,
+      "role_revised_articles": 230,
+      "remaining_role_review": 0,
+      "errors": [],
+      "limitation": "Preservation check only. Source-based semantic decisions are documented separately."
+    },
+    "pre_exclusion_eligibility": {
+      "no_educational_future": 108,
+      "borderline_future": 95,
+      "clear_future": 867,
+      "unresolved_source": 28
+    },
+    "excluded_records": [
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Hà Lan thiếu giảng viên dạy AI vì nhu cầu học quá cao",
+        "url": "https://tuoitre.vn/giaoduc/ha-lan-thieu-giang-vien-day-ai-vi-nhu-cau-hoc-qua-cao-108489038.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Trường teen: Trí tuệ nhân tạo thay thế giáo viên",
+        "url": "https://vtv.vn/video/truong-teen-tri-tue-nhan-tao-thay-the-giao-vien-388936.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "\"Học lực trung bình có thể học khoa học máy tính hay AI không?\" - Câu trả lời từ PGS của Đại học Bách khoa Hà Nội",
+        "url": "https://kenh14.vn/nganh-tri-tue-nhan-tao.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Dùng ChatGPT để gian lận thi cử: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/dung-chatgpt-de-gian-lan-thi-cu-tags1158347.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Học sinh sử dụng AI: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/hoc-sinh-su-dung-ai-tags1668017.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Trí tuệ nhân tạo có thể thay thế giáo viên trong tương lai?",
+        "url": "https://tuoitre.vn/giaoduc/tri-tue-nhan-tao-co-the-thay-the-giao-vien-trong-tuong-lai-108881143.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Học sinh sử dụng Chat GPT: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/hoc-sinh-su-dung-chat-gpt-tags1695611.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Đưa trí tuệ nhân tạo vào giáo dục: Phải nâng tầm giáo viên",
+        "url": "https://tuoitre.vn/giaoduc/dua-tri-tue-nhan-tao-vao-giao-duc-phai-nang-tam-giao-vien-108886060.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "lớp học AI: Tin tức, Video, hình ảnh lớp học AI",
+        "url": "https://vtv.vn/lop-hoc-ai.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Sinh viên học khối ngành kỹ thuật ra trường có bị AI thay thế?",
+        "url": "https://thanhnien.vn/sinh-vien-hoc-khoi-nganh-ky-thuat-ra-truong-co-bi-ai-thay-the-185250305101348038.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Học sinh chuyên Lê Hồng Phong thiết kế ứng dụng sáng tác nhạc đờn ca tài tử từ AI",
+        "url": "https://tuoitre.vn/giaoduc/hoc-sinh-chuyen-le-hong-phong-thiet-ke-ung-dung-sang-tac-nhac-don-ca-tai-tu-tu-ai-108893796.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Ứng dụng công nghệ Blockchain - AI để nâng cao hiệu quả học tập",
+        "url": "https://tuoitre.vn/giaoduc/ung-dung-cong-nghe-blockchain-ai-de-nang-cao-hieu-qua-hoc-tap-108895409.htm"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Sinh viên và AI: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/sinh-vien-va-ai-tags1758471.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Học sinh dùng AI: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/hoc-sinh-dung-ai-tags1797790.html"
+      },
+      {
+        "original_article_id": null,
+        "retained": false,
+        "historical_link_status": "unmatched_original",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Sinh viên lạm dụng AI: tin tức, hình ảnh, video, bình luận mới nhất",
+        "url": "https://thanhnien.vn/sinh-vien-lam-dung-ai-tags1809235.html"
+      },
+      {
+        "original_article_id": "KEN26_021",
+        "retained": false,
+        "historical_link_status": "duplicate_extraction",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Giáo sư phát hiện 32/35 sinh viên trong lớp dùng AI làm bài chỉ nhờ một từ “bẫy” giấu trong đề thi",
+        "url": "https://kenh14.vn/em-lam-hay-ai-lam.html"
+      },
+      {
+        "original_article_id": "KEN26_021",
+        "retained": false,
+        "historical_link_status": "duplicate_extraction",
+        "exclusion_reason": "Researcher error: storage/linkage failure; missing original ID or duplicate extraction.",
+        "title": "Giáo sư phát hiện 32/35 sinh viên trong lớp dùng AI làm bài chỉ nhờ một từ “bẫy” giấu trong đề thi",
+        "url": "https://kenh14.vn/giao-su-phat-hien-32-35-sinh-vien-trong-lop-dung-ai-lam-bai-chi-nho-mot-tu-bay-giau-trong-de-thi-215260807220728805.chn"
+      }
+    ],
+    "new_source_sha256": "afeff1b97456afa23c6149b4c464041de8d9b770b95e8873b4c6b7e6e23efbde",
+    "new_coded_sha256": "c50d9f384ac9c2aecfc17536297463ac1c3bdd6a3dcb45239fcf66b30cafd58a",
+    "retained_texts_unchanged": true,
+    "retained_codes_and_evidence_unchanged": true,
+    "cleanup": {
+      "status": "Minimal final working set; no retained secondary exports or historical output snapshots.",
+      "retained": "Source inputs, one original-ID coded corpus, compact recovery/exclusion provenance, active definitions, one rectangular CSV and vector process figure."
+    },
+    "legacy_id_removal": {
+      "only_removed_field": "former extraction-row identifier",
+      "retained_article_ids": 1081,
+      "source_texts_metadata_codes_and_evidence_unchanged": true
+    }
+  },
+  "source_recovery": [
+    {
+      "historical_path": "data/reextraction/source_recovery/recovery_ledger.jsonl",
+      "sha256": "c60d434247546b3f0152ff00e167ee16a415a74be0344d315bd78d6658cb5bbd",
+      "record": [
+        {
+          "ID": "DTR23_007",
+          "source_url": "https://dantri.com.vn/giao-duc/gia-dinh-sinh-vien-bat-ngo-vi-nhan-cuoc-goi-bao-diem-tu-ai-20230415110540611.htm",
+          "original_text_sha256": "636a94ab8419aaed8fd94f265e38a53aa0258848bf85169d797c75987fdfe4de",
+          "recovered_text_sha256": "2ab3c616831051305cdc3ab3c8ca61dd978378f1c5ba4038385f25845ae5a98d",
+          "status": "recovered and freshly re-extracted using unchanged twelve-field framework",
+          "reason": "restore missing beginning and speaker/institution attribution",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "ID": "DTR24_024",
+          "source_url": "https://dantri.com.vn/giao-duc/cong-nghe-ai-lieu-co-the-thay-the-giao-vien-giang-day-20241120155444951.htm",
+          "original_text_sha256": "56357669970f67958393be688b97e91501b8415ed255f2c16f8f65fe00bd0544",
+          "recovered_text_sha256": "e6f19f3643ef82d930eff4da1d2b2b79dcbe284eb09406789427685f079eaf9d",
+          "status": "recovered and freshly re-extracted using unchanged twelve-field framework",
+          "reason": "restore missing opening and assess teacher–AI complementarity in complete article",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "source_url": "https://tuoitre.vn/giaoduc/dua-tri-tue-nhan-tao-vao-giao-duc-phai-nang-tam-giao-vien-108886060.htm",
+          "original_text_sha256": "74e006543c7c9c70a289f8834a086cc6757336cbff13f4f1f1038ac134d03b87",
+          "recovered_text_sha256": "2707ebaa41b2bd44596470d94b25609be0fa48863ba22dca93e699c806403ab2",
+          "status": "recovered and freshly re-extracted using unchanged twelve-field framework",
+          "reason": "restore missing body or opening and verify speaker-linked future claims",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "ID": "VTV25_004",
+          "source_url": "https://vtv.vn/giao-duc/google-ho-tro-viet-nam-phat-trien-tri-tue-nhan-tao-trong-cac-nha-truong-2025022201065756.htm",
+          "original_text_sha256": "f777d7df3a9150a5d32808d464e071489283ef589a0c3b1cff6da89fbe009868",
+          "recovered_text_sha256": "6b96a528d42cf54687942124d58aa06f05c49038d56b9c0f1f49667f4743f4e5",
+          "status": "recovered and freshly re-extracted using unchanged twelve-field framework",
+          "reason": "restore missing body or opening and verify speaker-linked future claims",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "source_url": "https://tuoitre.vn/giaoduc/hoc-sinh-chuyen-le-hong-phong-thiet-ke-ung-dung-sang-tac-nhac-don-ca-tai-tu-tu-ai-108893796.htm",
+          "original_text_sha256": "74e006543c7c9c70a289f8834a086cc6757336cbff13f4f1f1038ac134d03b87",
+          "recovered_text_sha256": "6d7a310bc0262a26459756e1dc927f9b8c4984f52d828312a298a7c0189adf51",
+          "status": "recovered and freshly re-extracted",
+          "reason": "replace unrelated teaser with same article body",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "source_url": "https://tuoitre.vn/giaoduc/ung-dung-cong-nghe-blockchain-ai-de-nang-cao-hieu-qua-hoc-tap-108895409.htm",
+          "original_text_sha256": "74e006543c7c9c70a289f8834a086cc6757336cbff13f4f1f1038ac134d03b87",
+          "recovered_text_sha256": "e236bda680066977c4baa6092c66c0075583c9a08e5e97c9d5ea0f1474a6014d",
+          "status": "recovered and freshly re-extracted",
+          "reason": "replace unrelated teaser with same article body",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "ID": "DTR25_011",
+          "source_url": "https://dantri.com.vn/tam-diem/khi-truong-hoc-boi-roi-truoc-lan-song-ai-20250624145159670.htm",
+          "original_text_sha256": "e8f365dae143fd072ac7c61371c964cdaccdb8411eac96031e0e98aff483e3f2",
+          "recovered_text_sha256": "95ccc52c1e57ab8019c07df10c51d529562637c28c54fb61870cb00ed013f832",
+          "status": "recovered and freshly re-extracted",
+          "reason": "restore omitted opening, author and regional context",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        },
+        {
+          "ID": "TTO25_025",
+          "corpus_url": "https://tuoitre.vn/saigontimes/co-nen-khuyen-khich-hoc-sinh-pho-thong-su-dung-ai-1061097881.htm",
+          "source_url": "https://thesaigontimes.vn/saigontimes/co-nen-khuyen-khich-hoc-sinh-pho-thong-su-dung-ai/",
+          "original_text_sha256": "a20b482a20d41885df0aa67417a2ba20f53fae1d89a6d58ccd17afbc4297e544",
+          "recovered_text_sha256": "1228085e061d127b45c133eafc6a9478d0b40b7085212fcb494f6a4d85b12693",
+          "status": "recovered from original publisher version of syndicated article and freshly re-extracted",
+          "identity_check": "matching title, 20/06/2025 publication and retained opening; original corpus outlet not relabelled",
+          "review": "parent assistant direct source reading; not independent accuracy assessment"
+        }
+      ]
+    }
+  ]
+}

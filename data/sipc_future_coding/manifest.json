@@ -1,0 +1,13 @@
+{
+  "codebook_version": "2.3",
+  "codebook_path": "data/sipc_future_coding/codebook.json",
+  "codebook_sha256": "da0b79a902cdcc8afad4c3834f28596d353557bfa8f366773a8c6e10527974eb",
+  "source_sha256": "afeff1b97456afa23c6149b4c464041de8d9b770b95e8873b4c6b7e6e23efbde",
+  "coded_sha256": "c50d9f384ac9c2aecfc17536297463ac1c3bdd6a3dcb45239fcf66b30cafd58a",
+  "total_articles": 1081,
+  "original_ids": true,
+  "storage_exclusions": 17,
+  "unit": "article; code presence in any attributed account counted once per article",
+  "status": "Complete; original IDs restored and researcher-error exclusions applied.",
+  "publication": "Author authorised publication of full research data and article-level dataframe on 2026-10-14."
+}
