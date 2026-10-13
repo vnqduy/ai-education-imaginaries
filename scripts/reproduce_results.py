@@ -1,52 +1,27 @@
-"""Export validated article/account coding without flattening rival voices."""
-import collections
-import csv
-import datetime
-import hashlib
-import json
+"""Validate and reproduce final private coding exports and public aggregates."""
+import csv,json,subprocess,sys
 from pathlib import Path
+from validate_future_coding import ROOT,WORK,rows,validate
 
+def main():
+    coded=rows(WORK/'coded_corpus.jsonl');report=validate(coded,complete=True)
+    (ROOT/'results/validation.json').write_text(json.dumps(report,indent=2)+'\n')
+    if not report['valid']:raise SystemExit('Complete validation failed')
+    source={r['ID']:r for r in rows(ROOT/'data/source_corpus.jsonl')}
+    book=json.load((WORK/'codebook.json').open());fields=list(book['fields'])
+    articles=[];accounts=[]
+    for r in coded:
+        union={f:sorted({c for a in r['accounts'] for c in a['codes'][f]}-{'MISSING'}) for f in fields}
+        for f in fields:
+            if r['accounts'] and not union[f]:union[f]=['MISSING']
+        articles.append({'ID':r['ID'],'legacy_extraction_id':r['legacy_extraction_id'],'title':source[r['ID']]['title'],'date':source[r['ID']]['date'],'outlet_domain':source[r['ID']]['outlet_domain'],'eligibility':r['eligibility'],'source_adequacy':r['source_adequacy'],'account_count':len(r['accounts']),**{f+'_codes':union[f] for f in fields},'primary_account_codes':r['codes']})
+        for a in r['accounts']:
+            accounts.append({'ID':r['ID'],'account_id':a['account_id'],'position':a['position'],'speaker_reference':a['speaker_reference'],'future_statement':a['future_statement'],**{f+'_codes':a['codes'][f] for f in fields}})
+    for name,data in [('coded_articles.csv',articles),('coded_accounts.csv',accounts)]:
+        with (WORK/name).open('w',newline='',encoding='utf-8-sig') as f:
+            w=csv.DictWriter(f,fieldnames=list(data[0]));w.writeheader()
+            w.writerows({k:json.dumps(v,ensure_ascii=False) if isinstance(v,(list,dict)) else v for k,v in row.items()} for row in data)
+    subprocess.run([sys.executable,'-B',str(ROOT/'scripts/summarize_future_coding.py')],check=True,cwd=ROOT)
+    print(json.dumps({'articles':len(coded),'accounts':len(accounts),'validation':'passed','private_exports':'data/sipc_future_coding/','public_aggregates':'results/'}))
 
-root = Path('data/sipc_future_coding')
-import subprocess, sys
-subprocess.run([sys.executable, 'scripts/validate_future_coding.py'], check=True)
-validation = json.loads(Path('results/validation.json').read_text())
-if validation.get('errors') or validation.get('status') != 'complete validation' or validation['records'] != validation['population']:
-    raise SystemExit('Complete coding validation required before export.')
-book = json.loads((root / 'codebook.json').read_text())
-records = list(map(json.loads, (root / 'coded_corpus.jsonl').read_text().splitlines()))
-inputs = {r['ID']: r for r in map(json.loads, (Path('data/source_corpus.jsonl')).read_text().splitlines())}
-fields = list(book['fields'])
-eligible = {'clear_future', 'borderline_future'}
-
-
-def write_csv(path, rows, keys):
-    with path.open('w', newline='', encoding='utf-8-sig') as handle:
-        writer = csv.DictWriter(handle, fieldnames=keys)
-        writer.writeheader()
-        for row in rows:
-            writer.writerow({key: json.dumps(row[key], ensure_ascii=False) if isinstance(row.get(key), (dict, list)) else row.get(key, '') for key in keys})
-
-
-article_rows, account_rows = [], []
-for record in records:
-    article_rows.append({
-        **{key: record[key] for key in ['ID', 'eligibility', 'eligibility_rationale', 'source_adequacy', 'primary_future_statement', 'relational_memo', 'evidence_reference', 'codebook_version']},
-        'title': inputs[record['ID']]['title'], 'date': inputs[record['ID']]['date'],
-        'account_count': len(record['accounts']),
-        **{f'{field}_codes': record['codes'][field] for field in fields},
-    })
-    for account in record['accounts']:
-        account_rows.append({
-            'ID': record['ID'], 'eligibility': record['eligibility'], 'source_adequacy': record['source_adequacy'],
-            **{key: account[key] for key in ['account_id', 'position', 'speaker_reference', 'future_statement', 'evaluation_target', 'stance', 'qualification', 'role_details', 'evidence_reference']},
-            'codebook_version': record['codebook_version'],
-            **{f'{field}_codes': account['codes'][field] for field in fields},
-        })
-write_csv(root / 'coded_articles.csv', article_rows, list(article_rows[0]))
-write_csv(root / 'coded_accounts.csv', account_rows, list(account_rows[0]) if account_rows else ['ID', 'account_id'])
-
-
-
-subprocess.run([sys.executable, 'scripts/summarize_future_coding.py'], check=True)
-subprocess.run([sys.executable, 'scripts/review_outlet_comparison.py'], check=True)
+if __name__=='__main__':main()

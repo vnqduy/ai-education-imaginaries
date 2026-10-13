@@ -1,4 +1,7 @@
 {
+  "version": "2.3 final record specification",
+  "codebook_path": "data/sipc_future_coding/codebook.json",
+  "status": "Completed semantic coding; original article IDs restored after storage exclusions.",
   "record": {
     "ID": "original article ID",
     "eligibility": "clear_future | borderline_future | no_educational_future | unresolved_source",
@@ -22,9 +25,10 @@
     "relational_memo": "preserve attribution and connections; distinguish secondary accounts",
     "evidence_reference": "original extraction evidence plus additional source anchors if needed",
     "codebook_version": "frozen version applied",
-    "accounts": "Array of linked primary/secondary attributed educational-future accounts; empty for noneligible records."
+    "accounts": "Array of linked primary/secondary attributed educational-future accounts; empty for noneligible records.",
+    "primary_selection_reason": "Why this source-supported future is primary; n/a for noneligible records.",
+    "legacy_extraction_id": "Former DOC row identifier; traceability only"
   },
-  "note": "Frozen v1.1. Article codes describe the primary account only; all distinct source-supported voices/futures are preserved in accounts. Noneligible records have empty codes and accounts.",
   "account_specification": {
     "account_id": "unique within article",
     "position": "primary | secondary",
@@ -48,6 +52,21 @@
     "evaluation_target": "Precisely what arrangement or effect the evaluation concerns, not AI in general.",
     "stance": "Source wording for endorsement/refusal/recommendation; not specified if absent. Refusal does not determine valence.",
     "qualification": "Conditions/safeguards and mixed-effect explanation, or not specified.",
-    "evidence_reference": "source anchor for this account"
-  }
+    "evidence_reference": "source anchor for this account",
+    "field_evidence": "Object with all twelve field keys. Each substantive field code has one or more entries: {code, char_start, char_end, proposition_id, reason} for new records, locating a nonempty contiguous retained-source span without copying it. Previously stored {code, quote, proposition_id, reason} entries remain valid and unchanged. MISSING has an empty evidence array and a field-specific absence/limit note. Noneligible records have empty accounts/codes.",
+    "propositions": "Nonempty array per eligible account: {proposition_id, statement, target, claim_mode}. IDs unique within account. The statement is a source-supported semantic summary; no assigned code or evaluation is inferred from claim_mode.",
+    "literal_details": "Object storing actual tool/form, education setting/activity, time horizon, country/locality/institution/scope and named actor details as stated. Do not add invented settings/times. Foreign domestic space codes require the actual country in space details.",
+    "missing_notes": "Object keyed by each MISSING field; short reason that the relevant specification is absent/insufficient in this account, not in unrelated article material."
+  },
+  "note": "The article codes and primary_future_statement exactly summarise its one primary attributed account. Distinct voices and materially distinct desired/feared targets remain secondary accounts. All twelve field codes are semantic decisions, never an old-code crosswalk or keyword classifier.",
+  "new_requirements": {
+    "field_evidence": "Object with all twelve field keys. Each substantive field code has one or more entries: {code, char_start, char_end, proposition_id, reason} for new records, locating a nonempty contiguous retained-source span without copying it. Previously stored {code, quote, proposition_id, reason} entries remain valid and unchanged. MISSING has an empty evidence array and a field-specific absence/limit note. Noneligible records have empty accounts/codes.",
+    "propositions": "Nonempty array per eligible account: {proposition_id, statement, target, claim_mode}. IDs unique within account. The statement is a source-supported semantic summary; no assigned code or evaluation is inferred from claim_mode.",
+    "literal_details": "Object storing actual tool/form, education setting/activity, time horizon, country/locality/institution/scope and named actor details as stated. Do not add invented settings/times. Foreign domestic space codes require the actual country in space details.",
+    "missing_notes": "Object keyed by each MISSING field; short reason that the relevant specification is absent/insufficient in this account, not in unrelated article material.",
+    "role_details": "Each assigned role/outcome has mechanism, direction, conditions and evidence_reference; retain literal AI role/function and goal/outcome in mechanism or proposition target. MISSING role has an empty role_details object.",
+    "desirability": "One value per account evaluation target. Materially different desired/feared arrangements are separated when source supports their distinction. Mixed is one speaker’s same-arrangement weighing, not article-level disagreement.",
+    "primary_selection": "Use the most central explicitly articulated educational future in the article lead/main argument. Record primary_selection_reason; do not choose by code frequency, positive valence or outlet group."
+  },
+  "coverage": "Reassess all original 1098 IDs, including prior no-future and borderline articles. Preserve reviewed source adequacy; inadequate sources remain unresolved_source. Do not consult old coded records to assign new codes."
 }
