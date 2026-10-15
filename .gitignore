@@ -1,5 +1,8 @@
-# Authoring materials and external literature remain local.
-manuscript/
+# Track the current manuscript; keep other authoring materials and literature local.
+manuscript/*
+!manuscript/manuscript.qmd
+!manuscript/manuscript.pdf
+!manuscript/apa.csl
 ref/
 # Generated caches and credentials.
 .DS_Store

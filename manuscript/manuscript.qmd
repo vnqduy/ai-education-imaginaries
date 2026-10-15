@@ -1,0 +1,973 @@
+---
+title: "Shared Purposes, Divergent Pathways: AI and Education in Vietnamese News"
+author:
+  - name: "Vu Nguyen Quang Duy"
+    affiliations:
+      - name: "Hiroshima University"
+        department: "Graduate School of Humanities and Social Sciences"
+    email: "duyvnq@gmail.com"
+
+abstract: |
+  Artificial intelligence (AI) promises educational improvement, but the futures advanced through that promise receive unequal attention and support different practices. This study examines a dominant developmental orientation and alternative pathways in 828 articles from 20 Vietnamese news outlets. Using the Sociotechnical Imaginaries in Public Communication framework, AI-assisted coding links educational purposes to evaluations, reasons, speakers, actions, and responsibilities. Article-level comparisons, combinations within attributed statements, and close reading establish both recurring patterns and differences within them. Human development and wellbeing appeared in 75.1% of articles. The most frequent four-field combination linked this purpose to positive evaluation, learning quality, and changed educational practice in 32.9% of articles. This developmental orientation accommodated different pathways: assessment proposals favoured technical controls or dialogue and evidence of learning, while professional preparation involved both AI use and limits intended to protect independent judgment. Criticism was widely present but usually remained outside the primary future articulated in an article: negative evaluations occurred in 33.1% of articles and occupied the primary position in 9.7%. Public/central coverage foregrounded collective purposes and institutional implementation; commercial/general coverage included more learner voices and negative evaluations, although the negative-evaluation gap narrowed when only primary statements were counted. Generative AI and negative evaluations were more frequent in 2023 than in the pooled earlier coverage and remained below 2023 levels in each later year. The findings describe a bounded, AI-assisted analysis of retrieved news. They show how a developmental orientation holds a prominent place in educational AI coverage while alternative pathways contest how improvement should be achieved and whose judgment should guide it.
+
+keywords:
+  - Artificial intelligence
+  - Education
+  - Teacher agency
+
+csl: apa.csl
+
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - margin=1in
+    fontsize: 11pt
+    linestretch: 1.3
+    number-sections: false
+    pdf-engine: xelatex
+    include-in-header:
+      text: |
+        \usepackage{longtable}
+        \usepackage{etoolbox}
+        \usepackage{setspace}
+        \AtBeginEnvironment{longtable}{\interfootnotelinepenalty=10000}
+
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+
+```{r}
+#| label: setup-methods
+#| include: false
+
+library(tidyverse)
+library(kableExtra)
+
+# Locate project data when rendering from manuscript/ or the project root.
+project_root <- if (file.exists("results/article_coding.csv")) "." else ".."
+articles <- read_csv(file.path(project_root, "results/article_coding.csv"),
+                     na = "", show_col_types = FALSE)
+outlets <- read_csv(file.path(project_root, "data/outlet_classification.csv"),
+                    show_col_types = FALSE)
+main <- articles |> filter(main_sample == 1)
+
+stopifnot(
+  !anyDuplicated(articles$article_id),
+  !anyDuplicated(outlets$outlet_domain),
+  !anyNA(articles$main_sample),
+  all(articles$main_sample %in% c(0, 1)),
+  all(articles$outlet_domain %in% outlets$outlet_domain),
+  all(main$eligibility == "clear_future"),
+  all(articles$outlet_group ==
+      outlets$outlet_type[
+        match(articles$outlet_domain, outlets$outlet_domain)
+      ])
+)
+```
+
+# Introduction
+
+AI is being asked to do several things for education: improve learning, reduce teachers’ workloads, prepare students for changing jobs, and strengthen national technological capacity (Nemorin et al., 2023; Linderoth et al., 2024). These goals can support one another, but they do not settle how AI should be used. Faster completion of schoolwork may conflict with the effort needed to develop understanding. Tools intended to protect academic integrity may also weaken trust between teachers and students. Preparing people for work may involve learning to use AI, limiting its use, or both. Expectations about AI therefore raise questions about what education should achieve and which practices should change to achieve it.
+
+Such expectations matter because they can justify decisions in the present. Promises about future benefits support investment, curriculum reform, and new demands on teachers and learners (Bareis & Katzenbach, 2022; Hendriks et al., 2025). The concept of sociotechnical imaginaries connects these technological expectations to visions of how collective life should be organised (Jasanoff & Kim, 2009, 2015). Applied to education, it directs attention to the relationships behind a promise: what students are expected to become, what teachers should do, who should judge educational success, and who should take responsibility when expectations are not met. Similar claims that AI will “improve education” can therefore support substantially different futures.
+
+News coverage offers a setting in which these futures can be examined. Reporting brings policy announcements, institutional plans, commercial promises, expert judgments, and educational experiences into public view. Journalistic choices determine which claims are reported, who is quoted, and which benefits or problems receive attention (Brause et al., 2025). Research has shown that AI reporting expresses aspirations associated with national contexts and gives unequal prominence to different actors and concerns (Brause et al., 2024; Wang et al., 2025; Huang & Gadavanij, 2025). To understand the educational futures presented in this coverage, however, it is necessary to connect these elements. Identifying optimism, concern, or a recurring application tells us less than examining what a speaker wants education to become and how they propose getting there.
+
+Vietnam provides a useful setting for this inquiry. Its national strategies position education both as a field for AI application and as a means of developing the skills and expertise needed for technological development (Prime Minister of Vietnam, 2021, 2022). Research on AI coverage in five major Vietnamese state newspapers during 2016–2022 found prevailing optimism, national-development aspirations, substantial industry participation, and limited attention to ethical issues (Nguyen et al., 2026). These findings establish the importance of developmental promises in Vietnamese AI reporting. They leave open how those promises translate into expectations about learning, teaching, assessment, and educational responsibility. They also leave open whether criticism challenges the promised goals or proposes different ways of achieving them.
+
+These questions require attention to differences within Vietnamese news. Outlets operate under shared party-state oversight while also facing commercial pressures, with variation in institutional mandates, publishing orientations, and relationships with audiences and sponsors (Nguyen-Thu, 2019; Dien Nguyen An Luong, 2022). Public/central and commercial/general outlets may consequently give different prominence to official programmes, institutional plans, expert commentary, and learner experiences. The comparison is useful for asking whether different emphases support different educational futures, and where similar expectations cross outlet boundaries.
+
+This study examines these questions in `r nrow(main)` articles from `r length(unique(main$outlet_domain))` Vietnamese news outlets. It uses the Sociotechnical Imaginaries in Public Communication framework to connect anticipated educational outcomes with their justifications, speakers, proposed actions, and assigned responsibilities (Brause et al., 2025). Article-level comparisons identify recurring patterns, while close reading examines how these elements fit together in particular accounts. Two questions guide the analysis:
+
+> RQ1. What educational futures involving AI are articulated in Vietnamese news, and how are their purposes, evaluations, and proposed arrangements connected?
+
+> RQ2. How do these educational futures vary between public/central and commercial/general news outlets across the six SIPC dimensions?
+
+The study identifies a dominant developmental orientation in which AI becomes educationally valuable through improvements in human capabilities and changes in educational practice. It also examines alternative pathways within that orientation: shared commitments to learning and credible assessment support different arrangements for AI use and human judgment. The analysis distinguishes the presence of criticism from its prominence and traces variation across outlets and publication periods. These connections explain both what receives priority in educational AI coverage and what remains open to disagreement.
+
+# Literature Review
+
+## Educational purposes in sociotechnical imaginaries of AI
+
+Sociotechnical imaginaries are collectively held visions of desirable futures in which technological development is connected to ideas about social life and social order (Jasanoff & Kim, 2009, 2015). Their significance lies in how they guide present choices: which problems deserve attention, which technologies merit investment, and which institutions should act. National AI strategies, for example, connect technological capabilities to ambitions for economic development and international standing, helping justify programmes and allocate responsibilities (Bareis & Katzenbach, 2022). Studying imaginaries therefore involves examining the social commitments carried by technological promises, including whose expectations gain institutional support (Hendriks et al., 2025).
+
+Education occupies two positions in these futures. It is expected to benefit from new technologies and to prepare people for the society those technologies are expected to produce. Rahm (2023) shows how expectations of technological change become demands for education, skills, and particular forms of citizenship. These demands depend on how the problem is defined. If the problem is a shortage of technical skills, the proposed response may be curriculum reform. If it is students’ dependence on automated assistance, the response may involve limits on use or changes to assessment. Rahm and Rahm-Skågeby (2023) argue that educational AI proposals contain such problem definitions, which shape what becomes a reasonable or necessary intervention.
+
+Research identifies several purposes behind these proposals. Nemorin et al. (2023) connect educational AI discourse to economic development, geopolitical competition, and market expansion. Other work examines promises of wider access and changes to teachers’ work, showing how expected benefits depend on resources, institutional support, and pedagogical relationships (Bulathwela et al., 2021; Hrastinski et al., 2019). Critiques of efficiency and performance also ask what these priorities leave out. An approach that values faster completion or measurable achievement may give less attention to care, curiosity, critical judgment, or the experience of learning itself (Mamlok, 2025; Wieczorek & Romele, 2026). These studies make educational purpose central to the analysis: the significance of an AI application depends on what it is expected to improve and how improvement is judged.
+
+The relationship among these purposes remains an empirical question. Saving teachers’ time may be justified as a way to provide more individual attention, linking efficiency to care. Developing AI skills may serve both professional preparation and national economic ambitions. Yet the same purposes can also support different approaches. Protecting independent thought might justify teaching students to question AI outputs or restricting their access to them. Research on educational imaginaries shows that competing understandings of improvement can coexist within the same policy setting (Linderoth et al., 2024). Analysis must therefore examine how purposes are connected to practices and responsibilities, rather than treating personalisation, efficiency, or skills development as self-explanatory visions.
+
+Warnings also help define desired futures. Concerns about dependence, inequality, or the loss of human capabilities can establish conditions under which a technology becomes acceptable (Cave & Dihal, 2019). A call to limit AI use may seek to protect an educational goal that advocates of adoption also value. Positive and negative evaluations consequently need to be read in relation to their targets: what is being welcomed or feared, whose interests are at stake, and what response is proposed.
+
+## Public communication and the analysis of educational futures
+
+News media make technological expectations publicly available through decisions about what to cover, whom to quote, and how to describe anticipated change. Their coverage brings official programmes into contact with commercial claims, expert judgments, and accounts of everyday experience (Brause et al., 2025). Studies of AI reporting show that these expectations vary across national settings, where technological benefits and risks become connected to different political priorities and institutional arrangements (Brause et al., 2024; Wang et al., 2025). Variation also occurs within a polity: government, business, academic, and civic actors may advance different expectations about AI (Richter et al., 2025).
+
+Access to this public discussion is uneven. Some actors appear as authorities entitled to explain technological change, while others appear mainly as people who will experience its consequences. Research on educational AI reporting identifies imbalances in actor representation that can favour institutional priorities over educators’ and learners’ concerns (Huang & Gadavanij, 2025). This distinction matters when asking whose future is being described. An article may repeatedly discuss benefits for students without including students’ judgments about those benefits. Likewise, teachers may be assigned responsibility for successful implementation without being given comparable scope to define its purposes. Attention to voice must therefore distinguish speaking about a future, being affected by it, and being expected to deliver it.
+
+The Sociotechnical Imaginaries in Public Communication (SIPC) framework provides a way to examine these distinctions systematically. It treats publicly communicated futures as visions of desirable or undesirable technological change that can orient action towards their realisation or prevention (Brause et al., 2025). Its six dimensions cover vision, desirability, futures, technological object, speaker, and implications. These are operationalised through twelve fields, shown in @tbl-sipc.
+
+| Theoretical dimension | Analytical field | Question guiding analysis |
+|---|---|---|
+| Vision | Future role | What educational or social change is expected, sought, or feared? |
+| Vision | Certainty | How firmly is that outcome predicted? |
+| Desirability | Desirability level | How does the speaker evaluate the anticipated change? |
+| Desirability | Affected entities | Who is expected to experience its consequences? |
+| Desirability | Rationale | What reasons or values support the evaluation? |
+| Futures | Timespan | When is the change expected to occur? |
+| Futures | Space | Where is it expected to apply? |
+| Technological object | Technology characteristics | What form of AI is involved? |
+| Technological object | Technology context | In what educational setting is it expected to operate? |
+| Speaker | Speaker | Who articulates the future, and in what capacity? |
+| Implications | Action recommendation | What action or restraint is proposed? |
+| Implications | Action responsibility | Who is expected to act or be accountable? |
+
+: SIPC dimensions and the questions used to examine educational AI futures. Adapted from Brause et al. (2025). {#tbl-sipc}
+
+The framework’s value lies in connecting these fields. A forecast of improved learning means something different when improvement refers to higher test scores, stronger independent judgment, or wider participation. Its meaning also depends on whether the proposed change is justified by a provider, a teacher, or a learner, and whether it requires new products, different teaching practices, or restrictions on use. Counting each element separately can show what receives attention. Reconstructing their connections shows the educational future being proposed.
+
+This study uses those connections to move from individual statements to an interpretation of imaginaries. Statements provide evidence of what particular actors expect or recommend. Recurring connections among purposes, reasons, speakers, and actions identify patterns for closer examination. Source-based reading then asks what kind of education those patterns describe: how students should learn, how teachers should exercise judgment, and how institutions should organise and govern AI use. Similar coding patterns may contain disagreement, while differently worded accounts may support a shared educational direction.
+
+News evidence also sets the scope of this interpretation. Public articulation is one part of the collective and institutional life of imaginaries; it does not establish that audiences accept a vision or that institutions have adopted it (Jasanoff & Kim, 2015; Hendriks et al., 2025). Repetition requires similar care. Several outlets may circulate the same announcement or quotation, increasing its visibility without adding independently expressed support. The analysis therefore treats recurrence as evidence of circulation and examines attribution and source context before interpreting agreement.
+
+## Educational AI futures in Vietnam’s media context
+
+Vietnam’s national AI strategies assign education a role in technological development. They support AI applications in education while calling for the skills and specialist expertise needed to strengthen national capabilities (Prime Minister of Vietnam, 2021, 2022). Education consequently appears both as a public service to be improved and as a means of pursuing wider development goals. These policy commitments provide a reference point against which news accounts can promote applications, describe institutional initiatives, or question whether particular uses serve educational needs.
+
+Such reporting takes place within a media environment shaped by party-state oversight and commercial pressures. Institutional supervision and editorial guidance influence permissible coverage, while advertising, sponsorship, and competition for audiences affect publishing priorities (Nguyen-Thu, 2019; Dien Nguyen An Luong, 2022). These pressures coexist within outlets. Their institutional affiliations and publishing orientations nevertheless differ, providing a basis for examining variation in the actors and educational expectations they make visible.
+
+Nguyen et al. (2026) found prevailing optimism and national-development aspirations in AI reporting by five major Vietnamese state newspapers during 2016–2022. They also identified substantial industry participation and limited attention to ethical issues. These findings suggest that developmental ambitions and commercial participation can occupy the same news space. An education-specific analysis can examine how that relationship is expressed through proposals for curricula, teaching, assessment, and institutional investment. It can also ask whether concerns about learning and professional judgment qualify the terms on which technological expansion is supported.
+
+The comparison between public/central and commercial/general outlets addresses this variation. The labels describe institutional profiles and publishing orientations within the same political environment. Public/central outlets may give greater attention to official programmes and collective responsibilities, while commercial/general outlets may foreground applications, products, and educational experiences. These are possibilities to investigate, not positions assigned to the groups in advance. Official and commercial actors can promote similar initiatives, and criticism of AI use can appeal to the same educational or national goals invoked by its advocates.
+
+The analytical question is therefore how each group connects purposes to people and proposed action. Differences in the frequency of learner voices, for example, matter partly because learners may introduce concerns absent from institutional announcements. Similar support for professional preparation may conceal disagreement about whether competence requires greater AI use or protection from dependence. Examining these relationships allows the study to assess both variation across outlet groups and the educational commitments that cross their boundaries.
+
+# Methodology
+
+## Research design and corpus construction
+
+This study combined qualitative analysis of educational AI futures with descriptive comparisons across Vietnamese news outlets. The Sociotechnical Imaginaries in Public Communication framework supplied six dimensions and twelve analytical fields. Categories within these fields were developed from the collected texts. Articles were the units of sampling and descriptive comparison. Within each article, attributed statements about educational futures were coded to retain connections among expected outcomes, evaluations, speakers, and proposed actions.
+
+Articles were retrieved through Google News RSS searches targeting 21 Vietnamese outlet domains and publications dated between 2017 and 2026. Queries combined Vietnamese terms for AI and education with named technologies and terms concerning assessment and academic integrity. Search vocabulary was adapted across three periods: 2017–2021, 2022–2023, and 2024–2026. **[AUTHOR TO CONFIRM: collection dates, the final publication-date cutoff, and the basis for selecting the 21 domains.]** Duplicate search hits were consolidated, titles screened for relevance, and publisher URLs resolved before article texts and metadata were extracted. When initial extraction returned incomplete content, alternative retrieval procedures were used to recover the article. The collection procedure sought to retrieve all available matches across the specified queries and periods. Google News RSS nevertheless limits results per query, so this effort cannot establish exhaustive coverage of indexed or published news. The current project directory retains the retrieved corpus and validation/export scripts, but not the original crawling and scraping scripts.
+
+Source adequacy and eligibility were assessed separately. Source checks identified missing article bodies, unrelated webpage content, and unavailable audiovisual transcripts. Where possible, incomplete texts were replaced with fuller versions of the same publication. Eligibility required an anticipated or normatively desired educational change involving AI. Reports of current applications qualified when they connected those applications to an expected educational outcome or direction. A reference to AI adoption, technical performance, university affiliation, or a course title alone was insufficient.
+
+The working corpus contained `r format(nrow(articles) + 17L, big.mark = ",", trim = TRUE)` records. Verification of article–extraction linkages identified 15 records without recoverable original identifiers and two duplicate extraction records associated with one original identifier. These 17 records were excluded as storage and linkage errors. Of the `r format(nrow(articles), big.mark = ",", trim = TRUE)` retained articles, `r sum(articles$eligibility == "clear_future")` contained clear educational futures, `r sum(articles$eligibility == "borderline_future")` were borderline, `r sum(articles$eligibility == "no_educational_future")` did not contain a supported educational future, and `r sum(articles$eligibility == "unresolved_source")` remained unresolved because the source material was inadequate. The main analytical sample comprised `r nrow(main)` clear-future articles, excluding `r sum(articles$eligibility == "clear_future") - nrow(main)` for which the producing publisher was uncertain.
+
+`r length(unique(articles$outlet_domain))` of the targeted outlets contributed retained articles; *khoahocphattrien.vn* contributed none. Outlets were classified as public/central or commercial/general according to institutional affiliation and publishing orientation (@tbl-outlet-classification). Assignments were established independently of article tone and coding outcomes. The classification is deliberately approximate: institutional affiliation and commercial publishing practices can overlap within either group. These operational groups do not distinguish state ownership from private ownership or directly measure political and commercial influence. The main sample contained `r sum(main$outlet_group == "public/central")` public/central articles and `r sum(main$outlet_group == "commercial/general")` commercial/general articles.
+
+Each retained article was linked to its original identifier, publication metadata, URL, source text, and text hash. Eligibility decisions and publisher-uncertainty flags were retained in the deposited dataset. Source materials, extraction and coding protocols, the final codebook, and validation and export scripts are available in the supplementary materials. **[AUTHOR TO CONFIRM: repository or supplementary-materials link.]**
+
+\begingroup
+\setstretch{1}
+
+```{r}
+#| label: tbl-outlet-classification
+#| tbl-cap: "Operational classification of outlets."
+
+outlets |>
+  filter(outlet_domain %in% articles$outlet_domain) |>
+  mutate(outlet_type = factor(outlet_type,
+                             c("public/central", "commercial/general"))) |>
+  group_by(outlet_type) |>
+  summarise(Outlets = n(), Domains = str_c(sort(outlet_domain), collapse = "; "),
+            .groups = "drop") |>
+  mutate(outlet_type = recode(as.character(outlet_type),
+                             "public/central" = "Public/central",
+                             "commercial/general" = "Commercial/general")) |>
+  kbl(col.names = c("Outlet group", "Count", "Included domains"),
+      format = "latex", booktabs = TRUE, align = "lrl", linesep = "") |>
+  kable_styling(latex_options = "HOLD_position", font_size = 9) |>
+  column_spec(1, width = "3cm") |>
+  column_spec(2, width = "1cm") |>
+  column_spec(3, width = "9.6cm")
+```
+
+\endgroup
+
+## Extraction and coding
+
+Analysis began with AI-assisted extraction of relevant passages into the twelve SIPC fields. This stage organised source material without assigning substantive categories. Extraction preserved who made a claim, what future it concerned, and any qualifications, negations, or conflicting evaluations. Categories were then developed by comparing the extracted material with the article texts. Definitions and inclusion and exclusion rules were refined through a boundary-testing exercise involving 16 articles and subsequent source review. The final codebook was applied across the corpus, with revisions prompting reconsideration of affected fields and records.
+
+Within each article, a coding unit comprised an attributed statement about an educational future. A new unit was distinguished when the text introduced a materially different speaker position, proposed arrangement, or target of evaluation. A unit could extend across several sentences. This allowed an anticipated outcome to remain connected to the reasons, actions, and responsibilities expressed with it.
+
+Each statement was coded across the twelve fields, allowing multiple categories within a field when supported by the source. The six future-role categories covered human development and wellbeing; work preparation and occupational displacement; educational productivity and resource priorities; educational inclusion and exclusion; trustworthy educational judgment and recognition; and collective development and education’s public purposes. These categories described expected ends or consequences. Desirability was coded separately, so a category could include both welcomed and feared outcomes.
+
+Evaluations were attached to the future and speaker concerned. Positive and negative claims from different speakers, or about different outcomes, remained separate. An explicitly mixed evaluation required one speaker to weigh benefits and harms of the same future arrangement. Elements unsupported by the text were recorded as missing. Source-stated outcomes that fell outside the substantive categories were retained in the underlying records.
+
+AI-assisted coding used the retained texts, extraction records, and codebook, with source-linked evidence supporting coding decisions. **[AUTHOR TO CONFIRM: model identifiers, run dates, configuration records, and the division of work between the researcher and AI during category development, coding, and source review.]** Quality checks combined review of ambiguous, conflicting, and flagged cases with automated validation. Source review examined eligibility, attribution, evidence relevance, and category boundaries. Automated checks verified record structure, identifiers, code membership, and evidence locations. These checks supported traceability and structural consistency. Separately, independent coding of a randomly drawn 10% of the corpus yielded a kappa of 0.74. This provides an agreement check beyond automated validation. **[AUTHOR TO CONFIRM: exact reliability-sample size and sampling population, coders compared, kappa variant, fields included, and treatment of multilabel codes and missing values. Specify whether primary-position assignment and desirability were independently assessed, and report their separate agreement results if available.]**
+
+## Descriptive comparison and interpretation
+
+Statement-level codes were aggregated into an article-level dataset for descriptive comparison. A code was counted once per article if it appeared in any attributed statement. When a field contained substantive coding, its categories were recorded as present or absent. Fields without substantive coding remained missing. An article could therefore contain both positive and negative evaluations without containing an explicitly mixed evaluation.
+
+All main descriptive comparisons used the same `r nrow(main)`-article sample. Percentages used either the full sample or the relevant outlet-group denominator: `r sum(main$outlet_group == "public/central")` public/central articles and `r sum(main$outlet_group == "commercial/general")` commercial/general articles. Articles with missing coding remained in these denominators, and missing-field frequencies were reported separately. Because articles could receive multiple codes, percentages within a field could sum to more than 100%. Counts, percentages, and percentage-point differences describe the complete retained analytical corpus, rather than estimates from a probability sample of Vietnamese news. Comparative terms such as “more frequently” refer to observed frequencies in this corpus. No significance threshold is used; outlet, event, and source dependence still constrain interpretation beyond it.
+
+Sensitivity checks repeated selected outlet comparisons using only the prominent arrangement marked primary in each coded record and by omitting each outlet in turn. The primary designation is an existing coding decision about prominence, not a new rule selecting the first sentence or the most positive statement. The resulting percentage-point differences and omission ranges are reported in Results. These checks assess sensitivity to aggregation and outlet composition; they cannot establish search completeness.
+
+Relationships among fields were examined within attributed statements and their source context. Initial five-field combinations of future role, rationale, speaker, action, and responsibility helped retrieve recurrent proposals. Close reading then examined these passages alongside warnings and contrary accounts across all six SIPC dimensions: vision, desirability, futures, technological object, speaker, and implications. Statements did not need substantive coding in every field to enter this reading.
+
+To identify recurrent code combinations, all observed combinations of future role, desirability, rationale, and action were enumerated within individual statements and ranked by the number of articles containing them. Each combination counted once per article, with primary-position counts reported separately. Selected combinations represent the leading combination, assessment and occupational pathways, and contrasting warnings. Warnings were retrieved through role, evaluation, and rationale without requiring an action code. Speaker and responsibility profiles were calculated only from statements matching each combination. These are overlapping descriptive combinations; their frequencies measure recurrence, not association beyond that expected from the component codes’ frequencies.
+
+Attributed statements were compared for the educational changes they described, their evaluations and reasons, the technologies and settings involved, and the actions assigned to particular actors. Source passages were integrated with the descriptive findings to explain variation within categories and differences across outlet groups.
+
+Interpretation asked whether statements supported compatible approaches, pursued shared purposes through different approaches, or challenged the purposes themselves. For example, workload relief and greater attention to learners could be presented as mutually supportive, while protecting academic integrity could justify different forms of assessment and oversight. The analysis used such relationships to describe the educational futures presented in the coverage and to compare their expression across outlet groups.
+
+Attribution and source context were checked in the examined cases, including speakers’ stated affiliations, the geographical scope of their claims, and evidence of shared quotations or event material. Repeated accounts were retained as instances of news coverage, while their shared origins informed the interpretation of apparent agreement. The resulting analysis concerns the futures made publicly visible in the collected articles, rather than their acceptance by audiences or implementation in educational institutions.
+
+```{r}
+#| label: fig-study-process
+#| fig-cap: "Corpus construction and analytical workflow. Excluded eligibility categories remain in the deposited coding corpus. Source review informed extraction and codebook refinement; the main descriptive and relational analyses use the same 828-article sample."
+#| fig-width: 8
+#| fig-height: 8
+#| echo: false
+
+local({
+  par(mar = c(0, 0, 0, 0), family = "sans")
+  plot.new()
+  plot.window(xlim = c(0, 100), ylim = c(0, 100),
+              xaxs = "i", yaxs = "i")
+
+  box <- function(x, y, label, fill = "#F0F4F8",
+                  width = 43, height = 10, cex = 0.83) {
+    rect(x - width / 2, y - height / 2,
+         x + width / 2, y + height / 2,
+         col = fill, border = "#526170", lwd = 1)
+    text(x, y, label, cex = cex)
+  }
+
+  down <- function(x, from, to) {
+    arrows(x, from, x, to, length = 0.07,
+           col = "#526170", lwd = 1.2)
+  }
+
+  text(25, 98, "CORPUS CONSTRUCTION", font = 2, cex = 0.95)
+  text(75, 98, "ANALYTICAL WORKFLOW", font = 2, cex = 0.95)
+
+  box(25, 88, sprintf(
+    "Working corpus\n%s records",
+    format(nrow(articles) + 17L, big.mark = ",", trim = TRUE)
+  ))
+
+  box(25, 73,
+      "Identifier and linkage verification\n17 storage/linkage records excluded",
+      fill = "#FAF1E7")
+
+  box(25, 58, sprintf(
+    "Retained coding corpus\n%s articles",
+    format(nrow(articles), big.mark = ",", trim = TRUE)
+  ))
+
+  box(25, 42, sprintf(
+    paste0(
+      "Eligibility assessment\n",
+      "%d borderline; %d no supported future\n",
+      "%d unresolved sources"
+    ),
+    sum(articles$eligibility == "borderline_future"),
+    sum(articles$eligibility == "no_educational_future"),
+    sum(articles$eligibility == "unresolved_source")
+  ), height = 12, cex = 0.77)
+
+  box(25, 26, sprintf(
+    "Clear educational futures\n%d articles",
+    sum(articles$eligibility == "clear_future")
+  ))
+
+  box(25, 10, sprintf(
+    "Main analytical sample: %d articles\n%d publisher-uncertainty exclusions\nPublic/central: %d; commercial/general: %d",
+    nrow(main),
+    sum(articles$eligibility == "clear_future") - nrow(main),
+    sum(main$outlet_group == "public/central"),
+    sum(main$outlet_group == "commercial/general")
+  ), fill = "#DCEBE4", height = 12, cex = 0.77)
+
+  down(25, 83, 78)
+  down(25, 68, 63)
+  down(25, 53, 48)
+  down(25, 36, 31)
+  down(25, 21, 16)
+
+  box(75, 88,
+      "Source-linked open extraction\nTwelve SIPC fields")
+
+  box(75, 70,
+      "Inductive category development\nBoundary testing and refinement")
+
+  box(75, 52,
+      "Final codebook and corpus coding\nSource review and validation")
+
+  box(75, 34,
+      "Article-level descriptive analysis\nSame-statement code combinations",
+      fill = "#DCEBE4")
+
+  box(75, 14,
+      "Exemplar and contrary source readings\nVoice and provenance checks\nInterpretation of imaginaries",
+      height = 14, cex = 0.79)
+
+  down(75, 83, 75)
+  down(75, 65, 57)
+  down(75, 47, 39)
+  down(75, 29, 21)
+
+  # Source review could prompt refinement.
+  segments(96.5, 52, 99, 52, lty = 2, col = "#526170")
+  segments(99, 52, 99, 70, lty = 2, col = "#526170")
+  arrows(99, 70, 96.5, 70, length = 0.06,
+         lty = 2, col = "#526170")
+
+  # The retained corpus supplies extraction and coding.
+  arrows(46.5, 58, 53.5, 88, length = 0.07,
+         lty = 3, col = "#526170")
+
+  # Main-sample filtering determines the analytical population.
+  arrows(46.5, 10, 53.5, 34, length = 0.07,
+         lty = 3, col = "#526170")
+})
+```
+
+# Results
+
+The analysis covered `r nrow(main)` articles, comprising `r sum(main$outlet_group == "public/central")` from public/central outlets and `r sum(main$outlet_group == "commercial/general")` from commercial/general outlets. Percentages count each code once per article and use the full sample or the corresponding outlet-group sample. The following sections first describe corpus composition and temporal variation, then compare educational purposes and evaluations; technologies, settings, and future horizons; and voices, actions, and responsibilities. Source passages explain the relationships behind these distributions. Quotations are translated from the retained Vietnamese texts; article identifiers link to their publications.
+
+```{r}
+#| label: setup-results
+#| include: false
+
+# Full article denominators include missing fields.
+pct <- function(code, data = main) {
+  sprintf("%.1f", 100 * sum(data[[code]] == 1, na.rm = TRUE) / nrow(data))
+}
+
+code_labels <- tribble(
+  ~field, ~category, ~code,
+  "Future role", "Human development and wellbeing", "future_role__FR_HUMAN_DEVELOPMENT",
+  "Future role", "Work preparation and occupational displacement", "future_role__FR_WORK_LIVELIHOODS",
+  "Future role", "Educational productivity and resource priorities", "future_role__FR_EFFECTIVE_PROVISION",
+  "Future role", "Educational inclusion and exclusion", "future_role__FR_EQUITABLE_OPPORTUNITY",
+  "Future role", "Trustworthy educational judgment and recognition", "future_role__FR_TRUSTWORTHY_JUDGMENT",
+  "Future role", "Collective development and education’s public purposes", "future_role__FR_COLLECTIVE_ADVANCEMENT",
+  "Future role", "No assigned substantive code", "future_role__missing",
+  "Certainty", "Confident prediction", "certainty__CERT_CONFIDENT",
+  "Certainty", "Possible outcome", "certainty__CERT_POSSIBLE",
+  "Certainty", "Denied outcome or capability", "certainty__CERT_DENIED",
+  "Certainty", "Explicitly unresolved outcome", "certainty__CERT_UNRESOLVED",
+  "Certainty", "No assigned substantive code", "certainty__missing",
+  "Desirability", "Desirable", "desirability__DES_POSITIVE",
+  "Desirability", "Undesirable", "desirability__DES_NEGATIVE",
+  "Desirability", "Explicitly mixed", "desirability__DES_MIXED",
+  "Desirability", "Value explicitly undecided", "desirability__DES_UNDECIDED",
+  "Desirability", "No assigned substantive code", "desirability__missing",
+  "Rationale", "Learning quality", "rationale__RATION_PEDAGOGY",
+  "Rationale", "Operational feasibility and efficiency", "rationale__RATION_CAPACITY",
+  "Rationale", "Employment and economic returns", "rationale__RATION_ECONOMY",
+  "Rationale", "Equality of opportunity", "rationale__RATION_EQUITY",
+  "Rationale", "Rights, reliability and academic integrity", "rationale__RATION_RIGHTS_INTEGRITY",
+  "Rationale", "Human, civic and cultural values", "rationale__RATION_HUMAN_VALUES",
+  "Rationale", "National development and strategic autonomy", "rationale__RATION_NATIONAL",
+  "Rationale", "Policy or standards compliance", "rationale__RATION_POLICY",
+  "Rationale", "No assigned substantive code", "rationale__missing",
+  "Affected entities", "Learners", "affected_entities__AFFECT_LEARNER",
+  "Affected entities", "Education and research workers", "affected_entities__AFFECT_ED_WORKER",
+  "Affected entities", "Educational organisations", "affected_entities__AFFECT_ED_ORG",
+  "Affected entities", "Families and caregivers", "affected_entities__AFFECT_FAMILY",
+  "Affected entities", "Employers and non-education occupational actors", "affected_entities__AFFECT_EMPLOYER",
+  "Affected entities", "Wider communities or society", "affected_entities__AFFECT_PUBLIC",
+  "Affected entities", "No assigned substantive code", "affected_entities__missing",
+  "Technological object", "Generative AI", "technology_object__OBJ_GENERATIVE",
+  "Technological object", "Predictive or discriminative AI", "technology_object__OBJ_PREDICTIVE",
+  "Technological object", "AI form unspecified", "technology_object__OBJ_UNSPECIFIED",
+  "Technological object", "No assigned substantive code", "technology_object__missing",
+  "Educational context", "School education", "education_context__CTX_SCHOOL",
+  "Educational context", "Higher education", "education_context__CTX_HIGHER",
+  "Educational context", "Vocational education", "education_context__CTX_VOCATIONAL",
+  "Educational context", "Professional and workplace development", "education_context__CTX_PROFESSIONAL",
+  "Educational context", "Community and informal education", "education_context__CTX_COMMUNITY",
+  "Educational context", "No assigned substantive code", "education_context__missing",
+  "Timespan", "Immediate / being realised", "timespan__TIME_IMMEDIATE",
+  "Timespan", "Near-term", "timespan__TIME_NEAR",
+  "Timespan", "Distant / long-term", "timespan__TIME_DISTANT",
+  "Timespan", "Ongoing / continuous", "timespan__TIME_ONGOING",
+  "Timespan", "Explicit horizon; proximity unstated", "timespan__TIME_ANCHORED_UNCLASSIFIED",
+  "Timespan", "No assigned substantive code", "timespan__missing",
+  "Space", "Vietnam", "space__SPACE_VIETNAM",
+  "Space", "Specific foreign country", "space__SPACE_FOREIGN_DOMESTIC",
+  "Space", "Cross-national or global", "space__SPACE_TRANSNATIONAL",
+  "Space", "No assigned substantive code", "space__missing",
+  "Speaker", "Public authority", "speaker__SPK_PUBLIC",
+  "Speaker", "Educational institution or leadership", "speaker__SPK_ED_LEADERSHIP",
+  "Speaker", "Educator, researcher or specialist", "speaker__SPK_ACADEMIC_EXPERT",
+  "Speaker", "Commercial actor", "speaker__SPK_BUSINESS",
+  "Speaker", "Learner", "speaker__SPK_LEARNER",
+  "Speaker", "Family or caregiver", "speaker__SPK_FAMILY",
+  "Speaker", "Civic or international organisation", "speaker__SPK_COLLECTIVE",
+  "Speaker", "Article’s authorial voice", "speaker__SPK_AUTHOR",
+  "Speaker", "No assigned substantive code", "speaker__missing",
+  "Action", "Change curriculum content or credentials", "action__ACT_CURRICULUM",
+  "Action", "Change learning, teaching or assessment practice", "action__ACT_PRACTICE",
+  "Action", "Provide resources or implementation capacity", "action__ACT_RESOURCES",
+  "Action", "Set rules, safeguards or restrictions", "action__ACT_RULES",
+  "Action", "Establish coordination or partnerships", "action__ACT_COORDINATE",
+  "Action", "Evaluate the AI intervention", "action__ACT_EVALUATE",
+  "Action", "No assigned substantive code", "action__missing",
+  "Responsibility", "Public authorities", "responsibility__RESP_PUBLIC",
+  "Responsibility", "Educational organisations", "responsibility__RESP_ED_ORG",
+  "Responsibility", "Education and research workers", "responsibility__RESP_ED_WORKER",
+  "Responsibility", "Learners", "responsibility__RESP_LEARNER",
+  "Responsibility", "Families and caregivers", "responsibility__RESP_FAMILY",
+  "Responsibility", "Commercial actors", "responsibility__RESP_BUSINESS",
+  "Responsibility", "Civic or international collectives", "responsibility__RESP_COLLECTIVE",
+  "Responsibility", "No assigned substantive code", "responsibility__missing"
+)
+
+# Summarise once; preserve every code and its codebook order.
+code_long <- main |>
+  select(outlet_group, all_of(code_labels$code)) |>
+  pivot_longer(-outlet_group, names_to = "code", values_to = "present")
+
+code_summary <- bind_rows(code_long, mutate(code_long, outlet_group = "All")) |>
+  group_by(code, outlet_group) |>
+  summarise(n = sum(present == 1, na.rm = TRUE),
+            percent = 100 * n / n(), .groups = "drop") |>
+  mutate(value = sprintf("%d (%.1f)", n, percent)) |>
+  select(code, outlet_group, value) |>
+  pivot_wider(names_from = outlet_group, values_from = value) |>
+  right_join(code_labels, by = "code") |>
+  arrange(match(code, code_labels$code))
+
+result_table <- function(fields) {
+  rows <- code_summary |> filter(field %in% fields)
+  groups <- rows |> count(field, name = "rows") |>
+    arrange(match(field, fields))
+  rows |>
+    select(category, All, `public/central`, `commercial/general`) |>
+    kbl(format = "latex", booktabs = TRUE, longtable = TRUE,
+        col.names = c("Category", "All", linebreak(c("Public/\ncentral", "Commercial/\ngeneral"), align = "r")),
+        escape = FALSE, align = "lrrr", linesep = "") |>
+    kable_styling(latex_options = "repeat_header", font_size = 9,
+                  repeat_header_text = "(continued)") |>
+    column_spec(1, width = "7.3cm") |>
+    column_spec(2:4, width = "2.25cm") |>
+    pack_rows(index = set_names(groups$rows, groups$field),
+              bold = TRUE, italic = FALSE,
+              latex_gap_space = "0.4em", indent = FALSE)
+}
+```
+
+```{r}
+#| label: setup-linked-analysis
+#| include: false
+
+coded_records <- lapply(readLines(file.path(project_root,
+  "data/sipc_future_coding/coded_corpus.jsonl"), warn = FALSE),
+  jsonlite::fromJSON, simplifyVector = FALSE)
+coded_records <- Filter(function(x) x$ID %in% main$article_id, coded_records)
+stopifnot(length(coded_records) == nrow(main))
+linked <- purrr::map_dfr(coded_records, function(record) {
+  purrr::map_dfr(seq_along(record$accounts), function(i) {
+    unit <- record$accounts[[i]]
+    tibble(article_id = record$ID, statement = i,
+           role = list(unlist(unit$codes$future_role)),
+           evaluation = list(unlist(unit$codes$desirability)))
+  })
+})
+role_pairs <- linked |>
+  unnest_longer(role) |> unnest_longer(evaluation) |>
+  filter(role != "MISSING") |>
+  distinct(article_id, role, evaluation)
+role_names <- code_labels |> filter(field == "Future role", !str_ends(code, "__missing")) |>
+  transmute(role = str_remove(code, "future_role__"), category)
+role_polarity <- role_pairs |> count(role, evaluation) |>
+  complete(role = role_names$role,
+           evaluation = c("DES_POSITIVE", "DES_NEGATIVE", "DES_MIXED", "DES_UNDECIDED", "MISSING"),
+           fill = list(n = 0)) |>
+  mutate(value = sprintf("%d (%.1f)", n, 100 * n / nrow(main))) |>
+  select(role, evaluation, value) |> pivot_wider(names_from = evaluation, values_from = value) |>
+  left_join(role_names, by = "role")
+annual_n <- main |> count(year, name = "Articles") |>
+  complete(year = seq(min(articles$year), max(articles$year)), fill = list(Articles = 0))
+```
+
+## Corpus composition and temporal variation
+
+The analytical corpus is concentrated in its later years: `r sum(main$year >= 2024)` of `r nrow(main)` articles (`r sprintf("%.1f", 100 * mean(main$year >= 2024))`%) were published in 2024–2026. Although retrieval covered publications from 2017, no 2017 article entered the main sample. @fig-corpus-years shows annual counts; @tbl-corpus-outlets reports each outlet’s contribution. These distributions describe retrieved eligible coverage, not the total volume of AI reporting. The 2026 count covers only the collection window.
+
+```{r}
+#| label: fig-corpus-years
+#| fig-cap: "Annual composition of the main corpus. Zero-count years are retained; 2026 is bounded by the collection cutoff."
+#| fig-width: 7
+#| fig-height: 3
+annual_n |> ggplot(aes(year, Articles)) +
+  geom_col(fill = "#0072B2", width = 0.7) +
+  geom_text(aes(label = Articles), vjust = -0.35, size = 3) +
+  scale_x_continuous(breaks = annual_n$year) +
+  scale_y_continuous(expand = expansion(mult = c(0, .12))) +
+  labs(x = NULL, y = "Articles") + theme_minimal(base_size = 10) +
+  theme(panel.grid.minor = element_blank())
+```
+
+```{r}
+#| label: tbl-corpus-outlets
+#| tbl-cap: "Articles contributed by each outlet to the main corpus. Percentages use the full 828-article denominator."
+main |> count(outlet_group, outlet_domain, name = "Articles") |>
+  arrange(outlet_group, desc(Articles), outlet_domain) |>
+  mutate(Share = sprintf("%.1f", 100 * Articles / nrow(main))) |>
+  kbl(format = "latex", booktabs = TRUE, longtable = TRUE,
+      col.names = c("Group", "Outlet", "Articles", "Share (%)"), linesep = "") |>
+  kable_styling(latex_options = "repeat_header", font_size = 9)
+```
+
+```{r}
+#| label: setup-temporal-plots
+#| include: false
+period_levels <- c("2018–2022", "2023", "2024", "2025", "2026")
+period_main <- main |> mutate(period = factor(if_else(year <= 2022,
+  "2018–2022", as.character(year)), levels = period_levels))
+period_counts <- period_main |> count(period)
+trend_plot <- function(codes) {
+  labels <- code_labels |> filter(code %in% codes)
+  period_main |> select(period, all_of(codes)) |>
+    pivot_longer(-period, names_to = "code", values_to = "present") |>
+    group_by(period, code) |>
+    summarise(percent = 100 * sum(present == 1, na.rm = TRUE) / n(), .groups = "drop") |>
+    left_join(labels, by = "code") |>
+    mutate(category = str_replace_all(category, "’", "'")) |>
+    ggplot(aes(period, percent, colour = category, shape = category,
+               linetype = category, group = category)) +
+    geom_line(linewidth = .65) + geom_point(size = 2) +
+    scale_colour_manual(values = c("#0072B2", "#D55E00", "#009E73")) +
+    scale_x_discrete(labels = setNames(paste0(period_counts$period,
+      "\nn = ", period_counts$n), period_counts$period)) +
+    scale_y_continuous(limits = c(0, 100), breaks = seq(0, 100, 25)) +
+    labs(x = NULL, y = "Articles within period (%)", colour = NULL,
+         shape = NULL, linetype = NULL) +
+    theme_minimal(base_size = 10) +
+    theme(legend.position = "bottom", panel.grid.minor = element_blank()) +
+    guides(colour = guide_legend(ncol = 1), shape = guide_legend(ncol = 1),
+           linetype = guide_legend(ncol = 1))
+}
+```
+
+```{r}
+#| label: fig-annual-patterns
+#| fig-cap: "Generative AI and negative evaluations by publication period. The sparse early years are pooled; percentages use all articles within each period. Equally spaced points represent periods of unequal duration."
+#| fig-width: 7
+#| fig-height: 4.5
+trend_plot(c("technology_object__OBJ_GENERATIVE", "desirability__DES_NEGATIVE"))
+```
+
+```{r}
+#| label: fig-role-periods
+#| fig-cap: "Selected educational purposes by publication period. Categories overlap, and 2026 covers only the collection window. The three roles shown have the highest overall article frequencies."
+#| fig-width: 7
+#| fig-height: 5
+trend_plot(c("future_role__FR_HUMAN_DEVELOPMENT", "future_role__FR_WORK_LIVELIHOODS",
+             "future_role__FR_TRUSTWORTHY_JUDGMENT"))
+```
+
+Generative AI and negative evaluations were more frequent in 2023 than in the pooled earlier coverage, and remained below 2023 levels in each later year (@fig-annual-patterns). Generative AI appeared in `r pct("technology_object__OBJ_GENERATIVE", filter(main, year == 2023))`% of 2023 articles, compared with `r pct("technology_object__OBJ_GENERATIVE", filter(main, year < 2023))`% across the small pre-2023 corpus (`r sum(main$year < 2023)` articles). Negative evaluations reached `r pct("desirability__DES_NEGATIVE", filter(main, year == 2023))`% in 2023 and remained at `r pct("desirability__DES_NEGATIVE", filter(main, year == 2026))`% in 2026. Among educational purposes (@fig-role-periods), trustworthy judgment and recognition appeared in `r pct("future_role__FR_TRUSTWORTHY_JUDGMENT", filter(main, year == 2023))`% in 2023 and `r pct("future_role__FR_TRUSTWORTHY_JUDGMENT", filter(main, year == 2026))`% in 2026. These patterns locate attention to evaluation and judgment within changing coverage; they do not isolate a technology’s effect from changes in outlets, events, or retrieval vocabulary.
+
+## Educational purposes and evaluations
+
+Human development and wellbeing was the most frequent future role, appearing in `r pct("future_role__FR_HUMAN_DEVELOPMENT")`% of articles, compared with `r pct("future_role__FR_WORK_LIVELIHOODS")`% for work preparation and occupational displacement and `r pct("future_role__FR_TRUSTWORTHY_JUDGMENT")`% for trustworthy educational judgment and recognition (@tbl-visions-evaluations). These categories included desired improvements and feared losses. Their prevalence therefore indicates which educational purposes were discussed, rather than how positively AI was evaluated.
+
+\clearpage
+
+\begingroup
+\setstretch{1}
+
+```{r}
+#| label: tbl-visions-evaluations
+#| tbl-cap: "Educational purposes and evaluations by outlet group, n (%)."
+
+result_table(c("Future role", "Certainty", "Desirability", "Rationale", "Affected entities"))
+```
+
+\endgroup
+
+*Note.* Cells report n (%); denominators are `r nrow(main)` overall, `r sum(main$outlet_group == "public/central")` public/central, and `r sum(main$outlet_group == "commercial/general")` commercial/general. Multiple codes are permitted. “No assigned substantive code” identifies missing coding within a field.
+
+The future-role totals indicate attention to an educational purpose, not endorsement of AI’s contribution to it. @tbl-role-polarity separates evaluations linked to each role within the same coded statement, then counts each role–evaluation pair once per article. This avoids attaching a positive statement about one future to a negative statement about another merely because both occur in one article. It retains the original codes and keeps explicitly mixed and undecided evaluations separate.
+
+```{r}
+#| label: tbl-role-polarity
+#| tbl-cap: "Future roles by evaluation within the same statement, aggregated to articles, n (% of the full corpus)."
+role_polarity |> arrange(match(role, role_names$role)) |>
+  select(category, DES_POSITIVE, DES_NEGATIVE, DES_MIXED, DES_UNDECIDED, MISSING) |>
+  kbl(format = "latex", booktabs = TRUE, longtable = TRUE,
+      col.names = c("Future role", "Positive", "Negative", "Mixed", "Undecided", "Unassigned"), linesep = "") |>
+  kable_styling(latex_options = "repeat_header", font_size = 8) |>
+  column_spec(1, width = "4.8cm")
+```
+
+*Note.* A single article can contribute to several columns for the same role through different statements. Columns are therefore overlapping subsets, not a partition of the role total. Co-occurrence within a statement preserves the coding unit’s linkage but does not establish a separate evaluation for every proposition in a statement containing multiple roles.
+
+Human development was linked to positive evaluations in 567 articles (68.5%) and negative evaluations in 173 (20.9%); trustworthy judgment was linked to positive evaluations in 208 (25.1%) and negative evaluations in 108 (13.0%). These overlapping counts clarify why the combined role totals should not be read as promises alone. The counts show that these purposes were associated with both benefits and harms; their differing overall frequencies preclude reading the negative counts alone as a ranking of how negatively each purpose was evaluated.
+
+The largest group difference in future roles concerned collective development, appearing in `r pct("future_role__FR_COLLECTIVE_ADVANCEMENT", filter(main, outlet_group == "public/central"))`% of public/central articles and `r pct("future_role__FR_COLLECTIVE_ADVANCEMENT", filter(main, outlet_group == "commercial/general"))`% of commercial/general articles (@fig-future-roles). Public/central coverage also more frequently addressed human development and educational inclusion. Differences were smaller for work preparation and resource use. Learning quality was the leading rationale overall (`r pct("rationale__RATION_PEDAGOGY")`%), followed by rights, reliability, and academic integrity (`r pct("rationale__RATION_RIGHTS_INTEGRITY")`%) and operational feasibility and efficiency (`r pct("rationale__RATION_CAPACITY")`%). Public/central articles more frequently invoked national development, policy requirements, and equal opportunity, while rights and integrity appeared at similar rates across groups.
+
+```{r}
+#| label: fig-future-roles
+#| fig-cap: "Article-level prevalence of future roles by outlet group. Categories include desired and feared outcomes and can coexist. Percentages use the full group denominators."
+#| fig-width: 7
+#| fig-height: 4.6
+
+role_order <- code_labels |> filter(field == "Future role", !str_ends(code, "__missing"))
+code_long |>
+  filter(code %in% role_order$code) |>
+  group_by(code, outlet_group) |>
+  summarise(percent = 100 * sum(present == 1, na.rm = TRUE) / n(),
+            .groups = "drop") |>
+  left_join(role_order, by = "code") |>
+  mutate(category = factor(category, levels = rev(role_order$category)),
+         outlet_group = recode(outlet_group, "public/central" = "Public/central",
+                               "commercial/general" = "Commercial/general")) |>
+  ggplot(aes(percent, category)) +
+  geom_line(aes(group = category), colour = "grey75", orientation = "y") +
+  geom_point(aes(colour = outlet_group, shape = outlet_group), size = 2.5) +
+  scale_colour_manual(values = c("Public/central" = "#0072B2",
+                                 "Commercial/general" = "#D55E00")) +
+  scale_y_discrete(labels = \(x) str_wrap(str_replace_all(x, "’", "'"), 32)) +
+  scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 20)) +
+  labs(x = "Articles (%)", y = NULL, colour = NULL, shape = NULL) +
+  theme_minimal(base_size = 10) +
+  theme(legend.position = "top", panel.grid.minor = element_blank())
+```
+
+Educational purposes were often linked through practical proposals. Writing in VnExpress, a representative of VioEdu/FPT linked administrative assistance to teachers’ professional work:
+
+> Alongside teaching, teachers often face other pressures that leave them insufficient time to research and develop engaging, effective lessons. AI can address this problem, support the management of teaching and learning, and give teachers more time to focus on their professional work.
+>
+> — VioEdu/FPT representative, *VnExpress* ([VNE19_004](https://vnexpress.net/tri-tue-nhan-tao-thay-doi-nen-giao-duc-tuong-lai-3971688.html))
+
+The article connected time savings with attention to communication, emotion, and individual learners. An account of university AI programmes similarly linked interdisciplinary knowledge with students’ ability to apply AI across occupational fields ([GDN24_014](https://giaoduc.net.vn/kinh-nghiem-dao-tao-ai-nhin-tu-dai-hoc-bach-khoa-ha-noi-va-truong-dai-hoc-cntt-post248032.gd)). Educational and economic purposes were presented as mutually supportive in these accounts.
+
+Positive evaluations appeared in `r pct("desirability__DES_POSITIVE")`% of articles, while negative evaluations appeared in `r pct("desirability__DES_NEGATIVE")`%. Both occurred in `r sum(main$desirability__DES_POSITIVE == 1 & main$desirability__DES_NEGATIVE == 1, na.rm = TRUE)` articles (`r sprintf("%.1f", 100 * sum(main$desirability__DES_POSITIVE == 1 & main$desirability__DES_NEGATIVE == 1, na.rm = TRUE) / nrow(main))`%). Explicitly mixed evaluations of one future by one speaker appeared in `r pct("desirability__DES_MIXED")`%. Negative evaluations were more frequent in commercial/general coverage (`r pct("desirability__DES_NEGATIVE", filter(main, outlet_group == "commercial/general"))`%) than in public/central coverage (`r pct("desirability__DES_NEGATIVE", filter(main, outlet_group == "public/central"))`%).
+
+The tension between assistance and learning was expressed directly by a student whose concern opened a Dân trí report:
+
+> I use ChatGPT to study; problems are handled very effectively and I learn very quickly, but I worry that I learn and then immediately forget, leaving little in my head…
+>
+> — University student, as reported in *Dân trí* ([DTR24_022](https://dantri.com.vn/giao-duc/dung-chatgpt-lam-bai-sinh-vien-hoang-khi-kien-thuc-vao-nhanh-di-voi-20241113100850798.htm))
+
+Here, effective task completion prompted concern about retained understanding. Professional preparation also supported different recommendations. Reports of university AI programmes promoted technological learning for occupational readiness, while reporting on legal education included a professor’s recommendation that newly qualified lawyers avoid generative AI because they would become dependent on it ([GDN25_023](https://giaoduc.net.vn/dien-dan-luat-hoc-mua-thu-lan-thu-5-sinh-vien-tan-luat-su-can-tranh-le-thuoc-vao-ai-post253677.gd)). The recommendations concerned different stages of developing competence; they did not establish opposing positions on AI use in general.
+
+National development likewise appeared in both promotional and critical accounts. An FPT University admissions director and competition organiser described early engagement with AI and robotics as a way to develop talent and prepare skilled personnel for the country ([GDN25_006](https://giaoduc.net.vn/chinh-thuc-khoi-dong-cuoc-thi-ai-robotics-danh-cho-hoc-sinh-thpt-toan-quoc-post250193.gd)). In VOV, a university AI capacity-building programme director connected dependence to a threat to national capability:
+
+> If we do not manage this well, we will create an “AI-dependent” generation—dependent on AI. This is not only a risk to educational ethics; it also increases the risk to national capability in the digital era. That is, we produce people who only know how to use technology, without thinking.
+>
+> — AI capacity-building programme director, University of Social Sciences and Humanities, Vietnam National University, Hanoi; *VOV* ([VOV25_009](https://vov.vn/xa-hoi/ai-trong-giao-duc-va-bai-toan-dinh-hinh-the-he-cong-dan-so-post1237972.vov))
+
+The competition account favoured early technological engagement; the warning questioned the capabilities produced by dependent use. National advancement supplied a reason for both positions in these particular accounts.
+
+Possible outcomes appeared in `r pct("certainty__CERT_POSSIBLE")`% of articles and confident predictions in `r pct("certainty__CERT_CONFIDENT")`%. Certainty was unassigned in `r pct("certainty__missing")`%, with greater missingness in public/central coverage. Certainty comparisons also depend on the share of articles with assigned coding. Among articles with substantive certainty coding, confident predictions appeared in `r pct("certainty__CERT_CONFIDENT", filter(main, outlet_group == "public/central", certainty__missing == 0))`% of public/central articles and `r pct("certainty__CERT_CONFIDENT", filter(main, outlet_group == "commercial/general", certainty__missing == 0))`% of commercial/general articles. These observed-field percentages complement the full-denominator results; different missing-field rates should not be interpreted as substantive differences in certainty. Learners were the most frequently identified affected group (`r pct("affected_entities__AFFECT_LEARNER")`%), followed by educational workers (`r pct("affected_entities__AFFECT_ED_WORKER")`%). Their visibility as affected groups provides the comparison for speaking positions and assigned responsibilities in the final section.
+
+## Technologies, educational settings, and future horizons
+
+The coverage combined accounts of specific systems with broader programmes for AI in education (@tbl-technology-futures). Generative AI appeared in `r pct("technology_object__OBJ_GENERATIVE")`% of articles, predictive or discriminative AI in `r pct("technology_object__OBJ_PREDICTIVE")`%, and technically unspecified AI in `r pct("technology_object__OBJ_UNSPECIFIED")`%. Commercial/general coverage more frequently addressed generative AI, while public/central coverage more frequently referred to AI without specifying its technical form. School education (`r pct("education_context__CTX_SCHOOL")`%) and higher education (`r pct("education_context__CTX_HIGHER")`%) dominated the settings. Vocational education (`r pct("education_context__CTX_VOCATIONAL")`%) and community or informal education (`r pct("education_context__CTX_COMMUNITY")`%) were less visible.
+
+\clearpage
+
+\begingroup
+\setstretch{1}
+
+```{r}
+#| label: tbl-technology-futures
+#| tbl-cap: "Technologies, educational settings, and future horizons by outlet group, n (%)."
+
+result_table(c("Technological object", "Educational context", "Timespan", "Space"))
+```
+
+\endgroup
+
+*Note.* Cells report n (%); denominators are `r nrow(main)` overall, `r sum(main$outlet_group == "public/central")` public/central, and `r sum(main$outlet_group == "commercial/general")` commercial/general. Multiple codes can occur in one article. “AI form unspecified” records a source referring to AI without identifying its technical form; missing coding is reported separately. “AI form unspecified” can coexist with a specified form when different statements in the same article discuss AI at different levels of specificity.
+
+The source accounts showed how the scope of a proposal shaped its technological detail. The Dân trí student account concerned the named tool ChatGPT and its use in study ([DTR24_022](https://dantri.com.vn/giao-duc/dung-chatgpt-lam-bai-sinh-vien-hoang-khi-kien-thuc-vao-nhanh-di-voi-20241113100850798.htm)). Reporting on an AI competency framework instead discussed the knowledge, ethics, and skills pupils would need across applications. The director of the Vietnam National Institute of Educational Sciences described adapting UNESCO’s framework to Vietnamese education, and the article connected this work to curriculum design, teacher preparation, and computing infrastructure ([GDT24_000](https://giaoducthoidai.vn/khung-nang-luc-tri-tue-nhan-tao-cho-hoc-sinh-hieu-va-lam-chu-cong-nghe-post705947.html)). The future concerned a programme of educational preparation extending beyond any single product.
+
+Temporal accounts ranged from present implementation to dated policy goals. Futures being implemented or realised appeared in `r pct("timespan__TIME_IMMEDIATE")`% of articles. Explicit dates, intervals, or stages without a stated classification of proximity appeared in `r pct("timespan__TIME_ANCHORED_UNCLASSIFIED")`%; explicitly near-term and distant futures appeared in `r pct("timespan__TIME_NEAR")`% and `r pct("timespan__TIME_DISTANT")`%, respectively. Timespan was unassigned in `r pct("timespan__missing")`%. Public/central articles more frequently described implementation and explicitly long-term futures, while commercial/general articles more frequently left timespan unassigned.
+
+Reporting on the education ministry’s draft AI strategy supplied a dated system-wide ambition:
+
+> Looking towards 2035, AI will become a common tool for every learner, teacher, and education manager, while an AI ecosystem developed by Vietnamese enterprises will be used consistently across general education.
+>
+> — Report on the education ministry’s draft AI strategy, *Giáo dục Việt Nam* ([GDN25_005](https://giaoduc.net.vn/bo-giao-duc-va-dao-tao-xay-dung-chien-luoc-ung-dung-ai-trong-giao-duc-post250172.gd))
+
+The same article set out policy development, training, infrastructure, and partnerships as routes towards that goal. A Kênh 14 report on Japan supplied a different scale and horizon: a planned trial of AI-enabled English-teaching robots in approximately 500 schools from April 2019 ([KEN18_001](https://kenh14.vn/di-truoc-nen-giao-duc-cua-the-gioi-nhat-ban-se-dung-robot-co-tri-tue-nhan-tao-de-day-tieng-anh-cho-hoc-sinh-o-500-truong-hoc-2018082709585758.chn)). It attributed the proposal to constraints on recruiting native-speaking teachers and connected deployment to access and language learning. The two reports made the future concrete through different objects: a national educational ecosystem and a scheduled school-level trial.
+
+Vietnam was the stated geographical reach in `r pct("space__SPACE_VIETNAM")`% of articles, specific foreign countries in `r pct("space__SPACE_FOREIGN_DOMESTIC")`%, and cross-national or global settings in `r pct("space__SPACE_TRANSNATIONAL")`%. Public/central coverage more frequently situated futures in Vietnam (`r pct("space__SPACE_VIETNAM", filter(main, outlet_group == "public/central"))`%, compared with `r pct("space__SPACE_VIETNAM", filter(main, outlet_group == "commercial/general"))`%). Commercial/general coverage more frequently situated them in named foreign countries. Vietnamese news therefore brought domestic plans and overseas educational proposals into the same field of coverage.
+
+## Voices, proposed actions, and responsibilities
+
+Learners were identified as affected by educational AI futures in `r pct("affected_entities__AFFECT_LEARNER")`% of articles, appeared as speakers in `r pct("speaker__SPK_LEARNER")`%, and were assigned responsibility in `r pct("responsibility__RESP_LEARNER")`%. Coverage discussed their anticipated experiences much more frequently than it included their expectations. Their assigned responsibilities also appeared more frequently than their own speaking positions.
+
+Educators, researchers, and specialists articulated futures in `r pct("speaker__SPK_ACADEMIC_EXPERT")`% of articles, educational institutions or leaders in `r pct("speaker__SPK_ED_LEADERSHIP")`%, and public authorities in `r pct("speaker__SPK_PUBLIC")`%. Commercial actors appeared in `r pct("speaker__SPK_BUSINESS")`% and families or caregivers in `r pct("speaker__SPK_FAMILY")`%. The article’s narrative or editorial voice advanced future claims in `r pct("speaker__SPK_AUTHOR")`% (@tbl-actors-implications).
+
+\clearpage
+
+\begingroup
+\setstretch{1}
+
+```{r}
+#| label: tbl-actors-implications
+#| tbl-cap: "Voices, proposed actions, and responsibilities by outlet group, n (%)."
+
+result_table(c("Speaker", "Action", "Responsibility"))
+```
+
+\endgroup
+
+*Note.* Cells report n (%); denominators are `r nrow(main)` overall, `r sum(main$outlet_group == "public/central")` public/central, and `r sum(main$outlet_group == "commercial/general")` commercial/general. Frequencies count the presence of speaking positions and assigned responsibilities, not individual speakers or shares of quoted text. Multiple codes are permitted.
+
+Public/central coverage more frequently included public authorities and educational leadership. Commercial/general coverage more frequently included experts and learners. Learner voices appeared in `r pct("speaker__SPK_LEARNER", filter(main, outlet_group == "commercial/general"))`% of commercial/general articles and `r pct("speaker__SPK_LEARNER", filter(main, outlet_group == "public/central"))`% of public/central articles. The Dân trí account above illustrates what a learner’s contribution added: a concern grounded in using ChatGPT and subsequently forgetting the material. In reporting on institutional programmes, by contrast, leaders described the competencies learners should acquire and the opportunities those competencies would provide.
+
+Educational organisations were most frequently assigned responsibility (`r pct("responsibility__RESP_ED_ORG")`%), followed by educational workers (`r pct("responsibility__RESP_ED_WORKER")`%), learners (`r pct("responsibility__RESP_LEARNER")`%), public authorities (`r pct("responsibility__RESP_PUBLIC")`%), and commercial actors (`r pct("responsibility__RESP_BUSINESS")`%). Public/central coverage more often assigned action to public authorities and educational organisations; commercial/general coverage more often assigned it to learners. Reporting on the ministry’s draft strategy explicitly placed teachers and education managers in the lead:
+
+> Teachers and education managers play a pioneering role in applying AI to professional work and guiding learners to use AI responsibly. In particular, for school pupils, AI use must be closely controlled to avoid negative effects.
+>
+> — Report on the education ministry’s draft AI strategy, *Giáo dục Việt Nam* ([GDN25_005](https://giaoduc.net.vn/bo-giao-duc-va-dao-tao-xay-dung-chien-luoc-ung-dung-ai-trong-giao-duc-post250172.gd))
+
+The article also called for teachers to update their teaching and assessment practices, for institutions to establish rules, and for businesses to develop educational systems. Its proposal distributed different tasks across actors while placing supervision of learners within education.
+
+Recommendations focused more often on changing teaching, learning, or assessment (`r pct("action__ACT_PRACTICE")`%) and providing resources (`r pct("action__ACT_RESOURCES")`%) than on evaluating AI interventions (`r pct("action__ACT_EVALUATE")`%). Rules and safeguards also appeared more frequently (`r pct("action__ACT_RULES")`%) than intervention evaluation. This contrast concerns reported recommendations, not whether evaluation occurred in practice. Public/central coverage contained all six action categories more frequently, with larger differences for curriculum, resources, and coordination than for educational practice.
+
+Assessment proposals gave these actions distinct forms. Báo Chính phủ described police coordination with the education sector, detection equipment, and guidance for examination staff to prevent technology-enabled cheating ([BCP26_009](https://baochinhphu.vn/bo-cong-an-siet-chat-chong-gian-lan-bang-ai-tai-ky-thi-tot-nghiep-thpt-102260610082735862.htm)). A Tia Sáng account instead questioned the grounds on which teachers judged suspected AI-generated writing:
+
+> Once teachers stop asking “what were you thinking when you wrote this passage?” and look only at the percentage displayed on the screen, the relationship between teacher and learner will cease to be education and become control.
+>
+> — Authorial commentary, *Tia Sáng* ([TSG25_001](https://tiasang.com.vn/sinh-vien-viet-hay-bi-nghi-dung-ai-ai-co-quyen-phan-xet-4966355.html))
+
+One report described detection equipment and police coordination for examination security. The other argued that teachers should ask students to explain their work rather than rely on a detector’s percentage. The latter is an illustrative critical commentary within the public/central group, not evidence of how common that position was across its outlets.
+
+Speaking capacity did not exhaust institutional affiliation. The VnExpress account of teachers’ professional work came from a VioEdu/FPT representative, and the competition account in Giáo dục Việt Nam came from an FPT University leader. Educational expertise and organisational interests appeared together in these sources. Source comparisons also identified repeated learner accounts in CFE26_012 and KEN26_015, shared competition-launch material in GDN25_006, KEN25_010, and VNN25_004, and overlapping official implementation guidance in GDT26_024, GDT26_025, and LDG26_009. These examples show how particular voices and proposals circulated across publications as well as how they were distributed between outlet groups.
+
+## Recurrent code combinations and their prominence
+
+```{r}
+#| label: setup-configurations
+#| include: false
+statement_records <- purrr::map_dfr(coded_records, function(record) {
+  purrr::map_dfr(seq_along(record$accounts), function(i) {
+    unit <- record$accounts[[i]]
+    tibble(article_id = record$ID, statement = i, position = unit$position,
+           codes = list(unit$codes))
+  })
+})
+configuration_specs <- list(
+  development = c(future_role = "FR_HUMAN_DEVELOPMENT", desirability = "DES_POSITIVE",
+    rationale = "RATION_PEDAGOGY", action = "ACT_PRACTICE"),
+  work = c(future_role = "FR_WORK_LIVELIHOODS", desirability = "DES_POSITIVE",
+    rationale = "RATION_ECONOMY", action = "ACT_CURRICULUM"),
+  judgment = c(future_role = "FR_TRUSTWORTHY_JUDGMENT", desirability = "DES_POSITIVE",
+    rationale = "RATION_RIGHTS_INTEGRITY", action = "ACT_RULES"),
+  developmental_warning = c(future_role = "FR_HUMAN_DEVELOPMENT", desirability = "DES_NEGATIVE",
+    rationale = "RATION_PEDAGOGY"),
+  judgment_warning = c(future_role = "FR_TRUSTWORTHY_JUDGMENT", desirability = "DES_NEGATIVE",
+    rationale = "RATION_RIGHTS_INTEGRITY")
+)
+configuration_labels <- c(
+  development = "Human development; positive; learning quality; changed practice",
+  work = "Work preparation; positive; economic returns; curriculum change",
+  judgment = "Trustworthy judgment; positive; rights and integrity; rules",
+  developmental_warning = "Human development; negative; learning quality",
+  judgment_warning = "Trustworthy judgment; negative; rights and integrity")
+configuration_matches <- purrr::imap(configuration_specs, function(spec, key) {
+  statement_records |> filter(purrr::map_lgl(codes, function(codes)
+    all(vapply(names(spec), function(field) spec[[field]] %in% unlist(codes[[field]]), logical(1)))))
+})
+configuration_counts <- purrr::imap_dfr(configuration_matches, function(rows, key) {
+  tibble(key, configuration = configuration_labels[[key]],
+    articles = n_distinct(rows$article_id),
+    primary = n_distinct(rows$article_id[rows$position == "primary"]))
+})
+config_n <- function(key, column = "articles")
+  configuration_counts[[column]][match(key, configuration_counts$key)]
+config_actor <- function(key, field, code) {
+  rows <- configuration_matches[[key]]
+  n_distinct(rows$article_id[purrr::map_lgl(rows$codes,
+    function(x) code %in% unlist(x[[field]]))])
+}
+# Enumerate all four-field combinations before identifying the leading one.
+four_field_counts <- purrr::map_dfr(seq_len(nrow(statement_records)), function(i) {
+  codes <- statement_records$codes[[i]]
+  values <- lapply(c("future_role", "desirability", "rationale", "action"),
+    function(field) setdiff(unlist(codes[[field]]), "MISSING"))
+  names(values) <- c("role", "evaluation", "rationale", "action")
+  if (any(lengths(values) == 0)) return(tibble())
+  as_tibble(do.call(expand.grid, c(values, stringsAsFactors = FALSE))) |>
+    mutate(article_id = statement_records$article_id[[i]])
+}) |> distinct() |> count(role, evaluation, rationale, action, sort = TRUE)
+stopifnot(four_field_counts$n[[1]] == config_n("development"),
+          four_field_counts$role[[1]] == "FR_HUMAN_DEVELOPMENT",
+          all(configuration_counts$primary <= configuration_counts$articles))
+positive_primary <- sum(purrr::map_lgl(statement_records$codes,
+  function(x) "DES_POSITIVE" %in% unlist(x$desirability)) & statement_records$position == "primary")
+negative_primary <- sum(purrr::map_lgl(statement_records$codes,
+  function(x) "DES_NEGATIVE" %in% unlist(x$desirability)) & statement_records$position == "primary")
+```
+
+The most frequent four-field combination linked human development, a positive evaluation, learning quality, and changes to teaching, learning, or assessment. It appeared within the same statement in `r config_n("development")` articles (`r sprintf("%.1f", 100 * config_n("development") / nrow(main))`% of the corpus) and occupied the primary position in `r config_n("development", "primary")` articles (@tbl-configurations). This connection joins a valued educational outcome to both a reason for pursuing it and a proposed change in practice.
+
+```{r}
+#| label: tbl-configurations
+#| tbl-cap: "Selected code combinations within the same statement and their primary-position counts. Each cell counts articles, once per combination."
+configuration_counts |>
+  transmute(Configuration = configuration,
+    All = sprintf("%d (%.1f)", articles, 100 * articles / nrow(main)),
+    Primary = sprintf("%d (%.1f)", primary, 100 * primary / nrow(main))) |>
+  kbl(format = "latex", booktabs = TRUE, longtable = TRUE, linesep = "",
+    col.names = c("Linked fields", "Any statement, n (%)", "Primary, n (%)")) |>
+  kable_styling(latex_options = "repeat_header", font_size = 9) |>
+  column_spec(1, width = "8cm")
+```
+
+*Note.* Percentages use all `r nrow(main)` articles. Primary counts are subsets of the corresponding any-statement counts. Code combinations overlap. The first three rows specify an action; warning rows leave action unrestricted so that warnings without recommendations remain visible. The rows are selected pathways and contrasts, not an exhaustive ranking or mutually exclusive types.
+
+The leading combination distributed educational work across several actors. Within its matching statements, educators, researchers, or specialists spoke in `r config_actor("development", "speaker", "SPK_ACADEMIC_EXPERT")` articles and educational leaders in `r config_actor("development", "speaker", "SPK_ED_LEADERSHIP")`. Responsibility was assigned to educational workers in `r config_actor("development", "responsibility", "RESP_ED_WORKER")`, learners in `r config_actor("development", "responsibility", "RESP_LEARNER")`, and educational organisations in `r config_actor("development", "responsibility", "RESP_ED_ORG")`. These roles belong to the same statements as the developmental promise, rather than being inferred from separate passages in the article.
+
+Two further combinations specified routes through curricula and governance. Work preparation, positive evaluation, economic returns, and curriculum change co-occurred in `r config_n("work")` articles, including `r config_n("work", "primary")` primary statements. Educational organisations were assigned responsibility within these statements in `r config_actor("work", "responsibility", "RESP_ED_ORG")` articles. Trustworthy judgment, positive evaluation, rights and integrity, and rules co-occurred in `r config_n("judgment")` articles, including `r config_n("judgment", "primary")` primary statements. Public authorities spoke within this combination in `r config_actor("judgment", "speaker", "SPK_PUBLIC")` articles, while educational organisations were assigned responsibility in `r config_actor("judgment", "responsibility", "RESP_ED_ORG")`.
+
+Warnings formed recurrent connections of their own. Human development, negative evaluation, and learning quality co-occurred in `r config_n("developmental_warning")` articles, with `r config_n("developmental_warning", "primary")` in the primary position. Trustworthy judgment, negative evaluation, and rights and integrity co-occurred in `r config_n("judgment_warning")`, with `r config_n("judgment_warning", "primary")` primary. Across all primary statements, positive evaluations appeared in `r positive_primary` articles (`r sprintf("%.1f", 100 * positive_primary / nrow(main))`%) and negative evaluations in `r negative_primary` (`r sprintf("%.1f", 100 * negative_primary / nrow(main))`%). Among the `r sum(main$desirability__DES_NEGATIVE == 1, na.rm = TRUE)` articles containing negative evaluations, `r sprintf("%.1f", 100 * negative_primary / sum(main$desirability__DES_NEGATIVE == 1, na.rm = TRUE))`% placed a negative evaluation in the primary position. The corresponding proportion for articles containing positive evaluations was `r sprintf("%.1f", 100 * positive_primary / sum(main$desirability__DES_POSITIVE == 1, na.rm = TRUE))`%. Positive evaluations thus appeared in the primary position in most articles containing them; negative evaluations usually appeared only in secondary statements.
+
+Alternative arrangements also carried positive evaluations. Both the examination-security report (BCP26_009) and the Tia Sáng commentary (TSG25_001) matched the trustworthy-judgment combination with rules. The former proposed detection and coordination to protect examinations; the latter proposed restrictions on detector-based judgment alongside dialogue and process-based assessment. Similarly, the legal-education report (GDN25_023) placed responsible AI use and human judgment in its primary arrangement, while warnings about junior lawyers’ dependence appeared in secondary statements. The same broad codes thus accommodated different arrangements, and criticism could accompany a positive proposal within one article.
+
+## Sensitivity of the outlet comparison
+
+```{r}
+#| label: setup-sensitivity
+#| include: false
+primary <- main
+for (record in coded_records) {
+  selected <- Filter(function(unit) identical(unit$position, "primary"), record$accounts)
+  stopifnot(length(selected) == 1L)
+  i <- match(record$ID, primary$article_id)
+  for (field in names(selected[[1]]$codes)) {
+    values <- setdiff(unlist(selected[[1]]$codes[[field]]), "MISSING")
+    cols <- grep(paste0("^", field, "__"), names(primary), value = TRUE)
+    for (column in cols) {
+      suffix <- sub(paste0("^", field, "__"), "", column)
+      primary[[column]][i] <- if (suffix == "missing") as.integer(length(values) == 0L) else
+        if (length(values)) as.integer(suffix %in% values) else NA_integer_
+    }
+  }
+}
+selected_codes <- c("future_role__FR_COLLECTIVE_ADVANCEMENT",
+  "technology_object__OBJ_GENERATIVE", "desirability__DES_NEGATIVE",
+  "action__ACT_RULES", "action__ACT_EVALUATE")
+gap <- function(data, code) {
+  a <- data[data$outlet_group == "public/central", ]
+  b <- data[data$outlet_group == "commercial/general", ]
+  100 * (sum(a[[code]] == 1, na.rm = TRUE) / nrow(a) -
+         sum(b[[code]] == 1, na.rm = TRUE) / nrow(b))
+}
+sensitivity <- purrr::map_dfr(selected_codes, function(code) {
+  omitted <- vapply(unique(main$outlet_domain), function(domain)
+    gap(main[main$outlet_domain != domain, ], code), numeric(1))
+  tibble(code, full = gap(main, code), primary = gap(primary, code),
+         low = min(omitted), high = max(omitted))
+}) |> left_join(code_labels |> select(code, category), by = "code")
+```
+
+```{r}
+#| label: tbl-sensitivity
+#| tbl-cap: "Selected outlet differences under alternative aggregation and outlet omission (percentage points, public/central minus commercial/general)."
+sensitivity |>
+  transmute(Category = category, Full = sprintf("%+.1f", full),
+    Primary = sprintf("%+.1f", primary),
+    Omission = sprintf("%+.1f to %+.1f", low, high)) |>
+  kbl(format = "latex", booktabs = TRUE, longtable = TRUE, linesep = "",
+      col.names = c("Category", "All statements", "Primary only", "Omit one outlet")) |>
+  kable_styling(latex_options = "HOLD_position", font_size = 8) |>
+  column_spec(1, width = "5.5cm")
+```
+
+All five selected outlet differences retained their direction under primary-only coding and every single-outlet omission (@tbl-sensitivity). Primary-only differences were smaller for collective development, negative evaluations, rules, and intervention evaluation; the generative-AI difference was slightly larger. Negative evaluations appeared in 28.5% of public/central articles and 37.9% of commercial/general articles when all statements were considered, but in only 8.3% and 11.1%, respectively, when counting primary statements. The group difference therefore narrowed from 9.3 to 2.9 percentage points. Negative evaluations were more often present somewhere in an article than attached to its coded primary arrangement in both groups; the additional coverage captured by secondary statements accounted for much of the between-group gap. Primary-only coding narrows the unit to each article’s prominent arrangement; omission ranges show how the full article-level difference changes when one outlet is removed. The ranges are descriptive, not confidence intervals. Neither check removes shared-source articles or changes the main corpus.
+
+
+
+# Discussion
+
+A dominant developmental orientation emerges from the coverage: AI is made educationally worthwhile through improvements in human capabilities, supported by changes in practice, curricula, and institutional provision. Its prominence rests on more than the frequency of individual codes. The leading same-statement combination connects human development to a positive evaluation, a pedagogical rationale, and changed educational practice; its speaker and responsibility profiles place educators, learners, and institutions within that project. Positive evaluations also occupy the primary position in 83.0% of articles. Dominance here describes the relative prevalence and prominence of this broad developmental orientation. Its practical forms vary across the proposals that advance it.
+
+This pattern suggests a process of selection among possible educational futures. The future brought to the foreground is one in which educational actors make technological change beneficial by adapting what they do. Questions about learning, skills, and governance are commonly formulated within that direction: which practices should change, which capabilities should be developed, and which institutions should act. In this sense, dominance concerns the terms on which the future is discussed. It gives an implementation-oriented account of educational improvement a privileged position while accommodating disagreement over its form. This connects the study to accounts of how sociotechnical expectations organise present action (Rahm & Rahm-Skågeby, 2023; Hendriks et al., 2025).
+
+Alternative futures remain visible within this dominant orientation. Recurrent warnings connect AI use to losses in human development and trustworthy judgment, while source readings identify proposals to protect independent thinking, restore dialogue, and ground assessment in evidence of learning. These alternatives are not reducible to negative evaluations. A restriction on unreliable detectors can itself be a positively valued future, just as technical controls can be promoted as a route to credible assessment. The contrast lies in the arrangement: whether educational judgment rests on detection and enforcement or on teachers’ engagement with learners’ reasoning. Shared purposes supply a common language through which different futures are advanced.
+
+The distribution of prominence gives these alternatives unequal standing. Negative evaluations appeared in 33.1% of articles but occupied the primary position in 9.7%. Among articles containing negative evaluations, 29.2% placed them in the primary position, compared with 86.4% for positive evaluations among articles containing them. The outlet gap also narrowed from 9.3 to 2.9 percentage points when only primary statements were counted. Criticism circulated more widely than it structured the principal future of an article. The legal-education example makes this relationship concrete: responsible AI use framed the primary arrangement, while dependence and limits on use appeared in secondary positions. The pattern is one of selective foregrounding: an affirmative future holds the centre, while warnings and qualifications often enter around it.
+
+Close reading identifies four practical pathways within this landscape: building educational capacity through resources and curriculum; protecting assessment through technical controls; grounding judgment in dialogue and evidence of learning; and protecting developing capabilities by limiting dependence. These pathways describe practices reconstructed from source passages; the five rows in @tbl-configurations report selected code combinations. They operate at different levels of detail. The combination linking trustworthy judgment, positive evaluation, rights and integrity, and rules includes both technical enforcement and restrictions on detector-based decisions. Close reading distinguishes these pathways within the same broad codes. Efficiency becomes educationally meaningful through the activities it enables or displaces, and assistance becomes problematic when it substitutes for developing judgment (Mamlok, 2025; Wieczorek & Romele, 2026).
+
+The outlet patterns suggest two overlapping reporting registers. A programmatic register connects collective purposes, institutional responsibilities, domestic implementation, and AI described in general terms. An application-and-experience register gives greater prominence to specified tools, overseas examples, and evaluations grounded in use. Public/central and commercial/general coverage give these registers different emphases, but neither register belongs exclusively to one group. This interpretation develops research on national AI aspirations (Bareis & Katzenbach, 2022; Nemorin et al., 2023; Nguyen et al., 2026) without treating institutional labels as ownership categories or assigning each group a single imaginary. National development can support adoption or caution, depending on which practices are thought to build collective capability.
+
+The relative scarcity of explicit intervention evaluation raises a further question about how promised improvement becomes accountable. Rules, resources, and changed practices specify how to act, but do not necessarily specify how educational benefits will be established. The contrast concerns what coverage articulates; it cannot show that institutions failed to evaluate their interventions. In SIPC terms, distinguishing proposed action from evidence of its effects helps identify what remains unspecified when a future is made actionable. Learners’ speaking positions are one part of that question, alongside professional judgment and institutional authority, rather than a separate organising claim for the study.
+
+Temporal variation and source circulation qualify apparent consensus. The prominence of generative AI and negative evaluations in 2023 situates the analysis within a changing mix of educational problems, while later coverage combines those concerns with broader programmes. Repeated event material and official formulations can amplify a proposal without adding independent endorsement. For comparative education, the findings therefore identify ways educational change is publicly justified within one national setting; tracing their subsequent institutional adoption would require evidence beyond news texts.
+
+## Limitations
+
+The corpus is bounded by Google News indexing and per-query retrieval limits, selected domains and vocabulary, title screening, and recoverable article texts. Queries explicitly included assessment and academic-integrity terms, which may have increased the visibility of those concerns; period-specific changes in search vocabulary may also contribute to apparent temporal differences. Attempts to retrieve all available matches do not establish completeness. Sparse early years, the partial 2026 window, and changes in outlet and event composition constrain temporal comparisons. The approximate outlet groups support descriptive comparisons within this corpus, not causal claims about political or commercial influence.
+
+AI-assisted extraction and coding remain interpretive. Independent coding, source-linked evidence, and automated checks supported agreement assessment and traceability. Agreement does not establish validity or eliminate shared omissions. Separate agreement results for primary-position assignment and desirability are not yet documented; the overall coefficient does not establish their field-specific reliability.
+
+Article-level presence gives a brief mention the same weight as an extended argument. Primary position records the coder’s judgment of the prominent arrangement, not a direct measure of headline placement, text length, or editorial intention. Selection and dominance are therefore interpretations of published emphasis; the corpus cannot identify deliberately excluded futures or reconstruct editorial decisions. Linked-statement counts preserve relationships lost in article totals. Their frequency depends on the prevalence and breadth of component codes, and combinations requiring fewer fields are easier to match. The four practical pathways are overlapping source-based interpretations, not categories whose prevalence has been separately coded. Even a shared statement can contain several propositions. Mixed evaluations remain distinct from separate positive and negative statements, and missing fields remain visible in the denominators.
+
+Shared quotations and event material remain in the analytical corpus as instances of circulation. Consequently, repeated coverage is not equivalent to independently originating support; provenance checks on selected cases do not reconstruct all transmission paths. Speaking capacities also need not capture every institutional interest. Finally, public articulation establishes neither audience acceptance nor implementation. Research following proposals into educational practice could examine whether their anticipated benefits and responsibilities materialise.
+
+# Conclusion
+
+A developmental orientation held a prominent place in Vietnamese news coverage. Human development, positive evaluation, pedagogical reasons, and changed practice formed the most frequent four-field combination, while positive futures occupied most primary positions. Professional preparation, educational resources, credible assessment, inclusion, and collective advancement supplied further purposes within this landscape. These purposes acquired specific meanings through the evaluations and practices attached to them. Assistance could release teachers’ time for educational relationships, while dependence raised concerns about understanding and professional judgment. Credible assessment could be pursued through technical safeguards or through dialogue and evidence of learning. The answer to the first research question therefore lies in these connections: the coverage described different ways of learning, teaching, and exercising judgment, with benefits and risks evaluated in relation to particular educational outcomes.
+
+The comparison across the six SIPC dimensions showed differences in emphasis within overlapping concerns. Public/central outlets more frequently addressed collective purposes and inclusion, referred to AI without specifying its technical form, situated futures in Vietnam, and described implementation and long-term change. They also more often foregrounded public authorities, institutional leadership, and organisational responsibilities. Commercial/general outlets more frequently addressed generative AI and foreign settings, included negative evaluations and learner and expert voices, and assigned responsibility to learners. The negative-evaluation difference was smaller when only primary statements were counted, distinguishing the inclusion of criticism from its prominence. Full-denominator certainty differences require caution because coding was more often missing in public/central coverage; observed-field percentages provide a complementary comparison. These patterns answer the second research question by locating variation across purposes, evaluations, technologies, horizons, speakers, and implications rather than assigning one vision to each outlet group. The study contributes to comparative education by showing how news within a shared national setting gives visibility to different educational expectations and distributes the authority to describe change and the responsibility to realise it.
+
+# References
+
+<!-- Bibliographic entries restored from the existing manuscript and checked supplemental sources. In-text references are manually maintained. -->
+
+Bareis, J., & Katzenbach, C. (2022). Talking AI into being: The narratives and imaginaries of national AI strategies and their performative politics. Science, Technology, & Human Values, 47(5), 855–881. [DOI](https://doi.org/10.1177/01622439211030007)
+
+Brause, S. R., Schäfer, M. S., Katzenbach, C., Mao, Y., Richter, V., & Zeng, J. (2025). Sociotechnical imaginaries and public communication: Analytical framework and empirical illustration using the case of artificial intelligence. Convergence, 31(4), 1267–1287. [DOI](https://doi.org/10.1177/13548565251338192)
+
+Brause, S. R., Yang, H., Schäfer, M. S., & Zeng, J. (2024). News media imaginaries of artificial intelligence in healthcare: A qualitative analysis across China, Germany, and the United States. Emerging Media, 2(4), 581–610. [DOI](https://doi.org/10.1177/27523543241300185)
+
+Bulathwela, S., Pérez-Ortiz, M., Holloway, C., & Shawe-Taylor, J. (2021). Could AI democratise education? Socio-technical imaginaries of an EdTech revolution [Preprint]. arXiv. [Source](https://arxiv.org/abs/2112.02034)
+
+Cave, S., & Dihal, K. (2019). Hopes and fears for intelligent machines in fiction and reality. Nature Machine Intelligence, 1(2), 74–78. [DOI](https://doi.org/10.1038/s42256-019-0020-9)
+
+Dien Nguyen An Luong. (2022). How the party-state retains controls over Vietnam’s blossoming media landscape. ISEAS Perspective, 2022(79). [Source](https://www.iseas.edu.sg/wp-content/uploads/2022/07/ISEAS_Perspective_2022_79.pdf)
+
+Hendriks, A., Karhunmaa, K., & Delvenne, P. (2025). Shaping the future: A conceptual review of sociotechnical imaginaries. Futures, 170, 103607. [Source](https://orbi.uliege.be/handle/2268/331154)
+
+Hrastinski, S., Olofsson, A. D., Arkenback, C., Ekström, S., Ericsson, E., Fransson, G., Jaldemark, J., Ryberg, T., Öberg, L.-M., Fuentes, A., Gustafsson, U., Humble, N., Mozelius, P., Sundgren, M., & Utterberg, M. (2019). Critical imaginaries and reflections on artificial intelligence and robots in postdigital K-12 education. Postdigital Science and Education, 1, 427–445. [DOI](https://doi.org/10.1007/s42438-019-00046-x)
+
+Huang, X., & Gadavanij, S. (2025). Power and marginalization in discourse on AI in education (AIEd): Social actors’ representation in China Daily (2018–2023). Humanities and Social Sciences Communications, 12, 412. [DOI](https://doi.org/10.1057/s41599-025-04621-5)
+
+Jasanoff, S., & Kim, S.-H. (2009). Containing the atom: Sociotechnical imaginaries and nuclear power in the United States and South Korea. Minerva, 47(2), 119–146. [DOI](https://doi.org/10.1007/s11024-009-9124-4)
+
+Jasanoff, S., & Kim, S.-H. (Eds.). (2015). Dreamscapes of modernity: Sociotechnical imaginaries and the fabrication of power. University of Chicago Press.
+
+Linderoth, C., Hultén, M., & Stenliden, L. (2024). Competing visions of artificial intelligence in education—A heuristic analysis on sociotechnical imaginaries and problematizations in policy guidelines. Policy Futures in Education, 22(8), 1662–1678. [DOI](https://doi.org/10.1177/14782103241228900)
+
+Mamlok, D. (2025). Landscapes of sociotechnical imaginaries in education: A theoretical examination of integrating artificial intelligence in education. Foundations of Science, 30, 529–540. [DOI](https://doi.org/10.1007/s10699-024-09948-x)
+
+Nemorin, S., Vlachidis, A., Ayerakwa, H. M., & Andriotis, P. (2023). AI hyped? A horizon scan of discourse on artificial intelligence in education (AIED) and development. Learning, Media and Technology, 48(1), 38–51. [DOI](https://doi.org/10.1080/17439884.2022.2095568)
+
+Nguyen, H.-K. T., Hoang, T.-D., Le, D.-A. Q., Tran, T.-N. T., & Ho, M.-T. (2026). Pre-generative AI perspectives: Risk and promise in Vietnam’s state media narratives on artificial intelligence (2016–2022). Society. Advance online publication. [DOI](https://doi.org/10.1007/s12115-026-01198-w)
+
+Nguyen-Thu, G. (2019). Television in post-Reform Vietnam: Nation, media, market. Routledge. [DOI](https://doi.org/10.4324/9781315157382)
+
+Prime Minister of Vietnam. (2021). Decision No. 127/QĐ-TTg: National strategy on research, development and application of artificial intelligence until 2030. [Source](https://congbao.chinhphu.vn/tai-ve-van-ban-so-127-qd-ttg-33096-34502)
+
+Prime Minister of Vietnam. (2022). Decision No. 131/QĐ-TTg: Strengthening information technology application and digital transformation in education and training for 2022–2025, with orientation to 2030. [Source](https://congbao.chinhphu.vn/van-ban/quyet-dinh-so-131-qd-ttg-36755.htm)
+
+Rahm, L. (2023). Educational imaginaries: Governance at the intersection of technology and education. Journal of Education Policy, 38(1), 46–68. [DOI](https://doi.org/10.1080/02680939.2021.1970233)
+
+Rahm, L., & Rahm-Skågeby, J. (2023). Imaginaries and problematisations: A heuristic lens in the age of artificial intelligence in education. British Journal of Educational Technology, 54, 1147–1159. [DOI](https://doi.org/10.1111/bjet.13319)
+
+Richter, V., Katzenbach, C., & Zeng, J. (2025). Negotiating AI(s) futures: Competing imaginaries of AI by stakeholders in the U.S., China, and Germany. Journal of Science Communication, 24(02), A08. [DOI](https://doi.org/10.22323/2.24020208)
+
+Wang, W., Downey, J., & Yang, F. (2025). AI anxiety? Comparing the sociotechnical imaginaries of artificial intelligence in UK, Chinese and Indian newspapers. Global Media and China, 10(4), 425–441. [DOI](https://doi.org/10.1177/20594364231196547)
+
+Wieczorek, M., & Romele, A. (2026). How to imagine educational AI: The filling of a pail or the lighting of a fire? Educational Theory, 76(3), 316–338. [DOI](https://doi.org/10.1111/edth.70070)
