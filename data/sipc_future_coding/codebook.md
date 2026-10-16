@@ -1,126 +1,84 @@
-# SIPC codebook v2.3
+# SIPC codebook v3.1 — five future roles
 
-Frozen v2.3 definitions used for completed full-source coding. Final checkpoint: 14 October 2026; 1,081 retained original article IDs after 17 researcher-error storage exclusions.
+Updated 16 October 2026. Five researcher-specified roles; all eleven other fields unchanged.
 
-## Scope of revision
+## AI as a Learning Partner
 
-Only `future_role` changes. The other eleven field inventories are unchanged. The six families classify source-stated ends or outcomes, while literal roles, mechanisms and specific outcomes remain in each account. Positive and negative futures use the same family; desirability and claim direction retain their differences. These categories are empirical, not categories supplied by SIPC.
+`FR_LEARNING_PARTNER`
 
-## Future role: six families
+AI will transform learning into a more personalized and collaborative process.
 
-### FR_HUMAN_DEVELOPMENT — Human development and wellbeing
+AI changes the learning process, learner development, and relationships among learners, teachers and AI.
 
-AI changes learners’ or educators’ intellectual development, agency, emotional or physical wellbeing, or supportive educational relationships.
+**Include:** Tutoring, personalization, collaborative learning, teacher instructional support, and development or erosion of understanding, creativity, autonomy and practical learning. Includes explicit loss of learning-by-doing through AI automation.
 
-**Include:** Explicit development or erosion of understanding, judgment, creativity or independence; explicit care, emotional support, protection from harm or their loss. Preserve the specific end and whether it is sought, expected or feared.
+**Exclude:** Formal assessment/recognition alone; institutional administration; learning about AI alone; job displacement without an articulated learning consequence.
 
-**Exclude:** Skills serving only employment or national development; resource savings; access distribution; legitimate educational judgments. Bare privacy, data theft or cybersecurity concerns without an explicit developmental, relational or wellbeing outcome are not automatically included.
+**Boundary:** Lesson preparation and learning feedback belong here; assessment validity, grades, integrity and recognized competence belong to educational judgment. A feared loss of thinking can belong here without endorsing AI as a good partner.
 
-**Boundary:** Code the focal end: human development/wellbeing here; occupational viability under FR_WORK_LIVELIHOODS; educational resources under FR_EFFECTIVE_PROVISION; participation distribution under FR_EQUITABLE_OPPORTUNITY; validity/fairness of institutional judgment under FR_TRUSTWORTHY_JUDGMENT. Care and intellectual development are distinct literal outcomes within one family, not duplicate codes.
+## AI as a Force Reshaping Educational Judgment
 
-Source illustrations:
+`FR_EDUCATIONAL_JUDGMENT`
 
-- TFH24_001: “suy giảm khả năng tư duy phản biện” ([source](https://www.24h.com.vn/giao-duc-du-hoc/sinh-vien-dua-nhau-nho-va-ai-tien-ich-hay-moi-nguy-trong-hoc-tap-c216a1604130.html)); exact retained-source offsets 5581–5913.
-- GDT24_000: “tư duy phân tích” ([source](https://giaoducthoidai.vn/khung-nang-luc-tri-tue-nhan-tao-cho-hoc-sinh-hieu-va-lam-chu-cong-nghe-post705947.html)); exact retained-source offsets 3403–3675.
-- VNN23_002: “trước khi quá muộn” ([source](https://vietnamnet.vn/ung-dung-tri-tue-nhan-tao-ngan-chan-bao-luc-hoc-duong-2152874.html)); exact retained-source offsets 3240–3389.
-- NHD23_001: “nguy cơ dễ bị thao túng” ([source](https://nhandan.vn/unesco-keu-goi-quan-ly-viec-su-dung-tri-tue-nhan-tao-ai-trong-truong-hoc-post771991.html)); exact retained-source offsets 248–611.
+AI will change how educational achievement, integrity, and competence are assessed and recognized.
 
-### FR_WORK_LIVELIHOODS — Work preparation and occupational displacement
+AI changes assessment, academic integrity, authenticity, and recognition of educational achievement or competence.
 
-AI-related education prepares people for work, or AI changes the viability of educational/professional livelihoods through adaptation, replacement or displacement.
+**Include:** Grading, examination and assessment redesign, cheating/authorship, credential recognition and the validity or fairness of educational judgments.
 
-**Include:** Explicit employment preparation, professional adaptation, skill obsolescence or displacement, whether desired or warned against. Do not infer a deliberate displacement goal from a forecast job loss.
+**Exclude:** Routine administration, behaviour monitoring without competence/achievement judgment, and formative learning help without assessment/recognition stakes.
 
-**Exclude:** AI knowledge with no work-related end; institutional cost savings alone; inferred job readiness from a technical degree.
+**Boundary:** Generating or evaluating assessed work is different from supporting learning. An AI-subject competition alone is not a change in educational judgment.
 
-**Boundary:** Individual/occupational work prospects are this goal. Explicit national standing is FR_COLLECTIVE_ADVANCEMENT. Teacher displacement can threaten livelihoods even when no replacement objective is endorsed.
+## AI as an Educational Management Tool
 
-Source illustrations:
+`FR_EDUCATIONAL_MANAGEMENT`
 
-- CFE26_011: “bắt kịp nền kinh tế AI” ([source](https://cafef.vn/thu-nghiem-ai-lon-nhat-lich-su-dai-hoc-my-500000-nguoi-dong-thoi-truy-cap-chatgpt-cac-giao-su-phan-doi-sinh-vien-hoang-mang-188260609151511624.chn)); exact retained-source offsets 2590–2925.
-- CFE24_005: “lực lượng giáo viên sẽ giảm” ([source](https://cafef.vn/pho-hieu-truong-neu-noi-ve-ai-truong-van-ton-tai-2-3-chuc-giang-vien-cung-day-mot-mon-mot-luc-nao-do-se-chi-can-5-thay-co-rat-gioi-15-nguoi-con-lai-phai-chuyen-nghe-188240826162241716.chn)); exact retained-source offsets 1665–1820.
+AI will make educational institutions more efficient, data-driven, and responsive.
 
-### FR_EFFECTIVE_PROVISION — Educational productivity and resource priorities
+AI changes educational operations, administration, institutional services, monitoring and resource allocation.
 
-AI reorganises the use of time, labour or money in educational provision, including workload relief and productivity claims or priorities shaped by cost reduction and profit.
+**Include:** Administrative workload, attendance, institutional data use, admissions information services, resource planning and school safety/monitoring. Include dysfunctions or contested control within these arrangements.
 
-**Include:** An explicit resource/productivity end or expected resource reordering. Preserve who gains and which priorities the source endorses or criticises; efficiency is not automatically desirable.
+**Exclude:** Learner competence assessment; pedagogical preparation alone; policies governing AI adoption without a specified AI-enabled operational function.
 
-**Exclude:** Any institutional application; labour substitution without a stated provision/resource outcome; public purpose inferred from organisational scale.
+**Boundary:** Distinguish AI used for educational management from management of AI implementation. A school or ministry as actor does not by itself establish this role.
 
-**Boundary:** Ask whether the focal outcome is allocation/use of educational resources. Explicit learner or teacher time savings belong here; occupational displacement belongs to FR_WORK_LIVELIHOODS. Mere institution-wide deployment or monitoring supplies no resource end.
+## AI Literacy as an Educational Imperative
 
-Source illustrations:
+`FR_AI_LITERACY`
 
-- NHD26_005: “giảm bớt các công việc lặp lại” ([source](https://nhandan.vn/ai-buddy-tro-giang-so-mien-phi-tiep-suc-giup-giao-vien-doi-moi-post953846.html)); exact retained-source offsets 4804–5050.
-- TTO23_001: “tối đa hóa lợi nhuận” ([source](https://cuoituan.tuoitre.vn/tri-tue-nhan-tao-co-the-lam-giao-duc-them-khung-hoang-20230310104234833.htm)); exact retained-source offsets 2847–3112.
+Education must prepare people to live, learn, and work responsibly in an AI-driven world.
 
-### FR_EQUITABLE_OPPORTUNITY — Educational inclusion and exclusion
+Education prepares people to understand, develop, critically use and live or work with AI.
 
-AI changes who can obtain educational opportunities and whether existing educational inequalities narrow or widen.
+**Include:** AI knowledge and curricula; ethical/critical AI use; educator AI competence; specialist AI formation and professional preparation explicitly oriented to an AI-driven world.
 
-**Include:** Inclusion, removing participation barriers, narrowing or widening educational inequality.
+**Exclude:** Using AI merely to improve an existing learning process; automation/job loss without an educational preparation response; collective development inferred only from an institution or country name.
 
-**Exclude:** Personalised instruction with no access/distribution end; free products with no inclusion claim; fair grading.
+**Boundary:** The object of formation is people’s AI-related understanding/capacity. Individual AI study can fit; a national-development motive is not assumed. If training is only the mechanism of a stated collective goal, do not automatically add this code.
 
-**Boundary:** The outcome concerns who can obtain educational participation/opportunities, rather than how well existing participants learn. Fair educational adjudication belongs to FR_TRUSTWORTHY_JUDGMENT.
+## AI as a Driver of National Development
 
-Source illustrations:
+`FR_NATIONAL_DEVELOPMENT`
 
-- DTR19_001: “cơ hội học tập công bằng” ([source](https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm)); exact retained-source offsets 4705–4920.
-- QDN26_002: “gia tăng những bất bình đẳng” ([source](https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313)); exact retained-source offsets 2323–2524.
+AI education will strengthen the workforce, technological capabilities, and national development.
 
-### FR_TRUSTWORTHY_JUDGMENT — Trustworthy educational judgment and recognition
+AI-related education or university research serves an explicitly articulated collective, sectoral or national development purpose.
 
-AI changes the authenticity of educational achievements and qualifications or the validity and fairness of institutional judgments about learners’ work or conduct.
+**Include:** Collective workforce formation, sectoral technological capacity, national innovation/competitiveness, technological sovereignty, and explicit wider societal development. Retain the actual country/sector and any feared consequence.
 
-**Include:** Authentic demonstration of learning, academic honesty, trustworthy qualifications, fair recognition, or explicitly accurate/fair institutional appraisal of conduct; warnings of false recognition, misjudgment or compromised assessment.
+**Exclude:** Individual employability or study aspirations alone; institutional prestige/ranking alone; national location, state affiliation, policy name, or cultural subject matter without an articulated collective development purpose.
 
-**Exclude:** Marking, monitoring or detection as functions without an explicit validity, authenticity or fairness end; generic factual accuracy; technical accuracy benchmarks; coder-inferred legitimacy.
+**Boundary:** Require the collective/sectoral/national end in the account and source. Workforce demand may justify a sectoral workforce goal; it does not turn every individual career aspiration into national development.
 
-**Boundary:** Assessment/monitoring is a mechanism. Assign this code only when authentic recognition or valid/fair educational appraisal is explicit. Accurate conduct appraisal can qualify; surveillance alone cannot. This classification records a claimed end and does not endorse the source’s surveillance practices.
+## Context and desirability
 
-Source illustrations:
+Interpret future_role from the future being evaluated, not from whether the account endorses it. Use inherited open extraction and attributed account statements first. A warning, safeguard, implementation condition or evaluation may receive the role of its clearly identified target in the same source. Require a demonstrable shared referent (the same programme, tool, arrangement or continuing attributed argument). Record the contextual link and exact source anchors in the account. Do not transfer another speaker’s evaluation, certainty or intention, or assign all roles in the article. Generic policy, risk or market claims without an identifiable role remain MISSING. The five role definitions and all eleven other fields remain unchanged; desirability already records positive, negative, mixed and undecided evaluation. No sixth role or separate positive/negative role subcodes are used.
 
-- QDN26_002: “ghi nhận tư duy thực sự” ([source](https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313)); exact retained-source offsets 3331–3525.
-- QDN26_002: “đánh giá truyền thống không còn đáng tin cậy” ([source](https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313)); exact retained-source offsets 403–787.
-- KEN18_000: “ghi lại các hành vi và biểu hiện” ([source](https://kenh14.vn/de-chong-hoc-sinh-ngu-gat-va-luom-nguyt-giao-vien-mot-truong-hoc-o-trung-quoc-da-lap-dat-camera-tich-hop-ai-20180519090520018.chn)); exact retained-source offsets 591–888.
+The current corpus contains the decisions, source anchors and reasons. Git manages file history; there is no separate pilot, backup corpus or decision-ledger directory. Earlier descriptive literal_details are preserved; current future_role codes and missing_notes supersede historical classification comments.
 
-### FR_COLLECTIVE_ADVANCEMENT — Collective development and education’s public purposes
-
-AI-related education serves national technological/development ambitions or transforms education’s collective civic, cultural and public mission, including warnings of mission loss.
-
-**Include:** National development, technological autonomy, competitive standing, cultural continuity, civic contribution or education’s public mission. Public/social order qualifies only when explicitly stated as a collective end connected to education; compliance tracking alone does not establish it.
-
-**Exclude:** Vietnam as location; government as speaker; individual employability; generic social benefit inferred from education.
-
-**Boundary:** Require an explicitly collective end. Developing specialists to improve national autonomy is here when autonomy is the focal end. Preparing a graduate for employment is FR_WORK_LIVELIHOODS. Preserve the specific collective goal literally rather than treating national competition and democratic life as interchangeable.
-
-Source illustrations:
-
-- VOV22_000: “tạo bệ phóng cho khoa học” ([source](https://vov.vn/doanh-nghiep/doanh-nghiep-24h/vingroup-khoi-dong-chuong-trinh-dao-tao-ky-su-ai-nam-2022-post936994.vov)); exact retained-source offsets 936–1163.
-- TSG25_003: “thoái thác trách nhiệm” ([source](https://tiasang.com.vn/truong-dai-hoc-bi-lac-huong-trong-cuoc-chien-voi-ai-5038713.html)); exact retained-source offsets 4669–4922.
-
-## Surveillance and uncovered ends
-
-Removing a standalone control code does not remove surveillance futures. Preserve surveillance, discipline, loss of privacy and control relationships literally. Explicit valid conduct appraisal can receive FR_TRUSTWORTHY_JUDGMENT; explicit personal agency/wellbeing or collective public purposes can receive the respective family. Monitoring alone establishes none of those ends. Uncovered ends remain explicit in the account, with MISSING and a boundary note. Report missing assignments as “No assigned substantive code”, not “No future role”.
-
-## Transition
-
-A private v2.2 snapshot preserves prior records. Active records undergo source-based semantic role review. Do not mechanically rename codes. Existing extraction and the other eleven fields are retained unless a specific error is found. No revised full-corpus results are available yet.
-
-## Complete twelve-field inventory
-
-### future_role
-
-What role is AI projected to play, and what educational or societal end or outcome is sought, expected or feared?
-
-- `FR_HUMAN_DEVELOPMENT` — Human development and wellbeing: AI changes learners’ or educators’ intellectual development, agency, emotional or physical wellbeing, or supportive educational relationships.
-- `FR_WORK_LIVELIHOODS` — Work preparation and occupational displacement: AI-related education prepares people for work, or AI changes the viability of educational/professional livelihoods through adaptation, replacement or displacement.
-- `FR_EFFECTIVE_PROVISION` — Educational productivity and resource priorities: AI reorganises the use of time, labour or money in educational provision, including workload relief and productivity claims or priorities shaped by cost reduction and profit.
-- `FR_EQUITABLE_OPPORTUNITY` — Educational inclusion and exclusion: AI changes who can obtain educational opportunities and whether existing educational inequalities narrow or widen.
-- `FR_TRUSTWORTHY_JUDGMENT` — Trustworthy educational judgment and recognition: AI changes the authenticity of educational achievements and qualifications or the validity and fairness of institutional judgments about learners’ work or conduct.
-- `FR_COLLECTIVE_ADVANCEMENT` — Collective development and education’s public purposes: AI-related education serves national technological/development ambitions or transforms education’s collective civic, cultural and public mission, including warnings of mission loss.
+## Other eleven fields — unchanged
 
 ### certainty
 

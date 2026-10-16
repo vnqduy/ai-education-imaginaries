@@ -1,13 +1,22 @@
 {
-  "codebook_version": "2.3",
+  "codebook_version": "3.1",
   "codebook_path": "data/sipc_future_coding/codebook.json",
-  "codebook_sha256": "da0b79a902cdcc8afad4c3834f28596d353557bfa8f366773a8c6e10527974eb",
+  "codebook_sha256": "f64aa1cf64f16db4a2b25ae2a92cd585ef1d5bbd4bb9b61ce2bfb0d94ab4d8ff",
   "source_sha256": "afeff1b97456afa23c6149b4c464041de8d9b770b95e8873b4c6b7e6e23efbde",
-  "coded_sha256": "c50d9f384ac9c2aecfc17536297463ac1c3bdd6a3dcb45239fcf66b30cafd58a",
+  "coded_sha256": "e2d75cef0a685ae3e52b580aca7e3e1d62b2c3497838ef12856c04d6ca95f85f",
   "total_articles": 1081,
   "original_ids": true,
   "storage_exclusions": 17,
   "unit": "article; code presence in any attributed account counted once per article",
-  "status": "Complete; original IDs restored and researcher-error exclusions applied.",
-  "publication": "Author authorised publication of full research data and article-level dataframe on 2026-10-14."
+  "status": "Active five-role coding; contextual review of 119 previously unmatched accounts completed 16 October 2026. Other eleven fields unchanged.",
+  "publication": "Author authorised publication of full research data and article-level dataframe on 2026-10-14.",
+  "future_role_revision": {
+    "date": "2026-10-16",
+    "accounts_reviewed": 3004,
+    "context_reviewed": 119,
+    "context_resolved": 103,
+    "unmatched_accounts": 16,
+    "other_fields_unchanged": true,
+    "storage": "Canonical corpus only; history managed through Git."
+  }
 }

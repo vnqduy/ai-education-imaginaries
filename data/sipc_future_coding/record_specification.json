@@ -1,7 +1,7 @@
 {
-  "version": "2.3 final record specification",
+  "version": "3.1 context-linked future-role coding",
   "codebook_path": "data/sipc_future_coding/codebook.json",
-  "status": "Completed semantic coding; original article IDs restored after storage exclusions.",
+  "status": "Active five-role coding; contextual review of 119 previously unmatched accounts completed 16 October 2026. Other eleven fields unchanged.",
   "record": {
     "ID": "original article ID",
     "eligibility": "clear_future | borderline_future | no_educational_future | unresolved_source",
@@ -67,5 +67,6 @@
     "desirability": "One value per account evaluation target. Materially different desired/feared arrangements are separated when source supports their distinction. Mixed is one speaker’s same-arrangement weighing, not article-level disagreement.",
     "primary_selection": "Use the most central explicitly articulated educational future in the article lead/main argument. Record primary_selection_reason; do not choose by code frequency, positive valence or outlet group."
   },
-  "coverage": "Reassess all original 1098 IDs, including prior no-future and borderline articles. Preserve reviewed source adequacy; inadequate sources remain unresolved_source. Do not consult old coded records to assign new codes."
+  "coverage": "1,081 retained original articles; 3,004 inherited accounts. Only future_role and its evidence/details recoded. Eligibility, source adequacy and all eleven other fields unchanged.",
+  "future_role_evidence_note": "Exact source anchors and a contextual-link reason are stored directly in each revised account. Existing same-account evidence remains valid. Context identifies the target, without transferring evaluations across voices."
 }

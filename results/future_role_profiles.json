@@ -1,0 +1,1478 @@
+{
+  "version": "3.1",
+  "article_denominator": "Existing main_sample: clear_future and not publisher_uncertain.",
+  "role_prevalence": "Each role counted once per article; roles can coexist.",
+  "field_profiles": "Counts within the same attributed account as the role. Missing included in denominators. Multiple roles/codes may coexist. Context-linked roles identify the target of a warning or condition, not necessarily an endorsed future.",
+  "groups": {
+    "all": {
+      "articles": 828,
+      "accounts": 2760,
+      "desirability_accounts": {
+        "DES_POSITIVE": 2005,
+        "MISSING": 277,
+        "DES_NEGATIVE": 400,
+        "DES_MIXED": 77,
+        "DES_UNDECIDED": 1
+      },
+      "articles_with_negative_account": 274,
+      "roles": {
+        "FR_LEARNING_PARTNER": {
+          "label": "AI as a Learning Partner",
+          "articles": 501,
+          "article_percent": 60.51,
+          "accounts": 1297,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 598,
+              "CERT_CONFIDENT": 260,
+              "CERT_DENIED": 76,
+              "CERT_POSSIBLE": 382,
+              "CERT_UNRESOLVED": 6
+            },
+            "desirability": {
+              "DES_POSITIVE": 872,
+              "MISSING": 108,
+              "DES_NEGATIVE": 250,
+              "DES_MIXED": 67
+            },
+            "rationale": {
+              "RATION_CAPACITY": 152,
+              "RATION_PEDAGOGY": 497,
+              "RATION_HUMAN_VALUES": 102,
+              "MISSING": 460,
+              "RATION_RIGHTS_INTEGRITY": 132,
+              "RATION_ECONOMY": 35,
+              "RATION_EQUITY": 42,
+              "RATION_POLICY": 28,
+              "RATION_NATIONAL": 7
+            },
+            "technology_object": {
+              "OBJ_UNSPECIFIED": 538,
+              "OBJ_PREDICTIVE": 136,
+              "OBJ_GENERATIVE": 654
+            },
+            "education_context": {
+              "CTX_SCHOOL": 640,
+              "CTX_COMMUNITY": 27,
+              "CTX_HIGHER": 428,
+              "MISSING": 222,
+              "CTX_PROFESSIONAL": 36,
+              "CTX_VOCATIONAL": 15
+            },
+            "timespan": {
+              "TIME_ANCHORED_UNCLASSIFIED": 75,
+              "MISSING": 908,
+              "TIME_NEAR": 44,
+              "TIME_DISTANT": 25,
+              "TIME_IMMEDIATE": 236,
+              "TIME_ONGOING": 37
+            },
+            "space": {
+              "SPACE_FOREIGN_DOMESTIC": 195,
+              "SPACE_VIETNAM": 206,
+              "MISSING": 842,
+              "SPACE_TRANSNATIONAL": 57
+            },
+            "speaker": {
+              "SPK_PUBLIC": 115,
+              "SPK_ED_LEADERSHIP": 179,
+              "SPK_AUTHOR": 283,
+              "SPK_BUSINESS": 128,
+              "SPK_ACADEMIC_EXPERT": 435,
+              "SPK_LEARNER": 104,
+              "MISSING": 29,
+              "SPK_COLLECTIVE": 23,
+              "SPK_FAMILY": 18
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 1112,
+              "AFFECT_ED_WORKER": 411,
+              "AFFECT_PUBLIC": 36,
+              "AFFECT_FAMILY": 23,
+              "AFFECT_ED_ORG": 108,
+              "MISSING": 19,
+              "AFFECT_EMPLOYER": 15
+            },
+            "action": {
+              "ACT_RESOURCES": 217,
+              "ACT_PRACTICE": 545,
+              "MISSING": 492,
+              "ACT_COORDINATE": 53,
+              "ACT_RULES": 134,
+              "ACT_CURRICULUM": 70,
+              "ACT_EVALUATE": 40
+            },
+            "responsibility": {
+              "RESP_PUBLIC": 83,
+              "RESP_LEARNER": 225,
+              "RESP_ED_ORG": 167,
+              "MISSING": 623,
+              "RESP_BUSINESS": 95,
+              "RESP_FAMILY": 23,
+              "RESP_ED_WORKER": 261,
+              "RESP_COLLECTIVE": 11
+            }
+          }
+        },
+        "FR_EDUCATIONAL_JUDGMENT": {
+          "label": "AI as a Force Reshaping Educational Judgment",
+          "articles": 312,
+          "article_percent": 37.68,
+          "accounts": 634,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 387,
+              "CERT_DENIED": 23,
+              "CERT_POSSIBLE": 114,
+              "CERT_CONFIDENT": 111,
+              "CERT_UNRESOLVED": 4
+            },
+            "desirability": {
+              "DES_POSITIVE": 389,
+              "MISSING": 84,
+              "DES_NEGATIVE": 144,
+              "DES_MIXED": 16,
+              "DES_UNDECIDED": 1
+            },
+            "rationale": {
+              "MISSING": 229,
+              "RATION_CAPACITY": 48,
+              "RATION_RIGHTS_INTEGRITY": 289,
+              "RATION_EQUITY": 8,
+              "RATION_HUMAN_VALUES": 20,
+              "RATION_PEDAGOGY": 92,
+              "RATION_ECONOMY": 15,
+              "RATION_POLICY": 16,
+              "RATION_NATIONAL": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 104,
+              "OBJ_GENERATIVE": 385,
+              "OBJ_UNSPECIFIED": 164
+            },
+            "education_context": {
+              "CTX_SCHOOL": 223,
+              "MISSING": 92,
+              "CTX_HIGHER": 324,
+              "CTX_PROFESSIONAL": 13,
+              "CTX_COMMUNITY": 2,
+              "CTX_VOCATIONAL": 6
+            },
+            "timespan": {
+              "MISSING": 402,
+              "TIME_NEAR": 41,
+              "TIME_IMMEDIATE": 110,
+              "TIME_ANCHORED_UNCLASSIFIED": 67,
+              "TIME_ONGOING": 12,
+              "TIME_DISTANT": 13
+            },
+            "space": {
+              "SPACE_VIETNAM": 74,
+              "SPACE_FOREIGN_DOMESTIC": 195,
+              "MISSING": 344,
+              "SPACE_TRANSNATIONAL": 21
+            },
+            "speaker": {
+              "SPK_AUTHOR": 118,
+              "SPK_BUSINESS": 40,
+              "MISSING": 17,
+              "SPK_ACADEMIC_EXPERT": 201,
+              "SPK_LEARNER": 38,
+              "SPK_ED_LEADERSHIP": 114,
+              "SPK_PUBLIC": 104,
+              "SPK_COLLECTIVE": 6,
+              "SPK_FAMILY": 4
+            },
+            "affected_entities": {
+              "AFFECT_ED_WORKER": 200,
+              "AFFECT_LEARNER": 567,
+              "AFFECT_ED_ORG": 75,
+              "MISSING": 12,
+              "AFFECT_FAMILY": 5,
+              "AFFECT_EMPLOYER": 8,
+              "AFFECT_PUBLIC": 8
+            },
+            "action": {
+              "ACT_PRACTICE": 251,
+              "ACT_RESOURCES": 105,
+              "MISSING": 186,
+              "ACT_EVALUATE": 10,
+              "ACT_RULES": 240,
+              "ACT_CURRICULUM": 39,
+              "ACT_COORDINATE": 23
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 169,
+              "RESP_ED_WORKER": 142,
+              "RESP_LEARNER": 84,
+              "MISSING": 261,
+              "RESP_PUBLIC": 86,
+              "RESP_BUSINESS": 28,
+              "RESP_FAMILY": 4,
+              "RESP_COLLECTIVE": 1
+            }
+          }
+        },
+        "FR_EDUCATIONAL_MANAGEMENT": {
+          "label": "AI as an Educational Management Tool",
+          "articles": 85,
+          "article_percent": 10.27,
+          "accounts": 130,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 69,
+              "CERT_POSSIBLE": 35,
+              "CERT_DENIED": 3,
+              "CERT_CONFIDENT": 24
+            },
+            "desirability": {
+              "DES_POSITIVE": 101,
+              "MISSING": 21,
+              "DES_NEGATIVE": 5,
+              "DES_MIXED": 3
+            },
+            "rationale": {
+              "MISSING": 65,
+              "RATION_RIGHTS_INTEGRITY": 15,
+              "RATION_CAPACITY": 38,
+              "RATION_ECONOMY": 4,
+              "RATION_PEDAGOGY": 10,
+              "RATION_HUMAN_VALUES": 5,
+              "RATION_NATIONAL": 3,
+              "RATION_EQUITY": 5,
+              "RATION_POLICY": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 50,
+              "OBJ_UNSPECIFIED": 63,
+              "OBJ_GENERATIVE": 20
+            },
+            "education_context": {
+              "CTX_SCHOOL": 71,
+              "CTX_HIGHER": 35,
+              "MISSING": 23,
+              "CTX_VOCATIONAL": 3,
+              "CTX_PROFESSIONAL": 1
+            },
+            "timespan": {
+              "TIME_IMMEDIATE": 30,
+              "MISSING": 83,
+              "TIME_ONGOING": 1,
+              "TIME_NEAR": 6,
+              "TIME_ANCHORED_UNCLASSIFIED": 14
+            },
+            "space": {
+              "SPACE_FOREIGN_DOMESTIC": 14,
+              "MISSING": 75,
+              "SPACE_VIETNAM": 39,
+              "SPACE_TRANSNATIONAL": 2
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 31,
+              "SPK_AUTHOR": 26,
+              "SPK_ACADEMIC_EXPERT": 15,
+              "SPK_BUSINESS": 16,
+              "MISSING": 2,
+              "SPK_LEARNER": 4,
+              "SPK_FAMILY": 2,
+              "SPK_COLLECTIVE": 9,
+              "SPK_PUBLIC": 26
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 86,
+              "AFFECT_ED_WORKER": 64,
+              "AFFECT_ED_ORG": 53,
+              "AFFECT_FAMILY": 21,
+              "MISSING": 2,
+              "AFFECT_EMPLOYER": 5,
+              "AFFECT_PUBLIC": 8
+            },
+            "action": {
+              "ACT_RESOURCES": 52,
+              "ACT_PRACTICE": 34,
+              "ACT_RULES": 19,
+              "MISSING": 33,
+              "ACT_EVALUATE": 12,
+              "ACT_COORDINATE": 16,
+              "ACT_CURRICULUM": 4
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 42,
+              "RESP_ED_WORKER": 13,
+              "MISSING": 48,
+              "RESP_LEARNER": 10,
+              "RESP_BUSINESS": 21,
+              "RESP_COLLECTIVE": 2,
+              "RESP_PUBLIC": 21,
+              "RESP_FAMILY": 3
+            }
+          }
+        },
+        "FR_AI_LITERACY": {
+          "label": "AI Literacy as an Educational Imperative",
+          "articles": 439,
+          "article_percent": 53.02,
+          "accounts": 862,
+          "field_counts": {
+            "certainty": {
+              "CERT_POSSIBLE": 87,
+              "CERT_CONFIDENT": 123,
+              "MISSING": 641,
+              "CERT_DENIED": 16,
+              "CERT_UNRESOLVED": 3
+            },
+            "desirability": {
+              "DES_POSITIVE": 730,
+              "MISSING": 91,
+              "DES_NEGATIVE": 34,
+              "DES_MIXED": 7
+            },
+            "rationale": {
+              "RATION_ECONOMY": 145,
+              "RATION_PEDAGOGY": 256,
+              "MISSING": 269,
+              "RATION_EQUITY": 41,
+              "RATION_CAPACITY": 125,
+              "RATION_RIGHTS_INTEGRITY": 77,
+              "RATION_HUMAN_VALUES": 63,
+              "RATION_NATIONAL": 22,
+              "RATION_POLICY": 65
+            },
+            "technology_object": {
+              "OBJ_UNSPECIFIED": 643,
+              "OBJ_GENERATIVE": 186,
+              "OBJ_PREDICTIVE": 47
+            },
+            "education_context": {
+              "CTX_HIGHER": 334,
+              "CTX_PROFESSIONAL": 136,
+              "CTX_COMMUNITY": 15,
+              "MISSING": 61,
+              "CTX_SCHOOL": 405,
+              "CTX_VOCATIONAL": 26
+            },
+            "timespan": {
+              "TIME_ANCHORED_UNCLASSIFIED": 154,
+              "TIME_ONGOING": 86,
+              "MISSING": 476,
+              "TIME_IMMEDIATE": 145,
+              "TIME_DISTANT": 19,
+              "TIME_NEAR": 38
+            },
+            "space": {
+              "SPACE_VIETNAM": 270,
+              "MISSING": 493,
+              "SPACE_TRANSNATIONAL": 39,
+              "SPACE_FOREIGN_DOMESTIC": 64
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 242,
+              "SPK_BUSINESS": 49,
+              "SPK_AUTHOR": 147,
+              "SPK_LEARNER": 29,
+              "SPK_PUBLIC": 181,
+              "SPK_ACADEMIC_EXPERT": 171,
+              "SPK_COLLECTIVE": 25,
+              "MISSING": 13,
+              "SPK_FAMILY": 9
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 749,
+              "AFFECT_EMPLOYER": 40,
+              "AFFECT_ED_ORG": 84,
+              "AFFECT_PUBLIC": 44,
+              "AFFECT_ED_WORKER": 238,
+              "MISSING": 16,
+              "AFFECT_FAMILY": 19
+            },
+            "action": {
+              "ACT_CURRICULUM": 343,
+              "ACT_PRACTICE": 345,
+              "MISSING": 128,
+              "ACT_RESOURCES": 315,
+              "ACT_COORDINATE": 115,
+              "ACT_RULES": 105,
+              "ACT_EVALUATE": 35
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 362,
+              "RESP_LEARNER": 125,
+              "MISSING": 256,
+              "RESP_ED_WORKER": 133,
+              "RESP_PUBLIC": 129,
+              "RESP_BUSINESS": 62,
+              "RESP_COLLECTIVE": 18,
+              "RESP_FAMILY": 10
+            }
+          }
+        },
+        "FR_NATIONAL_DEVELOPMENT": {
+          "label": "AI as a Driver of National Development",
+          "articles": 162,
+          "article_percent": 19.57,
+          "accounts": 217,
+          "field_counts": {
+            "certainty": {
+              "CERT_CONFIDENT": 29,
+              "MISSING": 168,
+              "CERT_POSSIBLE": 22
+            },
+            "desirability": {
+              "DES_POSITIVE": 199,
+              "MISSING": 11,
+              "DES_NEGATIVE": 7
+            },
+            "rationale": {
+              "RATION_CAPACITY": 24,
+              "RATION_ECONOMY": 62,
+              "MISSING": 41,
+              "RATION_PEDAGOGY": 22,
+              "RATION_NATIONAL": 93,
+              "RATION_HUMAN_VALUES": 14,
+              "RATION_POLICY": 27,
+              "RATION_EQUITY": 5,
+              "RATION_RIGHTS_INTEGRITY": 3
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 11,
+              "OBJ_UNSPECIFIED": 184,
+              "OBJ_GENERATIVE": 25
+            },
+            "education_context": {
+              "CTX_COMMUNITY": 7,
+              "CTX_HIGHER": 118,
+              "CTX_SCHOOL": 79,
+              "CTX_PROFESSIONAL": 30,
+              "MISSING": 19,
+              "CTX_VOCATIONAL": 10
+            },
+            "timespan": {
+              "TIME_NEAR": 16,
+              "TIME_DISTANT": 20,
+              "MISSING": 109,
+              "TIME_ANCHORED_UNCLASSIFIED": 49,
+              "TIME_IMMEDIATE": 29,
+              "TIME_ONGOING": 16
+            },
+            "space": {
+              "SPACE_VIETNAM": 145,
+              "MISSING": 37,
+              "SPACE_FOREIGN_DOMESTIC": 26,
+              "SPACE_TRANSNATIONAL": 20
+            },
+            "speaker": {
+              "SPK_BUSINESS": 28,
+              "SPK_ED_LEADERSHIP": 55,
+              "SPK_ACADEMIC_EXPERT": 21,
+              "SPK_AUTHOR": 46,
+              "SPK_COLLECTIVE": 10,
+              "SPK_PUBLIC": 56,
+              "SPK_LEARNER": 1,
+              "MISSING": 2
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 155,
+              "AFFECT_PUBLIC": 117,
+              "AFFECT_EMPLOYER": 25,
+              "AFFECT_ED_WORKER": 34,
+              "AFFECT_ED_ORG": 41,
+              "MISSING": 2
+            },
+            "action": {
+              "ACT_RESOURCES": 104,
+              "ACT_COORDINATE": 66,
+              "ACT_PRACTICE": 47,
+              "MISSING": 30,
+              "ACT_CURRICULUM": 95,
+              "ACT_RULES": 22,
+              "ACT_EVALUATE": 6
+            },
+            "responsibility": {
+              "RESP_BUSINESS": 54,
+              "RESP_ED_ORG": 98,
+              "MISSING": 60,
+              "RESP_PUBLIC": 48,
+              "RESP_LEARNER": 13,
+              "RESP_ED_WORKER": 16,
+              "RESP_COLLECTIVE": 6,
+              "RESP_FAMILY": 2
+            }
+          }
+        }
+      }
+    },
+    "public/central": {
+      "articles": 424,
+      "accounts": 1418,
+      "desirability_accounts": {
+        "DES_POSITIVE": 1067,
+        "MISSING": 132,
+        "DES_NEGATIVE": 180,
+        "DES_MIXED": 39
+      },
+      "articles_with_negative_account": 121,
+      "roles": {
+        "FR_LEARNING_PARTNER": {
+          "label": "AI as a Learning Partner",
+          "articles": 250,
+          "article_percent": 58.96,
+          "accounts": 644,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 301,
+              "CERT_POSSIBLE": 189,
+              "CERT_CONFIDENT": 129,
+              "CERT_DENIED": 30,
+              "CERT_UNRESOLVED": 2
+            },
+            "desirability": {
+              "DES_POSITIVE": 432,
+              "DES_NEGATIVE": 124,
+              "MISSING": 54,
+              "DES_MIXED": 34
+            },
+            "rationale": {
+              "MISSING": 237,
+              "RATION_ECONOMY": 16,
+              "RATION_EQUITY": 25,
+              "RATION_PEDAGOGY": 233,
+              "RATION_RIGHTS_INTEGRITY": 61,
+              "RATION_CAPACITY": 84,
+              "RATION_POLICY": 21,
+              "RATION_HUMAN_VALUES": 62,
+              "RATION_NATIONAL": 7
+            },
+            "technology_object": {
+              "OBJ_GENERATIVE": 296,
+              "OBJ_UNSPECIFIED": 292,
+              "OBJ_PREDICTIVE": 77
+            },
+            "education_context": {
+              "CTX_HIGHER": 206,
+              "CTX_SCHOOL": 318,
+              "MISSING": 115,
+              "CTX_VOCATIONAL": 12,
+              "CTX_PROFESSIONAL": 30,
+              "CTX_COMMUNITY": 9
+            },
+            "timespan": {
+              "MISSING": 453,
+              "TIME_ANCHORED_UNCLASSIFIED": 45,
+              "TIME_IMMEDIATE": 111,
+              "TIME_DISTANT": 15,
+              "TIME_NEAR": 24,
+              "TIME_ONGOING": 15
+            },
+            "space": {
+              "SPACE_VIETNAM": 135,
+              "SPACE_FOREIGN_DOMESTIC": 83,
+              "MISSING": 395,
+              "SPACE_TRANSNATIONAL": 32
+            },
+            "speaker": {
+              "SPK_BUSINESS": 64,
+              "SPK_PUBLIC": 87,
+              "SPK_ACADEMIC_EXPERT": 217,
+              "SPK_AUTHOR": 118,
+              "SPK_ED_LEADERSHIP": 113,
+              "MISSING": 14,
+              "SPK_COLLECTIVE": 13,
+              "SPK_LEARNER": 24,
+              "SPK_FAMILY": 9
+            },
+            "affected_entities": {
+              "AFFECT_ED_ORG": 78,
+              "AFFECT_LEARNER": 541,
+              "AFFECT_ED_WORKER": 240,
+              "MISSING": 10,
+              "AFFECT_FAMILY": 12,
+              "AFFECT_PUBLIC": 33,
+              "AFFECT_EMPLOYER": 9
+            },
+            "action": {
+              "MISSING": 237,
+              "ACT_RESOURCES": 129,
+              "ACT_RULES": 81,
+              "ACT_PRACTICE": 258,
+              "ACT_EVALUATE": 31,
+              "ACT_COORDINATE": 36,
+              "ACT_CURRICULUM": 49
+            },
+            "responsibility": {
+              "MISSING": 308,
+              "RESP_BUSINESS": 55,
+              "RESP_PUBLIC": 60,
+              "RESP_ED_WORKER": 136,
+              "RESP_LEARNER": 77,
+              "RESP_ED_ORG": 102,
+              "RESP_FAMILY": 10,
+              "RESP_COLLECTIVE": 5
+            }
+          }
+        },
+        "FR_EDUCATIONAL_JUDGMENT": {
+          "label": "AI as a Force Reshaping Educational Judgment",
+          "articles": 153,
+          "article_percent": 36.08,
+          "accounts": 285,
+          "field_counts": {
+            "certainty": {
+              "CERT_POSSIBLE": 48,
+              "CERT_CONFIDENT": 49,
+              "MISSING": 185,
+              "CERT_DENIED": 6
+            },
+            "desirability": {
+              "DES_POSITIVE": 189,
+              "MISSING": 38,
+              "DES_NEGATIVE": 50,
+              "DES_MIXED": 8
+            },
+            "rationale": {
+              "RATION_CAPACITY": 22,
+              "MISSING": 96,
+              "RATION_RIGHTS_INTEGRITY": 129,
+              "RATION_PEDAGOGY": 49,
+              "RATION_EQUITY": 7,
+              "RATION_HUMAN_VALUES": 13,
+              "RATION_ECONOMY": 8,
+              "RATION_POLICY": 10
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 45,
+              "OBJ_GENERATIVE": 168,
+              "OBJ_UNSPECIFIED": 86
+            },
+            "education_context": {
+              "MISSING": 49,
+              "CTX_HIGHER": 129,
+              "CTX_SCHOOL": 106,
+              "CTX_PROFESSIONAL": 10,
+              "CTX_VOCATIONAL": 5
+            },
+            "timespan": {
+              "TIME_NEAR": 17,
+              "MISSING": 179,
+              "TIME_IMMEDIATE": 48,
+              "TIME_ANCHORED_UNCLASSIFIED": 36,
+              "TIME_DISTANT": 8,
+              "TIME_ONGOING": 5
+            },
+            "space": {
+              "SPACE_FOREIGN_DOMESTIC": 72,
+              "MISSING": 155,
+              "SPACE_VIETNAM": 46,
+              "SPACE_TRANSNATIONAL": 12
+            },
+            "speaker": {
+              "MISSING": 4,
+              "SPK_LEARNER": 11,
+              "SPK_ACADEMIC_EXPERT": 83,
+              "SPK_ED_LEADERSHIP": 64,
+              "SPK_AUTHOR": 49,
+              "SPK_PUBLIC": 61,
+              "SPK_BUSINESS": 15,
+              "SPK_COLLECTIVE": 3,
+              "SPK_FAMILY": 1
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 248,
+              "AFFECT_ED_WORKER": 95,
+              "AFFECT_ED_ORG": 47,
+              "MISSING": 8,
+              "AFFECT_EMPLOYER": 3,
+              "AFFECT_FAMILY": 2,
+              "AFFECT_PUBLIC": 3
+            },
+            "action": {
+              "ACT_PRACTICE": 126,
+              "ACT_RESOURCES": 57,
+              "MISSING": 67,
+              "ACT_EVALUATE": 5,
+              "ACT_RULES": 115,
+              "ACT_CURRICULUM": 32,
+              "ACT_COORDINATE": 11
+            },
+            "responsibility": {
+              "RESP_ED_WORKER": 57,
+              "RESP_LEARNER": 37,
+              "MISSING": 105,
+              "RESP_ED_ORG": 91,
+              "RESP_PUBLIC": 47,
+              "RESP_BUSINESS": 13,
+              "RESP_FAMILY": 1,
+              "RESP_COLLECTIVE": 1
+            }
+          }
+        },
+        "FR_EDUCATIONAL_MANAGEMENT": {
+          "label": "AI as an Educational Management Tool",
+          "articles": 55,
+          "article_percent": 12.97,
+          "accounts": 83,
+          "field_counts": {
+            "certainty": {
+              "CERT_CONFIDENT": 15,
+              "MISSING": 45,
+              "CERT_POSSIBLE": 22,
+              "CERT_DENIED": 1
+            },
+            "desirability": {
+              "DES_POSITIVE": 67,
+              "MISSING": 14,
+              "DES_MIXED": 1,
+              "DES_NEGATIVE": 1
+            },
+            "rationale": {
+              "MISSING": 41,
+              "RATION_CAPACITY": 24,
+              "RATION_PEDAGOGY": 7,
+              "RATION_RIGHTS_INTEGRITY": 9,
+              "RATION_ECONOMY": 2,
+              "RATION_NATIONAL": 3,
+              "RATION_EQUITY": 4,
+              "RATION_HUMAN_VALUES": 3,
+              "RATION_POLICY": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 25,
+              "OBJ_UNSPECIFIED": 50,
+              "OBJ_GENERATIVE": 10
+            },
+            "education_context": {
+              "CTX_HIGHER": 18,
+              "MISSING": 15,
+              "CTX_SCHOOL": 49,
+              "CTX_VOCATIONAL": 3,
+              "CTX_PROFESSIONAL": 1
+            },
+            "timespan": {
+              "MISSING": 52,
+              "TIME_IMMEDIATE": 20,
+              "TIME_ANCHORED_UNCLASSIFIED": 11,
+              "TIME_NEAR": 3
+            },
+            "space": {
+              "MISSING": 54,
+              "SPACE_VIETNAM": 22,
+              "SPACE_FOREIGN_DOMESTIC": 6,
+              "SPACE_TRANSNATIONAL": 1
+            },
+            "speaker": {
+              "SPK_LEARNER": 1,
+              "SPK_ED_LEADERSHIP": 18,
+              "SPK_BUSINESS": 12,
+              "SPK_ACADEMIC_EXPERT": 9,
+              "SPK_AUTHOR": 14,
+              "SPK_PUBLIC": 24,
+              "SPK_COLLECTIVE": 4,
+              "MISSING": 1
+            },
+            "affected_entities": {
+              "AFFECT_ED_WORKER": 41,
+              "AFFECT_ED_ORG": 36,
+              "AFFECT_LEARNER": 57,
+              "AFFECT_FAMILY": 13,
+              "MISSING": 1,
+              "AFFECT_EMPLOYER": 5,
+              "AFFECT_PUBLIC": 8
+            },
+            "action": {
+              "MISSING": 19,
+              "ACT_EVALUATE": 9,
+              "ACT_COORDINATE": 13,
+              "ACT_RESOURCES": 33,
+              "ACT_PRACTICE": 21,
+              "ACT_RULES": 15,
+              "ACT_CURRICULUM": 3
+            },
+            "responsibility": {
+              "MISSING": 30,
+              "RESP_ED_ORG": 25,
+              "RESP_BUSINESS": 15,
+              "RESP_ED_WORKER": 7,
+              "RESP_PUBLIC": 19,
+              "RESP_FAMILY": 2,
+              "RESP_LEARNER": 5,
+              "RESP_COLLECTIVE": 1
+            }
+          }
+        },
+        "FR_AI_LITERACY": {
+          "label": "AI Literacy as an Educational Imperative",
+          "articles": 247,
+          "article_percent": 58.25,
+          "accounts": 488,
+          "field_counts": {
+            "certainty": {
+              "CERT_CONFIDENT": 68,
+              "MISSING": 379,
+              "CERT_POSSIBLE": 41,
+              "CERT_DENIED": 2
+            },
+            "desirability": {
+              "MISSING": 46,
+              "DES_POSITIVE": 422,
+              "DES_MIXED": 5,
+              "DES_NEGATIVE": 15
+            },
+            "rationale": {
+              "RATION_ECONOMY": 78,
+              "MISSING": 129,
+              "RATION_PEDAGOGY": 149,
+              "RATION_CAPACITY": 97,
+              "RATION_HUMAN_VALUES": 44,
+              "RATION_NATIONAL": 17,
+              "RATION_RIGHTS_INTEGRITY": 56,
+              "RATION_POLICY": 52,
+              "RATION_EQUITY": 32
+            },
+            "technology_object": {
+              "OBJ_GENERATIVE": 100,
+              "OBJ_UNSPECIFIED": 372,
+              "OBJ_PREDICTIVE": 24
+            },
+            "education_context": {
+              "CTX_HIGHER": 182,
+              "CTX_SCHOOL": 249,
+              "CTX_PROFESSIONAL": 98,
+              "MISSING": 25,
+              "CTX_VOCATIONAL": 21,
+              "CTX_COMMUNITY": 2
+            },
+            "timespan": {
+              "MISSING": 253,
+              "TIME_IMMEDIATE": 100,
+              "TIME_ANCHORED_UNCLASSIFIED": 82,
+              "TIME_ONGOING": 51,
+              "TIME_NEAR": 26,
+              "TIME_DISTANT": 15
+            },
+            "space": {
+              "SPACE_VIETNAM": 180,
+              "MISSING": 267,
+              "SPACE_FOREIGN_DOMESTIC": 30,
+              "SPACE_TRANSNATIONAL": 13
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 143,
+              "SPK_LEARNER": 10,
+              "SPK_ACADEMIC_EXPERT": 93,
+              "SPK_AUTHOR": 74,
+              "SPK_BUSINESS": 20,
+              "SPK_PUBLIC": 133,
+              "SPK_COLLECTIVE": 12,
+              "MISSING": 3,
+              "SPK_FAMILY": 1
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 419,
+              "AFFECT_ED_ORG": 58,
+              "MISSING": 12,
+              "AFFECT_ED_WORKER": 164,
+              "AFFECT_EMPLOYER": 25,
+              "AFFECT_PUBLIC": 32,
+              "AFFECT_FAMILY": 12
+            },
+            "action": {
+              "MISSING": 54,
+              "ACT_RESOURCES": 195,
+              "ACT_CURRICULUM": 216,
+              "ACT_PRACTICE": 199,
+              "ACT_COORDINATE": 73,
+              "ACT_RULES": 72,
+              "ACT_EVALUATE": 25
+            },
+            "responsibility": {
+              "MISSING": 128,
+              "RESP_BUSINESS": 35,
+              "RESP_ED_ORG": 227,
+              "RESP_LEARNER": 66,
+              "RESP_ED_WORKER": 80,
+              "RESP_PUBLIC": 98,
+              "RESP_COLLECTIVE": 10,
+              "RESP_FAMILY": 5
+            }
+          }
+        },
+        "FR_NATIONAL_DEVELOPMENT": {
+          "label": "AI as a Driver of National Development",
+          "articles": 109,
+          "article_percent": 25.71,
+          "accounts": 154,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 118,
+              "CERT_CONFIDENT": 19,
+              "CERT_POSSIBLE": 18
+            },
+            "desirability": {
+              "DES_POSITIVE": 141,
+              "MISSING": 6,
+              "DES_NEGATIVE": 7
+            },
+            "rationale": {
+              "MISSING": 26,
+              "RATION_PEDAGOGY": 19,
+              "RATION_ECONOMY": 47,
+              "RATION_POLICY": 20,
+              "RATION_NATIONAL": 69,
+              "RATION_CAPACITY": 18,
+              "RATION_HUMAN_VALUES": 11,
+              "RATION_RIGHTS_INTEGRITY": 2,
+              "RATION_EQUITY": 4
+            },
+            "technology_object": {
+              "OBJ_GENERATIVE": 23,
+              "OBJ_UNSPECIFIED": 127,
+              "OBJ_PREDICTIVE": 6
+            },
+            "education_context": {
+              "CTX_HIGHER": 83,
+              "CTX_SCHOOL": 50,
+              "CTX_PROFESSIONAL": 28,
+              "MISSING": 13,
+              "CTX_VOCATIONAL": 9,
+              "CTX_COMMUNITY": 6
+            },
+            "timespan": {
+              "MISSING": 84,
+              "TIME_ANCHORED_UNCLASSIFIED": 27,
+              "TIME_NEAR": 8,
+              "TIME_ONGOING": 14,
+              "TIME_IMMEDIATE": 19,
+              "TIME_DISTANT": 14
+            },
+            "space": {
+              "SPACE_VIETNAM": 109,
+              "MISSING": 25,
+              "SPACE_TRANSNATIONAL": 13,
+              "SPACE_FOREIGN_DOMESTIC": 16
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 40,
+              "SPK_BUSINESS": 20,
+              "SPK_AUTHOR": 33,
+              "SPK_COLLECTIVE": 8,
+              "SPK_PUBLIC": 37,
+              "SPK_ACADEMIC_EXPERT": 17
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 111,
+              "AFFECT_PUBLIC": 86,
+              "MISSING": 2,
+              "AFFECT_ED_WORKER": 29,
+              "AFFECT_ED_ORG": 33,
+              "AFFECT_EMPLOYER": 15
+            },
+            "action": {
+              "ACT_COORDINATE": 52,
+              "ACT_RESOURCES": 73,
+              "ACT_PRACTICE": 38,
+              "MISSING": 22,
+              "ACT_CURRICULUM": 69,
+              "ACT_RULES": 17,
+              "ACT_EVALUATE": 6
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 68,
+              "RESP_BUSINESS": 36,
+              "MISSING": 50,
+              "RESP_PUBLIC": 29,
+              "RESP_ED_WORKER": 13,
+              "RESP_COLLECTIVE": 5,
+              "RESP_LEARNER": 7
+            }
+          }
+        }
+      }
+    },
+    "commercial/general": {
+      "articles": 404,
+      "accounts": 1342,
+      "desirability_accounts": {
+        "DES_POSITIVE": 938,
+        "MISSING": 145,
+        "DES_NEGATIVE": 220,
+        "DES_MIXED": 38,
+        "DES_UNDECIDED": 1
+      },
+      "articles_with_negative_account": 153,
+      "roles": {
+        "FR_LEARNING_PARTNER": {
+          "label": "AI as a Learning Partner",
+          "articles": 251,
+          "article_percent": 62.13,
+          "accounts": 653,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 297,
+              "CERT_CONFIDENT": 131,
+              "CERT_DENIED": 46,
+              "CERT_POSSIBLE": 193,
+              "CERT_UNRESOLVED": 4
+            },
+            "desirability": {
+              "DES_POSITIVE": 440,
+              "MISSING": 54,
+              "DES_NEGATIVE": 126,
+              "DES_MIXED": 33
+            },
+            "rationale": {
+              "RATION_CAPACITY": 68,
+              "RATION_PEDAGOGY": 264,
+              "RATION_HUMAN_VALUES": 40,
+              "MISSING": 223,
+              "RATION_RIGHTS_INTEGRITY": 71,
+              "RATION_EQUITY": 17,
+              "RATION_ECONOMY": 19,
+              "RATION_POLICY": 7
+            },
+            "technology_object": {
+              "OBJ_UNSPECIFIED": 246,
+              "OBJ_PREDICTIVE": 59,
+              "OBJ_GENERATIVE": 358
+            },
+            "education_context": {
+              "CTX_SCHOOL": 322,
+              "CTX_COMMUNITY": 18,
+              "CTX_HIGHER": 222,
+              "MISSING": 107,
+              "CTX_PROFESSIONAL": 6,
+              "CTX_VOCATIONAL": 3
+            },
+            "timespan": {
+              "TIME_ANCHORED_UNCLASSIFIED": 30,
+              "MISSING": 455,
+              "TIME_NEAR": 20,
+              "TIME_DISTANT": 10,
+              "TIME_IMMEDIATE": 125,
+              "TIME_ONGOING": 22
+            },
+            "space": {
+              "SPACE_FOREIGN_DOMESTIC": 112,
+              "SPACE_VIETNAM": 71,
+              "MISSING": 447,
+              "SPACE_TRANSNATIONAL": 25
+            },
+            "speaker": {
+              "SPK_PUBLIC": 28,
+              "SPK_ED_LEADERSHIP": 66,
+              "SPK_AUTHOR": 165,
+              "SPK_BUSINESS": 64,
+              "SPK_ACADEMIC_EXPERT": 218,
+              "SPK_LEARNER": 80,
+              "SPK_COLLECTIVE": 10,
+              "MISSING": 15,
+              "SPK_FAMILY": 9
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 571,
+              "AFFECT_ED_WORKER": 171,
+              "AFFECT_PUBLIC": 3,
+              "AFFECT_FAMILY": 11,
+              "AFFECT_ED_ORG": 30,
+              "MISSING": 9,
+              "AFFECT_EMPLOYER": 6
+            },
+            "action": {
+              "ACT_RESOURCES": 88,
+              "ACT_PRACTICE": 287,
+              "MISSING": 255,
+              "ACT_COORDINATE": 17,
+              "ACT_RULES": 53,
+              "ACT_CURRICULUM": 21,
+              "ACT_EVALUATE": 9
+            },
+            "responsibility": {
+              "RESP_PUBLIC": 23,
+              "RESP_LEARNER": 148,
+              "RESP_ED_ORG": 65,
+              "MISSING": 315,
+              "RESP_BUSINESS": 40,
+              "RESP_FAMILY": 13,
+              "RESP_ED_WORKER": 125,
+              "RESP_COLLECTIVE": 6
+            }
+          }
+        },
+        "FR_EDUCATIONAL_JUDGMENT": {
+          "label": "AI as a Force Reshaping Educational Judgment",
+          "articles": 159,
+          "article_percent": 39.36,
+          "accounts": 349,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 202,
+              "CERT_DENIED": 17,
+              "CERT_CONFIDENT": 62,
+              "CERT_POSSIBLE": 66,
+              "CERT_UNRESOLVED": 4
+            },
+            "desirability": {
+              "DES_POSITIVE": 200,
+              "DES_NEGATIVE": 94,
+              "MISSING": 46,
+              "DES_MIXED": 8,
+              "DES_UNDECIDED": 1
+            },
+            "rationale": {
+              "MISSING": 133,
+              "RATION_CAPACITY": 26,
+              "RATION_RIGHTS_INTEGRITY": 160,
+              "RATION_EQUITY": 1,
+              "RATION_HUMAN_VALUES": 7,
+              "RATION_PEDAGOGY": 43,
+              "RATION_POLICY": 6,
+              "RATION_ECONOMY": 7,
+              "RATION_NATIONAL": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 59,
+              "OBJ_GENERATIVE": 217,
+              "OBJ_UNSPECIFIED": 78
+            },
+            "education_context": {
+              "CTX_SCHOOL": 117,
+              "CTX_HIGHER": 195,
+              "MISSING": 43,
+              "CTX_PROFESSIONAL": 3,
+              "CTX_COMMUNITY": 2,
+              "CTX_VOCATIONAL": 1
+            },
+            "timespan": {
+              "MISSING": 223,
+              "TIME_IMMEDIATE": 62,
+              "TIME_NEAR": 24,
+              "TIME_ANCHORED_UNCLASSIFIED": 31,
+              "TIME_ONGOING": 7,
+              "TIME_DISTANT": 5
+            },
+            "space": {
+              "SPACE_VIETNAM": 28,
+              "MISSING": 189,
+              "SPACE_FOREIGN_DOMESTIC": 123,
+              "SPACE_TRANSNATIONAL": 9
+            },
+            "speaker": {
+              "SPK_AUTHOR": 69,
+              "SPK_BUSINESS": 25,
+              "SPK_ACADEMIC_EXPERT": 118,
+              "SPK_ED_LEADERSHIP": 50,
+              "SPK_LEARNER": 27,
+              "MISSING": 13,
+              "SPK_PUBLIC": 43,
+              "SPK_COLLECTIVE": 3,
+              "SPK_FAMILY": 3
+            },
+            "affected_entities": {
+              "AFFECT_ED_WORKER": 105,
+              "AFFECT_LEARNER": 319,
+              "AFFECT_ED_ORG": 28,
+              "MISSING": 4,
+              "AFFECT_FAMILY": 3,
+              "AFFECT_EMPLOYER": 5,
+              "AFFECT_PUBLIC": 5
+            },
+            "action": {
+              "ACT_PRACTICE": 125,
+              "MISSING": 119,
+              "ACT_RULES": 125,
+              "ACT_RESOURCES": 48,
+              "ACT_EVALUATE": 5,
+              "ACT_CURRICULUM": 7,
+              "ACT_COORDINATE": 12
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 78,
+              "RESP_ED_WORKER": 85,
+              "RESP_LEARNER": 47,
+              "MISSING": 156,
+              "RESP_PUBLIC": 39,
+              "RESP_BUSINESS": 15,
+              "RESP_FAMILY": 3
+            }
+          }
+        },
+        "FR_EDUCATIONAL_MANAGEMENT": {
+          "label": "AI as an Educational Management Tool",
+          "articles": 30,
+          "article_percent": 7.43,
+          "accounts": 47,
+          "field_counts": {
+            "certainty": {
+              "MISSING": 24,
+              "CERT_POSSIBLE": 13,
+              "CERT_DENIED": 2,
+              "CERT_CONFIDENT": 9
+            },
+            "desirability": {
+              "DES_POSITIVE": 34,
+              "DES_NEGATIVE": 4,
+              "MISSING": 7,
+              "DES_MIXED": 2
+            },
+            "rationale": {
+              "MISSING": 24,
+              "RATION_RIGHTS_INTEGRITY": 6,
+              "RATION_CAPACITY": 14,
+              "RATION_ECONOMY": 2,
+              "RATION_PEDAGOGY": 3,
+              "RATION_HUMAN_VALUES": 2,
+              "RATION_EQUITY": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 25,
+              "OBJ_UNSPECIFIED": 13,
+              "OBJ_GENERATIVE": 10
+            },
+            "education_context": {
+              "CTX_SCHOOL": 22,
+              "CTX_HIGHER": 17,
+              "MISSING": 8
+            },
+            "timespan": {
+              "TIME_IMMEDIATE": 10,
+              "MISSING": 31,
+              "TIME_ONGOING": 1,
+              "TIME_NEAR": 3,
+              "TIME_ANCHORED_UNCLASSIFIED": 3
+            },
+            "space": {
+              "SPACE_FOREIGN_DOMESTIC": 8,
+              "MISSING": 21,
+              "SPACE_VIETNAM": 17,
+              "SPACE_TRANSNATIONAL": 1
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 13,
+              "SPK_AUTHOR": 12,
+              "SPK_ACADEMIC_EXPERT": 6,
+              "SPK_BUSINESS": 4,
+              "MISSING": 1,
+              "SPK_LEARNER": 3,
+              "SPK_FAMILY": 2,
+              "SPK_COLLECTIVE": 5,
+              "SPK_PUBLIC": 2
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 29,
+              "AFFECT_ED_WORKER": 23,
+              "AFFECT_ED_ORG": 17,
+              "AFFECT_FAMILY": 8,
+              "MISSING": 1
+            },
+            "action": {
+              "ACT_RESOURCES": 19,
+              "ACT_PRACTICE": 13,
+              "ACT_RULES": 4,
+              "MISSING": 14,
+              "ACT_EVALUATE": 3,
+              "ACT_COORDINATE": 3,
+              "ACT_CURRICULUM": 1
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 17,
+              "RESP_ED_WORKER": 6,
+              "MISSING": 18,
+              "RESP_LEARNER": 5,
+              "RESP_COLLECTIVE": 1,
+              "RESP_PUBLIC": 2,
+              "RESP_BUSINESS": 6,
+              "RESP_FAMILY": 1
+            }
+          }
+        },
+        "FR_AI_LITERACY": {
+          "label": "AI Literacy as an Educational Imperative",
+          "articles": 192,
+          "article_percent": 47.52,
+          "accounts": 374,
+          "field_counts": {
+            "certainty": {
+              "CERT_POSSIBLE": 46,
+              "MISSING": 262,
+              "CERT_CONFIDENT": 55,
+              "CERT_DENIED": 14,
+              "CERT_UNRESOLVED": 3
+            },
+            "desirability": {
+              "DES_POSITIVE": 308,
+              "MISSING": 45,
+              "DES_NEGATIVE": 19,
+              "DES_MIXED": 2
+            },
+            "rationale": {
+              "RATION_ECONOMY": 67,
+              "RATION_PEDAGOGY": 107,
+              "MISSING": 140,
+              "RATION_EQUITY": 9,
+              "RATION_RIGHTS_INTEGRITY": 21,
+              "RATION_CAPACITY": 28,
+              "RATION_POLICY": 13,
+              "RATION_HUMAN_VALUES": 19,
+              "RATION_NATIONAL": 5
+            },
+            "technology_object": {
+              "OBJ_UNSPECIFIED": 271,
+              "OBJ_PREDICTIVE": 23,
+              "OBJ_GENERATIVE": 86
+            },
+            "education_context": {
+              "CTX_HIGHER": 152,
+              "CTX_PROFESSIONAL": 38,
+              "CTX_COMMUNITY": 13,
+              "MISSING": 36,
+              "CTX_SCHOOL": 156,
+              "CTX_VOCATIONAL": 5
+            },
+            "timespan": {
+              "TIME_ANCHORED_UNCLASSIFIED": 72,
+              "TIME_ONGOING": 35,
+              "MISSING": 223,
+              "TIME_IMMEDIATE": 45,
+              "TIME_DISTANT": 4,
+              "TIME_NEAR": 12
+            },
+            "space": {
+              "SPACE_VIETNAM": 90,
+              "MISSING": 226,
+              "SPACE_TRANSNATIONAL": 26,
+              "SPACE_FOREIGN_DOMESTIC": 34
+            },
+            "speaker": {
+              "SPK_ED_LEADERSHIP": 99,
+              "SPK_BUSINESS": 29,
+              "SPK_AUTHOR": 73,
+              "SPK_LEARNER": 19,
+              "SPK_PUBLIC": 48,
+              "SPK_ACADEMIC_EXPERT": 78,
+              "SPK_COLLECTIVE": 13,
+              "MISSING": 10,
+              "SPK_FAMILY": 8
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 330,
+              "AFFECT_EMPLOYER": 15,
+              "AFFECT_PUBLIC": 12,
+              "AFFECT_ED_WORKER": 74,
+              "AFFECT_ED_ORG": 26,
+              "AFFECT_FAMILY": 7,
+              "MISSING": 4
+            },
+            "action": {
+              "ACT_CURRICULUM": 127,
+              "ACT_PRACTICE": 146,
+              "MISSING": 74,
+              "ACT_RESOURCES": 120,
+              "ACT_COORDINATE": 42,
+              "ACT_RULES": 33,
+              "ACT_EVALUATE": 10
+            },
+            "responsibility": {
+              "RESP_ED_ORG": 135,
+              "RESP_LEARNER": 59,
+              "MISSING": 128,
+              "RESP_ED_WORKER": 53,
+              "RESP_PUBLIC": 31,
+              "RESP_BUSINESS": 27,
+              "RESP_FAMILY": 5,
+              "RESP_COLLECTIVE": 8
+            }
+          }
+        },
+        "FR_NATIONAL_DEVELOPMENT": {
+          "label": "AI as a Driver of National Development",
+          "articles": 53,
+          "article_percent": 13.12,
+          "accounts": 63,
+          "field_counts": {
+            "certainty": {
+              "CERT_CONFIDENT": 10,
+              "MISSING": 50,
+              "CERT_POSSIBLE": 4
+            },
+            "desirability": {
+              "DES_POSITIVE": 58,
+              "MISSING": 5
+            },
+            "rationale": {
+              "RATION_CAPACITY": 6,
+              "RATION_ECONOMY": 15,
+              "MISSING": 15,
+              "RATION_PEDAGOGY": 3,
+              "RATION_NATIONAL": 24,
+              "RATION_HUMAN_VALUES": 3,
+              "RATION_POLICY": 7,
+              "RATION_EQUITY": 1,
+              "RATION_RIGHTS_INTEGRITY": 1
+            },
+            "technology_object": {
+              "OBJ_PREDICTIVE": 5,
+              "OBJ_UNSPECIFIED": 57,
+              "OBJ_GENERATIVE": 2
+            },
+            "education_context": {
+              "CTX_COMMUNITY": 1,
+              "CTX_HIGHER": 35,
+              "CTX_SCHOOL": 29,
+              "CTX_PROFESSIONAL": 2,
+              "MISSING": 6,
+              "CTX_VOCATIONAL": 1
+            },
+            "timespan": {
+              "TIME_NEAR": 8,
+              "TIME_DISTANT": 6,
+              "MISSING": 25,
+              "TIME_ANCHORED_UNCLASSIFIED": 22,
+              "TIME_IMMEDIATE": 10,
+              "TIME_ONGOING": 2
+            },
+            "space": {
+              "SPACE_VIETNAM": 36,
+              "MISSING": 12,
+              "SPACE_FOREIGN_DOMESTIC": 10,
+              "SPACE_TRANSNATIONAL": 7
+            },
+            "speaker": {
+              "SPK_BUSINESS": 8,
+              "SPK_ED_LEADERSHIP": 15,
+              "SPK_ACADEMIC_EXPERT": 4,
+              "SPK_AUTHOR": 13,
+              "SPK_PUBLIC": 19,
+              "SPK_LEARNER": 1,
+              "MISSING": 2,
+              "SPK_COLLECTIVE": 2
+            },
+            "affected_entities": {
+              "AFFECT_LEARNER": 44,
+              "AFFECT_PUBLIC": 31,
+              "AFFECT_EMPLOYER": 10,
+              "AFFECT_ED_WORKER": 5,
+              "AFFECT_ED_ORG": 8
+            },
+            "action": {
+              "ACT_RESOURCES": 31,
+              "ACT_COORDINATE": 14,
+              "MISSING": 8,
+              "ACT_CURRICULUM": 26,
+              "ACT_RULES": 5,
+              "ACT_PRACTICE": 9
+            },
+            "responsibility": {
+              "RESP_BUSINESS": 18,
+              "RESP_ED_ORG": 30,
+              "MISSING": 10,
+              "RESP_PUBLIC": 19,
+              "RESP_LEARNER": 6,
+              "RESP_ED_WORKER": 3,
+              "RESP_FAMILY": 2,
+              "RESP_COLLECTIVE": 1
+            }
+          }
+        }
+      }
+    }
+  },
+  "unmatched_accounts": 16
+}
