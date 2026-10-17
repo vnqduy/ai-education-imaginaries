@@ -12,3 +12,8 @@ __pycache__/
 .venv/
 .env
 .env.*
+
+# Local R session history and default plot-device output.
+.Rhistory
+.Rapp.history
+Rplots.pdf

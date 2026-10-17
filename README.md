@@ -12,11 +12,11 @@ Current coding: **17 October 2026**, **v3.2**. The corpus contains **1,081 uniqu
 - `data/sipc_future_coding/`: one authoritative `coded_corpus.jsonl`, hash manifest, frozen human/machine-readable codebook and record specification.
 - `methods/`: extraction prompt and consolidated coding/interpretation protocol.
 - `results/`: **one rectangular dataframe, `article_coding.csv`**, and the public vector process figure `figures/process.svg`.
-- `scripts/`: `reproduce_results.py` and `validate_future_coding.py` only.
-- `manuscript/`: editable manuscript sources and bibliography/style dependencies, local only. The existing manuscript has not yet been rewritten for this checkpoint.
+- `scripts/`: `reproduce_results.py`, `validate_future_coding.py` and `plot_future_roles.R` for validation, CSV reproduction and current figures.
+- `manuscript/`: tracked manuscript source, PDF, bibliography and style. The manuscript has not yet been fully aligned with the current coding; other local authoring files are not tracked.
 - `ref/originals/`: original literature files, local only.
 
-Old aggregate JSONs, per-account exports, worker logs, snapshots, progress/validation reports and redundant figure exports are absent and are not recreated by the pipeline.
+The current tree contains final research inputs, canonical coding, the analysis CSV, methods, manuscript and reproduction/plotting scripts. Historical audits, lexical screens, sample lists, duplicate checks, aggregate summaries and the retired summary generator were removed on 17 October 2026. Their last complete state is recoverable from commit `348cff8`; no archive copies are kept in the working tree. The exporter writes only the existing CSV, and the R script displays figures without saving extra files. Original literature and untracked authoring files are retained locally because they are not recoverable through Git.
 
 ## Rectangular dataframe for R
 
@@ -59,4 +59,4 @@ python3 -B scripts/reproduce_results.py
 
 The pipeline uses only the standard library. It validates complete coding coverage, frozen source/codebook hashes, code membership, linked structures and evidence locators, then writes only the CSV. It checks CSV rectangularity, uniqueness and exact value round-trip. The exported file was also successfully imported and checked using R. It does not rerun extraction or semantic coding. Assistant review and automatic checks do not establish independent human intercoder reliability.
 
-The author authorised publication of all research data on 14 October 2026. GitHub now includes full retained texts, extraction, source review, publisher flags, coded records, provenance/hash manifest and the R-ready dataframe, along with definitions, methods, scripts and process figure. Manuscript authoring files and external literature remain local. Previously published Git history has not been rewritten.
+The author authorised publication of all research data on 14 October 2026. GitHub now includes full retained texts, extraction, source review, publisher flags, coded records, provenance/hash manifest and the R-ready dataframe, along with definitions, methods, scripts and process figure. The manuscript source, PDF, bibliography and style are tracked; other authoring files and external literature remain local. Previously published Git history has not been rewritten.
