@@ -1,6 +1,6 @@
 # Future-centred SIPC coding protocol
 
-Completed v2.3 checkpoint, 14 October 2026. Definitions: [codebook](../data/sipc_future_coding/codebook.md); twelve-field structure: [record specification](../data/sipc_future_coding/record_specification.json).
+Current v3.2 actor harmonisation, 17 October 2026; earlier v2.3 checkpoint history below. Definitions: [codebook](../data/sipc_future_coding/codebook.md); twelve-field structure: [record specification](../data/sipc_future_coding/record_specification.json).
 
 ## Corpus and source preparation
 
@@ -39,3 +39,9 @@ Some supplied URL hosts carry pages naming another producing publication. Route 
 The sole analysis export is `results/article_coding.csv`: one row per retained article, with scalar metadata and binary columns named `field__CODE`. Codes are unioned across linked arrangements, once per article. When an eligible article has no substantive code assigned in a field, its code columns are NA and `field__missing` is 1. Observed fields have 0/1 code values and missing 0. Noneligible or unresolved articles have NA for all code and missing columns; eligibility preserves why. Positive and negative columns can both be 1 for distinct arrangements in one article. These unions do not imply account-level co-occurrence.
 
 `main_sample=1` identifies clear-future articles without producing-publisher uncertainty. Dates use ISO YYYY-MM-DD; year is integer. UTF-8 CSV blanks represent NA. The standard-library exporter validates the source coding and serialization; the saved dataframe was also imported and checked in R. Counts, contrasts and sensitivity statistics are performed downstream in R rather than emitted as parallel JSON products.
+
+## Shared actor categories — 17 October 2026
+
+Speaker, responsibility and affected_entities now use the identical ten ACTOR categories in the codebook. Categories identify distinct concepts but need not be mutually exclusive: assign several codes within a field when each capacity or actor is supported, including overlapping capacities of one actor. Do not propagate a speaker classification to affected entities or responsibility without evidence for that relationship.
+
+All 3,004 accounts were harmonised. Direct semantic equivalents were retained; 379 linked evidence entries were reviewed for the old employer/workforce, public/society and collective boundaries. Companies were distinguished from occupational groups, government from society, and organised bodies from informal public views. Explicit overlaps were retained, and one truncated employer evidence anchor was extended to the complete source sentence. This targeted revision does not constitute a fresh independent full-source recoding of every account. The other nine fields, account structure, eligibility and missingness are preserved. Existing canonical files and the CSV are updated in place; Git stores history.

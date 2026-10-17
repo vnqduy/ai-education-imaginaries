@@ -29,9 +29,9 @@ def main():
                              'field_counts':{f:dict(collections.Counter(c for a in matched for c in a['codes'][f])) for f in fields}}
         out['groups'][g]=z
     (ROOT/'results/future_role_profiles.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
-    rev=manifest['future_role_revision'];z=out['groups']['all']
-    lines=['# Năm future role — dữ liệu hiện hành','',f"Cập nhật {rev['date']}; codebook v{book['version']}. Đã rà ngữ cảnh của {rev['context_reviewed']} account trước đây chưa gán mã, nối được {rev['context_resolved']} account với role có căn cứ; còn {out['unmatched_accounts']} / 3.004 account chưa khớp.",'',
-           'Giữ nguyên năm nhóm và toàn bộ 11 field còn lại, gồm desirability. Future role xác định tương lai đang được nói đến; desirability giữ nguyên cách đánh giá tích cực, tiêu cực, mixed hoặc undecided. Một cảnh báo hay điều kiện triển khai không trở thành một imaginary riêng.','',
+    rev=manifest['future_role_revision'];z=out['groups']['all'];updated=manifest.get('actor_revision', rev)['date']
+    lines=['# Năm future role — dữ liệu hiện hành','',f"Cập nhật {updated}; codebook v{book['version']}. Đã rà ngữ cảnh của {rev['context_reviewed']} account trước đây chưa gán mã, nối được {rev['context_resolved']} account với role có căn cứ; còn {out['unmatched_accounts']} / 3.004 account chưa khớp.",'',
+           'Giữ nguyên năm future role. Phiên bản 3.2 thống nhất mười nhóm tác nhân cho speaker, responsibility và affected_entities; các nhóm có thể chồng lấn trong từng field khi có bằng chứng. Chín field còn lại, gồm desirability, không thay đổi. Future role xác định tương lai đang được nói đến; desirability giữ nguyên cách đánh giá tích cực, tiêu cực, mixed hoặc undecided. Một cảnh báo hay điều kiện triển khai không trở thành một imaginary riêng.','',
            'Ưu tiên phát biểu và open extraction đã có; đối chiếu nguồn khi cần làm rõ ngữ cảnh. Chỉ nối khi cùng công cụ, chương trình, đối tượng được đánh giá hoặc cùng mạch lập luận có quy thuộc rõ. Không chuyển thái độ, ý định hay độ chắc chắn từ người nói khác. Dẫn chứng và lý do được lưu ngay trong bộ code gốc; không có bộ code hay thư mục lưu trữ song song. Đây là lượt mã hóa của trợ lý, không phải kiểm định độc lập giữa người mã hóa.','',
            '## Mức độ hiện diện','',
            'Mẫu chính gồm 828 bài: 424 public/central và 404 commercial/general. Mỗi role được đếm tối đa một lần trong một bài. Một bài có thể có nhiều role nên các tỷ lệ không cộng thành 100%.','',

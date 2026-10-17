@@ -2,6 +2,7 @@
 import collections
 import csv
 import datetime
+import io
 import json
 from validate_future_coding import ROOT, WORK, rows, validate
 
@@ -50,23 +51,22 @@ def main():
         matrix.append(row)
     target = ROOT / 'results/article_coding.csv'
     target.parent.mkdir(exist_ok=True)
-    temporary = target.with_suffix('.csv.tmp')
-    with temporary.open('w', encoding='utf-8', newline='') as handle:
-        writer = csv.DictWriter(handle, fieldnames=columns, lineterminator='\n')
-        writer.writeheader()
-        writer.writerows(matrix)
+    handle = io.StringIO(newline='')
+    writer = csv.DictWriter(handle, fieldnames=columns, lineterminator='\n')
+    writer.writeheader()
+    writer.writerows(matrix)
     # Round-trip verification of scalar types, missingness and rectangular coverage.
-    with temporary.open(encoding='utf-8', newline='') as handle:
-        reader = csv.DictReader(handle)
-        if reader.fieldnames != columns:
-            raise SystemExit('CSV header mismatch')
-        restored = list(reader)
+    handle.seek(0)
+    reader = csv.DictReader(handle)
+    if reader.fieldnames != columns:
+        raise SystemExit('CSV header mismatch')
+    restored = list(reader)
     if len(restored) != len(coded) or len({r['article_id'] for r in restored}) != len(coded):
         raise SystemExit('CSV row coverage/uniqueness failed')
     for expected, actual in zip(matrix, restored):
         if set(actual) != set(columns) or any(actual[c] != ('' if expected[c] is None else str(expected[c])) for c in columns):
             raise SystemExit('CSV values changed during serialization: ' + expected['article_id'])
-    temporary.replace(target)
+    target.write_text(handle.getvalue(), encoding='utf-8')
     print(json.dumps({'output': str(target), 'rows': len(matrix), 'columns': len(columns),
                       'metadata_columns': len(metadata), 'substantive_code_columns': sum(map(len, definitions.values())),
                       'field_missing_columns': len(definitions),

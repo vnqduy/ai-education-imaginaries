@@ -1,8 +1,8 @@
 {
-  "version": "3.1",
-  "status": "Active five-role coding; contextual review of 119 previously unmatched accounts completed 16 October 2026. Other eleven fields unchanged.",
+  "version": "3.2",
+  "status": "Active five-role coding with shared, non-exclusive actor categories; actor harmonisation reviewed 17 October 2026.",
   "created_at_utc": "2026-10-11T14:34:00.725943+00:00",
-  "supersedes_for_future_work": "Replaces v3.0 role assignments for context-resolved accounts. File history is managed through Git; no parallel coding corpus.",
+  "supersedes_for_future_work": "Replaces v3.1 actor categories in speaker, responsibility and affected_entities. Existing corpus and CSV updated in place; Git preserves history.",
   "basis": {
     "framework": "SIPC fields retained from existing coding; the five role categories are researcher-specified, not categories prescribed by SIPC.",
     "source_path": "data/source_corpus.jsonl",
@@ -16,6 +16,18 @@
       "context_resolved": 103,
       "remaining_unmatched": 16,
       "scope": "Only future_role and its direct evidence/details revised. Desirability and the other ten fields are unchanged. No independent human intercoder reliability claim."
+    },
+    "actor_revision": {
+      "date": "2026-10-17",
+      "method": "Shared taxonomy applied to all 3,004 accounts. Direct equivalents retained; linked evidence reviewed for the old employer/workforce, public/society and collective categories. Overlapping assignments retained where supported. This is a targeted harmonisation, not a new independent full-source coding of every field.",
+      "reviewed_evidence_entries": {
+        "AFFECT_PUBLIC": 192,
+        "AFFECT_EMPLOYER": 83,
+        "SPK_COLLECTIVE": 63,
+        "RESP_COLLECTIVE": 41
+      },
+      "categories": "Ten identical concepts in all three fields; multiple codes permitted within each field.",
+      "other_fields_unchanged": true
     }
   },
   "unit": "Source-attributed educational future account, with distinct propositions, evaluation targets and interventions kept traceable within the account.",
@@ -26,6 +38,7 @@
     "Do not impose Vietnamese geographic scope or national-development motives on foreign examples or generic claims."
   ],
   "application_rules": [
+    "Speaker, responsibility and affected_entities use the identical ACTOR category inventory. Categories are distinct but not mutually exclusive: one actor may satisfy several evidenced concepts in one field. Do not transfer assignments between fields or infer every capacity from identity alone.",
     "Use inherited open extraction and attributed account statements first; consult retained source context where the role link is unclear.",
     "Code source-articulated sought, expected and feared educational roles/outcomes. Preserve literal AI function, direction and conditions. Do not replace warnings with benevolent goals or infer an actor’s intention from an unwanted forecast.",
     "For every code, retain a proposition/target/intervention identifier, an exact source anchor and a short decision reason. A shared source sentence can support several fields when it independently answers their different questions.",
@@ -825,12 +838,12 @@
     ],
     "speaker": [
       {
-        "code": "SPK_PUBLIC",
-        "label": "Public authority",
-        "definition": "The actor speaks in a governmental, legislative, administrative or security capacity.",
-        "inclusion": "A ministry policy statement or an official speaking for an authority.",
-        "exclusion": "A state-employed professor speaking personally; an outlet’s institutional ownership.",
-        "boundary_rule": "Capacity comes from attribution, not public-sector employment alone.",
+        "code": "ACTOR_PUBLIC",
+        "label": "Public authorities",
+        "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "inclusion": "Ministries, public agencies, officials, military and police units.",
+        "exclusion": "A country or society alone does not identify a public authority.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "DTR24_007",
@@ -844,12 +857,12 @@
         ]
       },
       {
-        "code": "SPK_ED_LEADERSHIP",
-        "label": "Educational institution or leadership",
-        "definition": "The actor speaks for an educational institution, programme or its leadership.",
-        "inclusion": "A rector, institutional announcement or authorised programme commitment.",
-        "exclusion": "Every teacher affiliated with a school; every researcher at an institute.",
-        "boundary_rule": "A director’s institutional plan is leadership; a specialist’s personal analysis is SPK_ACADEMIC_EXPERT.",
+        "code": "ACTOR_ED_ORG",
+        "label": "Educational organisations and leadership",
+        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
+        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
+        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "CFE26_011",
@@ -863,12 +876,12 @@
         ]
       },
       {
-        "code": "SPK_ACADEMIC_EXPERT",
-        "label": "Educator, researcher or specialist",
-        "definition": "The actor articulates the future as an educational practitioner, researcher or specialist adviser.",
-        "inclusion": "Teachers, professors, researchers or identified expert commentators in that capacity.",
-        "exclusion": "Claims sound expert but no expert identity is stated; a university leader speaking for the institution.",
-        "boundary_rule": "Combine the former educator/expert distinction: argument style does not establish a separate actor class. Preserve occupation as a literal detail.",
+        "code": "ACTOR_EXPERT",
+        "label": "Educators, researchers and specialists",
+        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
+        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
+        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "TFH24_001",
@@ -882,12 +895,12 @@
         ]
       },
       {
-        "code": "SPK_BUSINESS",
-        "label": "Commercial actor",
-        "definition": "The actor speaks for a company, provider or employer.",
-        "inclusion": "Product/provider representatives or employer statements.",
-        "exclusion": "An academic using a branded tool; a company is mentioned but does not voice the future.",
-        "boundary_rule": "A corporate-owned university’s rector is educational leadership when speaking for the university; ownership alone does not decide capacity.",
+        "code": "ACTOR_BUSINESS",
+        "label": "Businesses and commercial actors",
+        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
+        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
+        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "DTR19_001",
@@ -901,12 +914,21 @@
         ]
       },
       {
-        "code": "SPK_LEARNER",
-        "label": "Learner",
-        "definition": "The actor speaks as a person undertaking education.",
-        "inclusion": "Student, pupil, trainee or adult learner voices.",
-        "exclusion": "A person is young but no learner capacity is stated.",
-        "boundary_rule": "Do not infer learner opinions from expert descriptions of students.",
+        "code": "ACTOR_WORKFORCE",
+        "label": "Workers and occupational communities",
+        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
+        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
+        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_LEARNER",
+        "label": "Learners",
+        "definition": "People acting or experiencing consequences in their learning or educational formation.",
+        "inclusion": "Pupils, students, trainees and adult learners.",
+        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "TFH24_001",
@@ -920,12 +942,12 @@
         ]
       },
       {
-        "code": "SPK_FAMILY",
-        "label": "Family or caregiver",
-        "definition": "The actor speaks as a parent, family member or caregiver.",
-        "inclusion": "Attributed parenting/caregiving views.",
-        "exclusion": "Families are beneficiaries but are not heard.",
-        "boundary_rule": "A teacher who is also a parent receives the stated speaking capacity.",
+        "code": "ACTOR_FAMILY",
+        "label": "Families and caregivers",
+        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
+        "inclusion": "Family choices, supervision, support and family consequences.",
+        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "VNP23_001",
@@ -939,12 +961,12 @@
         ]
       },
       {
-        "code": "SPK_COLLECTIVE",
-        "label": "Civic or international organisation",
-        "definition": "The actor speaks for a civic, professional, community or intergovernmental organisation outside the preceding capacities.",
-        "inclusion": "UNESCO/UNICEF representatives, professional associations or community collectives.",
-        "exclusion": "An unnamed public reaction; any public authority; an educational institution.",
-        "boundary_rule": "Classify the organisation represented. An individual UN expert speaking personally as a specialist can be SPK_ACADEMIC_EXPERT if explicitly attributed that way.",
+        "code": "ACTOR_COLLECTIVE",
+        "label": "Civic, professional and international organisations",
+        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
+        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
+        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "GDT24_000",
@@ -958,12 +980,21 @@
         ]
       },
       {
-        "code": "SPK_AUTHOR",
-        "label": "Article’s authorial voice",
-        "definition": "The article advances a future claim in its own identifiable narrative or editorial voice.",
-        "inclusion": "An authorial evaluation or unattributed article-level argument identifiable as the writer’s claim.",
-        "exclusion": "A byline alone; narration of a quoted source; a signed expert opinion with an identified specialist capacity.",
-        "boundary_rule": "Use only when a proposition is attributable to the article itself rather than a represented actor.",
+        "code": "ACTOR_SOCIETY",
+        "label": "Wider society and communities",
+        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
+        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
+        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_AUTHOR",
+        "label": "Article author or editorial voice",
+        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
+        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
+        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "CFE26_011",
@@ -979,50 +1010,21 @@
     ],
     "affected_entities": [
       {
-        "code": "AFFECT_LEARNER",
-        "label": "Learners",
-        "definition": "People affected in their capacity as learners.",
-        "inclusion": "Pupils, students, trainees or adult learners whose education is changed.",
-        "exclusion": "Every audience member; a graduate discussed only as an employee.",
-        "boundary_rule": "Use the affected capacity, not age or occupation alone.",
-        "evidence_examples": [
-          {
-            "ID": "QDN26_002",
-            "source_title": "Góc nhìn giáo dục: 5 rủi ro cho giáo dục khi sử dụng AI",
-            "source_url": "https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313",
-            "char_start": 469,
-            "char_end": 839,
-            "source_excerpt": "ặc trả lời các câu hỏi dạng thi cử nhanh chóng, nhiều hình thức đánh giá truyền thống không còn đáng tin cậy. Quan trọng hơn, nếu sinh viên quá phụ thuộc vào AI, họ có thể nộp những sản phẩm được trình bày rất hoàn chỉnh nhưng lại không phát triển được sự hiểu biết, khả năng phán đoán và tính kiên trì mà giáo dục đại học hướng tới. Ví dụ, trong lĩnh vực công nghệ thôn",
-            "anchor_phrase": "sinh viên quá phụ thuộc vào AI"
-          }
-        ]
+        "code": "ACTOR_PUBLIC",
+        "label": "Public authorities",
+        "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "inclusion": "Ministries, public agencies, officials, military and police units.",
+        "exclusion": "A country or society alone does not identify a public authority.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
       },
       {
-        "code": "AFFECT_ED_WORKER",
-        "label": "Education and research workers",
-        "definition": "People whose educational or academic work is affected.",
-        "inclusion": "Teachers, instructors, researchers or educational staff.",
-        "exclusion": "The institution itself; employers seeking graduates.",
-        "boundary_rule": "Staff job losses affect workers; institutional budget changes affect organisations.",
-        "evidence_examples": [
-          {
-            "ID": "CFE24_005",
-            "source_title": "Phó Hiệu trưởng NEU nói về AI: Trường vẫn tồn tại 2-3 chục giảng viên cùng dạy một môn, một lúc nào đó sẽ chỉ cần 5 thầy cô rất giỏi, 15 người còn lại phải chuyển nghề",
-            "source_url": "https://cafef.vn/pho-hieu-truong-neu-noi-ve-ai-truong-van-ton-tai-2-3-chuc-giang-vien-cung-day-mot-mon-mot-luc-nao-do-se-chi-can-5-thay-co-rat-gioi-15-nguoi-con-lai-phai-chuyen-nghe-188240826162241716.chn",
-            "char_start": 2031,
-            "char_end": 2282,
-            "source_excerpt": "\"15 thầy cô giáo khác sẽ phải chuyển nghề khác, bởi chúng tôi chỉ cần 5 thầy cô giỏi nhất. Bài giảng không cần giảng trên lớp, mà chỉ cần 5 thầy cô đến chia sẻ, thảo luận, hướng dẫn các bạn học… Cơ sở vật chất có thể không cần đầu tư hiện đại, mà sẽ đ",
-            "anchor_phrase": "15 thầy cô giáo khác sẽ phải chuyển nghề"
-          }
-        ]
-      },
-      {
-        "code": "AFFECT_ED_ORG",
-        "label": "Educational organisations",
-        "definition": "An educational organisation or organised educational system is explicitly affected.",
-        "inclusion": "Institutional mission, viability, organisation or resources are at stake.",
-        "exclusion": "Teachers work there, with no institutional effect stated.",
-        "boundary_rule": "A transformed university is an organisation; individual faculty consequences are separately evidenced.",
+        "code": "ACTOR_ED_ORG",
+        "label": "Educational organisations and leadership",
+        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
+        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
+        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "CFE26_011",
@@ -1036,12 +1038,68 @@
         ]
       },
       {
-        "code": "AFFECT_FAMILY",
+        "code": "ACTOR_EXPERT",
+        "label": "Educators, researchers and specialists",
+        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
+        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
+        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": [
+          {
+            "ID": "CFE24_005",
+            "source_title": "Phó Hiệu trưởng NEU nói về AI: Trường vẫn tồn tại 2-3 chục giảng viên cùng dạy một môn, một lúc nào đó sẽ chỉ cần 5 thầy cô rất giỏi, 15 người còn lại phải chuyển nghề",
+            "source_url": "https://cafef.vn/pho-hieu-truong-neu-noi-ve-ai-truong-van-ton-tai-2-3-chuc-giang-vien-cung-day-mot-mon-mot-luc-nao-do-se-chi-can-5-thay-co-rat-gioi-15-nguoi-con-lai-phai-chuyen-nghe-188240826162241716.chn",
+            "char_start": 2031,
+            "char_end": 2282,
+            "source_excerpt": "\"15 thầy cô giáo khác sẽ phải chuyển nghề khác, bởi chúng tôi chỉ cần 5 thầy cô giỏi nhất. Bài giảng không cần giảng trên lớp, mà chỉ cần 5 thầy cô đến chia sẻ, thảo luận, hướng dẫn các bạn học… Cơ sở vật chất có thể không cần đầu tư hiện đại, mà sẽ đ",
+            "anchor_phrase": "15 thầy cô giáo khác sẽ phải chuyển nghề"
+          }
+        ]
+      },
+      {
+        "code": "ACTOR_BUSINESS",
+        "label": "Businesses and commercial actors",
+        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
+        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
+        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_WORKFORCE",
+        "label": "Workers and occupational communities",
+        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
+        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
+        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_LEARNER",
+        "label": "Learners",
+        "definition": "People acting or experiencing consequences in their learning or educational formation.",
+        "inclusion": "Pupils, students, trainees and adult learners.",
+        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": [
+          {
+            "ID": "QDN26_002",
+            "source_title": "Góc nhìn giáo dục: 5 rủi ro cho giáo dục khi sử dụng AI",
+            "source_url": "https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313",
+            "char_start": 469,
+            "char_end": 839,
+            "source_excerpt": "ặc trả lời các câu hỏi dạng thi cử nhanh chóng, nhiều hình thức đánh giá truyền thống không còn đáng tin cậy. Quan trọng hơn, nếu sinh viên quá phụ thuộc vào AI, họ có thể nộp những sản phẩm được trình bày rất hoàn chỉnh nhưng lại không phát triển được sự hiểu biết, khả năng phán đoán và tính kiên trì mà giáo dục đại học hướng tới. Ví dụ, trong lĩnh vực công nghệ thôn",
+            "anchor_phrase": "sinh viên quá phụ thuộc vào AI"
+          }
+        ]
+      },
+      {
+        "code": "ACTOR_FAMILY",
         "label": "Families and caregivers",
-        "definition": "Families’ educational decisions, care or resources are affected.",
-        "inclusion": "Parents/caregivers bear educational consequences.",
-        "exclusion": "A parent speaks but no family consequence is stated.",
-        "boundary_rule": "Speaker and affected-entity categories are assigned independently.",
+        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
+        "inclusion": "Family choices, supervision, support and family consequences.",
+        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "DTR19_001",
@@ -1055,31 +1113,21 @@
         ]
       },
       {
-        "code": "AFFECT_EMPLOYER",
-        "label": "Employers and non-education occupational actors",
-        "definition": "Employers, providers or occupational communities outside educational work experience consequences.",
-        "inclusion": "Workforce supply, commercial provision or occupational communities are at stake.",
-        "exclusion": "Institutional teaching staff; an employer merely funds a project.",
-        "boundary_rule": "A graduate talent supply affects employers only when that consequence is articulated.",
-        "evidence_examples": [
-          {
-            "ID": "LDG25_006",
-            "source_title": "Học viện Kỹ thuật Quân sự tuyển chuyên ngành Trí tuệ nhân tạo hệ dân sự",
-            "source_url": "https://laodong.vn/giao-duc/hoc-vien-ky-thuat-quan-su-tuyen-chuyen-nganh-tri-tue-nhan-tao-he-dan-su-1488950.ldo",
-            "char_start": 2502,
-            "char_end": 2686,
-            "source_excerpt": "khai và phát triển các mô hình học máy, hệ thống xử lý ngôn ngữ tự nhiên và ứng dụng trí tuệ nhân tạo trong các lĩnh vực đa dạng, đáp ứng yêu cầu của doanh nghiệp và các bên liên quan.",
-            "anchor_phrase": "đáp ứng yêu cầu của doanh nghiệp"
-          }
-        ]
+        "code": "ACTOR_COLLECTIVE",
+        "label": "Civic, professional and international organisations",
+        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
+        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
+        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
       },
       {
-        "code": "AFFECT_PUBLIC",
-        "label": "Wider communities or society",
-        "definition": "A community, society, nation or shared collective life is explicitly affected beyond the named learner/workplace entities.",
-        "inclusion": "Collective participation, cultural life or national-development consequences.",
-        "exclusion": "All pupils automatically imply society; Vietnam is simply the location.",
-        "boundary_rule": "Require a stated collective consequence, not an assumed aggregate effect.",
+        "code": "ACTOR_SOCIETY",
+        "label": "Wider society and communities",
+        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
+        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
+        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "VOV22_000",
@@ -1091,6 +1139,15 @@
             "anchor_phrase": "khoa học, công nghệ Việt Nam sánh ngang"
           }
         ]
+      },
+      {
+        "code": "ACTOR_AUTHOR",
+        "label": "Article author or editorial voice",
+        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
+        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
+        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
       }
     ],
     "action": [
@@ -1211,12 +1268,12 @@
     ],
     "responsibility": [
       {
-        "code": "RESP_PUBLIC",
+        "code": "ACTOR_PUBLIC",
         "label": "Public authorities",
-        "definition": "A public authority is assigned an intervention or accountability.",
-        "inclusion": "Ministries, government agencies, legislatures or security authorities.",
-        "exclusion": "An official comments but assigns no duty.",
-        "boundary_rule": "A state university’s operational duty belongs to RESP_ED_ORG, not automatically public authority.",
+        "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "inclusion": "Ministries, public agencies, officials, military and police units.",
+        "exclusion": "A country or society alone does not identify a public authority.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "NHD23_001",
@@ -1230,12 +1287,12 @@
         ]
       },
       {
-        "code": "RESP_ED_ORG",
-        "label": "Educational organisations",
-        "definition": "An educational institution, its leadership or an organisational unit is assigned an intervention.",
-        "inclusion": "Schools/universities organise, fund, adopt or govern implementation.",
-        "exclusion": "A teacher’s personal instructional action; institutional location alone.",
-        "boundary_rule": "Teachers must redesign lessons -> RESP_ED_WORKER. The school must adopt a policy -> this code.",
+        "code": "ACTOR_ED_ORG",
+        "label": "Educational organisations and leadership",
+        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
+        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
+        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "GDN24_001",
@@ -1249,12 +1306,12 @@
         ]
       },
       {
-        "code": "RESP_ED_WORKER",
-        "label": "Education and research workers",
-        "definition": "Teachers, instructors, researchers or educational staff are assigned an intervention in their professional capacity.",
-        "inclusion": "Teaching, assessment, mentoring or research duties.",
-        "exclusion": "A university is assigned a corporate duty without individual staff assignment.",
-        "boundary_rule": "Do not infer all staff duties from an institutional commitment.",
+        "code": "ACTOR_EXPERT",
+        "label": "Educators, researchers and specialists",
+        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
+        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
+        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "GDN25_050",
@@ -1268,50 +1325,12 @@
         ]
       },
       {
-        "code": "RESP_LEARNER",
-        "label": "Learners",
-        "definition": "Learners are assigned educational choices, conduct or accountability.",
-        "inclusion": "Verification, responsible use, independent effort or disclosure duties.",
-        "exclusion": "Learners benefit but are assigned no action.",
-        "boundary_rule": "A future learning benefit is not a responsibility.",
-        "evidence_examples": [
-          {
-            "ID": "GDT26_010",
-            "source_title": "Chỉ còn gần 2 ngày cuối đăng ký đại học: Dùng AI chọn ngành, thí sinh có thể “mắc bẫy”",
-            "source_url": "https://giaoducthudo.giaoducthoidai.vn/chi-con-gan-2-ngay-cuoi-dang-ky-dai-hoc-dung-ai-chon-nganh-thi-sinh-co-the-mac-bay-217376.html",
-            "char_start": 4823,
-            "char_end": 5041,
-            "source_excerpt": "Để kiểm chứng, thí sinh cần xem đề án tuyển sinh, chương trình đào tạo và học phí trên trang chính thức của trường; tham khảo báo cáo việc làm, dữ liệu tuyển dụng và ý kiến của người đang học hoặc làm việc trong ngành.",
-            "anchor_phrase": "thí sinh cần xem đề án tuyển sinh"
-          }
-        ]
-      },
-      {
-        "code": "RESP_FAMILY",
-        "label": "Families and caregivers",
-        "definition": "Parents/families are assigned support, supervision or decisions.",
-        "inclusion": "Explicit family educational duties.",
-        "exclusion": "Families are only mentioned as beneficiaries.",
-        "boundary_rule": "Keep family supervision separate from institutional governance.",
-        "evidence_examples": [
-          {
-            "ID": "DTR19_001",
-            "source_title": "Ra mắt VioEdu - trợ lý học tập thông minh ứng dụng Trí tuệ nhân tạo đầu tiên tại Việt Nam",
-            "source_url": "https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm",
-            "char_start": 2387,
-            "char_end": 2579,
-            "source_excerpt": "những phân tích trên hệ thống, phụ huynh có thể theo dõi chặt chẽ quá trình rèn luyện của học sinh nhờ báo cáo thống kê chi tiết. Bố mẹ có thể sử dụng học liệu của VioEdu để hỗ trợ con tự học.",
-            "anchor_phrase": "Bố mẹ có thể sử dụng học liệu"
-          }
-        ]
-      },
-      {
-        "code": "RESP_BUSINESS",
-        "label": "Commercial actors",
-        "definition": "A company, provider or employer is assigned an intervention or accountability.",
-        "inclusion": "Design, service provision, funding or an explicit partnership duty.",
-        "exclusion": "A branded product appears with no provider duty.",
-        "boundary_rule": "Product use does not automatically assign responsibility to the vendor.",
+        "code": "ACTOR_BUSINESS",
+        "label": "Businesses and commercial actors",
+        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
+        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
+        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "TNI25_022",
@@ -1325,12 +1344,59 @@
         ]
       },
       {
-        "code": "RESP_COLLECTIVE",
-        "label": "Civic or international collectives",
-        "definition": "A community, civic/professional/intergovernmental organisation or explicitly identified wider collective is assigned an intervention.",
-        "inclusion": "Community organisers, professional associations or international bodies given duties.",
-        "exclusion": "Vague everyone with no identifiable collective/action; government or institution responsibilities.",
-        "boundary_rule": "Use only a stated collective duty; preserve the named collective.",
+        "code": "ACTOR_WORKFORCE",
+        "label": "Workers and occupational communities",
+        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
+        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
+        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_LEARNER",
+        "label": "Learners",
+        "definition": "People acting or experiencing consequences in their learning or educational formation.",
+        "inclusion": "Pupils, students, trainees and adult learners.",
+        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": [
+          {
+            "ID": "GDT26_010",
+            "source_title": "Chỉ còn gần 2 ngày cuối đăng ký đại học: Dùng AI chọn ngành, thí sinh có thể “mắc bẫy”",
+            "source_url": "https://giaoducthudo.giaoducthoidai.vn/chi-con-gan-2-ngay-cuoi-dang-ky-dai-hoc-dung-ai-chon-nganh-thi-sinh-co-the-mac-bay-217376.html",
+            "char_start": 4823,
+            "char_end": 5041,
+            "source_excerpt": "Để kiểm chứng, thí sinh cần xem đề án tuyển sinh, chương trình đào tạo và học phí trên trang chính thức của trường; tham khảo báo cáo việc làm, dữ liệu tuyển dụng và ý kiến của người đang học hoặc làm việc trong ngành.",
+            "anchor_phrase": "thí sinh cần xem đề án tuyển sinh"
+          }
+        ]
+      },
+      {
+        "code": "ACTOR_FAMILY",
+        "label": "Families and caregivers",
+        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
+        "inclusion": "Family choices, supervision, support and family consequences.",
+        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": [
+          {
+            "ID": "DTR19_001",
+            "source_title": "Ra mắt VioEdu - trợ lý học tập thông minh ứng dụng Trí tuệ nhân tạo đầu tiên tại Việt Nam",
+            "source_url": "https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm",
+            "char_start": 2387,
+            "char_end": 2579,
+            "source_excerpt": "những phân tích trên hệ thống, phụ huynh có thể theo dõi chặt chẽ quá trình rèn luyện của học sinh nhờ báo cáo thống kê chi tiết. Bố mẹ có thể sử dụng học liệu của VioEdu để hỗ trợ con tự học.",
+            "anchor_phrase": "Bố mẹ có thể sử dụng học liệu"
+          }
+        ]
+      },
+      {
+        "code": "ACTOR_COLLECTIVE",
+        "label": "Civic, professional and international organisations",
+        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
+        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
+        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
         "evidence_examples": [
           {
             "ID": "DTR19_000",
@@ -1342,6 +1408,24 @@
             "anchor_phrase": "Hội Tin học Việt Nam"
           }
         ]
+      },
+      {
+        "code": "ACTOR_SOCIETY",
+        "label": "Wider society and communities",
+        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
+        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
+        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
+      },
+      {
+        "code": "ACTOR_AUTHOR",
+        "label": "Article author or editorial voice",
+        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
+        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
+        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
+        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
+        "evidence_examples": []
       }
     ]
   },
@@ -1372,5 +1456,10 @@
     "exact_source_anchors_verified": 76,
     "limitations": "Exact-anchor verification is not semantic reliability or full-corpus validation. Source illustrations support boundaries; corpus role assignments have not been migrated."
   },
-  "frozen_at_utc": "2026-10-11T14:41:23.958280+00:00"
+  "frozen_at_utc": "2026-10-11T14:41:23.958280+00:00",
+  "actor_field_questions": {
+    "speaker": "Who articulates this future, and in which evidenced capacities?",
+    "responsibility": "Who is explicitly assigned action, intervention or accountability?",
+    "affected_entities": "Who explicitly experiences the consequences of this future?"
+  }
 }

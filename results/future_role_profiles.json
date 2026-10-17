@@ -1,5 +1,5 @@
 {
-  "version": "3.1",
+  "version": "3.2",
   "article_denominator": "Existing main_sample: clear_future and not publisher_uncertain.",
   "role_prevalence": "Each role counted once per article; roles can coexist.",
   "field_profiles": "Counts within the same attributed account as the role. Missing included in denominators. Multiple roles/codes may coexist. Context-linked roles identify the target of a warning or condition, not necessarily an endorsed future.",
@@ -74,24 +74,26 @@
               "SPACE_TRANSNATIONAL": 57
             },
             "speaker": {
-              "SPK_PUBLIC": 115,
-              "SPK_ED_LEADERSHIP": 179,
-              "SPK_AUTHOR": 283,
-              "SPK_BUSINESS": 128,
-              "SPK_ACADEMIC_EXPERT": 435,
-              "SPK_LEARNER": 104,
+              "ACTOR_PUBLIC": 115,
+              "ACTOR_ED_ORG": 179,
+              "ACTOR_AUTHOR": 283,
+              "ACTOR_BUSINESS": 128,
+              "ACTOR_EXPERT": 435,
+              "ACTOR_LEARNER": 104,
               "MISSING": 29,
-              "SPK_COLLECTIVE": 23,
-              "SPK_FAMILY": 18
+              "ACTOR_COLLECTIVE": 21,
+              "ACTOR_SOCIETY": 2,
+              "ACTOR_FAMILY": 18
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 1112,
-              "AFFECT_ED_WORKER": 411,
-              "AFFECT_PUBLIC": 36,
-              "AFFECT_FAMILY": 23,
-              "AFFECT_ED_ORG": 108,
+              "ACTOR_LEARNER": 1112,
+              "ACTOR_EXPERT": 411,
+              "ACTOR_SOCIETY": 36,
+              "ACTOR_FAMILY": 23,
+              "ACTOR_ED_ORG": 108,
               "MISSING": 19,
-              "AFFECT_EMPLOYER": 15
+              "ACTOR_WORKFORCE": 9,
+              "ACTOR_BUSINESS": 10
             },
             "action": {
               "ACT_RESOURCES": 217,
@@ -103,14 +105,15 @@
               "ACT_EVALUATE": 40
             },
             "responsibility": {
-              "RESP_PUBLIC": 83,
-              "RESP_LEARNER": 225,
-              "RESP_ED_ORG": 167,
+              "ACTOR_PUBLIC": 83,
+              "ACTOR_ED_ORG": 167,
+              "ACTOR_LEARNER": 225,
               "MISSING": 623,
-              "RESP_BUSINESS": 95,
-              "RESP_FAMILY": 23,
-              "RESP_ED_WORKER": 261,
-              "RESP_COLLECTIVE": 11
+              "ACTOR_BUSINESS": 95,
+              "ACTOR_FAMILY": 23,
+              "ACTOR_EXPERT": 261,
+              "ACTOR_COLLECTIVE": 10,
+              "ACTOR_SOCIETY": 1
             }
           }
         },
@@ -173,24 +176,26 @@
               "SPACE_TRANSNATIONAL": 21
             },
             "speaker": {
-              "SPK_AUTHOR": 118,
-              "SPK_BUSINESS": 40,
+              "ACTOR_AUTHOR": 118,
+              "ACTOR_BUSINESS": 40,
               "MISSING": 17,
-              "SPK_ACADEMIC_EXPERT": 201,
-              "SPK_LEARNER": 38,
-              "SPK_ED_LEADERSHIP": 114,
-              "SPK_PUBLIC": 104,
-              "SPK_COLLECTIVE": 6,
-              "SPK_FAMILY": 4
+              "ACTOR_EXPERT": 201,
+              "ACTOR_LEARNER": 38,
+              "ACTOR_ED_ORG": 114,
+              "ACTOR_PUBLIC": 104,
+              "ACTOR_SOCIETY": 1,
+              "ACTOR_FAMILY": 4,
+              "ACTOR_COLLECTIVE": 5
             },
             "affected_entities": {
-              "AFFECT_ED_WORKER": 200,
-              "AFFECT_LEARNER": 567,
-              "AFFECT_ED_ORG": 75,
+              "ACTOR_EXPERT": 200,
+              "ACTOR_LEARNER": 567,
+              "ACTOR_ED_ORG": 75,
               "MISSING": 12,
-              "AFFECT_FAMILY": 5,
-              "AFFECT_EMPLOYER": 8,
-              "AFFECT_PUBLIC": 8
+              "ACTOR_FAMILY": 5,
+              "ACTOR_WORKFORCE": 3,
+              "ACTOR_BUSINESS": 6,
+              "ACTOR_SOCIETY": 8
             },
             "action": {
               "ACT_PRACTICE": 251,
@@ -202,14 +207,14 @@
               "ACT_COORDINATE": 23
             },
             "responsibility": {
-              "RESP_ED_ORG": 169,
-              "RESP_ED_WORKER": 142,
-              "RESP_LEARNER": 84,
+              "ACTOR_ED_ORG": 169,
+              "ACTOR_EXPERT": 142,
+              "ACTOR_LEARNER": 84,
               "MISSING": 261,
-              "RESP_PUBLIC": 86,
-              "RESP_BUSINESS": 28,
-              "RESP_FAMILY": 4,
-              "RESP_COLLECTIVE": 1
+              "ACTOR_PUBLIC": 86,
+              "ACTOR_BUSINESS": 28,
+              "ACTOR_FAMILY": 4,
+              "ACTOR_COLLECTIVE": 1
             }
           }
         },
@@ -268,24 +273,25 @@
               "SPACE_TRANSNATIONAL": 2
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 31,
-              "SPK_AUTHOR": 26,
-              "SPK_ACADEMIC_EXPERT": 15,
-              "SPK_BUSINESS": 16,
+              "ACTOR_ED_ORG": 31,
+              "ACTOR_AUTHOR": 26,
+              "ACTOR_EXPERT": 15,
+              "ACTOR_BUSINESS": 16,
               "MISSING": 2,
-              "SPK_LEARNER": 4,
-              "SPK_FAMILY": 2,
-              "SPK_COLLECTIVE": 9,
-              "SPK_PUBLIC": 26
+              "ACTOR_LEARNER": 4,
+              "ACTOR_FAMILY": 2,
+              "ACTOR_COLLECTIVE": 9,
+              "ACTOR_PUBLIC": 26
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 86,
-              "AFFECT_ED_WORKER": 64,
-              "AFFECT_ED_ORG": 53,
-              "AFFECT_FAMILY": 21,
+              "ACTOR_LEARNER": 86,
+              "ACTOR_EXPERT": 64,
+              "ACTOR_ED_ORG": 53,
+              "ACTOR_FAMILY": 21,
               "MISSING": 2,
-              "AFFECT_EMPLOYER": 5,
-              "AFFECT_PUBLIC": 8
+              "ACTOR_BUSINESS": 4,
+              "ACTOR_SOCIETY": 8,
+              "ACTOR_WORKFORCE": 1
             },
             "action": {
               "ACT_RESOURCES": 52,
@@ -297,14 +303,14 @@
               "ACT_CURRICULUM": 4
             },
             "responsibility": {
-              "RESP_ED_ORG": 42,
-              "RESP_ED_WORKER": 13,
+              "ACTOR_ED_ORG": 42,
+              "ACTOR_EXPERT": 13,
               "MISSING": 48,
-              "RESP_LEARNER": 10,
-              "RESP_BUSINESS": 21,
-              "RESP_COLLECTIVE": 2,
-              "RESP_PUBLIC": 21,
-              "RESP_FAMILY": 3
+              "ACTOR_LEARNER": 10,
+              "ACTOR_BUSINESS": 21,
+              "ACTOR_COLLECTIVE": 2,
+              "ACTOR_PUBLIC": 21,
+              "ACTOR_FAMILY": 3
             }
           }
         },
@@ -366,24 +372,25 @@
               "SPACE_FOREIGN_DOMESTIC": 64
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 242,
-              "SPK_BUSINESS": 49,
-              "SPK_AUTHOR": 147,
-              "SPK_LEARNER": 29,
-              "SPK_PUBLIC": 181,
-              "SPK_ACADEMIC_EXPERT": 171,
-              "SPK_COLLECTIVE": 25,
+              "ACTOR_ED_ORG": 242,
+              "ACTOR_BUSINESS": 49,
+              "ACTOR_AUTHOR": 147,
+              "ACTOR_LEARNER": 29,
+              "ACTOR_PUBLIC": 181,
+              "ACTOR_EXPERT": 171,
+              "ACTOR_COLLECTIVE": 25,
               "MISSING": 13,
-              "SPK_FAMILY": 9
+              "ACTOR_FAMILY": 9
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 749,
-              "AFFECT_EMPLOYER": 40,
-              "AFFECT_ED_ORG": 84,
-              "AFFECT_PUBLIC": 44,
-              "AFFECT_ED_WORKER": 238,
+              "ACTOR_BUSINESS": 14,
+              "ACTOR_LEARNER": 749,
+              "ACTOR_WORKFORCE": 26,
+              "ACTOR_ED_ORG": 85,
+              "ACTOR_SOCIETY": 44,
+              "ACTOR_EXPERT": 238,
               "MISSING": 16,
-              "AFFECT_FAMILY": 19
+              "ACTOR_FAMILY": 19
             },
             "action": {
               "ACT_CURRICULUM": 343,
@@ -395,14 +402,15 @@
               "ACT_EVALUATE": 35
             },
             "responsibility": {
-              "RESP_ED_ORG": 362,
-              "RESP_LEARNER": 125,
+              "ACTOR_ED_ORG": 362,
+              "ACTOR_LEARNER": 125,
               "MISSING": 256,
-              "RESP_ED_WORKER": 133,
-              "RESP_PUBLIC": 129,
-              "RESP_BUSINESS": 62,
-              "RESP_COLLECTIVE": 18,
-              "RESP_FAMILY": 10
+              "ACTOR_EXPERT": 133,
+              "ACTOR_PUBLIC": 129,
+              "ACTOR_BUSINESS": 62,
+              "ACTOR_COLLECTIVE": 16,
+              "ACTOR_FAMILY": 10,
+              "ACTOR_SOCIETY": 2
             }
           }
         },
@@ -461,22 +469,24 @@
               "SPACE_TRANSNATIONAL": 20
             },
             "speaker": {
-              "SPK_BUSINESS": 28,
-              "SPK_ED_LEADERSHIP": 55,
-              "SPK_ACADEMIC_EXPERT": 21,
-              "SPK_AUTHOR": 46,
-              "SPK_COLLECTIVE": 10,
-              "SPK_PUBLIC": 56,
-              "SPK_LEARNER": 1,
+              "ACTOR_BUSINESS": 28,
+              "ACTOR_ED_ORG": 55,
+              "ACTOR_EXPERT": 21,
+              "ACTOR_AUTHOR": 46,
+              "ACTOR_COLLECTIVE": 10,
+              "ACTOR_PUBLIC": 56,
+              "ACTOR_LEARNER": 1,
               "MISSING": 2
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 155,
-              "AFFECT_PUBLIC": 117,
-              "AFFECT_EMPLOYER": 25,
-              "AFFECT_ED_WORKER": 34,
-              "AFFECT_ED_ORG": 41,
-              "MISSING": 2
+              "ACTOR_LEARNER": 155,
+              "ACTOR_SOCIETY": 117,
+              "ACTOR_BUSINESS": 12,
+              "ACTOR_EXPERT": 34,
+              "ACTOR_ED_ORG": 42,
+              "MISSING": 2,
+              "ACTOR_WORKFORCE": 15,
+              "ACTOR_PUBLIC": 3
             },
             "action": {
               "ACT_RESOURCES": 104,
@@ -488,14 +498,14 @@
               "ACT_EVALUATE": 6
             },
             "responsibility": {
-              "RESP_BUSINESS": 54,
-              "RESP_ED_ORG": 98,
+              "ACTOR_BUSINESS": 54,
+              "ACTOR_ED_ORG": 98,
               "MISSING": 60,
-              "RESP_PUBLIC": 48,
-              "RESP_LEARNER": 13,
-              "RESP_ED_WORKER": 16,
-              "RESP_COLLECTIVE": 6,
-              "RESP_FAMILY": 2
+              "ACTOR_PUBLIC": 48,
+              "ACTOR_LEARNER": 13,
+              "ACTOR_EXPERT": 16,
+              "ACTOR_COLLECTIVE": 6,
+              "ACTOR_FAMILY": 2
             }
           }
         }
@@ -570,24 +580,25 @@
               "SPACE_TRANSNATIONAL": 32
             },
             "speaker": {
-              "SPK_BUSINESS": 64,
-              "SPK_PUBLIC": 87,
-              "SPK_ACADEMIC_EXPERT": 217,
-              "SPK_AUTHOR": 118,
-              "SPK_ED_LEADERSHIP": 113,
+              "ACTOR_BUSINESS": 64,
+              "ACTOR_PUBLIC": 87,
+              "ACTOR_EXPERT": 217,
+              "ACTOR_AUTHOR": 118,
+              "ACTOR_ED_ORG": 113,
               "MISSING": 14,
-              "SPK_COLLECTIVE": 13,
-              "SPK_LEARNER": 24,
-              "SPK_FAMILY": 9
+              "ACTOR_COLLECTIVE": 13,
+              "ACTOR_LEARNER": 24,
+              "ACTOR_FAMILY": 9
             },
             "affected_entities": {
-              "AFFECT_ED_ORG": 78,
-              "AFFECT_LEARNER": 541,
-              "AFFECT_ED_WORKER": 240,
+              "ACTOR_ED_ORG": 78,
+              "ACTOR_LEARNER": 541,
+              "ACTOR_EXPERT": 240,
               "MISSING": 10,
-              "AFFECT_FAMILY": 12,
-              "AFFECT_PUBLIC": 33,
-              "AFFECT_EMPLOYER": 9
+              "ACTOR_FAMILY": 12,
+              "ACTOR_SOCIETY": 33,
+              "ACTOR_BUSINESS": 8,
+              "ACTOR_WORKFORCE": 5
             },
             "action": {
               "MISSING": 237,
@@ -600,13 +611,14 @@
             },
             "responsibility": {
               "MISSING": 308,
-              "RESP_BUSINESS": 55,
-              "RESP_PUBLIC": 60,
-              "RESP_ED_WORKER": 136,
-              "RESP_LEARNER": 77,
-              "RESP_ED_ORG": 102,
-              "RESP_FAMILY": 10,
-              "RESP_COLLECTIVE": 5
+              "ACTOR_BUSINESS": 55,
+              "ACTOR_PUBLIC": 60,
+              "ACTOR_EXPERT": 136,
+              "ACTOR_LEARNER": 77,
+              "ACTOR_ED_ORG": 102,
+              "ACTOR_FAMILY": 10,
+              "ACTOR_COLLECTIVE": 4,
+              "ACTOR_SOCIETY": 1
             }
           }
         },
@@ -666,23 +678,23 @@
             },
             "speaker": {
               "MISSING": 4,
-              "SPK_LEARNER": 11,
-              "SPK_ACADEMIC_EXPERT": 83,
-              "SPK_ED_LEADERSHIP": 64,
-              "SPK_AUTHOR": 49,
-              "SPK_PUBLIC": 61,
-              "SPK_BUSINESS": 15,
-              "SPK_COLLECTIVE": 3,
-              "SPK_FAMILY": 1
+              "ACTOR_LEARNER": 11,
+              "ACTOR_EXPERT": 83,
+              "ACTOR_ED_ORG": 64,
+              "ACTOR_AUTHOR": 49,
+              "ACTOR_PUBLIC": 61,
+              "ACTOR_BUSINESS": 15,
+              "ACTOR_COLLECTIVE": 3,
+              "ACTOR_FAMILY": 1
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 248,
-              "AFFECT_ED_WORKER": 95,
-              "AFFECT_ED_ORG": 47,
+              "ACTOR_EXPERT": 95,
+              "ACTOR_LEARNER": 248,
+              "ACTOR_ED_ORG": 47,
               "MISSING": 8,
-              "AFFECT_EMPLOYER": 3,
-              "AFFECT_FAMILY": 2,
-              "AFFECT_PUBLIC": 3
+              "ACTOR_BUSINESS": 3,
+              "ACTOR_FAMILY": 2,
+              "ACTOR_SOCIETY": 3
             },
             "action": {
               "ACT_PRACTICE": 126,
@@ -694,14 +706,14 @@
               "ACT_COORDINATE": 11
             },
             "responsibility": {
-              "RESP_ED_WORKER": 57,
-              "RESP_LEARNER": 37,
+              "ACTOR_EXPERT": 57,
+              "ACTOR_LEARNER": 37,
               "MISSING": 105,
-              "RESP_ED_ORG": 91,
-              "RESP_PUBLIC": 47,
-              "RESP_BUSINESS": 13,
-              "RESP_FAMILY": 1,
-              "RESP_COLLECTIVE": 1
+              "ACTOR_ED_ORG": 91,
+              "ACTOR_PUBLIC": 47,
+              "ACTOR_BUSINESS": 13,
+              "ACTOR_FAMILY": 1,
+              "ACTOR_COLLECTIVE": 1
             }
           }
         },
@@ -759,23 +771,24 @@
               "SPACE_TRANSNATIONAL": 1
             },
             "speaker": {
-              "SPK_LEARNER": 1,
-              "SPK_ED_LEADERSHIP": 18,
-              "SPK_BUSINESS": 12,
-              "SPK_ACADEMIC_EXPERT": 9,
-              "SPK_AUTHOR": 14,
-              "SPK_PUBLIC": 24,
-              "SPK_COLLECTIVE": 4,
+              "ACTOR_LEARNER": 1,
+              "ACTOR_ED_ORG": 18,
+              "ACTOR_BUSINESS": 12,
+              "ACTOR_EXPERT": 9,
+              "ACTOR_AUTHOR": 14,
+              "ACTOR_PUBLIC": 24,
+              "ACTOR_COLLECTIVE": 4,
               "MISSING": 1
             },
             "affected_entities": {
-              "AFFECT_ED_WORKER": 41,
-              "AFFECT_ED_ORG": 36,
-              "AFFECT_LEARNER": 57,
-              "AFFECT_FAMILY": 13,
+              "ACTOR_ED_ORG": 36,
+              "ACTOR_EXPERT": 41,
+              "ACTOR_LEARNER": 57,
+              "ACTOR_FAMILY": 13,
               "MISSING": 1,
-              "AFFECT_EMPLOYER": 5,
-              "AFFECT_PUBLIC": 8
+              "ACTOR_BUSINESS": 4,
+              "ACTOR_SOCIETY": 8,
+              "ACTOR_WORKFORCE": 1
             },
             "action": {
               "MISSING": 19,
@@ -788,13 +801,13 @@
             },
             "responsibility": {
               "MISSING": 30,
-              "RESP_ED_ORG": 25,
-              "RESP_BUSINESS": 15,
-              "RESP_ED_WORKER": 7,
-              "RESP_PUBLIC": 19,
-              "RESP_FAMILY": 2,
-              "RESP_LEARNER": 5,
-              "RESP_COLLECTIVE": 1
+              "ACTOR_ED_ORG": 25,
+              "ACTOR_BUSINESS": 15,
+              "ACTOR_EXPERT": 7,
+              "ACTOR_PUBLIC": 19,
+              "ACTOR_FAMILY": 2,
+              "ACTOR_LEARNER": 5,
+              "ACTOR_COLLECTIVE": 1
             }
           }
         },
@@ -855,24 +868,25 @@
               "SPACE_TRANSNATIONAL": 13
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 143,
-              "SPK_LEARNER": 10,
-              "SPK_ACADEMIC_EXPERT": 93,
-              "SPK_AUTHOR": 74,
-              "SPK_BUSINESS": 20,
-              "SPK_PUBLIC": 133,
-              "SPK_COLLECTIVE": 12,
+              "ACTOR_ED_ORG": 143,
+              "ACTOR_LEARNER": 10,
+              "ACTOR_EXPERT": 93,
+              "ACTOR_AUTHOR": 74,
+              "ACTOR_BUSINESS": 20,
+              "ACTOR_PUBLIC": 133,
+              "ACTOR_COLLECTIVE": 12,
               "MISSING": 3,
-              "SPK_FAMILY": 1
+              "ACTOR_FAMILY": 1
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 419,
-              "AFFECT_ED_ORG": 58,
+              "ACTOR_ED_ORG": 59,
+              "ACTOR_LEARNER": 419,
               "MISSING": 12,
-              "AFFECT_ED_WORKER": 164,
-              "AFFECT_EMPLOYER": 25,
-              "AFFECT_PUBLIC": 32,
-              "AFFECT_FAMILY": 12
+              "ACTOR_EXPERT": 164,
+              "ACTOR_SOCIETY": 32,
+              "ACTOR_FAMILY": 12,
+              "ACTOR_WORKFORCE": 15,
+              "ACTOR_BUSINESS": 10
             },
             "action": {
               "MISSING": 54,
@@ -885,13 +899,14 @@
             },
             "responsibility": {
               "MISSING": 128,
-              "RESP_BUSINESS": 35,
-              "RESP_ED_ORG": 227,
-              "RESP_LEARNER": 66,
-              "RESP_ED_WORKER": 80,
-              "RESP_PUBLIC": 98,
-              "RESP_COLLECTIVE": 10,
-              "RESP_FAMILY": 5
+              "ACTOR_ED_ORG": 227,
+              "ACTOR_BUSINESS": 35,
+              "ACTOR_LEARNER": 66,
+              "ACTOR_EXPERT": 80,
+              "ACTOR_PUBLIC": 98,
+              "ACTOR_COLLECTIVE": 8,
+              "ACTOR_FAMILY": 5,
+              "ACTOR_SOCIETY": 2
             }
           }
         },
@@ -950,20 +965,22 @@
               "SPACE_FOREIGN_DOMESTIC": 16
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 40,
-              "SPK_BUSINESS": 20,
-              "SPK_AUTHOR": 33,
-              "SPK_COLLECTIVE": 8,
-              "SPK_PUBLIC": 37,
-              "SPK_ACADEMIC_EXPERT": 17
+              "ACTOR_ED_ORG": 40,
+              "ACTOR_BUSINESS": 20,
+              "ACTOR_AUTHOR": 33,
+              "ACTOR_COLLECTIVE": 8,
+              "ACTOR_PUBLIC": 37,
+              "ACTOR_EXPERT": 17
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 111,
-              "AFFECT_PUBLIC": 86,
+              "ACTOR_LEARNER": 111,
+              "ACTOR_SOCIETY": 86,
               "MISSING": 2,
-              "AFFECT_ED_WORKER": 29,
-              "AFFECT_ED_ORG": 33,
-              "AFFECT_EMPLOYER": 15
+              "ACTOR_EXPERT": 29,
+              "ACTOR_ED_ORG": 33,
+              "ACTOR_WORKFORCE": 9,
+              "ACTOR_PUBLIC": 3,
+              "ACTOR_BUSINESS": 8
             },
             "action": {
               "ACT_COORDINATE": 52,
@@ -975,13 +992,13 @@
               "ACT_EVALUATE": 6
             },
             "responsibility": {
-              "RESP_ED_ORG": 68,
-              "RESP_BUSINESS": 36,
+              "ACTOR_ED_ORG": 68,
+              "ACTOR_BUSINESS": 36,
               "MISSING": 50,
-              "RESP_PUBLIC": 29,
-              "RESP_ED_WORKER": 13,
-              "RESP_COLLECTIVE": 5,
-              "RESP_LEARNER": 7
+              "ACTOR_PUBLIC": 29,
+              "ACTOR_EXPERT": 13,
+              "ACTOR_COLLECTIVE": 5,
+              "ACTOR_LEARNER": 7
             }
           }
         }
@@ -1056,24 +1073,26 @@
               "SPACE_TRANSNATIONAL": 25
             },
             "speaker": {
-              "SPK_PUBLIC": 28,
-              "SPK_ED_LEADERSHIP": 66,
-              "SPK_AUTHOR": 165,
-              "SPK_BUSINESS": 64,
-              "SPK_ACADEMIC_EXPERT": 218,
-              "SPK_LEARNER": 80,
-              "SPK_COLLECTIVE": 10,
+              "ACTOR_PUBLIC": 28,
+              "ACTOR_ED_ORG": 66,
+              "ACTOR_AUTHOR": 165,
+              "ACTOR_BUSINESS": 64,
+              "ACTOR_EXPERT": 218,
+              "ACTOR_LEARNER": 80,
+              "ACTOR_SOCIETY": 2,
               "MISSING": 15,
-              "SPK_FAMILY": 9
+              "ACTOR_COLLECTIVE": 8,
+              "ACTOR_FAMILY": 9
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 571,
-              "AFFECT_ED_WORKER": 171,
-              "AFFECT_PUBLIC": 3,
-              "AFFECT_FAMILY": 11,
-              "AFFECT_ED_ORG": 30,
+              "ACTOR_LEARNER": 571,
+              "ACTOR_EXPERT": 171,
+              "ACTOR_SOCIETY": 3,
+              "ACTOR_FAMILY": 11,
+              "ACTOR_ED_ORG": 30,
               "MISSING": 9,
-              "AFFECT_EMPLOYER": 6
+              "ACTOR_WORKFORCE": 4,
+              "ACTOR_BUSINESS": 2
             },
             "action": {
               "ACT_RESOURCES": 88,
@@ -1085,14 +1104,14 @@
               "ACT_EVALUATE": 9
             },
             "responsibility": {
-              "RESP_PUBLIC": 23,
-              "RESP_LEARNER": 148,
-              "RESP_ED_ORG": 65,
+              "ACTOR_PUBLIC": 23,
+              "ACTOR_ED_ORG": 65,
+              "ACTOR_LEARNER": 148,
               "MISSING": 315,
-              "RESP_BUSINESS": 40,
-              "RESP_FAMILY": 13,
-              "RESP_ED_WORKER": 125,
-              "RESP_COLLECTIVE": 6
+              "ACTOR_BUSINESS": 40,
+              "ACTOR_FAMILY": 13,
+              "ACTOR_EXPERT": 125,
+              "ACTOR_COLLECTIVE": 6
             }
           }
         },
@@ -1155,24 +1174,26 @@
               "SPACE_TRANSNATIONAL": 9
             },
             "speaker": {
-              "SPK_AUTHOR": 69,
-              "SPK_BUSINESS": 25,
-              "SPK_ACADEMIC_EXPERT": 118,
-              "SPK_ED_LEADERSHIP": 50,
-              "SPK_LEARNER": 27,
+              "ACTOR_AUTHOR": 69,
+              "ACTOR_BUSINESS": 25,
+              "ACTOR_EXPERT": 118,
+              "ACTOR_ED_ORG": 50,
+              "ACTOR_LEARNER": 27,
               "MISSING": 13,
-              "SPK_PUBLIC": 43,
-              "SPK_COLLECTIVE": 3,
-              "SPK_FAMILY": 3
+              "ACTOR_PUBLIC": 43,
+              "ACTOR_SOCIETY": 1,
+              "ACTOR_FAMILY": 3,
+              "ACTOR_COLLECTIVE": 2
             },
             "affected_entities": {
-              "AFFECT_ED_WORKER": 105,
-              "AFFECT_LEARNER": 319,
-              "AFFECT_ED_ORG": 28,
+              "ACTOR_EXPERT": 105,
+              "ACTOR_LEARNER": 319,
+              "ACTOR_ED_ORG": 28,
               "MISSING": 4,
-              "AFFECT_FAMILY": 3,
-              "AFFECT_EMPLOYER": 5,
-              "AFFECT_PUBLIC": 5
+              "ACTOR_FAMILY": 3,
+              "ACTOR_WORKFORCE": 3,
+              "ACTOR_BUSINESS": 3,
+              "ACTOR_SOCIETY": 5
             },
             "action": {
               "ACT_PRACTICE": 125,
@@ -1184,13 +1205,13 @@
               "ACT_COORDINATE": 12
             },
             "responsibility": {
-              "RESP_ED_ORG": 78,
-              "RESP_ED_WORKER": 85,
-              "RESP_LEARNER": 47,
+              "ACTOR_ED_ORG": 78,
+              "ACTOR_EXPERT": 85,
+              "ACTOR_LEARNER": 47,
               "MISSING": 156,
-              "RESP_PUBLIC": 39,
-              "RESP_BUSINESS": 15,
-              "RESP_FAMILY": 3
+              "ACTOR_PUBLIC": 39,
+              "ACTOR_BUSINESS": 15,
+              "ACTOR_FAMILY": 3
             }
           }
         },
@@ -1245,21 +1266,21 @@
               "SPACE_TRANSNATIONAL": 1
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 13,
-              "SPK_AUTHOR": 12,
-              "SPK_ACADEMIC_EXPERT": 6,
-              "SPK_BUSINESS": 4,
+              "ACTOR_ED_ORG": 13,
+              "ACTOR_AUTHOR": 12,
+              "ACTOR_EXPERT": 6,
+              "ACTOR_BUSINESS": 4,
               "MISSING": 1,
-              "SPK_LEARNER": 3,
-              "SPK_FAMILY": 2,
-              "SPK_COLLECTIVE": 5,
-              "SPK_PUBLIC": 2
+              "ACTOR_LEARNER": 3,
+              "ACTOR_FAMILY": 2,
+              "ACTOR_COLLECTIVE": 5,
+              "ACTOR_PUBLIC": 2
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 29,
-              "AFFECT_ED_WORKER": 23,
-              "AFFECT_ED_ORG": 17,
-              "AFFECT_FAMILY": 8,
+              "ACTOR_LEARNER": 29,
+              "ACTOR_EXPERT": 23,
+              "ACTOR_ED_ORG": 17,
+              "ACTOR_FAMILY": 8,
               "MISSING": 1
             },
             "action": {
@@ -1272,14 +1293,14 @@
               "ACT_CURRICULUM": 1
             },
             "responsibility": {
-              "RESP_ED_ORG": 17,
-              "RESP_ED_WORKER": 6,
+              "ACTOR_ED_ORG": 17,
+              "ACTOR_EXPERT": 6,
               "MISSING": 18,
-              "RESP_LEARNER": 5,
-              "RESP_COLLECTIVE": 1,
-              "RESP_PUBLIC": 2,
-              "RESP_BUSINESS": 6,
-              "RESP_FAMILY": 1
+              "ACTOR_LEARNER": 5,
+              "ACTOR_COLLECTIVE": 1,
+              "ACTOR_PUBLIC": 2,
+              "ACTOR_BUSINESS": 6,
+              "ACTOR_FAMILY": 1
             }
           }
         },
@@ -1341,23 +1362,24 @@
               "SPACE_FOREIGN_DOMESTIC": 34
             },
             "speaker": {
-              "SPK_ED_LEADERSHIP": 99,
-              "SPK_BUSINESS": 29,
-              "SPK_AUTHOR": 73,
-              "SPK_LEARNER": 19,
-              "SPK_PUBLIC": 48,
-              "SPK_ACADEMIC_EXPERT": 78,
-              "SPK_COLLECTIVE": 13,
+              "ACTOR_ED_ORG": 99,
+              "ACTOR_BUSINESS": 29,
+              "ACTOR_AUTHOR": 73,
+              "ACTOR_LEARNER": 19,
+              "ACTOR_PUBLIC": 48,
+              "ACTOR_EXPERT": 78,
+              "ACTOR_COLLECTIVE": 13,
               "MISSING": 10,
-              "SPK_FAMILY": 8
+              "ACTOR_FAMILY": 8
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 330,
-              "AFFECT_EMPLOYER": 15,
-              "AFFECT_PUBLIC": 12,
-              "AFFECT_ED_WORKER": 74,
-              "AFFECT_ED_ORG": 26,
-              "AFFECT_FAMILY": 7,
+              "ACTOR_BUSINESS": 4,
+              "ACTOR_LEARNER": 330,
+              "ACTOR_WORKFORCE": 11,
+              "ACTOR_SOCIETY": 12,
+              "ACTOR_EXPERT": 74,
+              "ACTOR_ED_ORG": 26,
+              "ACTOR_FAMILY": 7,
               "MISSING": 4
             },
             "action": {
@@ -1370,14 +1392,14 @@
               "ACT_EVALUATE": 10
             },
             "responsibility": {
-              "RESP_ED_ORG": 135,
-              "RESP_LEARNER": 59,
+              "ACTOR_ED_ORG": 135,
+              "ACTOR_LEARNER": 59,
               "MISSING": 128,
-              "RESP_ED_WORKER": 53,
-              "RESP_PUBLIC": 31,
-              "RESP_BUSINESS": 27,
-              "RESP_FAMILY": 5,
-              "RESP_COLLECTIVE": 8
+              "ACTOR_EXPERT": 53,
+              "ACTOR_PUBLIC": 31,
+              "ACTOR_BUSINESS": 27,
+              "ACTOR_FAMILY": 5,
+              "ACTOR_COLLECTIVE": 8
             }
           }
         },
@@ -1435,21 +1457,22 @@
               "SPACE_TRANSNATIONAL": 7
             },
             "speaker": {
-              "SPK_BUSINESS": 8,
-              "SPK_ED_LEADERSHIP": 15,
-              "SPK_ACADEMIC_EXPERT": 4,
-              "SPK_AUTHOR": 13,
-              "SPK_PUBLIC": 19,
-              "SPK_LEARNER": 1,
+              "ACTOR_BUSINESS": 8,
+              "ACTOR_ED_ORG": 15,
+              "ACTOR_EXPERT": 4,
+              "ACTOR_AUTHOR": 13,
+              "ACTOR_PUBLIC": 19,
+              "ACTOR_LEARNER": 1,
               "MISSING": 2,
-              "SPK_COLLECTIVE": 2
+              "ACTOR_COLLECTIVE": 2
             },
             "affected_entities": {
-              "AFFECT_LEARNER": 44,
-              "AFFECT_PUBLIC": 31,
-              "AFFECT_EMPLOYER": 10,
-              "AFFECT_ED_WORKER": 5,
-              "AFFECT_ED_ORG": 8
+              "ACTOR_LEARNER": 44,
+              "ACTOR_SOCIETY": 31,
+              "ACTOR_BUSINESS": 4,
+              "ACTOR_EXPERT": 5,
+              "ACTOR_ED_ORG": 9,
+              "ACTOR_WORKFORCE": 6
             },
             "action": {
               "ACT_RESOURCES": 31,
@@ -1460,14 +1483,14 @@
               "ACT_PRACTICE": 9
             },
             "responsibility": {
-              "RESP_BUSINESS": 18,
-              "RESP_ED_ORG": 30,
+              "ACTOR_BUSINESS": 18,
+              "ACTOR_ED_ORG": 30,
               "MISSING": 10,
-              "RESP_PUBLIC": 19,
-              "RESP_LEARNER": 6,
-              "RESP_ED_WORKER": 3,
-              "RESP_FAMILY": 2,
-              "RESP_COLLECTIVE": 1
+              "ACTOR_PUBLIC": 19,
+              "ACTOR_LEARNER": 6,
+              "ACTOR_EXPERT": 3,
+              "ACTOR_FAMILY": 2,
+              "ACTOR_COLLECTIVE": 1
             }
           }
         }

@@ -25,6 +25,11 @@ def validate(records, complete=False):
     errors = []
     def fail(ID, message, account=None, field=None):
         errors.append({'ID': ID, 'error': message, **({'account_id': account} if account else {}), **({'field': field} if field else {})})
+    actor_fields = ('speaker', 'responsibility', 'affected_entities')
+    actor_definitions = [[(e['code'], e['label'], e['definition'])
+                          for e in book['fields'][field]] for field in actor_fields]
+    if any(definitions != actor_definitions[0] for definitions in actor_definitions[1:]):
+        fail(None, 'Actor fields must share identical ordered categories and definitions')
     if hashlib.sha256(book_path.read_bytes()).hexdigest() != manifest['codebook_sha256']:
         fail(None, 'Frozen codebook hash differs from manifest')
     if hashlib.sha256((ROOT / 'data/source_corpus.jsonl').read_bytes()).hexdigest() != manifest['source_sha256']:

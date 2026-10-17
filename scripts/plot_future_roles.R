@@ -108,86 +108,102 @@ figure_groups <- (
   "Labels: article counts. Stacks: share of summed counts, including Missing; categories overlap."))
 
 
-# Align comparable categories only; absent categories are not coded zeros.
-actors <- tribble(
-  ~code, ~actor,
-  "SPK_LEARNER", "Learners",
-  "RESP_LEARNER", "Learners",
-  "AFFECT_LEARNER", "Learners",
-  "SPK_ED_LEADERSHIP", "Educational organisations / leadership",
-  "RESP_ED_ORG", "Educational organisations / leadership",
-  "AFFECT_ED_ORG", "Educational organisations / leadership",
-  "RESP_ED_WORKER", "Education and research workers",
-  "AFFECT_ED_WORKER", "Education and research workers",
-  "SPK_ACADEMIC_EXPERT", "Educators, researchers and specialists",
-  "SPK_PUBLIC", "Public authorities",
-  "RESP_PUBLIC", "Public authorities",
-  "SPK_BUSINESS", "Commercial actors",
-  "RESP_BUSINESS", "Commercial actors",
-  "AFFECT_EMPLOYER", "Employers / non-education occupations",
-  "SPK_FAMILY", "Families and caregivers",
-  "RESP_FAMILY", "Families and caregivers",
-  "AFFECT_FAMILY", "Families and caregivers",
-  "SPK_COLLECTIVE", "Civic / international organisations",
-  "RESP_COLLECTIVE", "Civic / wider collectives",
-  "AFFECT_PUBLIC", "Wider communities / society",
-  "SPK_AUTHOR", "Article's authorial voice"
-)
+# Read the shared categories from the current codebook to avoid stale labels.
+actor_fields <- c(speaker = "Speakers", responsibility = "Assigned responsibility",
+                  affected_entities = "Affected entities")
+book <- fromJSON(file.path(root, "data/sipc_future_coding/codebook.json"))
+actors <- as_tibble(book$fields$speaker) |> select(code, actor = label)
+for (field_name in names(actor_fields)) {
+  definition <- book$fields[[field_name]]
+  stopifnot(identical(definition$code, actors$code),
+            identical(definition$label, actors$actor),
+            all(paste0(field_name, "__", actors$code) %in% names(articles)))
+}
+actor_levels <- rev(c(actors$actor, "Missing field coding"))
+actor_labels <- function(x) str_wrap(x, width = 36)
+main_n <- nrow(articles)
+group_sizes <- articles |> count(outlet_group)
+group_caption <- paste(sprintf("%s: n = %s", group_sizes$outlet_group,
+                               group_sizes$n), collapse = "; ")
 
+# Denominator = all main-sample articles, including articles missing this field.
+# NA remains NA in counts; sum(..., na.rm = TRUE) counts observed presence only.
 counts <- articles |>
-  select(article_id, outlet_group, matches("^(speaker|responsibility|affected_entities)__")) |>
+  select(article_id, outlet_group,
+         matches("^(speaker|responsibility|affected_entities)__")) |>
   pivot_longer(contains("__"), names_to = c("field", "code"), names_sep = "__",
                values_to = "present") |>
-  inner_join(actors, by = "code") |>
-  mutate(present = replace_na(present, 0),
-         actor = factor(actor, levels = rev(unique(actors$actor))),
-         field = factor(field, levels = c("speaker", "responsibility", "affected_entities"),
-                        labels = c("Speaking", "Responsible", "Affected")))
+  left_join(bind_rows(actors, tibble(code = "missing", actor = "Missing field coding")),
+            by = "code") |>
+  mutate(actor = factor(actor, levels = actor_levels),
+         field = factor(field, levels = names(actor_fields), labels = actor_fields))
+stopifnot(!anyNA(counts$actor), !anyNA(counts$field))
 
-figure_actors <- counts |>
+actor_summary <- counts |>
   group_by(actor, field) |>
-  summarise(percent = mean(present), .groups = "drop") |>
-  complete(actor, field) |>
+  summarise(n = sum(present, na.rm = TRUE), total = n(),
+            percent = n / total, .groups = "drop")
+
+figure_actors <- actor_summary |>
   ggplot(aes(field, actor, fill = percent)) +
   geom_tile(colour = "white", linewidth = 1) +
-  geom_text(aes(label = if_else(is.na(percent), "—", scales::percent(percent, accuracy = .1)),
-                colour = !is.na(percent) & percent > .5), size = 3.5) +
+  geom_text(aes(label = paste0(scales::percent(percent, accuracy = .1), " (", n, ")"),
+                colour = percent > .5), size = 3.3) +
+  scale_y_discrete(labels = actor_labels, drop = FALSE) +
   scale_fill_gradient(low = "#EFF3FF", high = "#084594", limits = c(0, 1),
-                      na.value = "grey95", guide = "none") +
+                      guide = "none") +
   scale_colour_manual(values = c("FALSE" = "#222222", "TRUE" = "white"), guide = "none") +
-  labs(title = "Who speaks, acts and is affected?", x = NULL, y = NULL,
-       caption = "Percentage of articles. — = no corresponding codebook category.") +
-  theme(axis.line = element_blank(), axis.ticks = element_blank(), panel.grid = element_blank())
+  labs(title = "Who speaks, is assigned responsibility and is affected?", x = NULL, y = NULL,
+       caption = paste0("Labels: % (article count); denominator: all ", main_n,
+                        " main-sample articles. Categories may overlap.\n",
+                        "Missing field coding is shown separately; 0% means no observed assignment. ",
+                        "Article-level counts do not establish links within an account.")) +
+  theme(axis.line = element_blank(), axis.ticks = element_blank(),
+        panel.grid = element_blank())
 
-speaker_comparison <- counts |> filter(field == "Speaking") |>
-  group_by(outlet_group, actor) |>
-  summarise(percent = mean(present), .groups = "drop") |>
+# Use the same category order and percentage scale for all three comparisons.
+actor_comparison <- counts |>
+  group_by(outlet_group, actor, field) |>
+  summarise(n = sum(present, na.rm = TRUE), total = n(),
+            percent = n / total, .groups = "drop") |>
+  select(outlet_group, actor, field, percent) |>
   pivot_wider(names_from = outlet_group, values_from = percent) |>
-  mutate(gap = 100 * (`commercial/general` - `public/central`),
-         actor = fct_reorder(actor, gap))
+  mutate(gap = 100 * (`commercial/general` - `public/central`))
+gap_limit <- max(5, ceiling(max(abs(actor_comparison$gap)) / 5) * 5)
 
-figure_speakers <- (
-  ggplot(speaker_comparison, aes(y = actor)) +
+actor_comparison_plot <- function(field_name, title) {
+  comparison <- actor_comparison |> filter(field == actor_fields[[field_name]])
+  prevalence_panel <- ggplot(comparison, aes(y = actor)) +
     geom_segment(aes(x = `public/central`, xend = `commercial/general`, yend = actor),
                  colour = "grey65", linewidth = 1) +
     geom_point(aes(x = `public/central`, colour = "Public/central"), size = 3) +
     geom_point(aes(x = `commercial/general`, colour = "Commercial/general"), size = 3) +
+    scale_y_discrete(labels = actor_labels, drop = FALSE) +
     scale_colour_manual(values = c("Public/central" = "#3C5488", "Commercial/general" = "#E64B35")) +
-    scale_x_continuous(labels = scales::label_percent(), expand = expansion(mult = .08)) +
+    scale_x_continuous(labels = scales::label_percent(), limits = c(0, 1),
+                       breaks = seq(0, 1, .25), expand = expansion(mult = .03)) +
     labs(x = "Articles within outlet group (%)", y = NULL)
-) | (
-  ggplot(speaker_comparison, aes(gap, actor)) +
+  difference_panel <- ggplot(comparison, aes(gap, actor)) +
     geom_vline(xintercept = 0, colour = "grey65", linetype = 2) +
     geom_segment(aes(x = 0, xend = gap, yend = actor), colour = "grey65") +
     geom_point(colour = "#3C5488", size = 2.5) +
     geom_text(aes(label = sprintf("%+.1f", gap)), nudge_y = .25, size = 3) +
-    scale_x_continuous(expand = expansion(mult = .2)) +
+    scale_y_discrete(drop = FALSE) +
+    scale_x_continuous(limits = c(-gap_limit, gap_limit),
+                       expand = expansion(mult = .12)) +
     labs(x = "Difference (percentage points)", y = NULL) +
     theme(axis.text.y = element_blank(), axis.ticks.y = element_blank())
-)
-figure_speakers <- figure_speakers + plot_layout(widths = c(2, 1)) +
-  plot_annotation(title = "Whose voices enter the discussion?",
-                  caption = "Difference = commercial/general minus public/central. Positive values favour commercial/general.")
+  (prevalence_panel | difference_panel) + plot_layout(widths = c(2, 1)) +
+    plot_annotation(title = title,
+      caption = paste0(group_caption, ". Categories may overlap; missing coding is shown separately.\n",
+                       "Difference = commercial/general minus public/central; denominators include all articles in each group."))
+}
+
+# Suggested display/export size: 12 x 9 inches; no files are exported here.
+speaker_comparison <- actor_comparison |> filter(field == "Speakers")
+figure_speakers <- actor_comparison_plot("speaker", "Whose voices enter the discussion?")
+figure_responsibility <- actor_comparison_plot("responsibility", "Who is assigned responsibility?")
+figure_affected <- actor_comparison_plot("affected_entities", "Who is affected?")
 
 
 figure_misc <- articles |>
@@ -224,5 +240,7 @@ print(figure_overall)
 print(figure_groups)
 print(figure_actors)
 print(figure_speakers)
+print(figure_responsibility)
+print(figure_affected)
 
 print(figure_misc)

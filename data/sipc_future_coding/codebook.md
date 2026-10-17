@@ -1,6 +1,6 @@
-# SIPC codebook v3.1 — five future roles
+# SIPC codebook v3.2 — five future roles
 
-Updated 16 October 2026. Five researcher-specified roles; all eleven other fields unchanged.
+Updated 17 October 2026. Five future roles retained; speaker, responsibility and affected_entities now share ten non-exclusive actor categories.
 
 ## AI as a Learning Partner
 
@@ -74,11 +74,11 @@ AI-related education or university research serves an explicitly articulated col
 
 ## Context and desirability
 
-Interpret future_role from the future being evaluated, not from whether the account endorses it. Use inherited open extraction and attributed account statements first. A warning, safeguard, implementation condition or evaluation may receive the role of its clearly identified target in the same source. Require a demonstrable shared referent (the same programme, tool, arrangement or continuing attributed argument). Record the contextual link and exact source anchors in the account. Do not transfer another speaker’s evaluation, certainty or intention, or assign all roles in the article. Generic policy, risk or market claims without an identifiable role remain MISSING. The five role definitions and all eleven other fields remain unchanged; desirability already records positive, negative, mixed and undecided evaluation. No sixth role or separate positive/negative role subcodes are used.
+Interpret future_role from the future being evaluated, not from whether the account endorses it. Use inherited open extraction and attributed account statements first. A warning, safeguard, implementation condition or evaluation may receive the role of its clearly identified target in the same source. Require a demonstrable shared referent (the same programme, tool, arrangement or continuing attributed argument). Record the contextual link and exact source anchors in the account. Do not transfer another speaker’s evaluation, certainty or intention, or assign all roles in the article. Generic policy, risk or market claims without an identifiable role remain MISSING. The contextual role revision preserved the five definitions; the subsequent v3.2 actor harmonisation is documented below. Desirability records positive, negative, mixed and undecided evaluation. No sixth role or separate positive/negative role subcodes are used.
 
 The current corpus contains the decisions, source anchors and reasons. Git manages file history; there is no separate pilot, backup corpus or decision-ledger directory. Earlier descriptive literal_details are preserved; current future_role codes and missing_notes supersede historical classification comments.
 
-## Other eleven fields — unchanged
+## Other fields
 
 ### certainty
 
@@ -149,27 +149,11 @@ Which country or cross-border arena is explicitly the intended reach of the educ
 
 ### speaker
 
-In what stated capacity does this actor articulate the future?
-
-- `SPK_PUBLIC` — Public authority: The actor speaks in a governmental, legislative, administrative or security capacity.
-- `SPK_ED_LEADERSHIP` — Educational institution or leadership: The actor speaks for an educational institution, programme or its leadership.
-- `SPK_ACADEMIC_EXPERT` — Educator, researcher or specialist: The actor articulates the future as an educational practitioner, researcher or specialist adviser.
-- `SPK_BUSINESS` — Commercial actor: The actor speaks for a company, provider or employer.
-- `SPK_LEARNER` — Learner: The actor speaks as a person undertaking education.
-- `SPK_FAMILY` — Family or caregiver: The actor speaks as a parent, family member or caregiver.
-- `SPK_COLLECTIVE` — Civic or international organisation: The actor speaks for a civic, professional, community or intergovernmental organisation outside the preceding capacities.
-- `SPK_AUTHOR` — Article’s authorial voice: The article advances a future claim in its own identifiable narrative or editorial voice.
+Who articulates this future, and in which evidenced capacities? Use the shared actor categories below; multiple codes are allowed.
 
 ### affected_entities
 
-Who or what is explicitly expected to experience the consequences?
-
-- `AFFECT_LEARNER` — Learners: People affected in their capacity as learners.
-- `AFFECT_ED_WORKER` — Education and research workers: People whose educational or academic work is affected.
-- `AFFECT_ED_ORG` — Educational organisations: An educational organisation or organised educational system is explicitly affected.
-- `AFFECT_FAMILY` — Families and caregivers: Families’ educational decisions, care or resources are affected.
-- `AFFECT_EMPLOYER` — Employers and non-education occupational actors: Employers, providers or occupational communities outside educational work experience consequences.
-- `AFFECT_PUBLIC` — Wider communities or society: A community, society, nation or shared collective life is explicitly affected beyond the named learner/workplace entities.
+Who explicitly experiences the consequences of this future? Use the shared actor categories below; multiple codes are allowed.
 
 ### action
 
@@ -184,14 +168,50 @@ What concrete intervention or restraint is proposed to pursue or prevent the fut
 
 ### responsibility
 
-Which actor is explicitly assigned the proposed intervention or accountability?
+Who is explicitly assigned action, intervention or accountability? Use the shared actor categories below; multiple codes are allowed.
 
-- `RESP_PUBLIC` — Public authorities: A public authority is assigned an intervention or accountability.
-- `RESP_ED_ORG` — Educational organisations: An educational institution, its leadership or an organisational unit is assigned an intervention.
-- `RESP_ED_WORKER` — Education and research workers: Teachers, instructors, researchers or educational staff are assigned an intervention in their professional capacity.
-- `RESP_LEARNER` — Learners: Learners are assigned educational choices, conduct or accountability.
-- `RESP_FAMILY` — Families and caregivers: Parents/families are assigned support, supervision or decisions.
-- `RESP_BUSINESS` — Commercial actors: A company, provider or employer is assigned an intervention or accountability.
-- `RESP_COLLECTIVE` — Civic or international collectives: A community, civic/professional/intergovernmental organisation or explicitly identified wider collective is assigned an intervention.
+## Shared actor categories
 
-The JSON companion contains full inclusion/exclusion rules and exact source excerpts for all fields. All 76 retained illustration spans match the source exactly; this check does not establish coder reliability.
+The same codes and definitions apply to speaker, responsibility and affected_entities. These are distinct concepts, not mutually exclusive groups. One actor or passage may receive multiple codes within a field when each is supported. Speaker, affected actor and responsible actor remain separate evidence judgments. MISSING remains exclusive. An unused category remains available in every field; zero frequency does not remove it.
+
+### ACTOR_PUBLIC — Public authorities
+
+Government, legislative, administrative, regulatory or security actors acting in that capacity. Ministries, public agencies, officials, military and police units. A country or society alone does not identify a public authority.
+
+### ACTOR_ED_ORG — Educational organisations and leadership
+
+Educational institutions, programmes, organisational units and actors exercising educational leadership. Schools, universities, training institutions, programme leaders and institutional management. An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.
+
+### ACTOR_EXPERT — Educators, researchers and specialists
+
+People acting through educational practice, research or specialist knowledge and advice. Teachers, educational staff, researchers and specialist advisers. Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.
+
+### ACTOR_BUSINESS — Businesses and commercial actors
+
+Companies, commercial providers, entrepreneurs, investors and actors representing business interests. Commercial employers, technology providers, business owners and startup ventures. Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.
+
+### ACTOR_WORKFORCE — Workers and occupational communities
+
+People or occupational groups in their employment, professional practice or future labour-market capacity. Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers. Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.
+
+### ACTOR_LEARNER — Learners
+
+People acting or experiencing consequences in their learning or educational formation. Pupils, students, trainees and adult learners. Age or student status alone does not establish the learner relationship in every field.
+
+### ACTOR_FAMILY — Families and caregivers
+
+Parents, relatives, families and caregivers in their care or educational support capacity. Family choices, supervision, support and family consequences. A parent speaking does not automatically establish family responsibility or consequences.
+
+### ACTOR_COLLECTIVE — Civic, professional and international organisations
+
+Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups. Associations, charities, unions, international organisations, volunteer groups and identified organising committees. Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.
+
+### ACTOR_SOCIETY — Wider society and communities
+
+The public, citizens, informal social groups, communities, countries or shared collective life. National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties. Do not equate society with government or infer that every group speaks for society.
+
+### ACTOR_AUTHOR — Article author or editorial voice
+
+The identifiable article author, editorial voice or editorial producer in that capacity. Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers. Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.
+
+This revision preserves direct equivalents and reviews the linked evidence of the old employer/workforce, public/society and collective categories. It does not claim an independent new full-source recoding. Existing exact illustration spans and account evidence remain traceable; Git preserves the prior files.

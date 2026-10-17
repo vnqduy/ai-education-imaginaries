@@ -1,14 +1,14 @@
 {
-  "codebook_version": "3.1",
+  "codebook_version": "3.2",
   "codebook_path": "data/sipc_future_coding/codebook.json",
-  "codebook_sha256": "f64aa1cf64f16db4a2b25ae2a92cd585ef1d5bbd4bb9b61ce2bfb0d94ab4d8ff",
+  "codebook_sha256": "f8c3848107b30f68a4a72d050b2b1d5fc090d280007797b321aa8e63701e42ed",
   "source_sha256": "afeff1b97456afa23c6149b4c464041de8d9b770b95e8873b4c6b7e6e23efbde",
-  "coded_sha256": "e2d75cef0a685ae3e52b580aca7e3e1d62b2c3497838ef12856c04d6ca95f85f",
+  "coded_sha256": "c86468d72264d6ba5756309527c3f75406c097c9f092c4d7e369e706653787d7",
   "total_articles": 1081,
   "original_ids": true,
   "storage_exclusions": 17,
   "unit": "article; code presence in any attributed account counted once per article",
-  "status": "Active five-role coding; contextual review of 119 previously unmatched accounts completed 16 October 2026. Other eleven fields unchanged.",
+  "status": "Active five-role coding with shared, non-exclusive actor categories; actor harmonisation reviewed 17 October 2026.",
   "publication": "Author authorised publication of full research data and article-level dataframe on 2026-10-14.",
   "future_role_revision": {
     "date": "2026-10-16",
@@ -18,5 +18,17 @@
     "unmatched_accounts": 16,
     "other_fields_unchanged": true,
     "storage": "Canonical corpus only; history managed through Git."
+  },
+  "actor_revision": {
+    "date": "2026-10-17",
+    "method": "Shared taxonomy applied to all 3,004 accounts. Direct equivalents retained; linked evidence reviewed for the old employer/workforce, public/society and collective categories. Overlapping assignments retained where supported. This is a targeted harmonisation, not a new independent full-source coding of every field.",
+    "reviewed_evidence_entries": {
+      "AFFECT_PUBLIC": 192,
+      "AFFECT_EMPLOYER": 83,
+      "SPK_COLLECTIVE": 63,
+      "RESP_COLLECTIVE": 41
+    },
+    "categories": "Ten identical concepts in all three fields; multiple codes permitted within each field.",
+    "other_fields_unchanged": true
   }
 }

@@ -1,6 +1,6 @@
 # Educational AI futures in Vietnamese news
 
-Final checkpoint: **14 October 2026**, frozen **v2.3**. The corpus contains **1,081 unique original article IDs** and **3,004 attributed future arrangements**: 864 clear futures, 93 borderline cases, 107 adequate sources without an educational future, and 17 unresolved sources.
+Current coding: **17 October 2026**, **v3.2**. The corpus contains **1,081 unique original article IDs** and **3,004 attributed future arrangements**: 864 clear futures, 93 borderline cases, 107 adequate sources without an educational future, and 17 unresolved sources.
 
 ## IDs and population
 
@@ -20,7 +20,7 @@ Old aggregate JSONs, per-account exports, worker logs, snapshots, progress/valid
 
 ## Rectangular dataframe for R
 
-`results/article_coding.csv` has **1,081 rows and 91 columns**. Each row represents one article; every cell is a scalar, with no JSON/list columns or copied source passages.
+`results/article_coding.csv` has **1,081 rows and 99 columns**. Each row represents one article; every cell is a scalar, with no JSON/list columns or copied source passages.
 
 | Columns | Meaning |
 |---|---|
@@ -31,10 +31,12 @@ Old aggregate JSONs, per-account exports, worker logs, snapshots, progress/valid
 | `eligibility`, `source_adequacy` | Educational-future eligibility and separate source-quality status |
 | `account_count`, `codebook_version` | Number of linked arrangements and applied definitions |
 | `main_sample` | 1 for clear futures without producing-publisher uncertainty; 828 articles |
-| 65 `field__CODE` columns | Code presence in any linked arrangement, once per article |
+| 73 `field__CODE` columns | Code presence in any linked arrangement, once per article |
 | 12 `field__missing` columns | 1 when no substantive code is assigned in that field for an eligible article |
 
 Code values are **1=present, 0=absent in an observed field**. If an eligible article has no substantive code in a field, all its code columns in that field are blank/NA and its missing indicator is 1. Noneligible and unresolved articles have NA in all coding and missing-indicator columns, rather than being represented as substantive zeros. The eligibility column preserves that distinction.
+
+Speaker, responsibility and affected_entities share the same ten `ACTOR_*` categories and definitions. Concepts are distinct but may overlap within each field; the same actor may receive several supported codes. The three fields are assigned independently. The 17 October revision harmonises all 3,004 accounts and reviews 379 linked evidence entries from the formerly ambiguous employer/workforce, public/society and collective categories. Other nine fields and eligibility are unchanged.
 
 Multiple codes are allowed. Positive and negative can both equal 1 when different linked arrangements in an article receive different evaluations. Article-level unions do not establish that codes belong to the same speaker or future; relational interpretation returns to `coded_corpus.jsonl`. A field without an assigned code does not establish absence of all possible purposes in the text.
 
