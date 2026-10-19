@@ -1,19 +1,22 @@
-# Track the current manuscript; keep other authoring materials and literature local.
-manuscript/*
-!manuscript/manuscript.qmd
-!manuscript/manuscript.pdf
-!manuscript/apa.csl
-!manuscript/references.bib
+# Manuscript stays local.
+manuscript/
+# Local literature and original authoring materials.
 ref/
-# Generated caches and credentials.
+manuscript/Book1.xlsx
+manuscript/forum.pptx
+# Regenerable exports and temporary files.
+manuscript/*.pdf
+manuscript/*.docx
+manuscript/*_files/
+manuscript/.quarto/
+results/figures/
+*.qda/
 .DS_Store
 __pycache__/
 *.py[cod]
 .venv/
 .env
 .env.*
-
-# Local R session history and default plot-device output.
 .Rhistory
 .Rapp.history
 Rplots.pdf

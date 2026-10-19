@@ -14,7 +14,7 @@
 
 ## Using the data
 
-The current CSV has 1,081 articles and 99 columns; `main_sample == 1` selects 828 articles. Code columns use 1/0 for observed presence/absence and blanks for missing coding. Categories can overlap. Article-level co-occurrence does not establish a relationship within the same account; consult `coded_corpus.jsonl` for linked evidence.
+The current CSV has 1,081 articles and 99 columns; `main_sample == 1` selects 828 articles. Code columns use 1/0 for observed presence/absence and blanks for missing coding. The current taxonomy has eight rationale domains and ten actor categories shared by speaker, affected entities and responsibility. Categories can overlap. Article-level co-occurrence does not establish a relationship within the same account; consult `coded_corpus.jsonl` for linked evidence.
 
 Rebuild the CSV from the current coding:
 
@@ -24,4 +24,15 @@ python3 -B scripts/reproduce_results.py
 
 For figures, run `scripts/plot_future_roles.R` in R with tidyverse, jsonlite and patchwork installed. Validation checks structure and evidence references, not interpretive validity.
 
-Keep working outputs minimal; earlier versions and removed analyses belong in Git history.
+Keep working outputs minimal; earlier versions and removed analyses belong in Git history. Inherit existing coding and source evidence; do not create separate decision-proof files. Problematization uses linked role–rationale–action (see the coding protocol).
+
+## Manuscript exports
+
+The main manuscript and appendix support both PDF and editable Word from the same QMD source:
+
+```sh
+quarto render manuscript/manuscript.qmd --to all
+quarto render manuscript/appendix.qmd --to all
+```
+
+See `manuscript/format/README.md` for LMT requirements, individual export commands, dependencies, and outstanding author declarations.

@@ -1,6 +1,6 @@
 # Future-centred SIPC coding protocol
 
-Current v3.2 actor harmonisation, 17 October 2026; earlier v2.3 checkpoint history below. Definitions: [codebook](../data/sipc_future_coding/codebook.md); twelve-field structure: [record specification](../data/sipc_future_coding/record_specification.json).
+Current coding definitions: [codebook](../data/sipc_future_coding/codebook.json); twelve-field structure: [record specification](../data/sipc_future_coding/record_specification.json).
 
 ## Corpus and source preparation
 
@@ -40,8 +40,14 @@ The sole analysis export is `results/article_coding.csv`: one row per retained a
 
 `main_sample=1` identifies clear-future articles without producing-publisher uncertainty. Dates use ISO YYYY-MM-DD; year is integer. UTF-8 CSV blanks represent NA. The standard-library exporter validates the source coding and serialization; the saved dataframe was also imported and checked in R. Counts, contrasts and sensitivity statistics are performed downstream in R rather than emitted as parallel JSON products.
 
-## Shared actor categories — 17 October 2026
+## Rationale, actors and problematization
 
-Speaker, responsibility and affected_entities now use the identical ten ACTOR categories in the codebook. Categories identify distinct concepts but need not be mutually exclusive: assign several codes within a field when each capacity or actor is supported, including overlapping capacities of one actor. Do not propagate a speaker classification to affected entities or responsibility without evidence for that relationship.
+The current codebook uses eight rationale domains: learning and human development; efficiency and educational provision; access and equity; knowledge and academic credibility; rights and wellbeing; employment and economic prospects; collective development and public life; adaptation to social and technological change.
 
-All 3,004 accounts were harmonised. Direct semantic equivalents were retained; 379 linked evidence entries were reviewed for the old employer/workforce, public/society and collective boundaries. Companies were distinguished from occupational groups, government from society, and organised bodies from informal public views. Explicit overlaps were retained, and one truncated employer evidence anchor was extended to the complete source sentence. This targeted revision does not constitute a fresh independent full-source recoding of every account. The other nine fields, account structure, eligibility and missingness are preserved. Existing canonical files and the CSV are updated in place; Git stores history.
+Following SIPC, rationale captures why an arrangement is desirable or undesirable for affected entities. Stated benefits and goals may qualify even when they overlap the future role. A separate present deficit or causal mechanism is not required. Feasibility or certainty alone does not establish an evaluative rationale. Authority-only endorsements are retained literally rather than forced into a substantive rationale domain.
+
+Problematization is interpreted through linked **role–rationale–action** within an attributed account, with affected entities and responsibility providing context. The rationale identifies the evaluative concern; the role and proposed action clarify the educational arrangement and response. A positive aspiration does not by itself establish a present deficiency. This relational interpretation is an analytical extension, not an equation of SIPC rationale with a WPR problem representation.
+
+Speaker, affected_entities and responsibility share ten categories: Public authorities; Teachers and educators; Learners; Researchers and specialists; Educational leaders; Communities and wider public; Business and occupational groups; Technology providers; Organisations and institutions; Families and caregivers. Classify the capacity evidenced in each position, not the actor's entire biography. Authorial voice alone is not a social category. Categories need distinct boundaries, not mutual exclusivity; multiple assignments require distinguishable textual support.
+
+The revision inherits existing extraction, accounts and evidence. Clear equivalents are retained; changed boundaries receive rule-assisted splits and targeted semantic review, including the framework-aligned pilot. It is not a new independent full-source coding. The other eight fields, article eligibility and account structure are preserved. Current files are replaced in place; Git holds prior states. Keep no separate decision-proof dossiers or parallel old/new outputs.

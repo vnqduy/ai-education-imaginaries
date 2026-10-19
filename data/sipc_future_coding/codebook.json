@@ -1,10 +1,9 @@
 {
-  "version": "3.2",
-  "status": "Active five-role coding with shared, non-exclusive actor categories; actor harmonisation reviewed 17 October 2026.",
+  "version": "4.0",
+  "status": "Current approved eight rationale domains and ten shared actor capacities.",
   "created_at_utc": "2026-10-11T14:34:00.725943+00:00",
-  "supersedes_for_future_work": "Replaces v3.1 actor categories in speaker, responsibility and affected_entities. Existing corpus and CSV updated in place; Git preserves history.",
   "basis": {
-    "framework": "SIPC fields retained from existing coding; the five role categories are researcher-specified, not categories prescribed by SIPC.",
+    "framework": "SIPC elements retained. The eight rationale domains and ten actor capacities are study-specific categories. Problematization reads role–rationale–action together, with affected entities and responsibility as context.",
     "source_path": "data/source_corpus.jsonl",
     "source_sha256": "afeff1b97456afa23c6149b4c464041de8d9b770b95e8873b4c6b7e6e23efbde",
     "future_role_revision": {
@@ -57,7 +56,6 @@
     "Object family requires source-supported technical form/function. A familiar brand name alone does not license external technical inference; retain brand and use unspecified when form is absent.",
     "ACT_RULES requires institutional/system permissions, safeguards or enforceable requirements. Individual pedagogic checking/judgment without such a rule is ACT_PRACTICE. ACT_EVALUATE concerns evaluating the AI intervention, not grading a student.",
     "Country/scope can be inherited from an explicitly shared source-described programme/institution context, with supporting quote. Do not infer country from external locality knowledge, byline, publication domain or actor nationality; record literal locality and missing scope if necessary.",
-    "Educational inclusion requires an explicit educational participation/opportunity end. Broader digital/social inclusion alone does not establish it. A stated goal does not automatically constitute its own rationale.",
     "Surveillance belongs to educational management when an operational monitoring/safety purpose is explicit; preserve coercion, error, privacy and criticism literally. Governance of AI alone is not an AI management-tool role.",
     "Interpret future_role from the future being evaluated, not from whether the account endorses it. Use inherited open extraction and attributed account statements first. A warning, safeguard, implementation condition or evaluation may receive the role of its clearly identified target in the same source. Require a demonstrable shared referent (the same programme, tool, arrangement or continuing attributed argument). Record the contextual link and exact source anchors in the account. Do not transfer another speaker’s evaluation, certainty or intention, or assign all roles in the article. Generic policy, risk or market claims without an identifiable role remain MISSING. The five role definitions and all eleven other fields remain unchanged; desirability already records positive, negative, mixed and undecided evaluation. No sixth role or separate positive/negative role subcodes are used."
   ],
@@ -72,7 +70,7 @@
     "future_role": "Which of the five projected educational relationships or purposes does this account articulate?",
     "certainty": "How firmly does the speaker claim that the specified future will or can occur?",
     "desirability": "How does this speaker evaluate this particular future arrangement?",
-    "rationale": "What explicit reason, need or value explains why this goal or arrangement is desirable or undesirable?",
+    "rationale": "What benefit, harm, value or reason makes this vision desirable or undesirable for an affected entity?",
     "technology_object": "What technical form of AI is explicitly implicated in the future?",
     "education_context": "In what educational sector or setting is the future located?",
     "timespan": "How does the source characterise the proximity or continuity of the educational future, and what exact horizon does it supply?",
@@ -100,7 +98,7 @@
     "future_role": "Interpret future_role from the future being evaluated, not from whether the account endorses it. Use inherited open extraction and attributed account statements first. A warning, safeguard, implementation condition or evaluation may receive the role of its clearly identified target in the same source. Require a demonstrable shared referent (the same programme, tool, arrangement or continuing attributed argument). Record the contextual link and exact source anchors in the account. Do not transfer another speaker’s evaluation, certainty or intention, or assign all roles in the article. Generic policy, risk or market claims without an identifiable role remain MISSING. The five role definitions and all eleven other fields remain unchanged; desirability already records positive, negative, mixed and undecided evaluation. No sixth role or separate positive/negative role subcodes are used. Existing literal_details retain earlier descriptive notes; current codes.future_role and missing_notes.future_role govern classification.",
     "certainty": "One code per proposition. Intention, prescription, endorsement and contingency are not certainty categories. Retain them as literal qualifiers (claim_mode, condition). A planned or required future without an epistemic claim receives MISSING. Different predictions within an account can have different codes only with separate proposition anchors.",
     "desirability": "Exactly one code or MISSING per evaluation target. Mixed requires a same-speaker, same-arrangement weighing of benefits and harms, not merely different conditions of use or opposing voices. For example, the same AI-supported work/learning arrangement can increase productivity while weakening skill accumulation. Split explicitly different desired and feared alternatives; do not pool them into mixed. A ban or safeguard can be positively valued. Predictions do not imply approval.",
-    "rationale": "Code an explicit warrant for the goal/evaluation, not the goal repeated as its own explanation. A stated causal reason, need or principle can supply a rationale. Preparing graduates for work is a goal; a shortage of AI specialists is a rationale. National autonomy is a goal; dependence on foreign technology can justify it. The same desired outcome alone does not automatically receive both role and rationale codes. Distinct warrants can coexist with separate source anchors.",
+    "rationale": "Code evaluative reasons, including stated benefits/valued aims even when they also describe a role. Do not require a separate deficit or causal mechanism. Distinguish desirability from explanations of certainty. Policy/standard authority alone is recorded in literal_details when no substantive domain is specified.",
     "technology_object": "Classify model/system family, not educational function, interface, product reputation or institutional scale. Retain product names, methods, robots/virtual interfaces, computing infrastructure, deployment architecture and educational use as literal details. AI as a subject of study belongs to future_role, not an extra technical-form category. Unknown form receives OBJ_UNSPECIFIED; this fallback cannot accompany a specified form for the same object. Independent objects can receive different codes.",
     "education_context": "Use setting rather than repeating learning, teaching, assessment or management functions already captured elsewhere. Record educational activity, subject, formal level and delivery mode as literal details. Institution size, beneficiaries and online delivery do not determine sector. Multiple sectors require explicit reach across them; otherwise use MISSING.",
     "timespan": "Immediate means explicitly being realised at the source reference time. Near-term and distant use the source’s own near/soon/short-term or distant/long-term wording. Ongoing requires explicit continuous/lifelong updating rather than a completion point. No five-year or other analyst-imposed numerical threshold is used. If the source supplies only a date, quantified interval or implementation stage, retain it and use TIME_ANCHORED_UNCLASSIFIED rather than infer near/distant. Bare future tense with no temporal specification is MISSING. A present launch is coded only when linked to an articulated intended educational arrangement. Different explicitly stated phases can have separate source anchors.",
@@ -361,165 +359,68 @@
     ],
     "rationale": [
       {
-        "code": "RATION_PEDAGOGY",
-        "label": "Learning quality",
-        "definition": "A learning mechanism or pedagogical principle warrants the future.",
-        "inclusion": "Feedback, practice, effort, understanding or inquiry explains why an arrangement benefits or harms learning.",
-        "exclusion": "Simply saying learning will improve without an explanatory warrant; AI competence as a goal alone.",
-        "boundary_rule": "What changes is future_role; why this change supports or harms learning is rationale. Do not duplicate a bare outcome as its own explanation.",
-        "evidence_examples": [
-          {
-            "ID": "TFH24_001",
-            "source_title": "Sinh viên đua nhau 'nhờ vả' AI: Tiện ích hay mối nguy trong học tập?",
-            "source_url": "https://www.24h.com.vn/giao-duc-du-hoc/sinh-vien-dua-nhau-nho-va-ai-tien-ich-hay-moi-nguy-trong-hoc-tap-c216a1604130.html",
-            "char_start": 5729,
-            "char_end": 5913,
-            "source_excerpt": "tư duy phản biện của sinh viên: \"Khi sinh viên quá phụ thuộc vào AI để tìm kiếm thông tin hoặc giải quyết bài tập, các bạn có thể bỏ qua cơ hội rèn luyện khả năng tư duy và phân tích\".",
-            "anchor_phrase": "bỏ qua cơ hội rèn luyện khả năng tư duy"
-          }
-        ]
+        "code": "RATION_LEARNING",
+        "label": "Learning and human development",
+        "definition": "Learning quality, understanding, thinking, agency, creativity, emotional/ethical development and educational relationships.",
+        "inclusion": "Learning quality, understanding, thinking, agency, creativity, emotional/ethical development and educational relationships.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
-        "code": "RATION_CAPACITY",
-        "label": "Operational feasibility and efficiency",
-        "definition": "Educational provision is justified or constrained by staffing, time, infrastructure, cost or implementation capacity.",
-        "inclusion": "Teacher workload, institutional budget, computing readiness or practicality.",
-        "exclusion": "Supplier profits, graduate employability or national strategic standing.",
-        "boundary_rule": "Education-provider cost/time constraints are here; profit or labour-market returns are RATION_ECONOMY.",
-        "evidence_examples": [
-          {
-            "ID": "NHD26_005",
-            "source_title": "“AI Buddy - Trợ giảng số” miễn phí tiếp sức giúp giáo viên đổi mới",
-            "source_url": "https://nhandan.vn/ai-buddy-tro-giang-so-mien-phi-tiep-suc-giup-giao-vien-doi-moi-post953846.html",
-            "char_start": 276,
-            "char_end": 526,
-            "source_excerpt": "Giữa những trăn trở của giáo viên về áp lực thời gian và thiếu công cụ thực hành, \"trợ giảng số\" AI Buddy được kỳ vọng sẽ tiếp sức cho đội ngũ nhà giáo tự tin đổi mới, đồng thời hiện thực hóa mục tiêu chuẩn bị nguồn nhân lực cho kỷ nguyên kinh tế số.",
-            "anchor_phrase": "áp lực thời gian và thiếu công cụ"
-          }
-        ]
-      },
-      {
-        "code": "RATION_ECONOMY",
-        "label": "Employment and economic returns",
-        "definition": "Expected employment, occupational demand, income or commercial returns warrant the future.",
-        "inclusion": "AI workforce shortages, job preparedness, graduate earnings or explicit business incentives.",
-        "exclusion": "General social change with no economic claim; institutional affordability alone; national autonomy.",
-        "boundary_rule": "Workforce participation or profit is here. Explicit national competitive standing is RATION_NATIONAL; code both only when separate economic and strategic warrants are stated.",
-        "evidence_examples": [
-          {
-            "ID": "LDG25_006",
-            "source_title": "Học viện Kỹ thuật Quân sự tuyển chuyên ngành Trí tuệ nhân tạo hệ dân sự",
-            "source_url": "https://laodong.vn/giao-duc/hoc-vien-ky-thuat-quan-su-tuyen-chuyen-nganh-tri-tue-nhan-tao-he-dan-su-1488950.ldo",
-            "char_start": 954,
-            "char_end": 1320,
-            "source_excerpt": " Khoa học máy tính và Công nghệ thông tin sẽ đạt đến khoảng 700.000 người. Tuy nhiên, hiện tại, số lượng nhân lực trong ngành này mới chỉ đáp ứng khoảng 10% so với nhu cầu, tương đương với 50.000 đến 60.000 người. Thực tế này cũng được phản ánh trong báo cáo của VietnamWorks, khi nhu cầu nhân lực trong lĩnh vực này đã tăng gấp 4 lần trong 10 năm qua và dự báo sẽ t",
-            "anchor_phrase": "mới chỉ đáp ứng khoảng 10%"
-          },
-          {
-            "ID": "TTO23_001",
-            "source_title": "Trí tuệ nhân tạo có thể làm giáo dục thêm khủng hoảng",
-            "source_url": "https://cuoituan.tuoitre.vn/tri-tue-nhan-tao-co-the-lam-giao-duc-them-khung-hoang-20230310104234833.htm",
-            "char_start": 2847,
-            "char_end": 3112,
-            "source_excerpt": "Trí tuệ nhân tạo mang lại khả năng tự động hóa, điều này đặc biệt hấp dẫn đối với các tổ chức quan tâm đến tối đa hóa lợi nhuận và cân bằng ngân sách của họ. Nhiều nghiên cứu cho thấy tự động hóa liên quan đến xu hướng ủng hộ chủ doanh nghiệp hơn là người lao động.",
-            "anchor_phrase": "tối đa hóa lợi nhuận"
-          }
-        ]
+        "code": "RATION_PROVISION",
+        "label": "Efficiency and educational provision",
+        "definition": "Time, effort, cost, resources, staffing and the ability to deliver or undertake education.",
+        "inclusion": "Time, effort, cost, resources, staffing and the ability to deliver or undertake education.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
         "code": "RATION_EQUITY",
-        "label": "Equality of opportunity",
-        "definition": "Fair distribution of educational opportunity warrants the future.",
-        "inclusion": "Exclusion, disadvantage, unequal access or a principle of equal educational opportunity.",
-        "exclusion": "Fair grading, due process or content reliability alone.",
-        "boundary_rule": "Fair access is here; fair judgment of achievement or protection of rights is RATION_RIGHTS_INTEGRITY.",
-        "evidence_examples": [
-          {
-            "ID": "QDN26_002",
-            "source_title": "Góc nhìn giáo dục: 5 rủi ro cho giáo dục khi sử dụng AI",
-            "source_url": "https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313",
-            "char_start": 2020,
-            "char_end": 2318,
-            "source_excerpt": "Rủi ro thứ tư là tính công bằng và bình đẳng trong tiếp cận. Không phải tất cả sinh viên đều có điều kiện tiếp cận các công cụ AI chất lượng cao, kết nối internet ổn định hoặc trình độ hiểu biết về AI như nhau. Ngoài ra, nhiều hệ thống AI hiện nay hoạt động hiệu quả hơn bằng tiếng Anh so với tiếng",
-            "anchor_phrase": "Không phải tất cả sinh viên"
-          }
-        ]
+        "label": "Access and equity",
+        "definition": "Participation, inclusion and distribution of opportunities, benefits or burdens.",
+        "inclusion": "Participation, inclusion and distribution of opportunities, benefits or burdens.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
-        "code": "RATION_RIGHTS_INTEGRITY",
-        "label": "Rights, reliability and academic integrity",
-        "definition": "Protecting rights, trustworthy information, authentic achievement or fair adjudication warrants the future.",
-        "inclusion": "Privacy, accuracy, consent, authorship recognition, academic honesty or due process.",
-        "exclusion": "Generic ethics without a specified principle; compassion alone; unequal access alone.",
-        "boundary_rule": "Specific enforceable protections and academic validity are here. Broader human flourishing or democratic educational purpose is RATION_HUMAN_VALUES.",
-        "evidence_examples": [
-          {
-            "ID": "TSG25_001",
-            "source_title": "Sinh viên viết hay bị nghi dùng AI: Ai có quyền phán xét?",
-            "source_url": "https://tiasang.com.vn/sinh-vien-viet-hay-bi-nghi-dung-ai-ai-co-quyen-phan-xet-4966355.html",
-            "char_start": 3847,
-            "char_end": 4184,
-            "source_excerpt": "ểm số, và cả niềm tin, bị quyết định bởi những dòng code chưa minh bạch, nền giáo dục sẽ không còn dựa trên hiểu biết, mà trên... xác suất. Và một khi thầy cô thôi hỏi \"em nghĩ gì khi viết đoạn này?\", mà chỉ nhìn vào phần trăm hiện lên trên màn hình, thì mối quan hệ giữa người dạy và người học sẽ không còn là giáo dục, mà là kiểm soát.",
-            "anchor_phrase": "xác suất"
-          }
-        ]
+        "code": "RATION_CREDIBILITY",
+        "label": "Knowledge and academic credibility",
+        "definition": "Trustworthy information, authentic academic work and well-grounded assessments or qualifications.",
+        "inclusion": "Trustworthy information, authentic academic work and well-grounded assessments or qualifications.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
-        "code": "RATION_HUMAN_VALUES",
-        "label": "Human, civic and cultural values",
-        "definition": "Human flourishing, dignity, empathy, democratic life, civic responsibility or cultural expression warrants the future.",
-        "inclusion": "Explicit human/public educational ends beyond operational or economic returns.",
-        "exclusion": "Any mention of ethics, critical thinking or national identity without a value-based warrant; concrete privacy or grading rights alone.",
-        "boundary_rule": "A public educational ideal is here; a geopolitical, national-development or sovereignty objective is RATION_NATIONAL. Preserve the stated value without inventing a shared ideology.",
-        "evidence_examples": [
-          {
-            "ID": "TSG25_003",
-            "source_title": "Trường đại học bị lạc hướng trong cuộc chiến với AI?",
-            "source_url": "https://tiasang.com.vn/truong-dai-hoc-bi-lac-huong-trong-cuoc-chien-voi-ai-5038713.html",
-            "char_start": 4669,
-            "char_end": 4972,
-            "source_excerpt": "Điều này thể hiện sự thoái thác trách nhiệm của giáo dục đại học với tư cách là một thiết chế phục vụ lợi ích chung của xã hội. Các trường đại học cần vận hành như những không gian nơi các bên liên quan có thể tham gia vào các cuộc tranh luận dựa trên lý lẽ về những thách thức cấp bách nhất của xã hội.",
-            "anchor_phrase": "thiết chế phục vụ lợi ích chung"
-          }
-        ]
+        "code": "RATION_RIGHTS",
+        "label": "Rights and wellbeing",
+        "definition": "Privacy, consent, intellectual property, personal safety, dignity and health.",
+        "inclusion": "Privacy, consent, intellectual property, personal safety, dignity and health.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
-        "code": "RATION_NATIONAL",
-        "label": "National development and strategic autonomy",
-        "definition": "The future is warranted by an explicit collective national-development, competitive-position or sovereignty objective.",
-        "inclusion": "National modernisation, strategic technological autonomy, regional/global national standing or explicit collective development ambitions.",
-        "exclusion": "Vietnam is merely the location; a public official is the speaker; employer demand alone; individual employability.",
-        "boundary_rule": "National location is space, not a rationale. A policy citation is RATION_POLICY only if compliance or authority itself supplies a warrant.",
-        "evidence_examples": [
-          {
-            "ID": "QDN25_005",
-            "source_title": "Ứng dụng trí tuệ nhân tạo (AI) trong giáo dục-đào tạo",
-            "source_url": "https://www.qdnd.vn/giao-duc-khoa-hoc/nha-truong-quan-doi/tri-tue-nhan-tao-gop-phan-thay-doi-can-ban-cach-thuc-day-va-hoc-834984",
-            "char_start": 4835,
-            "char_end": 5187,
-            "source_excerpt": "h thành các nhóm nghiên cứu mạnh, thúc đẩy những hướng nghiên cứu chiến lược, làm chủ công nghệ nền và phục vụ hiệu quả công cuộc hiện đại hóa Quân đội. Trên phương diện chuyển giao công nghệ, Học viện tăng cường hợp tác với các cơ quan trong và ngoài Quân đội để triển khai các ứng dụng AI vào thực tiễn huấn luyện, chỉ huy, bảo đảm kỹ thuật và hậu cầ",
-            "anchor_phrase": "hiện đại hóa"
-          }
-        ]
+        "code": "RATION_ECONOMY",
+        "label": "Employment and economic prospects",
+        "definition": "Employment, occupational productivity, income, enterprise revenue and economic competitiveness.",
+        "inclusion": "Employment, occupational productivity, income, enterprise revenue and economic competitiveness.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       },
       {
-        "code": "RATION_POLICY",
-        "label": "Policy or standards compliance",
-        "definition": "Alignment with a named policy, formal standard or official requirement itself warrants the future.",
-        "inclusion": "The speaker invokes compliance, obligation or an authoritative mandate as a reason.",
-        "exclusion": "Policy appears only as background, identifies the speaker or states a goal without an alignment warrant.",
-        "boundary_rule": "Distinguish the content of a policy goal from reliance on its authority. National development is RATION_NATIONAL even when a policy states it.",
-        "evidence_examples": [
-          {
-            "ID": "GDN25_050",
-            "source_title": "Bộ GDĐT ban hành Khung nội dung thí điểm giáo dục trí tuệ nhân tạo cho học sinh phổ thông",
-            "source_url": "https://giaoduc.net.vn/bo-gddt-ban-hanh-khung-noi-dung-thi-diem-giao-duc-tri-tue-nhan-tao-cho-hoc-sinh-pho-thong-post256684.gd",
-            "char_start": 4960,
-            "char_end": 5282,
-            "source_excerpt": "Khung nội dung thí điểm giáo dục trí tuệ nhân tạo cho học sinh phổ thông được ban hành nhằm thực hiện Nghị quyết số 57-NQ/TW ngày 22/12/2024 của Bộ Chính trị về đột phá phát triển khoa học, công nghệ, đổi mới sáng tạo và chuyển đổi số quốc gia; Nghị quyết số 71-NQ/TW ngày 22/8/2025 của Bộ Chính trị về đột phá phát triển ",
-            "anchor_phrase": "được ban hành nhằm thực hiện Nghị quyết"
-          }
-        ]
+        "code": "RATION_COLLECTIVE",
+        "label": "Collective development and public life",
+        "definition": "Articulated national development/sovereignty, cultural continuity, democratic life or public accountability; not any benefit merely affecting society.",
+        "inclusion": "Articulated national development/sovereignty, cultural continuity, democratic life or public accountability; not any benefit merely affecting society.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
+      },
+      {
+        "code": "RATION_ADAPTATION",
+        "label": "Adaptation to social and technological change",
+        "definition": "Keeping pace with wider technological/social change, avoiding obsolescence and preparing for future life when valued in its own right.",
+        "inclusion": "Keeping pace with wider technological/social change, avoiding obsolescence and preparing for future life when valued in its own right.",
+        "exclusion": "Bare functionality without an evaluative stake; mere certainty/feasibility without a stated benefit, harm or value.",
+        "boundary_rule": "Multiple distinct supported concerns may coexist; a stated benefit may also describe the role. No present deficit or separate causal explanation is required."
       }
     ],
     "technology_object": [
@@ -841,171 +742,81 @@
         "code": "ACTOR_PUBLIC",
         "label": "Public authorities",
         "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
-        "inclusion": "Ministries, public agencies, officials, military and police units.",
-        "exclusion": "A country or society alone does not identify a public authority.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "DTR24_007",
-            "source_title": "Trung Quốc dùng AI ngăn chặn gian lận trong kỳ thi tuyển sinh đại học",
-            "source_url": "https://dantri.com.vn/cong-nghe/trung-quoc-dung-ai-ngan-chan-gian-lan-trong-ky-thi-tuyen-sinh-dai-hoc-20240610105231962.htm",
-            "char_start": 1069,
-            "char_end": 1291,
-            "source_excerpt": " cực thúc đẩy việc kiểm tra bằng công nghệ thông minh theo thời gian thực trong các phòng thi để ngăn chặn các hành vi gian lận\", Bộ Giáo dục Trung Quốc cho biết trên trang web chính thức trước khi kỳ thi cao khảo diễn ra.",
-            "anchor_phrase": "Bộ Giáo dục Trung Quốc cho biết"
-          }
-        ]
+        "inclusion": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
-        "code": "ACTOR_ED_ORG",
-        "label": "Educational organisations and leadership",
-        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
-        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
-        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "CFE26_011",
-            "source_title": "Thử nghiệm AI lớn nhất lịch sử đại học Mỹ: 500.000 người đồng thời truy cập ChatGPT, các giáo sư phản đối, sinh viên hoang mang",
-            "source_url": "https://cafef.vn/thu-nghiem-ai-lon-nhat-lich-su-dai-hoc-my-500000-nguoi-dong-thoi-truy-cap-chatgpt-cac-giao-su-phan-doi-sinh-vien-hoang-mang-188260609151511624.chn",
-            "char_start": 2219,
-            "char_end": 2498,
-            "source_excerpt": "Nhà trường đặt kỳ vọng rất lớn vào bước đi này. Ban lãnh đạo lập luận rằng với thực trạng khoảng 40% sinh viên tốt nghiệp đại học tại Mỹ đang rơi vào cảnh thiếu việc làm, việc phổ cập AI là chiếc phao cứu sinh cần thiết. Phần lớn sinh viên của CSU là những người nhập cư thế hệ đ",
-            "anchor_phrase": "Ban lãnh đạo lập luận"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_EXPERT",
-        "label": "Educators, researchers and specialists",
-        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
-        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
-        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "TFH24_001",
-            "source_title": "Sinh viên đua nhau 'nhờ vả' AI: Tiện ích hay mối nguy trong học tập?",
-            "source_url": "https://www.24h.com.vn/giao-duc-du-hoc/sinh-vien-dua-nhau-nho-va-ai-tien-ich-hay-moi-nguy-trong-hoc-tap-c216a1604130.html",
-            "char_start": 3478,
-            "char_end": 3705,
-            "source_excerpt": "Anh Nguyễn Ngọc Tuyên, chuyên gia trí tuệ nhân tạo, lập trình viên web3 tại một công ty công nghệ nhận định rằng AI đang có ảnh hưởng mạnh mẽ đến quá trình học tập và nghiên cứu của sinh viên tại các trường đại học và cao đẳng.",
-            "anchor_phrase": "Nguyễn Ngọc Tuyên, chuyên gia trí tuệ nhân tạo"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_BUSINESS",
-        "label": "Businesses and commercial actors",
-        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
-        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
-        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "DTR19_001",
-            "source_title": "Ra mắt VioEdu - trợ lý học tập thông minh ứng dụng Trí tuệ nhân tạo đầu tiên tại Việt Nam",
-            "source_url": "https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm",
-            "char_start": 3570,
-            "char_end": 3821,
-            "source_excerpt": "Ông Lê Hồng Việt – Giám đốc công nghệ FPT đồng thời cũng là một trong những người ươm mầm cho “hạt giống” VioEdu phát triển – cho biết: “ Trong vài năm trở lại đây, AI đã tạo nên một cuộc cách mạng cho ngành giáo dục toàn cầu khi dần thay thế vai trò ",
-            "anchor_phrase": "Giám đốc công nghệ FPT"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_WORKFORCE",
-        "label": "Workers and occupational communities",
-        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
-        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
-        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "code": "ACTOR_EDUCATOR",
+        "label": "Teachers and educators",
+        "definition": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "inclusion": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_LEARNER",
         "label": "Learners",
-        "definition": "People acting or experiencing consequences in their learning or educational formation.",
-        "inclusion": "Pupils, students, trainees and adult learners.",
-        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "TFH24_001",
-            "source_title": "Sinh viên đua nhau 'nhờ vả' AI: Tiện ích hay mối nguy trong học tập?",
-            "source_url": "https://www.24h.com.vn/giao-duc-du-hoc/sinh-vien-dua-nhau-nho-va-ai-tien-ich-hay-moi-nguy-trong-hoc-tap-c216a1604130.html",
-            "char_start": 746,
-            "char_end": 974,
-            "source_excerpt": "Nguyễn Thị Hoài An, hiện đang theo học tại Đại học Bách khoa Hà Nội, chia sẻ rằng cô nàng thường xuyên sử dụng AI trong hầu hết các môn học của mình trên giảng đường: \"Sau khi hoàn thành dàn ý cơ bản, mình sẽ dùng AI để phát tri",
-            "anchor_phrase": "Nguyễn Thị Hoài An"
-          }
-        ]
+        "definition": "Pupils, students, trainees and other people acting as learners.",
+        "inclusion": "Pupils, students, trainees and other people acting as learners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_RESEARCHER",
+        "label": "Researchers and specialists",
+        "definition": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "inclusion": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_LEADER",
+        "label": "Educational leaders",
+        "definition": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "inclusion": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_COMMUNITY",
+        "label": "Communities and wider public",
+        "definition": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "inclusion": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_OCCUPATIONAL",
+        "label": "Business and occupational groups",
+        "definition": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "inclusion": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_TECH_PROVIDER",
+        "label": "Technology providers",
+        "definition": "Actors developing, selling or supplying technology products/services in the account.",
+        "inclusion": "Actors developing, selling or supplying technology products/services in the account.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_ORGANISATION",
+        "label": "Organisations and institutions",
+        "definition": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "inclusion": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_FAMILY",
         "label": "Families and caregivers",
-        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
-        "inclusion": "Family choices, supervision, support and family consequences.",
-        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "VNP23_001",
-            "source_title": "Hình ảnh khiêu dâm giả do AI tạo ra xâm nhập nhiều trường trung học của Mỹ",
-            "source_url": "https://www.vietnamplus.vn/hinh-anh-khieu-dam-gia-do-ai-tao-ra-xam-nhap-nhieu-truong-trung-hoc-cua-my-post909224.vnp",
-            "char_start": 1293,
-            "char_end": 1397,
-            "source_excerpt": "Bà Dorota Mani, mẹ của một trong số nạn nhân, cho rằng vấn nạn này sẽ xảy ra ngày càng thường xuyên hơn.",
-            "anchor_phrase": "Dorota Mani, mẹ của một trong số nạn nhân"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_COLLECTIVE",
-        "label": "Civic, professional and international organisations",
-        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
-        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
-        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "GDT24_000",
-            "source_title": "Khung năng lực trí tuệ nhân tạo cho học sinh: Hiểu và làm chủ công nghệ",
-            "source_url": "https://giaoducthoidai.vn/khung-nang-luc-tri-tue-nhan-tao-cho-hoc-sinh-hieu-va-lam-chu-cong-nghe-post705947.html",
-            "char_start": 3007,
-            "char_end": 3377,
-            "source_excerpt": "Khẳng định, không còn nghi ngờ gì về sự cần thiết Khung năng lực AI dành cho học sinh phổ thông, bà Tara O’Cornell - Trưởng Chương trình Giáo dục Tổ chức UNICEF Việt Nam trao đổi, AI không chỉ là công cụ hay công nghệ cho tương lai, mà nó đang thay đổi căn bản phương pháp dạy - học và cách sống của chúng ta. Thực tế này đòi hỏi sự thay đổi trong các kỹ năng mà chúng t",
-            "anchor_phrase": "Trưởng Chương trình Giáo dục Tổ chức UNICEF"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_SOCIETY",
-        "label": "Wider society and communities",
-        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
-        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
-        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
-      },
-      {
-        "code": "ACTOR_AUTHOR",
-        "label": "Article author or editorial voice",
-        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
-        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
-        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "CFE26_011",
-            "source_title": "Thử nghiệm AI lớn nhất lịch sử đại học Mỹ: 500.000 người đồng thời truy cập ChatGPT, các giáo sư phản đối, sinh viên hoang mang",
-            "source_url": "https://cafef.vn/thu-nghiem-ai-lon-nhat-lich-su-dai-hoc-my-500000-nguoi-dong-thoi-truy-cap-chatgpt-cac-giao-su-phan-doi-sinh-vien-hoang-mang-188260609151511624.chn",
-            "char_start": 5518,
-            "char_end": 5713,
-            "source_excerpt": "Rốt cuộc, hệ thống đại học đang thực sự thăng cấp để đón đầu tương lai, hay đang dần tự biến mình thành những nền tảng công nghệ vô hồn - đó vẫn là một câu hỏi gây nhức nhối chưa có lời giải đáp.",
-            "anchor_phrase": "Rốt cuộc, hệ thống đại học"
-          }
-        ]
+        "definition": "Parents, family members and caregivers acting in that capacity.",
+        "inclusion": "Parents, family members and caregivers acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       }
     ],
     "affected_entities": [
@@ -1013,141 +824,81 @@
         "code": "ACTOR_PUBLIC",
         "label": "Public authorities",
         "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
-        "inclusion": "Ministries, public agencies, officials, military and police units.",
-        "exclusion": "A country or society alone does not identify a public authority.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "inclusion": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
-        "code": "ACTOR_ED_ORG",
-        "label": "Educational organisations and leadership",
-        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
-        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
-        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "CFE26_011",
-            "source_title": "Thử nghiệm AI lớn nhất lịch sử đại học Mỹ: 500.000 người đồng thời truy cập ChatGPT, các giáo sư phản đối, sinh viên hoang mang",
-            "source_url": "https://cafef.vn/thu-nghiem-ai-lon-nhat-lich-su-dai-hoc-my-500000-nguoi-dong-thoi-truy-cap-chatgpt-cac-giao-su-phan-doi-sinh-vien-hoang-mang-188260609151511624.chn",
-            "char_start": 4889,
-            "char_end": 5198,
-            "source_excerpt": "Quan trọng hơn cả, sự xâm nhập ồ ạt của AI đang làm dấy lên một cuộc khủng hoảng về bản sắc thể chế và ý nghĩa thực sự của nền giáo dục. Việc nhà trường đổ ngân sách vào một công ty công nghệ tư nhân, để rồi chính các sản phẩm của công ty đó lại dấy lên nguy cơ sa thải giảng viên, đã bộc lộ một mâu thuẫn sâu",
-            "anchor_phrase": "khủng hoảng về bản sắc thể chế"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_EXPERT",
-        "label": "Educators, researchers and specialists",
-        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
-        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
-        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "CFE24_005",
-            "source_title": "Phó Hiệu trưởng NEU nói về AI: Trường vẫn tồn tại 2-3 chục giảng viên cùng dạy một môn, một lúc nào đó sẽ chỉ cần 5 thầy cô rất giỏi, 15 người còn lại phải chuyển nghề",
-            "source_url": "https://cafef.vn/pho-hieu-truong-neu-noi-ve-ai-truong-van-ton-tai-2-3-chuc-giang-vien-cung-day-mot-mon-mot-luc-nao-do-se-chi-can-5-thay-co-rat-gioi-15-nguoi-con-lai-phai-chuyen-nghe-188240826162241716.chn",
-            "char_start": 2031,
-            "char_end": 2282,
-            "source_excerpt": "\"15 thầy cô giáo khác sẽ phải chuyển nghề khác, bởi chúng tôi chỉ cần 5 thầy cô giỏi nhất. Bài giảng không cần giảng trên lớp, mà chỉ cần 5 thầy cô đến chia sẻ, thảo luận, hướng dẫn các bạn học… Cơ sở vật chất có thể không cần đầu tư hiện đại, mà sẽ đ",
-            "anchor_phrase": "15 thầy cô giáo khác sẽ phải chuyển nghề"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_BUSINESS",
-        "label": "Businesses and commercial actors",
-        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
-        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
-        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
-      },
-      {
-        "code": "ACTOR_WORKFORCE",
-        "label": "Workers and occupational communities",
-        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
-        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
-        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "code": "ACTOR_EDUCATOR",
+        "label": "Teachers and educators",
+        "definition": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "inclusion": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_LEARNER",
         "label": "Learners",
-        "definition": "People acting or experiencing consequences in their learning or educational formation.",
-        "inclusion": "Pupils, students, trainees and adult learners.",
-        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "QDN26_002",
-            "source_title": "Góc nhìn giáo dục: 5 rủi ro cho giáo dục khi sử dụng AI",
-            "source_url": "https://www.qdnd.vn/giao-duc-khoa-hoc/cac-van-de/goc-nhin-giao-duc-5-rui-ro-cho-giao-duc-khi-su-dung-ai-1045313",
-            "char_start": 469,
-            "char_end": 839,
-            "source_excerpt": "ặc trả lời các câu hỏi dạng thi cử nhanh chóng, nhiều hình thức đánh giá truyền thống không còn đáng tin cậy. Quan trọng hơn, nếu sinh viên quá phụ thuộc vào AI, họ có thể nộp những sản phẩm được trình bày rất hoàn chỉnh nhưng lại không phát triển được sự hiểu biết, khả năng phán đoán và tính kiên trì mà giáo dục đại học hướng tới. Ví dụ, trong lĩnh vực công nghệ thôn",
-            "anchor_phrase": "sinh viên quá phụ thuộc vào AI"
-          }
-        ]
+        "definition": "Pupils, students, trainees and other people acting as learners.",
+        "inclusion": "Pupils, students, trainees and other people acting as learners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_RESEARCHER",
+        "label": "Researchers and specialists",
+        "definition": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "inclusion": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_LEADER",
+        "label": "Educational leaders",
+        "definition": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "inclusion": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_COMMUNITY",
+        "label": "Communities and wider public",
+        "definition": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "inclusion": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_OCCUPATIONAL",
+        "label": "Business and occupational groups",
+        "definition": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "inclusion": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_TECH_PROVIDER",
+        "label": "Technology providers",
+        "definition": "Actors developing, selling or supplying technology products/services in the account.",
+        "inclusion": "Actors developing, selling or supplying technology products/services in the account.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_ORGANISATION",
+        "label": "Organisations and institutions",
+        "definition": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "inclusion": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_FAMILY",
         "label": "Families and caregivers",
-        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
-        "inclusion": "Family choices, supervision, support and family consequences.",
-        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "DTR19_001",
-            "source_title": "Ra mắt VioEdu - trợ lý học tập thông minh ứng dụng Trí tuệ nhân tạo đầu tiên tại Việt Nam",
-            "source_url": "https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm",
-            "char_start": 214,
-            "char_end": 380,
-            "source_excerpt": "Đây là sản phẩm công nghệ giáo dục (Edtech) đột phá mang lại lợi ích cho học sinh, thầy cô giáo, phụ huynh và cả nhà trường, trong đó học sinh là đối tượng trung tâm.",
-            "anchor_phrase": "lợi ích cho học sinh, thầy cô giáo, phụ huynh"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_COLLECTIVE",
-        "label": "Civic, professional and international organisations",
-        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
-        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
-        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
-      },
-      {
-        "code": "ACTOR_SOCIETY",
-        "label": "Wider society and communities",
-        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
-        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
-        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "VOV22_000",
-            "source_title": "Vingroup khởi động Chương trình Đào tạo Kỹ sư AI năm 2022",
-            "source_url": "https://vov.vn/doanh-nghiep/doanh-nghiep-24h/vingroup-khoi-dong-chuong-trinh-dao-tao-ky-su-ai-nam-2022-post936994.vov",
-            "char_start": 953,
-            "char_end": 1163,
-            "source_excerpt": "bồi đắp đội ngũ nhân lực công nghệ cao. Đội ngũ sẽ là lực lượng nòng cốt cho mục tiêu phát triển các sản phẩm, tạo bệ phóng cho khoa học, công nghệ Việt Nam sánh ngang các công ty công nghệ hàng đầu thế giới.",
-            "anchor_phrase": "khoa học, công nghệ Việt Nam sánh ngang"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_AUTHOR",
-        "label": "Article author or editorial voice",
-        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
-        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
-        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "definition": "Parents, family members and caregivers acting in that capacity.",
+        "inclusion": "Parents, family members and caregivers acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       }
     ],
     "action": [
@@ -1271,161 +1022,81 @@
         "code": "ACTOR_PUBLIC",
         "label": "Public authorities",
         "definition": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
-        "inclusion": "Ministries, public agencies, officials, military and police units.",
-        "exclusion": "A country or society alone does not identify a public authority.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "NHD23_001",
-            "source_title": "UNESCO kêu gọi quản lý việc sử dụng trí tuệ nhân tạo trong trường học",
-            "source_url": "https://nhandan.vn/unesco-keu-goi-quan-ly-viec-su-dung-tri-tue-nhan-tao-ai-trong-truong-hoc-post771991.html",
-            "char_start": 435,
-            "char_end": 694,
-            "source_excerpt": " các công cụ AI có tiềm năng giúp đỡ trẻ em như một trợ lý nghiên cứu, song những công cụ này chỉ trở nên an toàn và hiệu quả nếu các chính phủ quản lý việc sử dụng, đồng thời giáo viên, học sinh và nhà nghiên cứu cùng tham gia vào quá trình thiết kế công cụ.",
-            "anchor_phrase": "các chính phủ quản lý việc sử dụng"
-          }
-        ]
+        "inclusion": "Government, legislative, administrative, regulatory or security actors acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
-        "code": "ACTOR_ED_ORG",
-        "label": "Educational organisations and leadership",
-        "definition": "Educational institutions, programmes, organisational units and actors exercising educational leadership.",
-        "inclusion": "Schools, universities, training institutions, programme leaders and institutional management.",
-        "exclusion": "An individual teacher is not automatically an institutional representative; a leader may also be an expert when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "GDN24_001",
-            "source_title": "ChatGPT, AI phát triển khiến giảng viên thay đổi cách ra đề thi",
-            "source_url": "https://giaoduc.net.vn/chatgpt-ai-phat-trien-khien-giang-vien-thay-doi-cach-ra-de-thi-post244745.gd",
-            "char_start": 269,
-            "char_end": 532,
-            "source_excerpt": " AI một cách dễ dàng có thể nảy sinh các vấn đề về đạo văn hoặc gian lận trong quá trình học tập của sinh viên. Điều này thúc đẩy các trường đại học cần có những giải pháp phù hợp, đồng thời trang bị cho giảng viên và người học những kiến thức, kỹ năng cần thiết.",
-            "anchor_phrase": "các trường đại học cần có những giải pháp"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_EXPERT",
-        "label": "Educators, researchers and specialists",
-        "definition": "People acting through educational practice, research or specialist knowledge and advice.",
-        "inclusion": "Teachers, educational staff, researchers and specialist advisers.",
-        "exclusion": "Expertise can overlap with leadership, commercial or occupational capacity when each is demonstrated; a title alone does not establish every capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "GDN25_050",
-            "source_title": "Bộ GDĐT ban hành Khung nội dung thí điểm giáo dục trí tuệ nhân tạo cho học sinh phổ thông",
-            "source_url": "https://giaoduc.net.vn/bo-gddt-ban-hanh-khung-noi-dung-thi-diem-giao-duc-tri-tue-nhan-tao-cho-hoc-sinh-pho-thong-post256684.gd",
-            "char_start": 4716,
-            "char_end": 4959,
-            "source_excerpt": "Để đảm bảo tính chính xác và khách quan, giáo viên cần tổ chức các buổi thuyết trình, phản biện, triển lãm sản phẩm AI; khích lệ học sinh thảo luận, phản biện, đánh giá lẫn nhau, qua đó phát huy tư duy phản biện, khả năng giao tiếp và hợp tác.",
-            "anchor_phrase": "giáo viên cần tổ chức"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_BUSINESS",
-        "label": "Businesses and commercial actors",
-        "definition": "Companies, commercial providers, entrepreneurs, investors and actors representing business interests.",
-        "inclusion": "Commercial employers, technology providers, business owners and startup ventures.",
-        "exclusion": "Workers are not automatically business representatives; a firm and its workforce can both be coded when both are implicated.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "TNI25_022",
-            "source_title": "Nguy cơ dùng AI gian lận thi tốt nghiệp THPT, cách gì ngăn chặn?",
-            "source_url": "https://thanhnien.vn/nguy-co-dung-ai-gian-lan-thi-tot-nghiep-thpt-cach-gi-ngan-chan-185250619223239477.htm",
-            "char_start": 6237,
-            "char_end": 6541,
-            "source_excerpt": "ách, từ đó có thể cùng lúc tạm dừng cung cấp dịch vụ AI liên quan nhằm đảm bảo sự trung thực và nghiêm túc của kỳ thi. Trước mắt, chúng tôi cam kết tạm ngừng các tính năng liên quan tới giải bài trong những ngày tổ chức thi tốt nghiệp THPT để công cụ không bị sử dụng nhằm gian lận\", anh Hùng khẳng định.",
-            "anchor_phrase": "chúng tôi cam kết tạm ngừng"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_WORKFORCE",
-        "label": "Workers and occupational communities",
-        "definition": "People or occupational groups in their employment, professional practice or future labour-market capacity.",
-        "inclusion": "Employees, job entrants, engineers, lawyers, physicians, civil servants and future workers.",
-        "exclusion": "Learners are not automatically future workers; require an explicit occupational consequence, voice or responsibility. May overlap with expert or learner capacity.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "code": "ACTOR_EDUCATOR",
+        "label": "Teachers and educators",
+        "definition": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "inclusion": "People acting as teachers, lecturers, tutors or educational practitioners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_LEARNER",
         "label": "Learners",
-        "definition": "People acting or experiencing consequences in their learning or educational formation.",
-        "inclusion": "Pupils, students, trainees and adult learners.",
-        "exclusion": "Age or student status alone does not establish the learner relationship in every field.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "GDT26_010",
-            "source_title": "Chỉ còn gần 2 ngày cuối đăng ký đại học: Dùng AI chọn ngành, thí sinh có thể “mắc bẫy”",
-            "source_url": "https://giaoducthudo.giaoducthoidai.vn/chi-con-gan-2-ngay-cuoi-dang-ky-dai-hoc-dung-ai-chon-nganh-thi-sinh-co-the-mac-bay-217376.html",
-            "char_start": 4823,
-            "char_end": 5041,
-            "source_excerpt": "Để kiểm chứng, thí sinh cần xem đề án tuyển sinh, chương trình đào tạo và học phí trên trang chính thức của trường; tham khảo báo cáo việc làm, dữ liệu tuyển dụng và ý kiến của người đang học hoặc làm việc trong ngành.",
-            "anchor_phrase": "thí sinh cần xem đề án tuyển sinh"
-          }
-        ]
+        "definition": "Pupils, students, trainees and other people acting as learners.",
+        "inclusion": "Pupils, students, trainees and other people acting as learners.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_RESEARCHER",
+        "label": "Researchers and specialists",
+        "definition": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "inclusion": "People acting as researchers, scholars or specialist advisers, distinct from teaching practice and organisational leadership.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_LEADER",
+        "label": "Educational leaders",
+        "definition": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "inclusion": "People acting in educational leadership or management, including rectors, principals and educational department/faculty heads.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_COMMUNITY",
+        "label": "Communities and wider public",
+        "definition": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "inclusion": "Identified publics, communities and members of society acting in that capacity; not a residual for unknown speakers.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_OCCUPATIONAL",
+        "label": "Business and occupational groups",
+        "definition": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "inclusion": "Employers, businesses and occupational groups considered in their economic, employment or professional capacity, excluding technology supply in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_TECH_PROVIDER",
+        "label": "Technology providers",
+        "definition": "Actors developing, selling or supplying technology products/services in the account.",
+        "inclusion": "Actors developing, selling or supplying technology products/services in the account.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
+      },
+      {
+        "code": "ACTOR_ORGANISATION",
+        "label": "Organisations and institutions",
+        "definition": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "inclusion": "Educational institutions, associations, professional, civic and international organisations speaking or acting institutionally, unless a more specific capacity is expressed.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       },
       {
         "code": "ACTOR_FAMILY",
         "label": "Families and caregivers",
-        "definition": "Parents, relatives, families and caregivers in their care or educational support capacity.",
-        "inclusion": "Family choices, supervision, support and family consequences.",
-        "exclusion": "A parent speaking does not automatically establish family responsibility or consequences.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "DTR19_001",
-            "source_title": "Ra mắt VioEdu - trợ lý học tập thông minh ứng dụng Trí tuệ nhân tạo đầu tiên tại Việt Nam",
-            "source_url": "https://dantri.com.vn/giao-duc/ra-mat-vioedu-tro-ly-hoc-tap-thong-minh-ung-dung-tri-tue-nhan-tao-dau-tien-tai-viet-nam-20190827160324920.htm",
-            "char_start": 2387,
-            "char_end": 2579,
-            "source_excerpt": "những phân tích trên hệ thống, phụ huynh có thể theo dõi chặt chẽ quá trình rèn luyện của học sinh nhờ báo cáo thống kê chi tiết. Bố mẹ có thể sử dụng học liệu của VioEdu để hỗ trợ con tự học.",
-            "anchor_phrase": "Bố mẹ có thể sử dụng học liệu"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_COLLECTIVE",
-        "label": "Civic, professional and international organisations",
-        "definition": "Organised civic, voluntary, professional, community or intergovernmental bodies and coordinating groups.",
-        "inclusion": "Associations, charities, unions, international organisations, volunteer groups and identified organising committees.",
-        "exclusion": "Unorganised public opinion or society as a whole uses SOCIETY; organisational and other capacities may coexist when supported.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": [
-          {
-            "ID": "DTR19_000",
-            "source_title": "Tạo sân chơi cho sinh viên và doanh nghiệp chia sẻ về AI, IoT",
-            "source_url": "https://dantri.com.vn/khoa-hoc/tao-san-choi-cho-sinh-vien-va-doanh-nghiep-chia-se-ve-ai-iot-20190510120647889.htm",
-            "char_start": 142,
-            "char_end": 288,
-            "source_excerpt": "Cuộc thi do Vườn ươm doanh nghiệp Phần mềm Quang Trung tổ chức với sự bảo trợ, phối hợp của Sở Khoa học và Công nghệ TP HCM, Hội Tin học Việt Nam.",
-            "anchor_phrase": "Hội Tin học Việt Nam"
-          }
-        ]
-      },
-      {
-        "code": "ACTOR_SOCIETY",
-        "label": "Wider society and communities",
-        "definition": "The public, citizens, informal social groups, communities, countries or shared collective life.",
-        "inclusion": "National or regional development, cultural communities, societal consequences and explicitly attributed public views or collective duties.",
-        "exclusion": "Do not equate society with government or infer that every group speaks for society.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
-      },
-      {
-        "code": "ACTOR_AUTHOR",
-        "label": "Article author or editorial voice",
-        "definition": "The identifiable article author, editorial voice or editorial producer in that capacity.",
-        "inclusion": "Claims advanced in the article’s own narrative voice; explicit consequences or duties for authors/editorial producers.",
-        "exclusion": "Reporting another actor’s claim alone does not make the author its speaker, beneficiary or responsible actor.",
-        "boundary_rule": "Categories are conceptually distinct, not mutually exclusive. Assign all independently supported capacities within each field; assign the three fields independently.",
-        "evidence_examples": []
+        "definition": "Parents, family members and caregivers acting in that capacity.",
+        "inclusion": "Parents, family members and caregivers acting in that capacity.",
+        "exclusion": "Affiliation alone or a capacity belonging to another actor/field.",
+        "boundary_rule": "Classify the evidenced capacity in this account and position. Multiple capacities require separate support. Authorial voice is retained literally, not as a social category."
       }
     ]
   },
@@ -1438,12 +1109,6 @@
     "Regenerate article/account exports and outlet comparisons. Do not combine v1.1 percentages with v2 categories.",
     "Semantically review v2.2 future_role assignments against these six boundaries before using v2.3. Preserve source extraction and the other eleven fields unless a specific error is identified."
   ],
-  "transition_notes": [
-    {
-      "old": "v2.2 eight future-role codes",
-      "new_review": "Six end/outcome families. Human capability and care share a broader family; credible achievement is extended to explicitly valid/fair educational conduct appraisal. Behavioural control remains a literal projected role, not a standalone end family. Re-read source propositions; no automatic crosswalk."
-    }
-  ],
   "illustration_notice": "All examples are exact contiguous excerpts from retained corpus texts with article IDs, source URLs and character offsets. They are boundary exemplars, not a completed new coding dataset.",
   "evidence_policy": [
     "No constructed scenario is used as empirical support.",
@@ -1452,11 +1117,9 @@
     "Named locations, dates, actor capacities and responsibility must remain tied to the same future account."
   ],
   "revision_check": {
-    "other_field_inventories_unchanged": 11,
-    "exact_source_anchors_verified": 76,
-    "limitations": "Exact-anchor verification is not semantic reliability or full-corpus validation. Source illustrations support boundaries; corpus role assignments have not been migrated."
+    "date": "2026-10-19",
+    "method": "Inheritance-based taxonomy recoding with rule-assisted category splits and targeted semantic review, including framework-aligned pilot decisions; not a new independent full-source coding. Existing evidence retained; other analytical fields unchanged."
   },
-  "frozen_at_utc": "2026-10-11T14:41:23.958280+00:00",
   "actor_field_questions": {
     "speaker": "Who articulates this future, and in which evidenced capacities?",
     "responsibility": "Who is explicitly assigned action, intervention or accountability?",

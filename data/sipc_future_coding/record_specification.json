@@ -1,7 +1,7 @@
 {
-  "version": "3.2 shared actor categories",
+  "version": "4.0",
   "codebook_path": "data/sipc_future_coding/codebook.json",
-  "status": "Active five-role coding with shared, non-exclusive actor categories; actor harmonisation reviewed 17 October 2026.",
+  "status": "Current eight rationale domains and ten shared actor capacities.",
   "record": {
     "ID": "original article ID",
     "eligibility": "clear_future | borderline_future | no_educational_future | unresolved_source",
@@ -57,7 +57,7 @@
     "literal_details": "Object storing actual tool/form, education setting/activity, time horizon, country/locality/institution/scope and named actor details as stated. Do not add invented settings/times. Foreign domestic space codes require the actual country in space details.",
     "missing_notes": "Object keyed by each MISSING field; short reason that the relevant specification is absent/insufficient in this account, not in unrelated article material."
   },
-  "note": "The article codes and primary_future_statement exactly summarise its one primary attributed account. Distinct voices and materially distinct desired/feared targets remain secondary accounts. All twelve field codes are semantic decisions, never an old-code crosswalk or keyword classifier.",
+  "note": "Article codes summarise the primary account. Preserve attributed voices and linked evidence. Current taxonomy recoding inherits existing coding, with rule-assisted splits and targeted semantic review.",
   "new_requirements": {
     "field_evidence": "Object with all twelve field keys. Each substantive field code has one or more entries: {code, char_start, char_end, proposition_id, reason} for new records, locating a nonempty contiguous retained-source span without copying it. Previously stored {code, quote, proposition_id, reason} entries remain valid and unchanged. MISSING has an empty evidence array and a field-specific absence/limit note. Noneligible records have empty accounts/codes.",
     "propositions": "Nonempty array per eligible account: {proposition_id, statement, target, claim_mode}. IDs unique within account. The statement is a source-supported semantic summary; no assigned code or evaluation is inferred from claim_mode.",
@@ -67,7 +67,7 @@
     "desirability": "One value per account evaluation target. Materially different desired/feared arrangements are separated when source supports their distinction. Mixed is one speaker’s same-arrangement weighing, not article-level disagreement.",
     "primary_selection": "Use the most central explicitly articulated educational future in the article lead/main argument. Record primary_selection_reason; do not choose by code frequency, positive valence or outlet group."
   },
-  "coverage": "1,081 retained original articles; 3,004 inherited accounts. Only future_role and its evidence/details recoded. Eligibility, source adequacy and all eleven other fields unchanged.",
+  "coverage": "1,081 retained articles; 3,004 inherited accounts. Rationale and the three actor positions updated in place; other fields preserved.",
   "future_role_evidence_note": "Exact source anchors and a contextual-link reason are stored directly in each revised account. Existing same-account evidence remains valid. Context identifies the target, without transferring evaluations across voices.",
   "actor_fields": {
     "fields": [
@@ -77,15 +77,15 @@
     ],
     "categories": [
       "ACTOR_PUBLIC",
-      "ACTOR_ED_ORG",
-      "ACTOR_EXPERT",
-      "ACTOR_BUSINESS",
-      "ACTOR_WORKFORCE",
+      "ACTOR_EDUCATOR",
       "ACTOR_LEARNER",
-      "ACTOR_FAMILY",
-      "ACTOR_COLLECTIVE",
-      "ACTOR_SOCIETY",
-      "ACTOR_AUTHOR"
+      "ACTOR_RESEARCHER",
+      "ACTOR_LEADER",
+      "ACTOR_COMMUNITY",
+      "ACTOR_OCCUPATIONAL",
+      "ACTOR_TECH_PROVIDER",
+      "ACTOR_ORGANISATION",
+      "ACTOR_FAMILY"
     ],
     "multiple_codes_per_field": true,
     "rule": "Distinct concepts may overlap. Assign each field independently from evidence; MISSING remains exclusive."
