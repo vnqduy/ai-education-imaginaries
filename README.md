@@ -24,7 +24,7 @@ python3 -B scripts/reproduce_results.py
 
 For figures, run `scripts/plot_future_roles.R` in R with tidyverse, jsonlite and patchwork installed. Validation checks structure and evidence references, not interpretive validity.
 
-Keep working outputs minimal; earlier versions and removed analyses belong in Git history. Inherit existing coding and source evidence; do not create separate decision-proof files. Problematization uses linked role–rationale–action (see the coding protocol).
+Replace current working files in place. Delete intermediate outputs, superseded exports and unused derivatives; do not keep dated copies, parallel old/new results or separate decision-proof files. Retain source materials, reproducible inputs and only the latest requested deliverables. Inherit existing coding and source evidence. Git history preserves tracked revisions; the local-only `manuscript/` and `ref/` directories are excluded from commits and pushes. Problematization uses linked role–rationale–action (see the coding protocol).
 
 ## Manuscript exports
 

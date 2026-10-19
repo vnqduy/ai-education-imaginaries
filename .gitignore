@@ -2,13 +2,7 @@
 manuscript/
 # Local literature and original authoring materials.
 ref/
-manuscript/Book1.xlsx
-manuscript/forum.pptx
 # Regenerable exports and temporary files.
-manuscript/*.pdf
-manuscript/*.docx
-manuscript/*_files/
-manuscript/.quarto/
 results/figures/
 *.qda/
 .DS_Store
