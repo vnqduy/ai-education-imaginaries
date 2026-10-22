@@ -9,8 +9,9 @@
 - `results/article_coding.csv`: article-level data for analysis in R.
 - `scripts/`: CSV reproduction, validation and plotting.
 - `methods/`: working extraction and coding protocols.
-- `manuscript/`: draft manuscript and supporting files.
-- `ref/`: local reference literature.
+- `manuscript/`: current manuscript source, references, formatting and writing guidance.
+- `supplementary/`: one supplementary document containing full profiles, sensitivity checks, screening details and AI documentation.
+- `ref/`: local reference literature and original presentation/workbook inputs; excluded from Git.
 
 ## Using the data
 
@@ -24,15 +25,15 @@ python3 -B scripts/reproduce_results.py
 
 For figures, run `scripts/plot_future_roles.R` in R with tidyverse, jsonlite and patchwork installed. Validation checks structure and evidence references, not interpretive validity.
 
-Replace current working files in place. Delete intermediate outputs, superseded exports and unused derivatives; do not keep dated copies, parallel old/new results or separate decision-proof files. Retain source materials, reproducible inputs and only the latest requested deliverables. Inherit existing coding and source evidence. Git history preserves tracked revisions; the local-only `manuscript/` and `ref/` directories are excluded from commits and pushes. Problematization uses linked role–rationale–action (see the coding protocol).
+Replace current working files in place. Delete intermediate outputs, superseded exports and unused derivatives; do not keep dated copies, parallel old/new results or separate decision-proof files. Retain source materials, reproducible inputs and only the latest requested deliverables. Inherit existing coding and source evidence. Git history preserves manuscript, supplementary and research-source revisions. Only `ref/` stays local. Problematisation uses linked role–rationale–action (see the coding protocol). Generated exports and intermediate files are excluded from Git; retain only current requested deliverables.
 
 ## Manuscript exports
 
-The main manuscript and appendix support both PDF and editable Word from the same QMD source:
+The main manuscript and supplementary document support both PDF and editable Word from the same QMD source:
 
 ```sh
 quarto render manuscript/manuscript.qmd --to all
-quarto render manuscript/appendix.qmd --to all
+quarto render supplementary/supplementary.qmd --to all
 ```
 
 See `manuscript/format/README.md` for LMT requirements, individual export commands, dependencies, and outstanding author declarations.

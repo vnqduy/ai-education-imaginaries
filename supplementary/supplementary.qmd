@@ -1,0 +1,299 @@
+---
+title: "Supplementary documents"
+subtitle: "Futures of AI in Education and the Constitution of Problems: An Analysis of Sociotechnical Imaginaries in Vietnamese News Discourse"
+lang: en-GB
+bibliography: ../manuscript/references.bib
+csl: ../manuscript/format/taylor-and-francis-chicago-author-date.csl
+filters:
+  - ../manuscript/format/lmt.lua
+format:
+  docx:
+    reference-doc: ../manuscript/format/lmt-reference.docx
+    toc: false
+    number-sections: false
+  pdf:
+    documentclass: article
+    papersize: a4
+    geometry: margin=1in
+    fontsize: 12pt
+    linestretch: 1.5
+    pdf-engine: xelatex
+    mainfont: "Times New Roman"
+    colorlinks: false
+    include-in-header:
+      text: |
+        \usepackage{longtable}
+        \usepackage{etoolbox}
+        \usepackage{setspace}
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{PromptText}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small}
+        \AtBeginEnvironment{longtable}{\interfootnotelinepenalty=10000}
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup-methods
+#| include: false
+
+library(tidyverse)
+library(kableExtra)
+source("../manuscript/format/tables.R")
+
+# Locate project data when rendering from manuscript/ or the project root.
+project_root <- if (file.exists("results/article_coding.csv")) "." else ".."
+articles <- read_csv(file.path(project_root, "results/article_coding.csv"),
+                     na = "", show_col_types = FALSE)
+outlets <- read_csv(file.path(project_root, "data/outlet_classification.csv"),
+                    show_col_types = FALSE)
+main <- articles |> filter(main_sample == 1)
+
+stopifnot(
+  !anyDuplicated(articles$article_id),
+  !anyDuplicated(outlets$outlet_domain),
+  !anyNA(articles$main_sample),
+  all(articles$main_sample %in% c(0, 1)),
+  all(articles$outlet_domain %in% outlets$outlet_domain),
+  all(main$eligibility == "clear_future"),
+  all(articles$outlet_group ==
+      outlets$outlet_type[
+        match(articles$outlet_domain, outlets$outlet_domain)
+      ])
+)
+```
+
+
+```{r}
+#| label: setup-analysis
+#| include: false
+
+book <- jsonlite::fromJSON(file.path(project_root,
+  "data/sipc_future_coding/codebook.json"), simplifyVector = FALSE)
+field_names <- c(future_role = "Future role", certainty = "Certainty",
+  desirability = "Desirability", rationale = "Rationale",
+  technology_object = "Technology characteristics", education_context = "Technology context",
+  timespan = "Timespan", space = "Space", speaker = "Speaker",
+  affected_entities = "Affected entities", action = "Action recommendation",
+  responsibility = "Action responsibility")
+labels <- imap_dfr(book$fields, function(entries, field) {
+  map_dfr(entries, function(e) tibble(field = field, code = e$code,
+                                     category = sub("Judgment", "Judgement", e$label, fixed = TRUE)))
+})
+roles <- labels |> filter(field == "future_role") |>
+  mutate(short = c("LP", "EJ", "EM", "AL", "ND"))
+role_ids <- roles$code
+records <- lapply(readLines(file.path(project_root,
+  "data/sipc_future_coding/coded_corpus.jsonl"), warn = FALSE),
+  jsonlite::fromJSON, simplifyVector = FALSE)
+records <- Filter(function(x) x$ID %in% main$article_id, records)
+stopifnot(length(records) == nrow(main),
+          setequal(vapply(records, `[[`, character(1), "ID"), main$article_id),
+          all(paste0("future_role__", role_ids) %in% names(main)))
+accounts <- map_dfr(records, function(record) {
+  map_dfr(seq_along(record$accounts), function(i) {
+    a <- record$accounts[[i]]
+    tibble(article_id = record$ID, account = i,
+           position = a$position, codes = list(a$codes))
+  })
+}) |> left_join(main |> select(article_id, outlet_group), by = "article_id")
+# Keep role–field links within one attributed account, then deduplicate by article.
+linked <- pmap_dfr(accounts, function(article_id, account, position, codes, outlet_group) {
+  rr <- intersect(unlist(codes$future_role), role_ids)
+  if (!length(rr)) return(tibble())
+  imap_dfr(codes[names(codes) != "future_role"], function(values, field) {
+    crossing(role = rr, code = unlist(values)) |>
+      mutate(article_id, account, position, outlet_group, field)
+  })
+})
+role_articles <- linked |> distinct(article_id, outlet_group, role)
+role_pairs <- linked |> filter(code != "MISSING") |>
+  distinct(article_id, outlet_group, role, field, code)
+role_n <- function(role, group = NULL) {
+  d <- role_articles |> filter(.data$role == .env$role)
+  if (!is.null(group)) d <- d |> filter(outlet_group == group)
+  nrow(d)
+}
+role_count <- function(role, code, group = NULL, field = NULL) {
+  d <- role_pairs |> filter(.data$role == .env$role, .data$code == .env$code)
+  if (!is.null(group)) d <- d |> filter(outlet_group == group)
+  if (!is.null(field)) d <- d |> filter(.data$field == .env$field)
+  n_distinct(d$article_id)
+}
+# Missing means no substantive code in this field in any account bearing this role.
+role_missing <- function(role, field, group = NULL) {
+  d <- role_pairs |> filter(.data$role == .env$role, .data$field == .env$field)
+  if (!is.null(group)) d <- d |> filter(outlet_group == group)
+  role_n(role, group) - n_distinct(d$article_id)
+}
+article_count <- function(code, data = main) {
+  stopifnot(code %in% names(data))
+  sum(data[[code]] == 1, na.rm = TRUE)
+}
+pct <- function(code, data = main) sprintf("%.1f", 100 * article_count(code, data) / nrow(data))
+rp <- function(role, code, group = NULL, field = NULL) {
+  sprintf("%.1f", 100 * role_count(role, code, group, field) / role_n(role, group))
+}
+cell <- function(n, denominator) sprintf("%d (%.1f)", n, 100 * n / denominator)
+for (r in role_ids) {
+  stopifnot(setequal(role_articles$article_id[role_articles$role == r],
+    main$article_id[which(main[[paste0("future_role__", r)]] == 1)]))
+}
+# Existing primary designation is retained; it is not recoded for this manuscript.
+primary <- main
+for (record in records) {
+  selected <- Filter(function(a) identical(a$position, "primary"), record$accounts)
+  stopifnot(length(selected) == 1L)
+  i <- match(record$ID, primary$article_id)
+  for (field in names(selected[[1]]$codes)) {
+    values <- setdiff(unlist(selected[[1]]$codes[[field]]), "MISSING")
+    cols <- grep(paste0("^", field, "__"), names(primary), value = TRUE)
+    for (column in cols) {
+      suffix <- sub(paste0("^", field, "__"), "", column)
+      primary[[column]][i] <- if (suffix == "missing") as.integer(!length(values)) else
+        if (length(values)) as.integer(suffix %in% values) else NA_integer_
+    }
+  }
+}
+publication_groups <- c("public/central", "commercial/general")
+role_prevalence <- map_dfr(role_ids, function(r) {
+  vals <- vapply(c("All", publication_groups), function(g) {
+    d <- if (g == "All") main else filter(main, outlet_group == g)
+    cell(article_count(paste0("future_role__", r), d), nrow(d))
+  }, character(1))
+  tibble(Role = roles$category[match(r, role_ids)],
+         All = vals[[1]], Public = vals[[2]], Commercial = vals[[3]])
+})
+profile_rows <- labels |> filter(field != "future_role") |>
+  bind_rows(tibble(field = names(field_names)[-1], code = "MISSING",
+                   category = "No assigned substantive code")) |>
+  arrange(match(field, names(field_names)), code == "MISSING",
+          match(code, labels$code))
+profile_table <- function(group = NULL) {
+  rows <- profile_rows
+  for (i in seq_len(nrow(roles))) {
+    r <- role_ids[[i]]
+    rows[[roles$short[[i]]]] <- map2_chr(rows$field, rows$code, function(f, c) {
+      n <- if (c == "MISSING") role_missing(r, f, group) else role_count(r, c, group, f)
+      cell(n, role_n(r, group))
+    })
+  }
+  groups <- rows |> count(field, name = "rows") |>
+    arrange(match(field, names(field_names)))
+  lmt_table(rows |> select(category, all_of(roles$short)),
+    col.names = c("Category", paste0(roles$short, " (n=",
+      vapply(role_ids, role_n, integer(1), group = group), ")")),
+    widths = c(5.8, rep(1.55, 5)),
+    groups = setNames(groups$rows, field_names[groups$field]), font_size = 8)
+}
+```
+# Complete profiles within the five future roles
+
+Tables below report articles n (%) for all eleven remaining fields, linked to a role within an attributed account. Each article counts once per role–code pair. Denominators are articles containing the role, including those missing the field. “No assigned substantive code” means no account bearing that role supplied a substantive code for the field. A row total is not a partition of the sample: roles and codes can overlap.
+
+Column abbreviations refer to the unchanged codebook labels: LP, AI as a Learning Partner; EJ, AI as a Force Reshaping Educational Judgement; EM, AI as an Educational Management Tool; AL, AI Literacy as an Educational Imperative; ND, AI as a Driver of National Development. The same key applies to all three tables.
+
+
+```{r}
+#| label: tbl-profiles-all
+#| tbl-colwidths: [43, 11.4, 11.4, 11.4, 11.4, 11.4]
+#| tbl-cap: "Complete role profiles, all articles containing each role, n (%)."
+profile_table()
+```
+
+```{r}
+#| label: tbl-profiles-public
+#| tbl-colwidths: [43, 11.4, 11.4, 11.4, 11.4, 11.4]
+#| tbl-cap: "Complete role profiles within public/central outlets, n (%)."
+profile_table("public/central")
+```
+
+```{r}
+#| label: tbl-profiles-commercial
+#| tbl-colwidths: [43, 11.4, 11.4, 11.4, 11.4, 11.4]
+#| tbl-cap: "Complete role profiles within commercial/general outlets, n (%)."
+profile_table("commercial/general")
+```
+
+
+# Sensitivity of selected outlet comparisons
+
+These checks retain the main sample and existing coding. Primary-only comparison counts the account already designated primary in each article. Single-outlet omission repeats the full article-presence comparison after removing each outlet in turn. The table reports public/central minus commercial/general percentage-point differences; omission ranges are descriptive ranges, not confidence intervals.
+
+```{r}
+#| label: setup-sensitivity
+#| include: false
+selected_codes <- c("future_role__FR_NATIONAL_DEVELOPMENT",
+  "technology_object__OBJ_GENERATIVE", "desirability__DES_NEGATIVE",
+  "action__ACT_RULES", "action__ACT_EVALUATE")
+gap <- function(data, code) {
+  a <- filter(data, outlet_group == "public/central")
+  b <- filter(data, outlet_group == "commercial/general")
+  100 * (article_count(code, a) / nrow(a) - article_count(code, b) / nrow(b))
+}
+sensitivity <- map_dfr(selected_codes, function(code) {
+  omitted <- vapply(unique(main$outlet_domain), function(domain)
+    gap(filter(main, outlet_domain != domain), code), numeric(1))
+  tibble(code, full = gap(main, code), primary = gap(primary, code),
+         low = min(omitted), high = max(omitted))
+}) |> left_join(labels |> transmute(code = paste0(field, "__", code), category), by = "code")
+```
+
+```{r}
+#| label: tbl-sensitivity
+#| tbl-colwidths: [46, 18, 18, 18]
+#| tbl-cap: "Selected outlet differences under primary-only aggregation and outlet omission (percentage points)."
+sensitivity |>
+  transmute(Category = category, Full = sprintf("%+.1f", full),
+    Primary = sprintf("%+.1f", primary), Omission = sprintf("%+.1f to %+.1f", low, high)) |>
+  lmt_table(col.names = c("Category", "All accounts", "Primary only", "Omit one outlet"),
+    widths = c(6.2, 2.3, 2.3, 2.8))
+```
+
+Negative evaluations appeared in `r pct("desirability__DES_NEGATIVE", filter(primary, outlet_group == "public/central"))`% of public/central and `r pct("desirability__DES_NEGATIVE", filter(primary, outlet_group == "commercial/general"))`% of commercial/general articles when only primary accounts were counted. The group difference was therefore smaller than for presence anywhere in an article. This distinction separates the inclusion of a negative account from its designation as the principal future arrangement; positively evaluated critical alternatives can still occupy that primary position.
+
+
+# AI-assisted coding documentation
+
+
+## Model records and analytical workflow
+
+The following records the division of work between the author and AI tools. SRQR informs reporting of researcher position, analysis, and trustworthiness [@obrien2014]; TROUT-AI informs disclosure of the division of work and researcher revisions [@jones2025]. Guidance on LLM coding and qualitative interpretation supports distinguishing category application from interpretive authority and substantive validation [@dunivin2025; @morgan2023]. The author retained responsibility for category development, source-based verification, and interpretation.
+
+| Component | Documented procedure |
+|---|---|
+| Tools and dates | Archived Codex sessions identify OpenAI `gpt-6.1-sol` in the October 2026 extraction and coding workflow and `gpt-6-astra` in subsequent analytical review, taxonomy revision, and manuscript work. Some exploratory-analysis sessions also record `gpt-5.5`. These are logged model identifiers, not independently verified API snapshot versions. |
+| Inputs and outputs | Retained Vietnamese news texts and metadata; structured open extraction; framework definitions; versioned category instructions; attributed accounts with codes and source anchors. The original language was retained for coding. |
+| Extraction and application | A 100-article AI extraction batch preceded expansion to the full corpus. The coding protocol records 55 disjoint batches covering 1,098 working records before 17 storage/linkage exclusions. Coordinator and agent reviews were AI-assisted; they are not independent human coding. |
+| Category revision | The author developed the initial codebook through independent manual reading of a purposive sample. AI coding was restricted to approved categories; iterative test coding on small random draws informed author-led revisions to definitions and prompts, including the eight rationale domains and ten actor capacities. Application of the approved revision retained account boundaries and used existing evidence with rule-assisted splits and targeted semantic review. |
+| Prompt and configuration | The retained extraction prompt is reproduced below. The current coding protocol, codebook and record specification are retained in the project repository. Coding involved iterative instructions and revisions, not one fixed prompt or repeated independent runs. Sampling settings and immutable model snapshots are not established by the retained methodological records. |
+| Checks and traceability | Automated checks test identifiers, schema, code membership, evidence anchors and CSV correspondence. Article texts, open extraction, current coded accounts and Git revisions provide traceability; these checks do not estimate semantic accuracy or human–AI agreement. |
+| Human contribution | After full-corpus coding, the author audited 100 randomly selected attributed accounts against full Vietnamese texts, checking roles, desirability, rationales, speaker positions, and action responsibilities. Identified errors were corrected, including generic digital-tool mentions over-coded as AI Literacy. All quoted passages were source-verified. The author, a native Vietnamese speaker with contextual knowledge, made final interpretive and codebook decisions and checked every AI-assisted draft translation against the Vietnamese source. No independent second human coder was involved. |
+| Data handling and disclosure | The study used publicly published news texts and involved no human participants. Article identifiers and links retain traceability to identifiable public sources. The author reviewed analytical outputs, verified references and translations, and accepts responsibility for the manuscript. AI also assisted software, source retrieval, translation, and substantive manuscript drafting/revision. |
+
+The retained prompt and coding instructions are available in the [project repository](https://github.com/vnqduy/ai-education-imaginaries): `methods/open_extraction_prompt.md`, `methods/future_coding_protocol.md`, and the codebook and record specification in `data/sipc_future_coding/`. Historical states are retained in Git rather than parallel working copies. The current prompt alone should not be represented as a complete transcript of all iterative instructions.
+
+## Retained open-extraction prompt
+
+```{r}
+#| label: retained-extraction-prompt
+#| results: asis
+prompt_text <- paste(readLines(file.path(project_root,
+  "methods/open_extraction_prompt.md"), warn = FALSE), collapse = "\n")
+if (knitr::is_latex_output()) {
+  cat("\n```{=latex}\n\\begin{PromptText}\n", prompt_text,
+      "\n\\end{PromptText}\n```\n", sep = "")
+} else {
+  cat("\n```text\n", prompt_text, "\n```\n", sep = "")
+}
+```
+
+# Corpus screening and publisher verification
+
+Google News RSS searches targeted 21 Vietnamese outlet domains for 2017–2026. Twenty contributed retained articles; *khoahocphattrien.vn* contributed none. The working set contained `r format(nrow(articles) + 17L, big.mark = ",", trim = TRUE)` records. Fifteen records without recoverable original identifiers and two duplicate extractions were excluded as storage and linkage errors, leaving `r format(nrow(articles), big.mark = ",", trim = TRUE)` retained articles. Of these, `r sum(articles$eligibility == "clear_future")` contained clear educational futures, `r sum(articles$eligibility == "borderline_future")` were borderline, `r sum(articles$eligibility == "no_educational_future")` had no supported educational future, and `r sum(articles$eligibility == "unresolved_source")` remained unresolved because source material was inadequate. Excluding `r sum(articles$eligibility == "clear_future") - nrow(main)` clear-future articles with uncertainty about the producing publisher yielded the main sample of `r nrow(main)` articles. The main sample contained `r sum(main$outlet_group == "public/central")` central and `r sum(main$outlet_group == "commercial/general")` commercial articles. The classification table in the main manuscript reports article counts alongside the included domains.
+
+# References
+
+::: {#refs}
+:::

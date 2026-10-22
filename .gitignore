@@ -1,5 +1,3 @@
-# Manuscript stays local.
-manuscript/
 # Local literature and original authoring materials.
 ref/
 # Regenerable exports and temporary files.
@@ -14,3 +12,14 @@ __pycache__/
 .Rhistory
 .Rapp.history
 Rplots.pdf
+
+# Regenerated publication exports and Quarto intermediates.
+manuscript/*.pdf
+manuscript/*.docx
+supplementary/*.pdf
+supplementary/*.docx
+*_files/
+*_cache/
+.quarto/
+*.knit.md
+*.utf8.md
